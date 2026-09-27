@@ -4,21 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>WINGS | Clothes to Make Your Look Fly.</title>
   <meta
     name="description"
-    content="WINGS — Clothes to Make Your Look Fly."
+    content="WINGS - Clothes to Make Your Look Fly. Created in New York."
   >
 
-  <meta name="theme-color" content="#000000">
-
-  <title>WINGS | Clothes to Make Your Look Fly</title>
-
   <style>
+    :root {
+      --black: #080808;
+      --white: #ffffff;
+      --gray: #777;
+      --light-gray: #f3f3f3;
+      --border: #dedede;
+      --green: #16a34a;
+      --red: #d71920;
+    }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -27,24 +33,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.5;
+      background: var(--white);
+      color: var(--black);
       overflow-x: hidden;
-    }
-
-    body.cart-open {
-      overflow: hidden;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     button,
@@ -53,283 +44,215 @@
       font: inherit;
     }
 
-    :root {
-      --white: #fff;
-      --black: #000;
-      --gray: #999;
-      --border: rgba(255,255,255,.18);
-      --soft-border: rgba(255,255,255,.10);
+    button {
+      cursor: pointer;
     }
 
-    .section {
-      width: min(1200px, 92%);
-      margin: 0 auto;
-      padding: 100px 0;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 25px;
-      margin-bottom: 45px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 20px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: #aaa;
-      margin-bottom: 8px;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-size: clamp(35px, 6vw, 70px);
-      letter-spacing: -3px;
-    }
-
-    .coming {
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: #888;
-      white-space: nowrap;
-    }
-
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       position: fixed;
-      z-index: 1000;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(0,0,0,.85);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--soft-border);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav {
-      width: min(1200px, 92%);
-      min-height: 75px;
-      margin: 0 auto;
+      max-width: 1400px;
+      height: 76px;
+      margin: auto;
+      padding: 0 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: -1px;
+      font-size: 30px;
+      font-weight: 1000;
+      letter-spacing: -2px;
     }
 
     .nav-links {
       display: flex;
+      gap: 32px;
       align-items: center;
-      gap: 28px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
     .nav-links a {
-      transition: opacity .2s ease;
+      position: relative;
+      padding: 8px 0;
     }
 
-    .nav-links a:hover {
-      opacity: .5;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width 0.25s ease;
     }
 
-    .menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      font-size: 12px;
-      letter-spacing: 2px;
-      font-weight: 700;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    /* CART NAV BUTTON */
-
-    .cart-nav-btn {
-      background: none;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.35);
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      transition: .2s ease;
-    }
-
-    .cart-nav-btn:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    #cartCount {
-      display: inline-flex;
+    .nav-actions {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      min-width: 18px;
-      height: 18px;
-      margin-left: 5px;
-      padding: 0 4px;
-      background: #fff;
-      color: #000;
-      font-size: 9px;
-      border-radius: 50%;
+      gap: 12px;
     }
 
-    .cart-nav-btn:hover #cartCount {
+    .cart-button {
+      border: 1px solid #000;
       background: #000;
       color: #fff;
+      padding: 11px 17px;
+      font-weight: 800;
+      border-radius: 4px;
+      transition: 0.2s;
     }
 
-    /* HERO */
+    .cart-button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .cart-count {
+      display: inline-flex;
+      min-width: 20px;
+      height: 20px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      font-size: 11px;
+      margin-left: 5px;
+    }
+
+    .menu-button {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 25px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-top: 75px;
-      overflow: hidden;
-    }
-
-    .hero-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .7;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          to right,
-          rgba(0,0,0,.95),
-          rgba(0,0,0,.35),
-          rgba(0,0,0,.65)
-        );
+      padding-top: 76px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #f6f6f6;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(1200px, 92%);
-      margin: 0 auto;
-      padding: 100px 0;
+      padding: 80px 7vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .hero-tag {
+    .hero-label {
       font-size: 12px;
-      letter-spacing: 4px;
-      color: #bbb;
-      margin-bottom: 25px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-      font-size: clamp(65px, 14vw, 180px);
+      font-size: clamp(70px, 11vw, 180px);
+      line-height: 0.78;
       letter-spacing: -9px;
-      max-width: 900px;
+      font-weight: 1000;
+      margin-bottom: 35px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 430px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .primary-button {
+      width: fit-content;
+      padding: 16px 27px;
+      border: 2px solid #000;
+      background: #000;
+      color: #fff;
+      font-size: 13px;
       font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.2s;
     }
 
-    .hero-subtitle {
-      max-width: 500px;
-      margin-top: 25px;
-      color: #ccc;
-      font-size: 15px;
-      letter-spacing: .5px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 35px;
-    }
-
-    /* BUTTONS */
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 25px;
-      background: #fff;
-      color: #000;
-      border: 1px solid #fff;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      transition:
-        background .2s ease,
-        color .2s ease,
-        transform .2s ease;
-    }
-
-    .btn:hover {
-      background: transparent;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-    }
-
-    .btn-outline:hover {
+    .primary-button:hover {
       background: #fff;
       color: #000;
     }
 
-    .btn:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-      transform: none;
+    .hero-image {
+      min-height: 700px;
+      overflow: hidden;
+      background: #ddd;
     }
 
-    /* MARQUEE */
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 700px;
+      object-fit: cover;
+    }
 
-    .drop-banner {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee {
       overflow: hidden;
       white-space: nowrap;
+      background: #000;
+      color: #fff;
+      padding: 15px 0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
     }
 
-    .drop-track {
-      display: flex;
-      gap: 50px;
-      width: max-content;
-      animation: marquee 22s linear infinite;
-    }
-
-    .drop-track span {
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 3px;
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+      font-size: 18px;
+      font-weight: 1000;
+      letter-spacing: 2px;
     }
 
     @keyframes marquee {
@@ -342,680 +265,509 @@
       }
     }
 
-    /* SHOP */
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
 
-    .product-grid {
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    .section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 100px 30px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(42px, 6vw, 80px);
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-weight: 1000;
+    }
+
+    .section-heading p {
+      max-width: 420px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       DROP
+    ========================= */
+
+    .drop {
+      background: #fff;
+    }
+
+    .drop-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 25px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 20px;
+    }
+
+    .drop-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 550px;
+      background: #eee;
+    }
+
+    .drop-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .drop-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .drop-overlay {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 35px;
+      background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.75)
+      );
+      color: #fff;
+    }
+
+    .drop-overlay h3 {
+      font-size: 42px;
+      font-weight: 1000;
+      letter-spacing: -2px;
+    }
+
+    .drop-overlay p {
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       SHOP
+    ========================= */
+
+    .shop {
+      background: #f6f6f6;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
     .product-card {
-      border: 1px solid var(--soft-border);
-      background: #050505;
+      background: #fff;
+      border: 1px solid #e5e5e5;
       overflow: hidden;
-      transition:
-        transform .25s ease,
-        border-color .25s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255,255,255,.35);
     }
 
     .product-image {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 1.1;
+      background: #eee;
       overflow: hidden;
-      background: #111;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .5s ease;
+      transition: transform 0.45s ease;
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.04);
+      transform: scale(1.035);
     }
 
     .product-info {
-      padding: 22px;
+      padding: 20px;
     }
 
-    .product-info h3 {
-      font-size: 18px;
+    .product-name {
+      font-size: 17px;
+      font-weight: 900;
       margin-bottom: 8px;
     }
 
-    .product-description {
-      color: #888;
-      font-size: 12px;
-      margin-bottom: 18px;
-    }
-
-    .product-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 18px;
-    }
-
-    .price {
+    .product-price {
       font-size: 15px;
-      font-weight: 800;
-    }
-
-    .size-text {
-      color: #888;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .product-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .size-select {
-      flex: 1;
-      height: 46px;
-      padding: 0 12px;
-      background: #0b0b0b;
-      color: #fff;
-      border: 1px solid var(--border);
-      outline: none;
-      cursor: pointer;
-      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1px;
+      margin-bottom: 18px;
     }
 
-    .size-select:focus {
-      border-color: #fff;
-    }
-
-    .add-cart-btn {
-      flex: 1;
-      height: 46px;
-      border: 1px solid #fff;
-      background: #fff;
-      color: #000;
-      cursor: pointer;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      transition: .2s ease;
-    }
-
-    .add-cart-btn:hover {
-      background: transparent;
-      color: #fff;
-    }
-
-    .add-cart-btn.added {
-      background: #111;
-      color: #fff;
-      border-color: #fff;
-    }
-
-    /* CART OVERLAY */
-
-    .cart-overlay {
-      position: fixed;
-      z-index: 1998;
-      inset: 0;
-      background: rgba(0,0,0,.65);
-      opacity: 0;
-      visibility: hidden;
-      transition:
-        opacity .3s ease,
-        visibility .3s ease;
-    }
-
-    .cart-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* CART DRAWER */
-
-    .cart-drawer {
-      position: fixed;
-      z-index: 1999;
-      top: 0;
-      right: 0;
-      width: min(450px, 92vw);
-      height: 100vh;
-      background: #050505;
-      border-left: 1px solid rgba(255,255,255,.18);
-      transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.77,0,.18,1);
-      display: flex;
-      flex-direction: column;
-      box-shadow: -20px 0 60px rgba(0,0,0,.45);
-    }
-
-    .cart-drawer.open {
-      transform: translateX(0);
-    }
-
-    .cart-header {
-      min-height: 80px;
-      padding: 0 25px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-    }
-
-    .cart-header h2 {
-      font-size: 25px;
-      letter-spacing: -1px;
-    }
-
-    .cart-close {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: #fff;
-      cursor: pointer;
-      font-size: 18px;
-      transition: .2s ease;
-    }
-
-    .cart-close:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 25px;
-    }
-
-    .empty-cart {
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #777;
-    }
-
-    .empty-cart strong {
-      color: #fff;
-      font-size: 15px;
-      letter-spacing: 2px;
+    .product-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
       margin-bottom: 10px;
     }
 
-    .empty-cart span {
-      font-size: 11px;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 85px 1fr;
-      gap: 15px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--soft-border);
-    }
-
-    .cart-item-image {
-      width: 85px;
-      height: 85px;
-      background: #111;
-      overflow: hidden;
-    }
-
-    .cart-item-image img {
+    .product-controls select {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      padding: 12px;
+      border: 1px solid #ccc;
+      background: #fff;
+      outline: none;
     }
 
-    .cart-item-info {
-      min-width: 0;
-    }
-
-    .cart-item-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .cart-item-name {
-      font-size: 12px;
-      font-weight: 800;
-      line-height: 1.3;
-    }
-
-    .cart-remove {
-      border: none;
-      background: transparent;
-      color: #777;
-      cursor: pointer;
-      font-size: 10px;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .cart-remove:hover {
+    .add-button {
+      width: 100%;
+      padding: 13px;
+      background: #000;
       color: #fff;
-    }
-
-    .cart-item-details {
-      color: #777;
-      font-size: 10px;
-      margin-top: 6px;
-    }
-
-    .cart-item-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 12px;
-    }
-
-    .cart-item-price {
+      border: 1px solid #000;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: 0.2s;
     }
 
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      border: 1px solid var(--border);
-    }
-
-    .quantity-control button {
-      width: 30px;
-      height: 30px;
-      border: none;
-      background: transparent;
-      color: #fff;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .quantity-control button:hover {
+    .add-button:hover {
       background: #fff;
       color: #000;
     }
 
-    .quantity-control span {
-      min-width: 30px;
-      text-align: center;
+    .stock-note {
       font-size: 11px;
+      color: #777;
+      margin-top: 10px;
     }
 
-    .cart-footer {
-      padding: 22px 25px 25px;
-      border-top: 1px solid var(--border);
-      flex-shrink: 0;
-      background: #050505;
-    }
-
-    .cart-subtotal {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .cart-subtotal span:first-child {
-      color: #888;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .cart-subtotal strong {
-      font-size: 18px;
-    }
-
-    .cart-note {
-      color: #666;
-      font-size: 9px;
-      margin-bottom: 18px;
-    }
-
-    .cart-checkout-btn {
-      width: 100%;
-    }
-
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 80px;
       align-items: center;
     }
 
-    .about-title {
-      font-size: clamp(45px, 7vw, 85px);
-      letter-spacing: -5px;
+    .about-copy h2 {
+      font-size: clamp(50px, 7vw, 100px);
+      line-height: 0.85;
+      letter-spacing: -6px;
+      font-weight: 1000;
+      margin-bottom: 35px;
     }
 
-    .about-text {
-      color: #aaa;
-      font-size: 16px;
-      max-width: 560px;
+    .about-copy p {
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #555;
     }
 
-    .about-text p + p {
-      margin-top: 20px;
+    .about-box {
+      background: #000;
+      color: #fff;
+      padding: 70px;
+      min-height: 450px;
+      display: flex;
+      align-items: flex-end;
     }
 
-    /* STATEMENT */
+    .about-box h3 {
+      font-size: 55px;
+      line-height: 0.9;
+      letter-spacing: -4px;
+      font-weight: 1000;
+    }
+
+    /* =========================
+       STATEMENT
+    ========================= */
 
     .statement {
-      min-height: 55vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #000;
+      color: #fff;
       text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
     }
 
     .statement-inner {
-      width: min(900px, 90%);
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
     }
 
     .statement h2 {
-      font-size: clamp(45px, 8vw, 105px);
-      letter-spacing: -5px;
+      font-size: clamp(48px, 8vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      font-weight: 1000;
     }
 
     .statement p {
-      margin-top: 25px;
-      color: #888;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    /* CHECKOUT */
-
-    .checkin-card {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 35px;
-      border: 1px solid var(--border);
-      background: #050505;
-    }
-
-    .checkin-intro {
+      margin-top: 30px;
       color: #aaa;
-      font-size: 14px;
+      font-size: 17px;
+    }
+
+    /* =========================
+       CHECKOUT
+    ========================= */
+
+    .checkout {
+      background: #f6f6f6;
+    }
+
+    .checkout-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .checkout-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 35px;
+    }
+
+    .checkout-card h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+    }
+
+    .checkout-card > p {
+      color: #666;
+      line-height: 1.5;
       margin-bottom: 25px;
     }
 
-    .checkout-link {
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .form-group input,
+    .form-group select {
       width: 100%;
-    }
-
-    .return-note {
-      margin: 15px 0 30px;
-      color: #777;
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .code-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .code-form > label {
-      margin-top: 10px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .code-form input[type="tel"] {
-      width: 100%;
-      height: 52px;
-      padding: 0 15px;
-      color: #fff;
-      background: #0b0b0b;
-      border: 1px solid var(--border);
+      padding: 14px;
+      border: 1px solid #cfcfcf;
+      background: #fff;
       outline: none;
     }
 
-    .code-form input[type="tel"]:focus {
-      border-color: #fff;
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #000;
     }
 
-    .choice-row {
+    .attendance-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-bottom: 15px;
     }
 
-    .choice {
+    .attendance-option {
       position: relative;
-      cursor: pointer;
     }
 
-    .choice input {
+    .attendance-option input {
       position: absolute;
       opacity: 0;
+      pointer-events: none;
     }
 
-    .choice span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 55px;
-      border: 1px solid var(--border);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      transition: .2s ease;
+    .attendance-option label {
+      border: 1px solid #ccc;
+      padding: 16px;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 900;
+      transition: 0.2s;
     }
 
-    .choice input:checked + span {
+    .attendance-option input:checked + label {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .verify-button,
+    .submit-order-button {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #000;
+      background: #000;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+
+    .verify-button:hover,
+    .submit-order-button:hover {
       background: #fff;
       color: #000;
-      border-color: #fff;
     }
 
-    .form-error {
-      color: #ff6b6b;
-      font-size: 12px;
-      padding: 10px 0;
+    .verify-button:disabled,
+    .submit-order-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
-    .verification-loading {
-      text-align: center;
-      color: #aaa;
-      font-size: 12px;
-      padding: 15px 0;
+    .verification-result {
+      display: none;
+      margin-top: 18px;
+      padding: 18px;
+      background: #f0fff4;
+      border: 1px solid #a9dfb7;
     }
 
-    .code-result {
-      margin-top: 30px;
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,.3);
-      text-align: center;
-      animation: checkoutAppear .4s ease;
-    }
-
-    .result-label {
+    .verification-result.success {
       display: block;
-      color: #888;
-      font-size: 10px;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
     }
 
-    #confirmationTitle {
+    .verification-result.error {
       display: block;
+      background: #fff3f3;
+      border-color: #efb1b1;
+    }
+
+    .verification-title {
+      font-weight: 1000;
+      margin-bottom: 7px;
+    }
+
+    .verification-code {
       font-size: 25px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    #confirmationMessage {
-      max-width: 500px;
-      margin: 0 auto 25px;
-      color: #aaa;
-      font-size: 13px;
-    }
-
-    .generated-code-box {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 18px 30px;
-      border: 1px solid rgba(255,255,255,.3);
-    }
-
-    .generated-code-box span {
-      font-size: 9px;
+      font-weight: 1000;
       letter-spacing: 2px;
-      color: #777;
+      margin-top: 10px;
     }
 
-    .generated-code-box strong {
-      font-size: 32px;
-      letter-spacing: 4px;
-    }
-
-    #codeType {
-      display: block;
-      margin-top: 12px;
-      color: #777;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .code-note {
-      margin-top: 20px;
-      text-align: center;
-      color: #666;
-      font-size: 10px;
-    }
-
-    /* ORDER */
-
-    .order-summary-box {
+    .checkout-summary {
+      display: none;
       margin-top: 25px;
-      padding: 20px;
-      border: 1px solid var(--soft-border);
-      text-align: left;
+      border-top: 1px solid #ddd;
+      padding-top: 25px;
     }
 
-    .order-summary-box h3 {
-      font-size: 11px;
-      letter-spacing: 2px;
+    .checkout-summary.active {
+      display: block;
+    }
+
+    .checkout-summary h4 {
+      font-size: 18px;
       margin-bottom: 15px;
     }
 
-    .order-summary-line {
+    .summary-item {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--soft-border);
-      font-size: 11px;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
     }
 
-    .order-summary-line:last-child {
-      border-bottom: none;
+    .summary-item-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .order-summary-line span:first-child {
-      color: #888;
+    .summary-item-info span:last-child {
+      color: #777;
+      font-size: 12px;
     }
 
-    .order-summary-total {
-      margin-top: 12px;
+    .summary-total {
       display: flex;
       justify-content: space-between;
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .submit-order-btn {
-      width: 100%;
-      margin-top: 18px;
+      margin-top: 20px;
+      font-size: 21px;
+      font-weight: 1000;
     }
 
     .order-success {
-      margin-top: 25px;
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,.3);
-      text-align: center;
-      animation: checkoutAppear .4s ease;
+      display: none;
+      margin-top: 20px;
+      padding: 22px;
+      background: #000;
+      color: #fff;
     }
 
-    .order-success-label {
-      color: #888;
-      font-size: 10px;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
+    .order-success.active {
+      display: block;
+    }
+
+    .order-success h4 {
+      font-size: 23px;
+      margin-bottom: 10px;
     }
 
     .order-id {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: 1000;
+      letter-spacing: 1px;
     }
 
-    .order-success p {
-      color: #aaa;
+    .copy-order {
+      margin-top: 15px;
+      padding: 11px 15px;
+      background: #fff;
+      color: #000;
+      border: 1px solid #fff;
       font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
-    @keyframes checkoutAppear {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* CONTACT */
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      gap: 20px;
     }
 
-    .contact-card {
-      padding: 30px;
-      border: 1px solid var(--border);
-      background: #050505;
+    .contact-box {
+      border: 1px solid #ddd;
+      padding: 40px;
     }
 
-    .contact-card h3 {
-      font-size: 14px;
-      margin-bottom: 15px;
+    .contact-box h3 {
+      font-size: 30px;
+      margin-bottom: 12px;
     }
 
-    .contact-card p {
-      color: #888;
-      font-size: 13px;
+    .contact-box p {
+      color: #666;
+      line-height: 1.7;
     }
 
     .social-links {
@@ -1026,271 +778,1387 @@
     }
 
     .social-links a {
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      font-size: 10px;
-      letter-spacing: 1px;
-      transition: .2s ease;
+      border: 1px solid #000;
+      padding: 11px 15px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: 0.2s;
     }
 
     .social-links a:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    /* =========================
+       POLICIES
+    ========================= */
+
+    .policies {
+      background: #f6f6f6;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .policy {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 30px;
+    }
+
+    .policy h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .policy p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CART DRAWER
+    ========================= */
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1998;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(470px, 100%);
+      height: 100vh;
+      background: #fff;
+      z-index: 1999;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 22px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 22px;
+      font-weight: 1000;
+    }
+
+    .close-cart {
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 70px 20px;
+      color: #777;
+    }
+
+    .empty-cart h4 {
+      color: #000;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .empty-cart button {
+      margin-top: 20px;
+      padding: 12px 17px;
+      background: #000;
+      color: #fff;
+      border: none;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 13px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: 90px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info h4 {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .cart-item-info p {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+    }
+
+    .quantity-controls button {
+      width: 27px;
+      height: 27px;
+      border: none;
+      background: #fff;
+      font-weight: 900;
+    }
+
+    .quantity-controls span {
+      width: 28px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .remove-item {
+      border: none;
+      background: transparent;
+      color: #777;
+      font-size: 11px;
+      text-decoration: underline;
+      margin-top: 7px;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 1000;
+      margin-bottom: 15px;
+    }
+
+    .checkout-link {
+      width: 100%;
+      padding: 15px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .checkout-link:hover {
       background: #fff;
       color: #000;
     }
 
-    /* POLICIES */
-
-    .policy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .policy-card {
-      border: 1px solid var(--border);
-      padding: 25px;
-    }
-
-    .policy-card h3 {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      margin-bottom: 15px;
-    }
-
-    .policy-card p {
-      color: #888;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
+      background: #000;
+      color: #fff;
+      padding: 60px 30px 30px;
     }
 
     .footer-inner {
-      width: min(1200px, 92%);
-      margin: 0 auto;
+      max-width: 1400px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 25px;
+      gap: 30px;
     }
 
     .footer-logo {
-      font-weight: 900;
-      font-size: 20px;
+      font-size: 70px;
+      font-weight: 1000;
+      letter-spacing: -5px;
+      line-height: 0.8;
     }
 
-    .footer-text {
-      color: #666;
-      font-size: 10px;
-      letter-spacing: 1px;
+    .footer-right {
+      text-align: right;
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      font-size: 10px;
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 60px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #333;
       color: #777;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
     }
 
-    .footer-links a:hover {
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translate(-50%, 100px);
+      background: #000;
       color: #fff;
+      padding: 14px 20px;
+      z-index: 3000;
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0;
+      transition: 0.3s;
+      pointer-events: none;
     }
 
-    /* MOBILE */
+    .toast.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
 
-    @media (max-width: 800px) {
+    /* =========================
+       MOBILE
+    ========================= */
 
-      .section {
-        padding: 75px 0;
+    @media (max-width: 1000px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
       }
 
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 550px;
+      }
+
+      .hero-image img {
+        min-height: 550px;
+      }
+
+      .drop-grid,
+      .about-grid,
+      .checkout-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .policy-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about-box {
+        min-height: 350px;
+      }
+    }
+
+    @media (max-width: 700px) {
       .nav {
         height: 65px;
+        padding: 0 18px;
       }
 
-      .menu-btn {
-        display: block;
+      .logo {
+        font-size: 25px;
       }
 
       .nav-links {
+        display: none;
         position: absolute;
         top: 65px;
         left: 0;
         width: 100%;
-        display: none;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
         gap: 0;
-        background: #000;
-        border-bottom: 1px solid var(--border);
+        padding: 10px 20px 20px;
       }
 
-      .nav-links.open {
+      .nav-links.active {
         display: flex;
       }
 
-      .nav-links a,
-      .cart-nav-btn {
+      .nav-links a {
         width: 100%;
-        padding: 18px 4%;
-        border-top: 1px solid var(--soft-border);
-        text-align: left;
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
       }
 
-      .cart-nav-btn {
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
+      .menu-button {
+        display: block;
       }
 
       .hero {
-        min-height: 90vh;
+        padding-top: 65px;
+      }
+
+      .hero-content {
+        padding: 65px 25px;
       }
 
       .hero h1 {
-        letter-spacing: -5px;
+        font-size: 76px;
+        letter-spacing: -6px;
       }
 
-      .section-head {
-        align-items: flex-start;
+      .hero-image,
+      .hero-image img {
+        min-height: 430px;
+      }
+
+      .section {
+        padding: 70px 18px;
+      }
+
+      .section-heading {
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-heading h2 {
+        letter-spacing: -3px;
+      }
+
+      .products {
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
-      .product-grid {
+      .product-info {
+        padding: 14px;
+      }
+
+      .product-controls {
         grid-template-columns: 1fr;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      .drop-card {
+        min-height: 400px;
       }
 
-      .contact-grid {
-        grid-template-columns: 1fr;
+      .about-box {
+        padding: 40px;
+      }
+
+      .about-box h3 {
+        font-size: 42px;
+      }
+
+      .checkout-card {
+        padding: 22px;
       }
 
       .policy-grid {
         grid-template-columns: 1fr;
       }
 
-      .choice-row {
-        grid-template-columns: 1fr;
-      }
-
-      .checkin-card {
-        padding: 22px;
-      }
-
       .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
       }
 
-      .footer-links {
-        flex-wrap: wrap;
+      .footer-right {
+        text-align: left;
       }
 
-      .product-actions {
+      .footer-logo {
+        font-size: 55px;
+      }
+
+      .footer-bottom {
         flex-direction: column;
-      }
-
-      .size-select,
-      .add-cart-btn {
-        width: 100%;
       }
     }
 
-    @media (max-width: 500px) {
-
-      .hero-content {
-        padding-top: 70px;
+    @media (max-width: 430px) {
+      .products {
+        grid-template-columns: 1fr;
       }
 
       .hero h1 {
         font-size: 65px;
-        letter-spacing: -4px;
       }
 
-      h2 {
-        letter-spacing: -2px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      .generated-code-box strong {
-        font-size: 26px;
-      }
-
-      .cart-drawer {
-        width: 94vw;
-      }
-
-      .order-id {
-        font-size: 21px;
+      .attendance-grid {
+        grid-template-columns: 1fr;
       }
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
-
     <nav class="nav">
 
-      <a href="#home" class="logo">
-        WINGS
-      </a>
-
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        type="button"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
-        MENU
-      </button>
+      <a href="#home" class="logo">WINGS</a>
 
       <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#drop">Drop</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#checkout">Checkout</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-        <a href="#home">HOME</a>
-        <a href="#shop">SHOP</a>
-        <a href="#about">ABOUT</a>
-        <a href="#checkout">CHECK-OUT</a>
-        <a href="#contact">CONTACT</a>
-
-        <button
-          class="cart-nav-btn"
-          id="cartOpenBtn"
-          type="button"
-        >
-          CART <span id="cartCount">0</span>
+      <div class="nav-actions">
+        <button class="cart-button" id="openCart">
+          CART
+          <span class="cart-count" id="cartCount">0</span>
         </button>
 
+        <button class="menu-button" id="menuButton" aria-label="Open menu">
+          ☰
+        </button>
       </div>
 
     </nav>
-
   </header>
 
 
-  <!-- CART OVERLAY -->
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <div class="hero-label">
+          NEW YORK / WINGS
+        </div>
+
+        <h1>
+          WINGS
+        </h1>
+
+        <p>
+          Clothes to Make Your Look Fly.
+          Built around creativity, individuality,
+          music and the energy of New York.
+        </p>
+
+        <a href="#shop" class="primary-button">
+          Shop The Drop
+        </a>
+
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="images/hero(1).png"
+          alt="WINGS clothing collection"
+        >
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MARQUEE
+    ========================= -->
+
+    <div class="marquee">
+      <div class="marquee-track">
+        WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK • WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK •
+        WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK • WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK •
+      </div>
+    </div>
+
+
+    <!-- =========================
+         DROP
+    ========================= -->
+
+    <section class="section drop" id="drop">
+
+      <div class="section-heading">
+
+        <h2>
+          FIRST<br>
+          DROP.
+        </h2>
+
+        <p>
+          The first WINGS collection is built for people
+          who want their clothes to feel like part of
+          their identity.
+        </p>
+
+      </div>
+
+      <div class="drop-grid">
+
+        <div class="drop-card">
+          <img
+            src="images/hoodie(1).png"
+            alt="WINGS Hoodie"
+          >
+
+          <div class="drop-overlay">
+            <h3>WINGS HOODIE</h3>
+            <p>$45</p>
+          </div>
+        </div>
+
+        <div class="drop-card">
+          <img
+            src="images/tee-white(1).png"
+            alt="WINGS White Tee"
+          >
+
+          <div class="drop-overlay">
+            <h3>WINGS TEE</h3>
+            <p>$25</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SHOP
+    ========================= -->
+
+    <section class="section shop" id="shop">
+
+      <div class="section-heading">
+
+        <h2>
+          SHOP.
+        </h2>
+
+        <p>
+          Choose your piece, select your size,
+          and add it to your cart.
+        </p>
+
+      </div>
+
+      <div class="products" id="productsGrid">
+
+        <!-- PRODUCT 1 -->
+
+        <article class="product-card">
+
+          <div class="product-image">
+            <img
+              src="images/hoodie(1).png"
+              alt="WINGS Hoodie"
+            >
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-name">
+              WINGS Hoodie
+            </div>
+
+            <div class="product-price">
+              $45.00
+            </div>
+
+            <div class="product-controls">
+
+              <select id="size-hoodie">
+                <option value="S">Size S</option>
+                <option value="M" selected>Size M</option>
+                <option value="L">Size L</option>
+              </select>
+
+              <select id="qty-hoodie">
+                <option value="1">Qty 1</option>
+                <option value="2">Qty 2</option>
+                <option value="3">Qty 3</option>
+                <option value="4">Qty 4</option>
+                <option value="5">Qty 5</option>
+              </select>
+
+            </div>
+
+            <button
+              class="add-button"
+              onclick="addToCart(
+                'hoodie',
+                'WINGS Hoodie',
+                45,
+                'images/hoodie(1).png',
+                'size-hoodie',
+                'qty-hoodie'
+              )"
+            >
+              Add To Cart
+            </button>
+
+            <div class="stock-note">
+              Available sizes: S / M / L
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 2 -->
+
+        <article class="product-card">
+
+          <div class="product-image">
+            <img
+              src="images/tee-white(1).png"
+              alt="WINGS White Tee"
+            >
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-name">
+              WINGS Tee White
+            </div>
+
+            <div class="product-price">
+              $25.00
+            </div>
+
+            <div class="product-controls">
+
+              <select id="size-tee-white">
+                <option value="S">Size S</option>
+                <option value="M" selected>Size M</option>
+                <option value="L">Size L</option>
+              </select>
+
+              <select id="qty-tee-white">
+                <option value="1">Qty 1</option>
+                <option value="2">Qty 2</option>
+                <option value="3">Qty 3</option>
+                <option value="4">Qty 4</option>
+                <option value="5">Qty 5</option>
+              </select>
+
+            </div>
+
+            <button
+              class="add-button"
+              onclick="addToCart(
+                'tee-white',
+                'WINGS Tee White',
+                25,
+                'images/tee-white(1).png',
+                'size-tee-white',
+                'qty-tee-white'
+              )"
+            >
+              Add To Cart
+            </button>
+
+            <div class="stock-note">
+              Available sizes: S / M / L
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 3 -->
+
+        <article class="product-card">
+
+          <div class="product-image">
+            <img
+              src="images/tee-black(1).png"
+              alt="WINGS Black Tee"
+            >
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-name">
+              WINGS Tee Black
+            </div>
+
+            <div class="product-price">
+              $25.00
+            </div>
+
+            <div class="product-controls">
+
+              <select id="size-tee-black">
+                <option value="S">Size S</option>
+                <option value="M" selected>Size M</option>
+                <option value="L">Size L</option>
+              </select>
+
+              <select id="qty-tee-black">
+                <option value="1">Qty 1</option>
+                <option value="2">Qty 2</option>
+                <option value="3">Qty 3</option>
+                <option value="4">Qty 4</option>
+                <option value="5">Qty 5</option>
+              </select>
+
+            </div>
+
+            <button
+              class="add-button"
+              onclick="addToCart(
+                'tee-black',
+                'WINGS Tee Black',
+                25,
+                'images/tee-black(1).png',
+                'size-tee-black',
+                'qty-tee-black'
+              )"
+            >
+              Add To Cart
+            </button>
+
+            <div class="stock-note">
+              Available sizes: S / M / L
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCT 4 -->
+
+        <article class="product-card">
+
+          <div class="product-image">
+            <img
+              src="images/hoodie-detail(1).png"
+              alt="WINGS Hoodie Detail"
+            >
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-name">
+              WINGS Hoodie Detail
+            </div>
+
+            <div class="product-price">
+              $45.00
+            </div>
+
+            <div class="product-controls">
+
+              <select id="size-hoodie-detail">
+                <option value="S">Size S</option>
+                <option value="M" selected>Size M</option>
+                <option value="L">Size L</option>
+              </select>
+
+              <select id="qty-hoodie-detail">
+                <option value="1">Qty 1</option>
+                <option value="2">Qty 2</option>
+                <option value="3">Qty 3</option>
+                <option value="4">Qty 4</option>
+                <option value="5">Qty 5</option>
+              </select>
+
+            </div>
+
+            <button
+              class="add-button"
+              onclick="addToCart(
+                'hoodie-detail',
+                'WINGS Hoodie Detail',
+                45,
+                'images/hoodie-detail(1).png',
+                'size-hoodie-detail',
+                'qty-hoodie-detail'
+              )"
+            >
+              Add To Cart
+            </button>
+
+            <div class="stock-note">
+              Available sizes: S / M / L
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="section" id="about">
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <h2>
+            MORE<br>
+            THAN<br>
+            CLOTHES.
+          </h2>
+
+          <p>
+            WINGS was created by Mark, a young artist
+            and creative from New York. The brand connects
+            music, fashion, creativity and individuality.
+            Every piece is made to represent the person
+            wearing it.
+          </p>
+
+        </div>
+
+        <div class="about-box">
+
+          <h3>
+            MAKE<br>
+            YOUR<br>
+            LOOK<br>
+            FLY.
+          </h3>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATEMENT
+    ========================= -->
+
+    <section class="statement">
+
+      <div class="statement-inner">
+
+        <h2>
+          BE YOUR<br>
+          OWN WINGS.
+        </h2>
+
+        <p>
+          WINGS / NEW YORK / CREATIVITY / INDIVIDUALITY
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CHECKOUT
+    ========================= -->
+
+    <section class="section checkout" id="checkout">
+
+      <div class="section-heading">
+
+        <h2>
+          CHECKOUT.
+        </h2>
+
+        <p>
+          Enter the phone number used during checkout
+          and choose your attendance type to verify
+          your order.
+        </p>
+
+      </div>
+
+
+      <div class="checkout-layout">
+
+        <!-- VERIFICATION -->
+
+        <div class="checkout-card">
+
+          <h3>
+            Verify Your Checkout
+          </h3>
+
+          <p>
+            Your phone number must match the number
+            submitted through the WINGS checkout form.
+          </p>
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone Number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              inputmode="numeric"
+              autocomplete="tel"
+              placeholder="Enter your 10-digit phone number"
+              maxlength="14"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Attendance Type
+            </label>
+
+            <div class="attendance-grid">
+
+              <div class="attendance-option">
+
+                <input
+                  type="radio"
+                  id="attendance-in"
+                  name="attendance"
+                  value="IN"
+                >
+
+                <label for="attendance-in">
+                  IN PERSON
+                </label>
+
+              </div>
+
+              <div class="attendance-option">
+
+                <input
+                  type="radio"
+                  id="attendance-online"
+                  name="attendance"
+                  value="ON"
+                >
+
+                <label for="attendance-online">
+                  ONLINE
+                </label>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="verify-button"
+            id="verifyButton"
+          >
+            Verify Checkout
+          </button>
+
+
+          <div
+            class="verification-result"
+            id="verificationResult"
+          >
+
+            <div
+              class="verification-title"
+              id="verificationTitle"
+            >
+              Checkout Verified
+            </div>
+
+            <div id="verificationMessage"></div>
+
+            <div
+              class="verification-code"
+              id="verificationCode"
+            ></div>
+
+          </div>
+
+
+          <!-- ORDER SUMMARY -->
+
+          <div
+            class="checkout-summary"
+            id="orderSummary"
+          >
+
+            <h4>
+              Your Order
+            </h4>
+
+            <div id="summaryItems"></div>
+
+            <div class="summary-total">
+
+              <span>
+                Total
+              </span>
+
+              <span id="summaryTotal">
+                $0.00
+              </span>
+
+            </div>
+
+            <button
+              class="submit-order-button"
+              id="submitOrderButton"
+              style="margin-top:20px;"
+            >
+              Submit Order
+            </button>
+
+          </div>
+
+
+          <!-- ORDER SUCCESS -->
+
+          <div
+            class="order-success"
+            id="orderSuccess"
+          >
+
+            <h4>
+              Order Submitted.
+            </h4>
+
+            <p>
+              Your WINGS order has been received.
+              Keep your order ID for your records.
+            </p>
+
+            <div
+              class="order-id"
+              id="orderIdDisplay"
+            ></div>
+
+            <button
+              class="copy-order"
+              id="copyOrderButton"
+            >
+              Copy Order ID
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- CHECKOUT INFO -->
+
+        <div class="checkout-card">
+
+          <h3>
+            How It Works
+          </h3>
+
+          <p>
+            Follow these steps to submit your WINGS order.
+          </p>
+
+          <div class="summary-item">
+
+            <div class="summary-item-info">
+              <strong>01. Add Your Items</strong>
+              <span>
+                Choose your product, size and quantity.
+              </span>
+            </div>
+
+          </div>
+
+          <div class="summary-item">
+
+            <div class="summary-item-info">
+              <strong>02. Open Your Cart</strong>
+              <span>
+                Review your products and total.
+              </span>
+            </div>
+
+          </div>
+
+          <div class="summary-item">
+
+            <div class="summary-item-info">
+              <strong>03. Verify</strong>
+              <span>
+                Enter the phone number used on the form.
+              </span>
+            </div>
+
+          </div>
+
+          <div class="summary-item">
+
+            <div class="summary-item-info">
+              <strong>04. Choose Type</strong>
+              <span>
+                Select In Person or Online.
+              </span>
+            </div>
+
+          </div>
+
+          <div class="summary-item">
+
+            <div class="summary-item-info">
+              <strong>05. Submit</strong>
+              <span>
+                Your order is sent to the WINGS order sheet.
+              </span>
+            </div>
+
+          </div>
+
+          <p style="margin-top:25px;">
+            Need to submit your information first?
+          </p>
+
+          <a
+            href="https://forms.gle/FvXyG1yVTW5gwmSJ9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary-button"
+            style="display:inline-block;"
+          >
+            Open WINGS Form
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="section" id="contact">
+
+      <div class="section-heading">
+
+        <h2>
+          CONTACT.
+        </h2>
+
+        <p>
+          Questions, feedback, collaborations or
+          anything WINGS related.
+        </p>
+
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-box">
+
+          <h3>
+            Follow WINGS
+          </h3>
+
+          <p>
+            Stay connected with the brand and see
+            new drops, content and updates.
+          </p>
+
+          <div class="social-links">
+
+            <a
+              href="https://www.instagram.com/thatunderratedsuperstar/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@forevertda"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TikTok
+            </a>
+
+            <a
+              href="https://www.youtube.com/@TDAProductionsz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-box">
+
+          <h3>
+            First Drop
+          </h3>
+
+          <p>
+            The first WINGS drop is scheduled for
+            March 15, 2027.
+          </p>
+
+          <p style="margin-top:15px;">
+            Keep an eye on the official WINGS pages
+            for updates.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         POLICIES
+    ========================= -->
+
+    <section class="section policies">
+
+      <div class="section-heading">
+
+        <h2>
+          INFO.
+        </h2>
+
+      </div>
+
+      <div class="policy-grid">
+
+        <div class="policy">
+
+          <h3>
+            Orders
+          </h3>
+
+          <p>
+            Please review your size, product and
+            quantity before submitting your order.
+          </p>
+
+        </div>
+
+        <div class="policy">
+
+          <h3>
+            Delivery
+          </h3>
+
+          <p>
+            Delivery and pickup details will be
+            communicated through the official WINGS
+            order process.
+          </p>
+
+        </div>
+
+        <div class="policy">
+
+          <h3>
+            Questions
+          </h3>
+
+          <p>
+            If you have an issue with an order,
+            contact WINGS through the official
+            social pages.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       CART OVERLAY
+  ========================= -->
 
   <div
     class="cart-overlay"
@@ -1298,7 +2166,9 @@
   ></div>
 
 
-  <!-- SLIDE-OUT CART -->
+  <!-- =========================
+       CART DRAWER
+  ========================= -->
 
   <aside
     class="cart-drawer"
@@ -1308,14 +2178,13 @@
 
     <div class="cart-header">
 
-      <h2>
+      <h3>
         YOUR CART
-      </h2>
+      </h3>
 
       <button
-        class="cart-close"
-        id="cartCloseBtn"
-        type="button"
+        class="close-cart"
+        id="closeCart"
         aria-label="Close cart"
       >
         ×
@@ -1335,26 +2204,20 @@
       <div class="cart-subtotal">
 
         <span>
-          SUBTOTAL
+          Subtotal
         </span>
 
-        <strong id="cartSubtotal">
+        <span id="cartSubtotal">
           $0.00
-        </strong>
+        </span>
 
       </div>
 
-      <p class="cart-note">
-        Taxes, delivery, and final checkout details
-        can be confirmed during checkout.
-      </p>
-
       <button
-        class="btn cart-checkout-btn"
-        id="cartCheckoutBtn"
-        type="button"
+        class="checkout-link"
+        id="goCheckout"
       >
-        PROCEED TO CHECK-OUT
+        Continue To Checkout
       </button>
 
     </div>
@@ -1362,1101 +2225,86 @@
   </aside>
 
 
-  <!-- HERO -->
-
-  <main>
-
-    <section id="home" class="hero">
-
-      <img
-        class="hero-image"
-        src="images/hero(1).png"
-        alt="WINGS clothing"
-      >
-
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-
-        <p class="hero-tag">
-          WINGS CLOTHING
-        </p>
-
-        <h1>
-          WINGS
-        </h1>
-
-        <p class="hero-subtitle">
-          Clothes to Make Your Look Fly.
-          Built around creativity, individuality,
-          and the energy to stand out.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a class="btn" href="#shop">
-            SHOP THE DROP
-          </a>
-
-          <a class="btn btn-outline" href="#about">
-            ABOUT WINGS
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DROP MARQUEE -->
-
-    <div class="drop-banner">
-
-      <div class="drop-track">
-
-        <span>WINGS</span>
-        <span>CLOTHES TO MAKE YOUR LOOK FLY</span>
-        <span>FIRST DROP — MARCH 15, 2027</span>
-
-        <span>WINGS</span>
-        <span>CLOTHES TO MAKE YOUR LOOK FLY</span>
-        <span>FIRST DROP — MARCH 15, 2027</span>
-
-        <span>WINGS</span>
-        <span>CLOTHES TO MAKE YOUR LOOK FLY</span>
-        <span>FIRST DROP — MARCH 15, 2027</span>
-
-      </div>
-
-    </div>
-
-
-    <!-- DROP -->
-
-    <section id="drop" class="section">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            FIRST DROP
-          </p>
-
-          <h2>
-            WINGS
-          </h2>
-
-        </div>
-
-        <span class="coming">
-          MARCH 15, 2027
-        </span>
-
-      </div>
-
-      <div class="about-grid">
-
-        <div>
-
-          <p class="eyebrow">
-            CLOTHES TO MAKE YOUR LOOK FLY
-          </p>
-
-          <h3 class="about-title">
-            THE FIRST
-            FLIGHT.
-          </h3>
-
-        </div>
-
-        <div class="about-text">
-
-          <p>
-            WINGS is built for people who want their clothes
-            to say something without having to say everything.
-          </p>
-
-          <p>
-            The first drop brings together clean pieces,
-            everyday wear, and a vision built around
-            creativity and individuality.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SHOP -->
-
-    <section id="shop" class="section">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            SHOP
-          </p>
-
-          <h2>
-            THE DROP
-          </h2>
-
-        </div>
-
-        <span class="coming">
-          S / M / L
-        </span>
-
-      </div>
-
-
-      <div class="product-grid">
-
-
-        <!-- WHITE TEE -->
-
-        <article
-          class="product-card"
-          data-product="WINGS TEE — WHITE"
-          data-price="25"
-          data-image="images/tee-white(1).png"
-        >
-
-          <div class="product-image">
-
-            <img
-              src="images/tee-white(1).png"
-              alt="WINGS White Tee"
-              loading="lazy"
-            >
-
-          </div>
-
-          <div class="product-info">
-
-            <h3>
-              WINGS TEE — WHITE
-            </h3>
-
-            <p class="product-description">
-              Clean WINGS everyday tee.
-            </p>
-
-            <div class="product-bottom">
-
-              <span class="price">
-                $25.00
-              </span>
-
-              <span class="size-text">
-                S / M / L
-              </span>
-
-            </div>
-
-            <div class="product-actions">
-
-              <select class="size-select" aria-label="Select size">
-
-                <option value="S">
-                  SIZE S
-                </option>
-
-                <option value="M">
-                  SIZE M
-                </option>
-
-                <option value="L">
-                  SIZE L
-                </option>
-
-              </select>
-
-              <button
-                class="add-cart-btn"
-                type="button"
-              >
-                ADD TO CART
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- BLACK TEE -->
-
-        <article
-          class="product-card"
-          data-product="WINGS TEE — BLACK"
-          data-price="25"
-          data-image="images/tee-black(1).png"
-        >
-
-          <div class="product-image">
-
-            <img
-              src="images/tee-black(1).png"
-              alt="WINGS Black Tee"
-              loading="lazy"
-            >
-
-          </div>
-
-          <div class="product-info">
-
-            <h3>
-              WINGS TEE — BLACK
-            </h3>
-
-            <p class="product-description">
-              Black WINGS tee for the everyday rotation.
-            </p>
-
-            <div class="product-bottom">
-
-              <span class="price">
-                $25.00
-              </span>
-
-              <span class="size-text">
-                S / M / L
-              </span>
-
-            </div>
-
-            <div class="product-actions">
-
-              <select class="size-select" aria-label="Select size">
-
-                <option value="S">
-                  SIZE S
-                </option>
-
-                <option value="M">
-                  SIZE M
-                </option>
-
-                <option value="L">
-                  SIZE L
-                </option>
-
-              </select>
-
-              <button
-                class="add-cart-btn"
-                type="button"
-              >
-                ADD TO CART
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- HOODIE -->
-
-        <article
-          class="product-card"
-          data-product="WINGS HOODIE"
-          data-price="45"
-          data-image="images/hoodie(1).png"
-        >
-
-          <div class="product-image">
-
-            <img
-              src="images/hoodie(1).png"
-              alt="WINGS Hoodie"
-              loading="lazy"
-            >
-
-          </div>
-
-          <div class="product-info">
-
-            <h3>
-              WINGS HOODIE
-            </h3>
-
-            <p class="product-description">
-              Heavy everyday WINGS hoodie.
-            </p>
-
-            <div class="product-bottom">
-
-              <span class="price">
-                $45.00
-              </span>
-
-              <span class="size-text">
-                S / M / L
-              </span>
-
-            </div>
-
-            <div class="product-actions">
-
-              <select class="size-select" aria-label="Select size">
-
-                <option value="S">
-                  SIZE S
-                </option>
-
-                <option value="M">
-                  SIZE M
-                </option>
-
-                <option value="L">
-                  SIZE L
-                </option>
-
-              </select>
-
-              <button
-                class="add-cart-btn"
-                type="button"
-              >
-                ADD TO CART
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- HOODIE DETAIL -->
-
-        <article
-          class="product-card"
-          data-product="WINGS HOODIE — DETAIL"
-          data-price="45"
-          data-image="images/hoodie-detail(1).png"
-        >
-
-          <div class="product-image">
-
-            <img
-              src="images/hoodie-detail(1).png"
-              alt="WINGS Hoodie Detail"
-              loading="lazy"
-            >
-
-          </div>
-
-          <div class="product-info">
-
-            <h3>
-              WINGS HOODIE — DETAIL
-            </h3>
-
-            <p class="product-description">
-              Detailed WINGS hoodie from the first drop.
-            </p>
-
-            <div class="product-bottom">
-
-              <span class="price">
-                $45.00
-              </span>
-
-              <span class="size-text">
-                S / M / L
-              </span>
-
-            </div>
-
-            <div class="product-actions">
-
-              <select class="size-select" aria-label="Select size">
-
-                <option value="S">
-                  SIZE S
-                </option>
-
-                <option value="M">
-                  SIZE M
-                </option>
-
-                <option value="L">
-                  SIZE L
-                </option>
-
-              </select>
-
-              <button
-                class="add-cart-btn"
-                type="button"
-              >
-                ADD TO CART
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section id="about" class="section">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            ABOUT
-          </p>
-
-          <h2>
-            WHO WE ARE
-          </h2>
-
-        </div>
-
-      </div>
-
-      <div class="about-grid">
-
-        <div>
-
-          <h3 class="about-title">
-            MADE
-            DIFFERENT.
-          </h3>
-
-        </div>
-
-        <div class="about-text">
-
-          <p>
-            WINGS was created by Mark, a young artist
-            and creative from New York.
-          </p>
-
-          <p>
-            The brand connects music, fashion, creativity,
-            and individuality into one world.
-          </p>
-
-          <p>
-            WINGS isn't about following one look.
-            It's about creating your own.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- STATEMENT -->
-
-    <section class="statement">
-
-      <div class="statement-inner">
-
-        <p class="eyebrow">
-          WINGS
-        </p>
-
-        <h2>
-          CLOTHES TO
-          MAKE YOUR
-          LOOK FLY.
-        </h2>
-
-        <p>
-          FIRST DROP — MARCH 15, 2027
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- CHECKOUT -->
-
-    <section id="checkout" class="section checkin">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            CHECK-OUT
-          </p>
-
-          <h2>
-            VERIFY YOUR NUMBER
-          </h2>
-
-        </div>
-
-        <span class="coming">
-          VERIFIED CHECK-OUT
-        </span>
-
-      </div>
-
-
-      <div class="checkin-card">
-
-        <p class="checkin-intro">
-
-          <strong>Step 1:</strong>
-          Complete the WINGS check-out form.
-
-          <br><br>
-
-          <strong>Step 2:</strong>
-          Enter the same phone number you submitted
-          in the form.
-
-          <br><br>
-
-          <strong>Step 3:</strong>
-          Select In Person or Online.
-
-          <br><br>
-
-          <strong>Step 4:</strong>
-          Verify your number, then submit your WINGS order.
-
-          <br><br>
-
-          Your number must match a submitted WINGS
-          checkout before an order can be created.
-
-        </p>
-
-
-        <a
-          class="btn checkout-link"
-          href="https://forms.gle/FvXyG1yVTW5gwmSJ9"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          OPEN THE CHECK-OUT FORM
-        </a>
-
-
-        <p class="return-note">
-          Submit the form first, then return here.
-        </p>
-
-
-        <form id="codeForm" class="code-form">
-
-          <label for="phone">
-            PHONE NUMBER
-          </label>
-
-          <input
-            id="phone"
-            type="tel"
-            inputmode="tel"
-            autocomplete="tel"
-            placeholder="(555) 123-4567"
-            maxlength="20"
-            required
-          >
-
-
-          <label>
-            ATTENDING
-          </label>
-
-
-          <div class="choice-row">
-
-            <label class="choice">
-
-              <input
-                type="radio"
-                name="attendance"
-                value="IN"
-                required
-              >
-
-              <span>
-                IN PERSON
-              </span>
-
-            </label>
-
-
-            <label class="choice">
-
-              <input
-                type="radio"
-                name="attendance"
-                value="ON"
-              >
-
-              <span>
-                ONLINE
-              </span>
-
-            </label>
-
-          </div>
-
-
-          <p
-            id="formError"
-            class="form-error"
-            hidden
-          ></p>
-
-
-          <button
-            class="btn"
-            id="verifyButton"
-            type="submit"
-          >
-            VERIFY MY NUMBER
-          </button>
-
-        </form>
-
-
-        <div
-          id="loadingMessage"
-          class="verification-loading"
-          hidden
-        >
-          VERIFYING YOUR WINGS CHECK-OUT...
-        </div>
-
-
-        <!-- VERIFIED RESULT -->
-
-        <div
-          id="codeResult"
-          class="code-result"
-          hidden
-          aria-live="polite"
-        >
-
-          <span class="result-label">
-            ✓ NUMBER VERIFIED
-          </span>
-
-          <strong id="confirmationTitle"></strong>
-
-          <p id="confirmationMessage"></p>
-
-
-          <div class="generated-code-box">
-
-            <span>
-              YOUR CHECK-OUT CODE
-            </span>
-
-            <strong id="generatedCode"></strong>
-
-          </div>
-
-
-          <small id="codeType"></small>
-
-
-          <!-- ORDER SUMMARY -->
-
-          <div
-            id="orderSummary"
-            class="order-summary-box"
-            hidden
-          >
-
-            <h3>
-              YOUR WINGS ORDER
-            </h3>
-
-            <div id="orderSummaryItems"></div>
-
-            <div class="order-summary-total">
-
-              <span>
-                TOTAL
-              </span>
-
-              <strong id="orderSummaryTotal">
-                $0.00
-              </strong>
-
-            </div>
-
-            <button
-              class="btn submit-order-btn"
-              id="submitOrderButton"
-              type="button"
-            >
-              SUBMIT WINGS ORDER
-            </button>
-
-          </div>
-
-
-          <!-- ORDER SUCCESS -->
-
-          <div
-            id="orderSuccess"
-            class="order-success"
-            hidden
-          >
-
-            <div class="order-success-label">
-              ✓ ORDER CONFIRMED
-            </div>
-
-            <div
-              class="order-id"
-              id="orderIdDisplay"
-            ></div>
-
-            <p>
-              Your WINGS order has been submitted.
-              Keep your order ID for your records.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <p class="code-note">
-          Your number must match the number submitted
-          through the official WINGS checkout form.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact" class="section">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            CONTACT
-          </p>
-
-          <h2>
-            STAY CONNECTED
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-        <div class="contact-card">
-
-          <h3>
-            FOLLOW WINGS
-          </h3>
-
-          <p>
-            Follow the brand and keep up with
-            new drops, updates, and releases.
-          </p>
-
-
-          <div class="social-links">
-
-            <a
-              href="https://www.instagram.com/thatunderratedsuperstar/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              INSTAGRAM
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@forevertda"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TIKTOK
-            </a>
-
-            <a
-              href="https://www.youtube.com/@TDAProductionsz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              YOUTUBE
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="contact-card">
-
-          <h3>
-            WINGS
-          </h3>
-
-          <p>
-            Clothes to Make Your Look Fly.
-          </p>
-
-          <p style="margin-top:15px;">
-            First Drop:
-            <strong>
-              March 15, 2027
-            </strong>
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- POLICIES -->
-
-    <section id="policies" class="section">
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="eyebrow">
-            INFORMATION
-          </p>
-
-          <h2>
-            POLICIES
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="policy-grid">
-
-        <div class="policy-card">
-
-          <h3>
-            SIZES
-          </h3>
-
-          <p>
-            Current WINGS sizing includes Small,
-            Medium, and Large.
-          </p>
-
-        </div>
-
-
-        <div class="policy-card">
-
-          <h3>
-            PRICING
-          </h3>
-
-          <p>
-            WINGS tees are $25.
-            WINGS hoodies are $45.
-            Pricing is the same across available sizes.
-          </p>
-
-        </div>
-
-
-        <div id="delivery" class="policy-card">
-
-          <h3>
-            DELIVERY
-          </h3>
-
-          <p>
-            Delivery and pickup information will be
-            provided through the WINGS check-out process.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
+  <!-- =========================
+       TOAST
+  ========================= -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
     <div class="footer-inner">
 
-      <div>
-
-        <div class="footer-logo">
-          WINGS
-        </div>
-
-        <p class="footer-text">
-          CLOTHES TO MAKE YOUR LOOK FLY.
-        </p>
-
+      <div class="footer-logo">
+        WINGS
       </div>
 
-
-      <div class="footer-links">
-
-        <a href="#home">HOME</a>
-        <a href="#shop">SHOP</a>
-        <a href="#checkout">CHECK-OUT</a>
-        <a href="#delivery">DELIVERY</a>
-        <a href="#contact">CONTACT</a>
-
+      <div class="footer-right">
+        Clothes to Make Your Look Fly.<br>
+        New York, NY<br>
+        First Drop: March 15, 2027
       </div>
 
+    </div>
 
-      <div class="footer-text">
+    <div class="footer-bottom">
 
-        © <span id="year"></span> WINGS
+      <span>
+        © 2027 WINGS. All Rights Reserved.
+      </span>
 
-      </div>
+      <span>
+        Built for creativity.
+      </span>
 
     </div>
 
   </footer>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
 
-    /*
-    ==================================================
-    WINGS GOOGLE APPS SCRIPT
-    ==================================================
-    */
+    /* =========================================
+       CONFIGURATION
+    ========================================= */
 
-    const VERIFICATION_URL =
+    const APPS_SCRIPT_URL =
       "https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
 
-
-    /*
-    ==================================================
-    YEAR
-    ==================================================
-    */
-
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    const CART_STORAGE_KEY =
+      "wingsCartV1";
 
 
-    /*
-    ==================================================
-    MOBILE MENU
-    ==================================================
-    */
-
-    const menuBtn =
-      document.getElementById("menuBtn");
-
-    const navLinks =
-      document.getElementById("navLinks");
-
-
-    menuBtn.addEventListener(
-      "click",
-      function () {
-
-        const isOpen =
-          navLinks.classList.toggle("open");
-
-        menuBtn.setAttribute(
-          "aria-expanded",
-          isOpen
-        );
-
-        menuBtn.textContent =
-          isOpen ? "CLOSE" : "MENU";
-
-      }
-    );
-
-
-    document.querySelectorAll(
-      ".nav-links a"
-    ).forEach(function (link) {
-
-      link.addEventListener(
-        "click",
-        function () {
-
-          navLinks.classList.remove("open");
-
-          menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
-          menuBtn.textContent =
-            "MENU";
-
-        }
-      );
-
-    });
-
-
-    /*
-    ==================================================
-    WINGS SHOPPING CART
-    ==================================================
-    */
+    /* =========================================
+       CART
+    ========================================= */
 
     let cart = [];
 
+    let verifiedCheckout = null;
 
-    const cartOpenBtn =
-      document.getElementById("cartOpenBtn");
 
-    const cartCloseBtn =
-      document.getElementById("cartCloseBtn");
-
-    const cartOverlay =
-      document.getElementById("cartOverlay");
+    /* =========================================
+       ELEMENTS
+    ========================================= */
 
     const cartDrawer =
       document.getElementById("cartDrawer");
+
+    const cartOverlay =
+      document.getElementById("cartOverlay");
 
     const cartItems =
       document.getElementById("cartItems");
@@ -2467,39 +2315,197 @@
     const cartSubtotal =
       document.getElementById("cartSubtotal");
 
-    const cartCheckoutBtn =
-      document.getElementById("cartCheckoutBtn");
+    const openCartButton =
+      document.getElementById("openCart");
 
+    const closeCartButton =
+      document.getElementById("closeCart");
+
+    const goCheckoutButton =
+      document.getElementById("goCheckout");
+
+    const toast =
+      document.getElementById("toast");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const phoneInput =
+      document.getElementById("phone");
+
+    const verifyButton =
+      document.getElementById("verifyButton");
+
+    const verificationResult =
+      document.getElementById("verificationResult");
+
+    const verificationTitle =
+      document.getElementById("verificationTitle");
+
+    const verificationMessage =
+      document.getElementById("verificationMessage");
+
+    const verificationCode =
+      document.getElementById("verificationCode");
+
+    const orderSummary =
+      document.getElementById("orderSummary");
+
+    const summaryItems =
+      document.getElementById("summaryItems");
+
+    const summaryTotal =
+      document.getElementById("summaryTotal");
+
+    const submitOrderButton =
+      document.getElementById("submitOrderButton");
+
+    const orderSuccess =
+      document.getElementById("orderSuccess");
+
+    const orderIdDisplay =
+      document.getElementById("orderIdDisplay");
+
+    const copyOrderButton =
+      document.getElementById("copyOrderButton");
+
+
+    /* =========================================
+       STARTUP
+    ========================================= */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      loadCart();
+
+      updateCart();
+
+      setupPhoneFormatting();
+
+    });
+
+
+    /* =========================================
+       LOCAL STORAGE
+    ========================================= */
+
+    function saveCart() {
+
+      localStorage.setItem(
+        CART_STORAGE_KEY,
+        JSON.stringify(cart)
+      );
+
+    }
+
+
+    function loadCart() {
+
+      try {
+
+        const saved =
+          localStorage.getItem(CART_STORAGE_KEY);
+
+        if (!saved) {
+          cart = [];
+          return;
+        }
+
+        const parsed =
+          JSON.parse(saved);
+
+        if (!Array.isArray(parsed)) {
+          cart = [];
+          return;
+        }
+
+        cart = parsed.filter(item => {
+
+          return (
+            item &&
+            item.id &&
+            item.name &&
+            typeof item.price === "number" &&
+            item.size &&
+            typeof item.quantity === "number" &&
+            item.quantity > 0
+          );
+
+        });
+
+      } catch (error) {
+
+        console.error(
+          "Could not load cart:",
+          error
+        );
+
+        cart = [];
+
+      }
+
+    }
+
+
+    /* =========================================
+       TOAST
+    ========================================= */
+
+    let toastTimeout;
+
+    function showToast(message) {
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimeout);
+
+      toastTimeout = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 2500);
+
+    }
+
+
+    /* =========================================
+       CART OPEN/CLOSE
+    ========================================= */
 
     function openCart() {
 
-      cartDrawer.classList.add("open");
+      cartDrawer.classList.add("active");
 
-      cartOverlay.classList.add("open");
+      cartOverlay.classList.add("active");
 
-      document.body.classList.add("cart-open");
+      document.body.style.overflow = "hidden";
 
     }
 
 
     function closeCart() {
 
-      cartDrawer.classList.remove("open");
+      cartDrawer.classList.remove("active");
 
-      cartOverlay.classList.remove("open");
+      cartOverlay.classList.remove("active");
 
-      document.body.classList.remove("cart-open");
+      document.body.style.overflow = "";
 
     }
 
 
-    cartOpenBtn.addEventListener(
+    openCartButton.addEventListener(
       "click",
       openCart
     );
 
 
-    cartCloseBtn.addEventListener(
+    closeCartButton.addEventListener(
       "click",
       closeCart
     );
@@ -2511,134 +2517,196 @@
     );
 
 
-    /*
-    ==================================================
-    ADD PRODUCT TO CART
-    ==================================================
-    */
+    document.addEventListener(
+      "keydown",
+      event => {
 
-    document.querySelectorAll(
-      ".product-card"
-    ).forEach(function (card) {
-
-      const addButton =
-        card.querySelector(".add-cart-btn");
-
-      const sizeSelect =
-        card.querySelector(".size-select");
-
-
-      addButton.addEventListener(
-        "click",
-        function () {
-
-          const name =
-            card.dataset.product;
-
-          const price =
-            Number(card.dataset.price);
-
-          const image =
-            card.dataset.image;
-
-          const size =
-            sizeSelect.value;
-
-
-          const existing =
-            cart.find(function (item) {
-
-              return (
-                item.name === name &&
-                item.size === size
-              );
-
-            });
-
-
-          if (existing) {
-
-            existing.quantity += 1;
-
-          }
-
-          else {
-
-            cart.push({
-
-              id:
-                String(
-                  Date.now() +
-                  Math.random()
-                ),
-
-              name:
-                name,
-
-              price:
-                price,
-
-              image:
-                image,
-
-              size:
-                size,
-
-              quantity:
-                1
-
-            });
-
-          }
-
-
-          updateCart();
-
-
-          const originalText =
-            addButton.textContent;
-
-          addButton.textContent =
-            "ADDED ✓";
-
-          addButton.classList.add(
-            "added"
-          );
-
-
-          setTimeout(
-            function () {
-
-              addButton.textContent =
-                originalText;
-
-              addButton.classList.remove(
-                "added"
-              );
-
-            },
-            1000
-          );
-
-
-          openCart();
-
+        if (event.key === "Escape") {
+          closeCart();
         }
+
+      }
+    );
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle("active");
+
+      }
+    );
+
+
+    navLinks
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            navLinks.classList.remove("active");
+
+          }
+        );
+
+      });
+
+
+    /* =========================================
+       ADD TO CART
+    ========================================= */
+
+    function addToCart(
+      id,
+      name,
+      price,
+      image,
+      sizeElementId,
+      quantityElementId
+    ) {
+
+      const size =
+        document.getElementById(sizeElementId).value;
+
+      const quantity =
+        Number(
+          document.getElementById(quantityElementId).value
+        );
+
+      if (!size || !quantity) {
+
+        showToast(
+          "Please choose a size and quantity."
+        );
+
+        return;
+
+      }
+
+
+      const existingItem =
+        cart.find(item =>
+
+          item.id === id &&
+          item.size === size
+
+        );
+
+
+      if (existingItem) {
+
+        existingItem.quantity += quantity;
+
+      } else {
+
+        cart.push({
+
+          id: id,
+
+          name: name,
+
+          price: price,
+
+          image: image,
+
+          size: size,
+
+          quantity: quantity
+
+        });
+
+      }
+
+
+      saveCart();
+
+      updateCart();
+
+      showToast(
+        `${name} added to your cart.`
       );
 
-    });
+    }
 
 
-    /*
-    ==================================================
-    UPDATE CART
-    ==================================================
-    */
+    /* =========================================
+       UPDATE CART
+    ========================================= */
 
     function updateCart() {
 
-      cartItems.innerHTML = "";
+      renderCart();
 
+      updateCartCount();
+
+      updateCartSubtotal();
+
+      updateOrderSummary();
+
+    }
+
+
+    /* =========================================
+       CART COUNT
+    ========================================= */
+
+    function updateCartCount() {
+
+      const count =
+        cart.reduce(
+          (total, item) =>
+            total + item.quantity,
+          0
+        );
+
+      cartCount.textContent = count;
+
+    }
+
+
+    /* =========================================
+       CART SUBTOTAL
+    ========================================= */
+
+    function getCartTotal() {
+
+      return cart.reduce(
+        (total, item) => {
+
+          return (
+            total +
+            item.price * item.quantity
+          );
+
+        },
+        0
+      );
+
+    }
+
+
+    function updateCartSubtotal() {
+
+      cartSubtotal.textContent =
+        formatMoney(
+          getCartTotal()
+        );
+
+    }
+
+
+    /* =========================================
+       RENDER CART
+    ========================================= */
+
+    function renderCart() {
 
       if (cart.length === 0) {
 
@@ -2646,1092 +2714,892 @@
 
           <div class="empty-cart">
 
-            <strong>
-              YOUR CART IS EMPTY
-            </strong>
+            <h4>
+              Your cart is empty.
+            </h4>
 
-            <span>
-              Add something from the WINGS drop.
-            </span>
+            <p>
+              Add something from the WINGS collection.
+            </p>
 
-          </div>
-
-        `;
-
-      }
-
-
-      let totalItems = 0;
-
-      let subtotal = 0;
-
-
-      cart.forEach(function (item) {
-
-        totalItems +=
-          item.quantity;
-
-        subtotal +=
-          item.price *
-          item.quantity;
-
-
-        const itemElement =
-          document.createElement("div");
-
-        itemElement.className =
-          "cart-item";
-
-
-        itemElement.innerHTML = `
-
-          <div class="cart-item-image">
-
-            <img
-              src="${item.image}"
-              alt="${item.name}"
-            >
-
-          </div>
-
-
-          <div class="cart-item-info">
-
-            <div class="cart-item-top">
-
-              <div class="cart-item-name">
-                ${item.name}
-              </div>
-
-              <button
-                class="cart-remove"
-                type="button"
-                data-id="${item.id}"
-              >
-                REMOVE
-              </button>
-
-            </div>
-
-
-            <div class="cart-item-details">
-
-              SIZE ${item.size}
-
-            </div>
-
-
-            <div class="cart-item-bottom">
-
-              <span class="cart-item-price">
-
-                $${(
-                  item.price *
-                  item.quantity
-                ).toFixed(2)}
-
-              </span>
-
-
-              <div class="quantity-control">
-
-                <button
-                  type="button"
-                  class="quantity-minus"
-                  data-id="${item.id}"
-                >
-                  −
-                </button>
-
-                <span>
-                  ${item.quantity}
-                </span>
-
-                <button
-                  type="button"
-                  class="quantity-plus"
-                  data-id="${item.id}"
-                >
-                  +
-                </button>
-
-              </div>
-
-            </div>
+            <button onclick="continueShopping()">
+              Continue Shopping
+            </button>
 
           </div>
 
         `;
-
-
-        cartItems.appendChild(
-          itemElement
-        );
-
-      });
-
-
-      cartCount.textContent =
-        totalItems;
-
-
-      cartSubtotal.textContent =
-        "$" +
-        subtotal.toFixed(2);
-
-
-      document.querySelectorAll(
-        ".cart-remove"
-      ).forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const id =
-              this.dataset.id;
-
-
-            cart =
-              cart.filter(
-                function (item) {
-
-                  return (
-                    item.id !== id
-                  );
-
-                }
-              );
-
-
-            updateCart();
-
-          }
-        );
-
-      });
-
-
-      document.querySelectorAll(
-        ".quantity-minus"
-      ).forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const id =
-              this.dataset.id;
-
-
-            const item =
-              cart.find(
-                function (item) {
-
-                  return (
-                    item.id === id
-                  );
-
-                }
-              );
-
-
-            if (!item) return;
-
-
-            if (item.quantity > 1) {
-
-              item.quantity -= 1;
-
-            }
-
-            else {
-
-              cart =
-                cart.filter(
-                  function (item) {
-
-                    return (
-                      item.id !== id
-                    );
-
-                  }
-                );
-
-            }
-
-
-            updateCart();
-
-          }
-        );
-
-      });
-
-
-      document.querySelectorAll(
-        ".quantity-plus"
-      ).forEach(function (button) {
-
-        button.addEventListener(
-          "click",
-          function () {
-
-            const id =
-              this.dataset.id;
-
-
-            const item =
-              cart.find(
-                function (item) {
-
-                  return (
-                    item.id === id
-                  );
-
-                }
-              );
-
-
-            if (!item) return;
-
-
-            item.quantity += 1;
-
-            updateCart();
-
-          }
-        );
-
-      });
-
-    }
-
-
-    /*
-    ==================================================
-    CART CHECKOUT BUTTON
-    ==================================================
-    */
-
-    cartCheckoutBtn.addEventListener(
-      "click",
-      function () {
-
-        if (cart.length === 0) {
-
-          alert(
-            "Your WINGS cart is empty."
-          );
-
-          return;
-
-        }
-
-
-        closeCart();
-
-
-        document.getElementById(
-          "checkout"
-        ).scrollIntoView({
-
-          behavior:
-            "smooth",
-
-          block:
-            "start"
-
-        });
-
-      }
-    );
-
-
-    updateCart();
-
-
-    /*
-    ==================================================
-    PHONE FORMATTING
-    ==================================================
-    */
-
-    const phoneInput =
-      document.getElementById("phone");
-
-
-    phoneInput.addEventListener(
-      "input",
-      function () {
-
-        let digits =
-          this.value.replace(
-            /\D/g,
-            ""
-          );
-
-
-        digits =
-          digits.substring(
-            0,
-            10
-          );
-
-
-        if (digits.length === 0) {
-
-          this.value =
-            "";
-
-        }
-
-        else if (
-          digits.length < 4
-        ) {
-
-          this.value =
-            "(" +
-            digits;
-
-        }
-
-        else if (
-          digits.length < 7
-        ) {
-
-          this.value =
-            "(" +
-            digits.substring(
-              0,
-              3
-            ) +
-            ") " +
-            digits.substring(
-              3
-            );
-
-        }
-
-        else {
-
-          this.value =
-            "(" +
-            digits.substring(
-              0,
-              3
-            ) +
-            ") " +
-            digits.substring(
-              3,
-              6
-            ) +
-            "-" +
-            digits.substring(
-              6
-            );
-
-        }
-
-      }
-    );
-
-
-    /*
-    ==================================================
-    CHECKOUT ELEMENTS
-    ==================================================
-    */
-
-    const codeForm =
-      document.getElementById(
-        "codeForm"
-      );
-
-    const formError =
-      document.getElementById(
-        "formError"
-      );
-
-    const verifyButton =
-      document.getElementById(
-        "verifyButton"
-      );
-
-    const loadingMessage =
-      document.getElementById(
-        "loadingMessage"
-      );
-
-    const codeResult =
-      document.getElementById(
-        "codeResult"
-      );
-
-    const confirmationTitle =
-      document.getElementById(
-        "confirmationTitle"
-      );
-
-    const confirmationMessage =
-      document.getElementById(
-        "confirmationMessage"
-      );
-
-    const generatedCode =
-      document.getElementById(
-        "generatedCode"
-      );
-
-    const codeType =
-      document.getElementById(
-        "codeType"
-      );
-
-    const orderSummary =
-      document.getElementById(
-        "orderSummary"
-      );
-
-    const orderSummaryItems =
-      document.getElementById(
-        "orderSummaryItems"
-      );
-
-    const orderSummaryTotal =
-      document.getElementById(
-        "orderSummaryTotal"
-      );
-
-    const submitOrderButton =
-      document.getElementById(
-        "submitOrderButton"
-      );
-
-    const orderSuccess =
-      document.getElementById(
-        "orderSuccess"
-      );
-
-    const orderIdDisplay =
-      document.getElementById(
-        "orderIdDisplay"
-      );
-
-
-    /*
-    ==================================================
-    CURRENT VERIFIED CHECKOUT
-    ==================================================
-    */
-
-    let verifiedCheckout = false;
-
-    let verifiedType = "";
-
-    let verifiedPhone = "";
-
-
-    /*
-    ==================================================
-    SHOW ORDER SUMMARY
-    ==================================================
-    */
-
-    function showOrderSummary() {
-
-      orderSummaryItems.innerHTML = "";
-
-
-      if (cart.length === 0) {
-
-        orderSummary.hidden =
-          true;
 
         return;
 
       }
 
 
-      let subtotal = 0;
+      cartItems.innerHTML =
+        cart.map(
+          (item, index) => `
+
+            <div class="cart-item">
+
+              <div class="cart-item-image">
+
+                <img
+                  src="${escapeAttribute(item.image)}"
+                  alt="${escapeAttribute(item.name)}"
+                >
+
+              </div>
+
+              <div class="cart-item-info">
+
+                <h4>
+                  ${escapeHTML(item.name)}
+                </h4>
+
+                <p>
+                  Size: ${escapeHTML(item.size)}
+                  <br>
+                  ${formatMoney(item.price)}
+                </p>
+
+                <div class="cart-item-bottom">
+
+                  <div class="quantity-controls">
+
+                    <button
+                      onclick="changeQuantity(${index}, -1)"
+                      aria-label="Decrease quantity"
+                    >
+                      -
+                    </button>
+
+                    <span>
+                      ${item.quantity}
+                    </span>
+
+                    <button
+                      onclick="changeQuantity(${index}, 1)"
+                      aria-label="Increase quantity"
+                    >
+                      +
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <button
+                  class="remove-item"
+                  onclick="removeFromCart(${index})"
+                >
+                  Remove
+                </button>
+
+              </div>
+
+            </div>
+
+          `
+        )
+        .join("");
+
+    }
 
 
-      cart.forEach(
-        function (item) {
+    /* =========================================
+       CHANGE QUANTITY
+    ========================================= */
 
-          const line =
-            document.createElement(
-              "div"
-            );
+    function changeQuantity(
+      index,
+      change
+    ) {
 
+      if (!cart[index]) {
+        return;
+      }
 
-          line.className =
-            "order-summary-line";
+      cart[index].quantity += change;
 
+      if (cart[index].quantity <= 0) {
 
-          const lineTotal =
-            item.price *
-            item.quantity;
+        cart.splice(index, 1);
 
+      }
 
-          subtotal +=
-            lineTotal;
+      saveCart();
 
+      updateCart();
 
-          line.innerHTML = `
-
-            <span>
-              ${item.name}
-              / SIZE ${item.size}
-              × ${item.quantity}
-            </span>
-
-            <strong>
-              $${lineTotal.toFixed(2)}
-            </strong>
-
-          `;
+    }
 
 
-          orderSummaryItems.appendChild(
-            line
+    /* =========================================
+       REMOVE ITEM
+    ========================================= */
+
+    function removeFromCart(index) {
+
+      if (!cart[index]) {
+        return;
+      }
+
+      const removed =
+        cart[index].name;
+
+      cart.splice(index, 1);
+
+      saveCart();
+
+      updateCart();
+
+      showToast(
+        `${removed} removed from your cart.`
+      );
+
+    }
+
+
+    /* =========================================
+       CONTINUE SHOPPING
+    ========================================= */
+
+    function continueShopping() {
+
+      closeCart();
+
+      document
+        .getElementById("shop")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /* =========================================
+       CHECKOUT LINK
+    ========================================= */
+
+    goCheckoutButton.addEventListener(
+      "click",
+      () => {
+
+        if (cart.length === 0) {
+
+          showToast(
+            "Your cart is empty."
           );
+
+          return;
+
+        }
+
+        closeCart();
+
+        document
+          .getElementById("checkout")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      }
+    );
+
+
+    /* =========================================
+       ORDER SUMMARY
+    ========================================= */
+
+    function updateOrderSummary() {
+
+      if (!verifiedCheckout) {
+
+        orderSummary.classList.remove("active");
+
+        return;
+
+      }
+
+
+      if (cart.length === 0) {
+
+        orderSummary.classList.remove("active");
+
+        return;
+
+      }
+
+
+      orderSummary.classList.add("active");
+
+      summaryItems.innerHTML =
+        cart.map(
+          item => `
+
+            <div class="summary-item">
+
+              <div class="summary-item-info">
+
+                <strong>
+                  ${escapeHTML(item.name)}
+                </strong>
+
+                <span>
+                  Size ${escapeHTML(item.size)}
+                  · Qty ${item.quantity}
+                </span>
+
+              </div>
+
+              <strong>
+                ${formatMoney(
+                  item.price * item.quantity
+                )}
+              </strong>
+
+            </div>
+
+          `
+        )
+        .join("");
+
+
+      summaryTotal.textContent =
+        formatMoney(
+          getCartTotal()
+        );
+
+    }
+
+
+    /* =========================================
+       PHONE FORMATTING
+    ========================================= */
+
+    function setupPhoneFormatting() {
+
+      phoneInput.addEventListener(
+        "input",
+        () => {
+
+          let digits =
+            phoneInput.value
+              .replace(/\D/g, "")
+              .slice(0, 10);
+
+
+          let formatted = digits;
+
+
+          if (digits.length > 6) {
+
+            formatted =
+              "(" +
+              digits.slice(0, 3) +
+              ") " +
+              digits.slice(3, 6) +
+              "-" +
+              digits.slice(6);
+
+          } else if (digits.length > 3) {
+
+            formatted =
+              "(" +
+              digits.slice(0, 3) +
+              ") " +
+              digits.slice(3);
+
+          }
+
+
+          phoneInput.value =
+            formatted;
+
+
+          invalidateVerification();
 
         }
       );
 
 
-      orderSummaryTotal.textContent =
-        "$" +
-        subtotal.toFixed(2);
+      document
+        .querySelectorAll(
+          'input[name="attendance"]'
+        )
+        .forEach(radio => {
 
+          radio.addEventListener(
+            "change",
+            invalidateVerification
+          );
 
-      orderSummary.hidden =
-        false;
+        });
 
     }
 
 
-    /*
-    ==================================================
-    VERIFY PHONE NUMBER
-    ==================================================
-    */
+    /* =========================================
+       INVALIDATE VERIFICATION
+    ========================================= */
 
-    codeForm.addEventListener(
-      "submit",
-      async function (event) {
+    function invalidateVerification() {
 
-        event.preventDefault();
+      verifiedCheckout = null;
 
+      verificationResult.classList.remove(
+        "success",
+        "error"
+      );
 
-        formError.hidden =
-          true;
+      verificationResult.style.display = "none";
 
-        formError.textContent =
-          "";
+      orderSummary.classList.remove(
+        "active"
+      );
 
-        codeResult.hidden =
-          true;
+      orderSuccess.classList.remove(
+        "active"
+      );
 
-        orderSuccess.hidden =
-          true;
+      submitOrderButton.disabled = false;
 
+      submitOrderButton.textContent =
+        "Submit Order";
 
-        if (cart.length === 0) {
+    }
 
-          formError.textContent =
-            "Your cart is empty. Add something from the WINGS drop first.";
 
-          formError.hidden =
-            false;
+    /* =========================================
+       GET CLEAN PHONE
+    ========================================= */
 
-          return;
+    function getPhoneDigits() {
 
-        }
+      return phoneInput.value
+        .replace(/\D/g, "")
+        .slice(-10);
 
+    }
 
-        const phone =
-          phoneInput.value.replace(
-            /\D/g,
-            ""
-          );
 
+    /* =========================================
+       GET ATTENDANCE
+    ========================================= */
 
-        const selected =
-          document.querySelector(
-            'input[name="attendance"]:checked'
-          );
+    function getAttendance() {
 
+      const selected =
+        document.querySelector(
+          'input[name="attendance"]:checked'
+        );
 
-        if (
-          phone.length !== 10
-        ) {
+      return selected
+        ? selected.value
+        : "";
 
-          formError.textContent =
-            "Please enter a valid 10-digit phone number.";
+    }
 
-          formError.hidden =
-            false;
 
-          phoneInput.focus();
+    /* =========================================
+       VERIFY CHECKOUT
+    ========================================= */
 
-          return;
-
-        }
-
-
-        if (!selected) {
-
-          formError.textContent =
-            "Please select In Person or Online.";
-
-          formError.hidden =
-            false;
-
-          return;
-
-        }
-
-
-        verifyButton.disabled =
-          true;
-
-        verifyButton.textContent =
-          "VERIFYING...";
-
-        loadingMessage.hidden =
-          false;
-
-
-        try {
-
-          const response =
-            await fetch(
-
-              VERIFICATION_URL +
-              "?phone=" +
-              encodeURIComponent(
-                phone
-              ),
-
-              {
-                method:
-                  "GET",
-
-                cache:
-                  "no-store"
-
-              }
-
-            );
-
-
-          if (!response.ok) {
-
-            throw new Error(
-              "Verification server error"
-            );
-
-          }
-
-
-          const result =
-            await response.json();
-
-
-          if (!result.success) {
-
-            formError.textContent =
-              result.message ||
-              "That phone number was not found in the WINGS checkout form.";
-
-            formError.hidden =
-              false;
-
-            return;
-
-          }
-
-
-          if (
-            result.type !==
-            selected.value
-          ) {
-
-            formError.textContent =
-              "Your phone number is verified, but the attendance type does not match your checkout form.";
-
-            formError.hidden =
-              false;
-
-            return;
-
-          }
-
-
-          /*
-          VERIFIED
-          */
-
-          verifiedCheckout =
-            true;
-
-          verifiedType =
-            result.type;
-
-          verifiedPhone =
-            phone;
-
-
-          generatedCode.textContent =
-            result.code;
-
-
-          if (
-            result.type === "IN"
-          ) {
-
-            confirmationTitle.textContent =
-              "IN PERSON CHECK-OUT";
-
-            confirmationMessage.textContent =
-              "Your phone number has been verified. Review your WINGS order below and submit it.";
-
-            codeType.textContent =
-              "IN PERSON";
-
-          }
-
-          else {
-
-            confirmationTitle.textContent =
-              "ONLINE CHECK-OUT";
-
-            confirmationMessage.textContent =
-              "Your phone number has been verified. Review your WINGS order below and submit it.";
-
-            codeType.textContent =
-              "ONLINE";
-
-          }
-
-
-          showOrderSummary();
-
-
-          codeResult.hidden =
-            false;
-
-
-          codeResult.scrollIntoView({
-
-            behavior:
-              "smooth",
-
-            block:
-              "center"
-
-          });
-
-
-        }
-
-        catch (error) {
-
-          formError.textContent =
-            "We couldn't connect to WINGS verification. Please try again.";
-
-          formError.hidden =
-            false;
-
-          console.error(
-            "WINGS verification error:",
-            error
-          );
-
-        }
-
-
-        finally {
-
-          verifyButton.disabled =
-            false;
-
-          verifyButton.textContent =
-            "VERIFY MY NUMBER";
-
-          loadingMessage.hidden =
-            true;
-
-        }
-
-      }
+    verifyButton.addEventListener(
+      "click",
+      verifyCheckout
     );
 
 
-    /*
-    ==================================================
-    SUBMIT WINGS ORDER
-    ==================================================
-    */
+    async function verifyCheckout() {
 
-    submitOrderButton.addEventListener(
-      "click",
-      async function () {
+      const phone =
+        getPhoneDigits();
 
-        if (!verifiedCheckout) {
-
-          formError.textContent =
-            "Please verify your phone number first.";
-
-          formError.hidden =
-            false;
-
-          return;
-
-        }
+      const attendance =
+        getAttendance();
 
 
-        if (cart.length === 0) {
+      if (phone.length !== 10) {
 
-          formError.textContent =
-            "Your cart is empty.";
-
-          formError.hidden =
-            false;
-
-          return;
-
-        }
-
-
-        /*
-        CALCULATE TOTAL
-        */
-
-        let total =
-          0;
-
-
-        cart.forEach(
-          function (item) {
-
-            total +=
-              item.price *
-              item.quantity;
-
-          }
+        showVerificationError(
+          "Please enter a valid 10-digit phone number."
         );
 
+        return;
 
-        /*
-        CREATE ORDER PAYLOAD
-        */
+      }
 
-        const orderData = {
 
-          phone:
-            verifiedPhone,
+      if (!attendance) {
 
-          attendance:
-            verifiedType,
+        showVerificationError(
+          "Please choose In Person or Online."
+        );
 
-          items:
-            cart.map(
-              function (item) {
+        return;
 
-                return {
+      }
 
-                  name:
-                    item.name,
 
-                  size:
-                    item.size,
+      verifyButton.disabled = true;
 
-                  quantity:
-                    item.quantity,
+      verifyButton.textContent =
+        "VERIFYING...";
 
-                  price:
-                    item.price
 
-                };
+      try {
 
-              }
-            ),
+        const url =
+          APPS_SCRIPT_URL +
+          "?phone=" +
+          encodeURIComponent(phone);
 
-          total:
-            Number(
-              total.toFixed(2)
-            )
+
+        const response =
+          await fetch(url, {
+            method: "GET"
+          });
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Verification request failed."
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        if (!data.success) {
+
+          showVerificationError(
+            data.message ||
+            "We could not verify your checkout."
+          );
+
+          return;
+
+        }
+
+
+        if (
+          data.type !== attendance
+        ) {
+
+          showVerificationError(
+            "Your phone number was found, but the selected attendance type does not match."
+          );
+
+          return;
+
+        }
+
+
+        verifiedCheckout = {
+
+          phone: phone,
+
+          type: attendance,
+
+          code: data.code
 
         };
 
 
-        /*
-        BUTTON LOADING
-        */
+        verificationResult.classList.remove(
+          "error"
+        );
 
-        submitOrderButton.disabled =
-          true;
+        verificationResult.classList.add(
+          "success"
+        );
 
-        submitOrderButton.textContent =
-          "SUBMITTING ORDER...";
-
-
-        formError.hidden =
-          true;
-
-        loadingMessage.textContent =
-          "CREATING YOUR WINGS ORDER...";
-
-        loadingMessage.hidden =
-          false;
+        verificationResult.style.display =
+          "block";
 
 
-        try {
-
-          /*
-          text/plain keeps this request simple
-          so the GitHub website does not need
-          a CORS preflight request.
-          */
-
-          const response =
-            await fetch(
-              VERIFICATION_URL,
-              {
-
-                method:
-                  "POST",
-
-                headers: {
-
-                  "Content-Type":
-                    "text/plain;charset=utf-8"
-
-                },
-
-                body:
-                  JSON.stringify(
-                    orderData
-                  )
-
-              }
-            );
+        verificationTitle.textContent =
+          "Checkout Verified";
 
 
-          if (!response.ok) {
-
-            throw new Error(
-              "Order server error"
-            );
-
-          }
+        verificationMessage.textContent =
+          attendance === "IN"
+            ? "Your In Person checkout has been verified."
+            : "Your Online checkout has been verified.";
 
 
-          const result =
-            await response.json();
+        verificationCode.textContent =
+          data.code;
 
 
-          if (!result.success) {
-
-            throw new Error(
-              result.message ||
-              "Order submission failed."
-            );
-
-          }
+        updateOrderSummary();
 
 
-          /*
-          ORDER SUCCESS
-          */
+        if (cart.length === 0) {
 
-          orderIdDisplay.textContent =
-            result.orderId;
+          showToast(
+            "Verified. Add items to your cart to continue."
+          );
 
+        } else {
 
-          orderSuccess.hidden =
-            false;
-
-
-          submitOrderButton.hidden =
-            true;
-
-
-          /*
-          CLEAR CART
-          */
-
-          cart = [];
-
-          updateCart();
-
-
-          /*
-          UPDATE MESSAGE
-          */
-
-          confirmationMessage.textContent =
-            "Your WINGS order has been successfully submitted.";
-
-
-          /*
-          SCROLL TO ORDER CONFIRMATION
-          */
-
-          orderSuccess.scrollIntoView({
-
-            behavior:
-              "smooth",
-
-            block:
-              "center"
-
-          });
-
+          showToast(
+            "Checkout verified."
+          );
 
         }
 
-        catch (error) {
+      } catch (error) {
 
-          formError.textContent =
-            error.message ||
-            "We couldn't submit your WINGS order. Please try again.";
+        console.error(
+          "Verification error:",
+          error
+        );
 
-          formError.hidden =
-            false;
+        showVerificationError(
+          "Unable to connect to the verification system. Please try again."
+        );
 
-          console.error(
-            "WINGS order error:",
-            error
+      } finally {
+
+        verifyButton.disabled = false;
+
+        verifyButton.textContent =
+          "Verify Checkout";
+
+      }
+
+    }
+
+
+    /* =========================================
+       VERIFICATION ERROR
+    ========================================= */
+
+    function showVerificationError(
+      message
+    ) {
+
+      verifiedCheckout = null;
+
+      verificationResult.classList.remove(
+        "success"
+      );
+
+      verificationResult.classList.add(
+        "error"
+      );
+
+      verificationResult.style.display =
+        "block";
+
+
+      verificationTitle.textContent =
+        "Verification Failed";
+
+
+      verificationMessage.textContent =
+        message;
+
+
+      verificationCode.textContent =
+        "";
+
+      orderSummary.classList.remove(
+        "active"
+      );
+
+    }
+
+
+    /* =========================================
+       SUBMIT ORDER
+    ========================================= */
+
+    submitOrderButton.addEventListener(
+      "click",
+      submitOrder
+    );
+
+
+    async function submitOrder() {
+
+      if (!verifiedCheckout) {
+
+        showToast(
+          "Please verify your checkout first."
+        );
+
+        return;
+
+      }
+
+
+      if (cart.length === 0) {
+
+        showToast(
+          "Your cart is empty."
+        );
+
+        return;
+
+      }
+
+
+      const total =
+        getCartTotal();
+
+
+      const items =
+        cart.map(item => ({
+
+          id: item.id,
+
+          name: item.name,
+
+          size: item.size,
+
+          quantity: item.quantity,
+
+          price: item.price
+
+        }));
+
+
+      const payload = {
+
+        phone:
+          verifiedCheckout.phone,
+
+        attendance:
+          verifiedCheckout.type,
+
+        items:
+          items,
+
+        total:
+          total
+
+      };
+
+
+      submitOrderButton.disabled = true;
+
+      submitOrderButton.textContent =
+        "SUBMITTING...";
+
+
+      try {
+
+        /*
+          IMPORTANT:
+          Content-Type is text/plain instead of
+          application/json so the browser does not
+          trigger a CORS preflight request.
+        */
+
+        const response =
+          await fetch(
+            APPS_SCRIPT_URL,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "text/plain;charset=utf-8"
+              },
+
+              body:
+                JSON.stringify(payload)
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Order submission request failed."
           );
 
         }
 
 
-        finally {
+        const data =
+          await response.json();
 
-          submitOrderButton.disabled =
-            false;
 
-          if (
-            !submitOrderButton.hidden
-          ) {
+        if (!data.success) {
 
-            submitOrderButton.textContent =
-              "SUBMIT WINGS ORDER";
+          throw new Error(
+            data.message ||
+            "Order submission failed."
+          );
 
-          }
+        }
 
-          loadingMessage.hidden =
-            true;
+
+        /* SUCCESS */
+
+        orderIdDisplay.textContent =
+          "Order ID: " +
+          data.orderId;
+
+
+        orderSuccess.classList.add(
+          "active"
+        );
+
+
+        submitOrderButton.style.display =
+          "none";
+
+
+        showToast(
+          "Order submitted successfully."
+        );
+
+
+        /*
+          Save the successful order ID
+          temporarily so the copy button
+          can use it.
+        */
+
+        copyOrderButton.dataset.orderId =
+          data.orderId;
+
+
+        /*
+          Clear the shopping cart after
+          successful submission.
+        */
+
+        cart = [];
+
+        saveCart();
+
+        updateCart();
+
+
+      } catch (error) {
+
+        console.error(
+          "Order submission error:",
+          error
+        );
+
+
+        showToast(
+          error.message ||
+          "Order submission failed. Please try again."
+        );
+
+
+        submitOrderButton.disabled =
+          false;
+
+        submitOrderButton.textContent =
+          "Submit Order";
+
+      }
+
+    }
+
+
+    /* =========================================
+       COPY ORDER ID
+    ========================================= */
+
+    copyOrderButton.addEventListener(
+      "click",
+      async () => {
+
+        const orderId =
+          copyOrderButton.dataset.orderId;
+
+
+        if (!orderId) {
+          return;
+        }
+
+
+        try {
+
+          await navigator.clipboard.writeText(
+            orderId
+          );
+
+          copyOrderButton.textContent =
+            "COPIED";
+
+          setTimeout(() => {
+
+            copyOrderButton.textContent =
+              "Copy Order ID";
+
+          }, 1500);
+
+        } catch (error) {
+
+          showToast(
+            "Could not copy the order ID."
+          );
 
         }
 
       }
     );
+
+
+    /* =========================================
+       FORMAT MONEY
+    ========================================= */
+
+    function formatMoney(
+      amount
+    ) {
+
+      return new Intl.NumberFormat(
+        "en-US",
+        {
+          style: "currency",
+          currency: "USD"
+        }
+      ).format(amount);
+
+    }
+
+
+    /* =========================================
+       HTML SAFETY
+    ========================================= */
+
+    function escapeHTML(
+      value
+    ) {
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
+
+
+    function escapeAttribute(
+      value
+    ) {
+
+      return escapeHTML(value);
+
+    }
 
   </script>
 
