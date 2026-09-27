@@ -1,0 +1,41 @@
+*{box-sizing:border-box;margin:0;padding:0}:root{--bg:#050505;--panel:#101010;--text:#f5f5f5;--muted:#9b9b9b;--line:#292929}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}.nav{position:sticky;top:0;z-index:10;height:78px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.logo,.footer-logo{font-size:28px;font-weight:1000;letter-spacing:-2px}.nav nav{display:flex;gap:32px;font-size:12px;font-weight:800;letter-spacing:1.5px}.nav nav a:hover{opacity:.6}.menu-btn{display:none;background:none;color:white;border:0;font-size:24px}.hero{min-height:720px;position:relative;overflow:hidden;display:flex;align-items:center}.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.22) 65%,rgba(0,0,0,.15))}.hero-content{position:relative;z-index:2;padding:100px 7vw;max-width:800px}.eyebrow{font-size:11px;letter-spacing:3px;font-weight:800;color:#aaa;margin-bottom:18px}h1{font-size:clamp(60px,10vw,150px);line-height:.83;letter-spacing:-7px;font-weight:1000}h1 span{color:transparent;-webkit-text-stroke:1px #fff}.hero-copy{margin:30px 0;color:#ddd;font-size:17px}.btn,.disabled-btn{display:inline-block;border:1px solid #fff;padding:15px 22px;font-size:11px;font-weight:900;letter-spacing:1.5px}.btn:hover{background:white;color:black}.drop-banner{padding:70px 7vw;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0c0c0c}.drop-banner h2{font-size:clamp(36px,6vw,76px);letter-spacing:-3px}.drop-banner p:last-child{color:var(--muted);margin-top:10px}.section{padding:110px 7vw}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}h2{font-size:clamp(38px,6vw,72px);line-height:.9;letter-spacing:-4px}.coming{border:1px solid #444;padding:9px 12px;font-size:10px;font-weight:900;letter-spacing:1px;color:#aaa}.products{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.product-art{aspect-ratio:1/1.08;background:#111;border:1px solid #222;overflow:hidden}.product-art img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}.product:hover .product-art img{transform:scale(1.025)}.product-info{padding:18px 2px 0;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.product-info h3{font-size:14px;letter-spacing:1px}.product-info p{color:#aaa;font-size:14px;margin-top:3px}.disabled-btn{color:#777;border-color:#333;background:transparent;cursor:not-allowed}.about{border-top:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:9vw;background:#0a0a0a}.about-title h2{font-size:clamp(45px,7vw,90px)}.about-copy{max-width:650px;color:#c4c4c4;font-size:17px}.about-copy p{margin-bottom:22px}.about-copy strong{color:white}.statement{min-height:420px;display:grid;place-items:center;align-content:center;text-align:center;border-top:1px solid var(--line);overflow:hidden}.giant{font-size:clamp(80px,20vw,260px);line-height:.8;font-weight:1000;letter-spacing:-14px}.statement p{margin-top:35px;letter-spacing:4px;font-size:10px;color:#888}.contact{text-align:center;border-top:1px solid var(--line)}.contact>p:not(.eyebrow){color:#aaa;max-width:520px;margin:25px auto}.socials{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}.socials a{font-size:11px;font-weight:900;letter-spacing:1px;border-bottom:1px solid #555;padding-bottom:5px}footer{padding:45px 7vw;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#777;font-size:11px}footer .footer-logo{color:white}@media(max-width:700px){.nav{height:68px}.menu-btn{display:block}.nav nav{display:none;position:absolute;top:68px;left:0;right:0;padding:25px;background:#080808;border-bottom:1px solid #222;flex-direction:column;gap:22px}.nav nav.open{display:flex}.hero{min-height:620px}.hero-content{padding:80px 6vw}.hero-image{object-position:58% center}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.3))}h1{letter-spacing:-4px}.products{grid-template-columns:1fr}.section{padding:80px 6vw}.section-head{align-items:start;flex-direction:column}.about{grid-template-columns:1fr;gap:45px}footer{flex-direction:column;align-items:flex-start}}
+
+.socials { display:flex; gap:12px; flex-wrap:wrap; }
+.socials a { display:inline-flex; flex-direction:column; gap:4px; }
+.socials a span { font-size:.75rem; opacity:.65; }
+select{background:#0b0b0b;color:#fff;border:1px solid #444;padding:8px 28px 8px 10px;font-size:11px;text-transform:uppercase}select:disabled{opacity:.9}.product-info label{font-size:10px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:8px}.size-note{margin-top:24px;color:#777;font-size:11px;letter-spacing:.5px}.policies{border-top:1px solid var(--line);background:#080808}.policy-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:45px}.policy-grid article{border:1px solid #222;padding:28px}.policy-grid h3{font-size:13px;letter-spacing:1px;margin-bottom:12px}.policy-grid p,.legal-note{color:#999;font-size:13px}.legal-note{margin-top:24px}.footer-links{display:flex;gap:18px}.footer-links a:hover{color:#fff}@media(max-width:700px){.policy-grid{grid-template-columns:1fr}.footer-links{flex-wrap:wrap}}
+
+/* WINGS website logo */
+.wings-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 1000;
+  font-size: 1.35rem;
+  letter-spacing: .14em;
+  font-style: italic;
+}
+.wings-logo span {
+  font-size: .65rem;
+  opacity: .8;
+}
+.policy-page {
+  padding: 80px 7vw;
+  border-top: 1px solid rgba(255,255,255,.12);
+  background: #050505;
+}
+.policy-copy {
+  max-width: 850px;
+  margin-top: 30px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.7;
+}
+.policy-copy h3 {
+  color: #fff;
+  margin: 28px 0 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.policy-copy p { margin: 0 0 12px; }
