@@ -11,6 +11,11 @@
   content="WINGS. Clothes to Make Your Look Fly. First drop March 15, 2027."
 >
 
+<meta
+  name="referrer"
+  content="strict-origin-when-cross-origin"
+>
+
 <style>
 
 /* =========================================================
@@ -1282,6 +1287,11 @@ footer{
   border-color:var(--text);
 }
 
+.checkout-button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
 .checkout-message{
   margin-top:15px;
 
@@ -1322,6 +1332,74 @@ footer{
 
 .checkout-line:last-child{
   border-bottom:0;
+}
+
+
+/* =========================================================
+   GOOGLE CHECKOUT FORM BUTTON
+========================================================= */
+
+.payment-step{
+  margin-bottom:22px;
+
+  padding:18px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+}
+
+.payment-step-title{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.payment-step-text{
+  margin-top:8px;
+
+  color:var(--muted);
+
+  font-size:9px;
+  line-height:1.7;
+}
+
+.open-form-btn{
+  display:block;
+
+  width:100%;
+
+  margin-top:14px;
+
+  padding:15px;
+
+  text-align:center;
+
+  background:var(--button-bg);
+  color:var(--button-text);
+
+  border:1px solid var(--button-bg);
+
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:2px;
+
+  transition:.2s;
+}
+
+.open-form-btn:hover{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--text);
+}
+
+.payment-complete{
+  margin-top:12px;
+
+  color:var(--muted);
+
+  font-size:8px;
+  line-height:1.5;
 }
 
 
@@ -1866,8 +1944,8 @@ footer{
 
     <article
       class="product-card"
+      data-product-id="white-tee"
       data-product="WINGS TEE - WHITE"
-      data-price="25"
       data-image="images/tee-white(1).png"
     >
 
@@ -1939,8 +2017,8 @@ footer{
 
     <article
       class="product-card"
+      data-product-id="black-tee"
       data-product="WINGS TEE - BLACK"
-      data-price="25"
       data-image="images/tee-black(1).png"
     >
 
@@ -2015,8 +2093,8 @@ footer{
 
     <article
       class="product-card"
+      data-product-id="hoodie"
       data-product="WINGS HOODIE"
-      data-price="45"
       data-image="images/hoodie(1).png"
     >
 
@@ -2231,7 +2309,7 @@ footer{
         <a
           href="https://www.instagram.com/thatunderratedsuperstar/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           INSTAGRAM
         </a>
@@ -2239,7 +2317,7 @@ footer{
         <a
           href="https://www.tiktok.com/@forevertda"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           TIKTOK
         </a>
@@ -2247,7 +2325,7 @@ footer{
         <a
           href="https://www.youtube.com/@TDAProductionsz"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           YOUTUBE
         </a>
@@ -2267,7 +2345,6 @@ footer{
         For questions about orders, products or future
         collaborations, keep an eye on the official WINGS
         social pages.
-
       </p>
 
     </div>
@@ -2453,7 +2530,7 @@ footer{
     </button>
 
     <p class="cart-note">
-      Checkout requires phone verification.
+      Complete the WINGS checkout form before verification.
     </p>
 
   </div>
@@ -2491,8 +2568,9 @@ footer{
     </h2>
 
     <p class="modal-description">
-      Enter the same phone number used when submitting
-      the WINGS checkout form.
+      Complete the official WINGS checkout form first.
+      After submitting it, return here and enter the same
+      phone number used on the form.
     </p>
 
 
@@ -2502,43 +2580,96 @@ footer{
     ></div>
 
 
-    <form
-      class="checkout-form"
-      id="checkoutForm"
-    >
+    <!-- =================================================
+         PAYMENT / GOOGLE FORM STEP
+    ================================================== -->
 
-      <div class="form-group">
+    <div class="payment-step">
 
-        <label for="checkoutPhone">
-          PHONE NUMBER
-        </label>
-
-        <input
-          id="checkoutPhone"
-          type="tel"
-          inputmode="numeric"
-          autocomplete="tel"
-          placeholder="(555) 555-5555"
-          maxlength="14"
-          required
-        >
-
+      <div class="payment-step-title">
+        STEP 1 / COMPLETE CHECKOUT
       </div>
 
+      <p class="payment-step-text">
+        Use the official WINGS checkout form to submit your
+        order information and payment. When you finish,
+        return to this page for verification.
+      </p>
 
-      <button
-        class="checkout-button"
-        type="submit"
+      <a
+        id="checkoutFormLink"
+        class="open-form-btn"
+        href="https://forms.gle/FvXyG1yVTW5gwmSJ9"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        VERIFY CHECKOUT
-      </button>
+        OPEN WINGS CHECKOUT FORM
+      </a>
 
-      <div
-        class="checkout-message"
-        id="checkoutMessage"
-      ></div>
+      <div class="payment-complete">
+        After submitting the form, come back here and continue
+        with Step 2.
+      </div>
 
-    </form>
+    </div>
+
+
+    <!-- =================================================
+         VERIFICATION STEP
+    ================================================== -->
+
+    <div class="payment-step">
+
+      <div class="payment-step-title">
+        STEP 2 / VERIFY CHECKOUT
+      </div>
+
+      <p class="payment-step-text">
+        Enter the same phone number used in the WINGS
+        checkout form.
+      </p>
+
+      <form
+        class="checkout-form"
+        id="checkoutForm"
+      >
+
+        <div class="form-group">
+
+          <label for="checkoutPhone">
+            PHONE NUMBER
+          </label>
+
+          <input
+            id="checkoutPhone"
+            type="tel"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="(555) 555-5555"
+            maxlength="14"
+            required
+          >
+
+        </div>
+
+
+        <button
+          class="checkout-button"
+          id="verifyCheckoutButton"
+          type="submit"
+        >
+          VERIFY CHECKOUT
+        </button>
+
+        <div
+          class="checkout-message"
+          id="checkoutMessage"
+          aria-live="polite"
+        ></div>
+
+      </form>
+
+    </div>
 
 
     <div
@@ -2783,11 +2914,70 @@ footer{
 <script>
 
 /* =========================================================
-   GOOGLE APPS SCRIPT
+   WINGS CONFIGURATION
 ========================================================= */
 
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
+
+
+const CHECKOUT_FORM_URL =
+"https://forms.gle/FvXyG1yVTW5gwmSJ9";
+
+
+/*
+  IMPORTANT:
+
+  These are frontend display values only.
+
+  The backend Apps Script must remain the final authority
+  for prices and totals.
+
+  Changing these values in a browser does NOT change what
+  the server should charge/store.
+*/
+
+const PRODUCTS = Object.freeze({
+
+  "hoodie":{
+    id:"hoodie",
+    name:"WINGS HOODIE",
+    displayPrice:45,
+    image:"images/hoodie(1).png"
+  },
+
+  "white-tee":{
+    id:"white-tee",
+    name:"WINGS TEE - WHITE",
+    displayPrice:25,
+    image:"images/tee-white(1).png"
+  },
+
+  "black-tee":{
+    id:"black-tee",
+    name:"WINGS TEE - BLACK",
+    displayPrice:25,
+    image:"images/tee-black(1).png"
+  }
+
+});
+
+
+const VALID_PRODUCT_IDS =
+Object.freeze(
+  Object.keys(PRODUCTS)
+);
+
+
+const VALID_SIZES =
+Object.freeze([
+  "S",
+  "M",
+  "L"
+]);
+
+
+const MAX_QUANTITY = 20;
 
 
 /* =========================================================
@@ -3046,10 +3236,123 @@ setInterval(
 
 
 /* =========================================================
-   CART
+   CART SECURITY / SANITIZATION
 ========================================================= */
 
 let cart = [];
+
+
+/*
+  Never trust localStorage.
+
+  Anyone can edit localStorage manually.
+
+  Therefore every item is rebuilt from the trusted frontend
+  product catalog rather than accepting arbitrary names,
+  images, or prices from stored data.
+*/
+
+function sanitizeCart(rawCart){
+
+  if(!Array.isArray(rawCart)){
+    return [];
+  }
+
+
+  const cleaned = [];
+
+
+  rawCart.forEach(rawItem => {
+
+    if(!rawItem || typeof rawItem !== "object"){
+      return;
+    }
+
+
+    const productId =
+      String(rawItem.productId || "")
+      .trim();
+
+
+    if(!VALID_PRODUCT_IDS.includes(productId)){
+      return;
+    }
+
+
+    const size =
+      String(rawItem.size || "")
+      .toUpperCase()
+      .trim();
+
+
+    if(!VALID_SIZES.includes(size)){
+      return;
+    }
+
+
+    let quantity =
+      Number(rawItem.quantity);
+
+
+    if(!Number.isInteger(quantity)){
+      quantity = 1;
+    }
+
+
+    quantity =
+      Math.max(
+        1,
+        Math.min(
+          MAX_QUANTITY,
+          quantity
+        )
+      );
+
+
+    const product =
+      PRODUCTS[productId];
+
+
+    const existing =
+      cleaned.find(
+        item =>
+          item.productId === productId &&
+          item.size === size
+      );
+
+
+    if(existing){
+
+      existing.quantity =
+        Math.min(
+          MAX_QUANTITY,
+          existing.quantity + quantity
+        );
+
+    }else{
+
+      cleaned.push({
+
+        productId:productId,
+
+        name:product.name,
+
+        image:product.image,
+
+        size:size,
+
+        quantity:quantity
+
+      });
+
+    }
+
+  });
+
+
+  return cleaned;
+
+}
 
 
 try{
@@ -3060,7 +3363,9 @@ try{
   if(savedCart){
 
     cart =
-      JSON.parse(savedCart);
+      sanitizeCart(
+        JSON.parse(savedCart)
+      );
 
   }
 
@@ -3071,61 +3376,17 @@ try{
 }
 
 
-/* =========================================================
-   NORMALIZE OLD HOODIE CART ITEMS
-========================================================= */
-
-const normalizedCart = [];
-
-
-cart.forEach(item => {
-
-  if(
-    item.name ===
-    "WINGS HOODIE \u2014 DETAIL" ||
-    item.name ===
-    "WINGS HOODIE - DETAIL"
-  ){
-
-    item.name =
-      "WINGS HOODIE";
-
-    item.image =
-      "images/hoodie(1).png";
-
-  }
-
-
-  const existing =
-    normalizedCart.find(
-      existingItem =>
-        existingItem.name === item.name &&
-        existingItem.size === item.size
-    );
-
-
-  if(existing){
-
-    existing.quantity +=
-      Number(item.quantity) || 1;
-
-  }else{
-
-    normalizedCart.push({
-      ...item,
-      quantity:
-        Number(item.quantity) || 1
-    });
-
-  }
-
-});
-
-
-cart = normalizedCart;
-
-
 function saveCart(){
+
+  /*
+    Only sanitized cart data is written.
+
+    No client-controlled price is stored.
+  */
+
+  cart =
+    sanitizeCart(cart);
+
 
   localStorage.setItem(
     "WINGS_CART",
@@ -3134,6 +3395,10 @@ function saveCart(){
 
 }
 
+
+/* =========================================================
+   CART ELEMENTS
+========================================================= */
 
 const cartDrawer =
 document.getElementById("cartDrawer");
@@ -3198,14 +3463,44 @@ cartOverlay.addEventListener(
 
 
 /* =========================================================
+   FRONTEND DISPLAY TOTAL
+========================================================= */
+
+function calculateDisplayTotal(){
+
+  return cart.reduce(
+    (sum,item) => {
+
+      const product =
+        PRODUCTS[item.productId];
+
+      if(!product){
+        return sum;
+      }
+
+      return sum +
+        (
+          product.displayPrice *
+          item.quantity
+        );
+
+    },
+    0
+  );
+
+}
+
+
+/* =========================================================
    UPDATE CART
 ========================================================= */
 
 function updateCart(){
 
-  cartItems.innerHTML = "";
+  cart =
+    sanitizeCart(cart);
 
-  let total = 0;
+  cartItems.innerHTML = "";
 
   let quantityTotal = 0;
 
@@ -3224,14 +3519,22 @@ function updateCart(){
   cart.forEach(
     (item,index) => {
 
-      const itemTotal =
-        Number(item.price) *
-        Number(item.quantity);
+      const product =
+        PRODUCTS[item.productId];
 
-      total += itemTotal;
+
+      if(!product){
+        return;
+      }
+
+
+      const itemTotal =
+        product.displayPrice *
+        item.quantity;
+
 
       quantityTotal +=
-        Number(item.quantity);
+        item.quantity;
 
 
       const cartItem =
@@ -3244,19 +3547,19 @@ function updateCart(){
       cartItem.innerHTML = `
 
         <img
-          src="${item.image}"
-          alt="${item.name}"
+          src="${escapeHTML(product.image)}"
+          alt="${escapeHTML(product.name)}"
         >
 
         <div>
 
           <div class="cart-item-name">
-            ${item.name}
+            ${escapeHTML(product.name)}
           </div>
 
           <div class="cart-item-meta">
-            SIZE ${item.size} /
-            $${Number(item.price).toFixed(2)}
+            SIZE ${escapeHTML(item.size)} /
+            $${product.displayPrice.toFixed(2)}
           </div>
 
           <div class="cart-quantity">
@@ -3311,7 +3614,8 @@ function updateCart(){
 
 
   cartTotal.textContent =
-    "$" + total.toFixed(2);
+    "$" +
+    calculateDisplayTotal().toFixed(2);
 
 
   cartCount.textContent =
@@ -3321,6 +3625,22 @@ function updateCart(){
   saveCart();
 
   updateCheckoutItems();
+
+}
+
+
+/* =========================================================
+   SAFE HTML ESCAPING
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -3344,13 +3664,26 @@ cartItems.addEventListener(
           quantityButton.dataset.index
         );
 
+
+      if(
+        !Number.isInteger(index) ||
+        !cart[index]
+      ){
+        return;
+      }
+
+
       const action =
         quantityButton.dataset.action;
 
 
       if(action === "plus"){
 
-        cart[index].quantity++;
+        cart[index].quantity =
+          Math.min(
+            MAX_QUANTITY,
+            cart[index].quantity + 1
+          );
 
       }
 
@@ -3388,9 +3721,17 @@ cartItems.addEventListener(
           removeButton.dataset.index
         );
 
-      cart.splice(index,1);
 
-      updateCart();
+      if(
+        Number.isInteger(index) &&
+        cart[index]
+      ){
+
+        cart.splice(index,1);
+
+        updateCart();
+
+      }
 
     }
 
@@ -3421,28 +3762,68 @@ document.querySelectorAll(
     "click",
     () => {
 
+      const productId =
+        String(
+          card.dataset.productId || ""
+        );
+
+
+      if(
+        !VALID_PRODUCT_IDS.includes(
+          productId
+        )
+      ){
+
+        return;
+
+      }
+
+
       const product =
-        card.dataset.product;
+        PRODUCTS[productId];
 
-      const price =
-        Number(card.dataset.price);
-
-      const image =
-        card.dataset.image;
 
       const size =
-        sizeSelect.value;
+        String(
+          sizeSelect.value || ""
+        )
+        .toUpperCase();
+
+
+      if(!VALID_SIZES.includes(size)){
+
+        alert(
+          "Please select a valid size."
+        );
+
+        return;
+
+      }
 
 
       const existing =
         cart.find(
           item =>
-            item.name === product &&
+            item.productId === productId &&
             item.size === size
         );
 
 
       if(existing){
+
+        if(
+          existing.quantity >=
+          MAX_QUANTITY
+        ){
+
+          alert(
+            "Maximum quantity reached."
+          );
+
+          return;
+
+        }
+
 
         existing.quantity++;
 
@@ -3450,11 +3831,11 @@ document.querySelectorAll(
 
         cart.push({
 
-          name:product,
+          productId:product.id,
 
-          price:price,
+          name:product.name,
 
-          image:image,
+          image:product.image,
 
           size:size,
 
@@ -3519,8 +3900,43 @@ document.getElementById(
   "verificationInfo"
 );
 
+const verifyCheckoutButton =
+document.getElementById(
+  "verifyCheckoutButton"
+);
+
+const checkoutFormLink =
+document.getElementById(
+  "checkoutFormLink"
+);
+
+
+/*
+  Always use the hard-coded official form URL.
+*/
+
+checkoutFormLink.href =
+CHECKOUT_FORM_URL;
+
+
+/*
+  This state exists only for this browser session.
+
+  It does NOT replace backend verification.
+*/
+
+let verificationInProgress =
+false;
+
+let orderSubmissionInProgress =
+false;
+
 
 function openCheckout(){
+
+  cart =
+    sanitizeCart(cart);
+
 
   if(cart.length === 0){
 
@@ -3558,10 +3974,21 @@ function openCheckout(){
   verificationBox.style.display =
     "none";
 
+  verificationCode.textContent =
+    "";
+
+  verificationInfo.textContent =
+    "";
+
 }
 
 
 function closeCheckout(){
+
+  if(verificationInProgress){
+    return;
+  }
+
 
   checkoutModal.classList.remove(
     "open"
@@ -3620,6 +4047,10 @@ function updateCheckoutItems(){
     );
 
 
+  cart =
+    sanitizeCart(cart);
+
+
   if(cart.length === 0){
 
     container.innerHTML =
@@ -3642,9 +4073,19 @@ function updateCheckoutItems(){
 
   cart.forEach(item => {
 
+    const product =
+      PRODUCTS[item.productId];
+
+
+    if(!product){
+      return;
+    }
+
+
     const itemTotal =
-      Number(item.price) *
-      Number(item.quantity);
+      product.displayPrice *
+      item.quantity;
+
 
     total += itemTotal;
 
@@ -3654,8 +4095,8 @@ function updateCheckoutItems(){
       <div class="checkout-line">
 
         <span>
-          ${item.name}
-          / ${item.size}
+          ${escapeHTML(product.name)}
+          / ${escapeHTML(item.size)}
           x${item.quantity}
         </span>
 
@@ -3678,7 +4119,7 @@ function updateCheckoutItems(){
     >
 
       <span>
-        TOTAL
+        DISPLAY TOTAL
       </span>
 
       <strong>
@@ -3710,6 +4151,39 @@ function normalizePhone(phone){
 
 
 /* =========================================================
+   BUILD SERVER ORDER
+========================================================= */
+
+function buildServerOrderItems(){
+
+  const sanitized =
+    sanitizeCart(cart);
+
+
+  return sanitized.map(item => ({
+
+    /*
+      IMPORTANT:
+
+      Send only the product ID.
+
+      Do NOT send a browser price.
+
+      The Apps Script backend should determine the price.
+    */
+
+    productId:item.productId,
+
+    size:item.size,
+
+    quantity:item.quantity
+
+  }));
+
+}
+
+
+/* =========================================================
    CHECKOUT VERIFICATION
 ========================================================= */
 
@@ -3718,6 +4192,25 @@ checkoutForm.addEventListener(
   async event => {
 
     event.preventDefault();
+
+
+    if(verificationInProgress){
+      return;
+    }
+
+
+    cart =
+      sanitizeCart(cart);
+
+
+    if(cart.length === 0){
+
+      checkoutMessage.textContent =
+        "Your cart is empty.";
+
+      return;
+
+    }
 
 
     const phoneInput =
@@ -3742,12 +4235,20 @@ checkoutForm.addEventListener(
     }
 
 
-    checkoutMessage.textContent =
-      "Checking your checkout information...";
+    verificationInProgress =
+      true;
+
+
+    verifyCheckoutButton.disabled =
+      true;
 
 
     verificationBox.style.display =
       "none";
+
+
+    checkoutMessage.textContent =
+      "Checking your checkout information...";
 
 
     try{
@@ -3756,19 +4257,59 @@ checkoutForm.addEventListener(
         await fetch(
           APPS_SCRIPT_URL +
           "?phone=" +
-          encodeURIComponent(phone)
+          encodeURIComponent(phone),
+          {
+            method:"GET",
+            cache:"no-store",
+            credentials:"omit"
+          }
         );
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "Verification request failed."
+        );
+
+      }
 
 
       const data =
         await response.json();
 
 
-      if(!data.success){
+      if(
+        !data ||
+        data.success !== true ||
+        data.verified !== true ||
+        !data.code
+      ){
 
         checkoutMessage.textContent =
-          data.message ||
-          "We could not verify your information.";
+          data && data.message
+          ? data.message
+          : "We could not verify your checkout.";
+
+        return;
+
+      }
+
+
+      /*
+        Never allow arbitrary HTML from the server
+        to be injected into the page.
+      */
+
+      const safeCode =
+        String(data.code)
+        .trim();
+
+
+      if(!safeCode){
+
+        checkoutMessage.textContent =
+          "Verification failed.";
 
         return;
 
@@ -3776,7 +4317,20 @@ checkoutForm.addEventListener(
 
 
       verificationCode.textContent =
-        data.code;
+        safeCode;
+
+
+      const attendanceType =
+        String(data.type || "")
+        .toUpperCase();
+
+
+      const readableAttendance =
+        attendanceType === "IN"
+        ? "IN PERSON"
+        : attendanceType === "ON"
+        ? "ONLINE"
+        : "VERIFIED";
 
 
       verificationInfo.innerHTML = `
@@ -3785,13 +4339,9 @@ checkoutForm.addEventListener(
 
         <br><br>
 
-        Attendance type:
+        Checkout type:
         <strong>
-          ${
-            data.type === "IN"
-            ? "IN PERSON"
-            : "ONLINE"
-          }
+          ${escapeHTML(readableAttendance)}
         </strong>
 
       `;
@@ -3807,16 +4357,29 @@ checkoutForm.addEventListener(
 
       await submitOrder(
         phone,
-        data.type
+        attendanceType,
+        safeCode
       );
 
 
     }catch(error){
 
-      console.error(error);
+      console.error(
+        "WINGS checkout verification error:",
+        error
+      );
+
 
       checkoutMessage.textContent =
-        "Verification failed. Please try again.";
+        "Verification failed. Please check your connection and try again.";
+
+    }finally{
+
+      verificationInProgress =
+        false;
+
+      verifyCheckoutButton.disabled =
+        false;
 
     }
 
@@ -3830,36 +4393,61 @@ checkoutForm.addEventListener(
 
 async function submitOrder(
   phone,
-  attendance
+  attendance,
+  code
 ){
 
-  const total =
-    cart.reduce(
-      (sum,item) =>
-        sum +
-        (
-          Number(item.price) *
-          Number(item.quantity)
-        ),
-      0
-    );
+  if(orderSubmissionInProgress){
+    return;
+  }
+
+
+  cart =
+    sanitizeCart(cart);
+
+
+  if(cart.length === 0){
+
+    checkoutMessage.textContent =
+      "Your cart is empty.";
+
+    return;
+
+  }
 
 
   const items =
-    cart.map(item => ({
+    buildServerOrderItems();
 
-      name:item.name,
 
-      size:item.size,
+  if(!items.length){
 
-      quantity:item.quantity,
+    checkoutMessage.textContent =
+      "Your order could not be prepared.";
 
-      price:Number(item.price)
+    return;
 
-    }));
+  }
+
+
+  /*
+    Do NOT send:
+
+      - browser price
+      - browser total
+
+    The backend should calculate both from product IDs.
+  */
+
+  orderSubmissionInProgress =
+    true;
 
 
   try{
+
+    checkoutMessage.textContent =
+      "Submitting your order securely...";
+
 
     const response =
       await fetch(
@@ -3873,15 +4461,19 @@ async function submitOrder(
               "text/plain;charset=utf-8"
           },
 
+          cache:"no-store",
+
+          credentials:"omit",
+
           body:JSON.stringify({
 
             phone:phone,
 
             attendance:attendance,
 
-            items:items,
+            code:code,
 
-            total:total
+            items:items
 
           })
 
@@ -3889,20 +4481,52 @@ async function submitOrder(
       );
 
 
+    if(!response.ok){
+
+      throw new Error(
+        "Order submission request failed."
+      );
+
+    }
+
+
     const data =
       await response.json();
 
 
-    if(!data.success){
+    if(
+      !data ||
+      data.success !== true
+    ){
 
       checkoutMessage.textContent =
-        data.message ||
-        "Order submission failed.";
+        data && data.message
+        ? data.message
+        : "Order submission failed.";
 
       return;
 
     }
 
+
+    const safeOrderId =
+      String(
+        data.orderId || ""
+      ).trim();
+
+
+    const serverCode =
+      String(
+        data.code || code
+      ).trim();
+
+
+    /*
+      IMPORTANT:
+
+      The cart is cleared ONLY after the server
+      confirms the order.
+    */
 
     checkoutMessage.innerHTML = `
 
@@ -3914,15 +4538,19 @@ async function submitOrder(
 
       Order ID:
       <strong>
-        ${data.orderId}
+        ${escapeHTML(safeOrderId || "CONFIRMED")}
       </strong>
 
       <br><br>
 
       Keep your verification code:
       <strong>
-        ${data.code}
+        ${escapeHTML(serverCode)}
       </strong>
+
+      <br><br>
+
+      Your order has been submitted to WINGS.
 
     `;
 
@@ -3933,13 +4561,31 @@ async function submitOrder(
 
     updateCart();
 
+    updateCheckoutItems();
+
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      "WINGS order submission error:",
+      error
+    );
+
+
+    /*
+      DO NOT clear the cart here.
+
+      If the request failed, the customer still has
+      their cart and can retry.
+    */
 
     checkoutMessage.textContent =
-      "Your verification worked, but the order could not be submitted. Please save your verification code and contact WINGS.";
+      "Your verification worked, but the order could not be submitted. Your cart has NOT been cleared. Please try again.";
+
+  }finally{
+
+    orderSubmissionInProgress =
+      false;
 
   }
 
@@ -4285,13 +4931,17 @@ document.addEventListener(
     }
 
 
-    closeCart();
+    if(!verificationInProgress){
 
-    closeCheckout();
+      closeCart();
 
-    closeSizeModal();
+      closeCheckout();
 
-    closeThemeModal();
+      closeSizeModal();
+
+      closeThemeModal();
+
+    }
 
 
     imageModal.classList.remove(
@@ -4309,6 +4959,11 @@ document.addEventListener(
 /* =========================================================
    INITIALIZE
 ========================================================= */
+
+cart =
+sanitizeCart(cart);
+
+saveCart();
 
 updateCart();
 
