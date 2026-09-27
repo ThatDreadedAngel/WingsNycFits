@@ -1,3607 +1,4322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>WINGS | Clothes to Make Your Look Fly.</title>
-  <meta
-    name="description"
-    content="WINGS - Clothes to Make Your Look Fly. Created in New York."
-  >
-
-  <style>
-    :root {
-      --black: #080808;
-      --white: #ffffff;
-      --gray: #777;
-      --light-gray: #f3f3f3;
-      --border: #dedede;
-      --green: #16a34a;
-      --red: #d71920;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      overflow-x: hidden;
-    }
-
-    button,
-    input,
-    select {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      max-width: 1400px;
-      height: 76px;
-      margin: auto;
-      padding: 0 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 30px;
-      font-weight: 1000;
-      letter-spacing: -2px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding: 8px 0;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #000;
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .cart-button {
-      border: 1px solid #000;
-      background: #000;
-      color: #fff;
-      padding: 11px 17px;
-      font-weight: 800;
-      border-radius: 4px;
-      transition: 0.2s;
-    }
-
-    .cart-button:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .cart-count {
-      display: inline-flex;
-      min-width: 20px;
-      height: 20px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #fff;
-      color: #000;
-      font-size: 11px;
-      margin-left: 5px;
-    }
-
-    .menu-button {
-      display: none;
-      border: none;
-      background: transparent;
-      font-size: 25px;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-      padding-top: 76px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: #f6f6f6;
-    }
-
-    .hero-content {
-      padding: 80px 7vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-label {
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(70px, 11vw, 180px);
-      line-height: 0.78;
-      letter-spacing: -9px;
-      font-weight: 1000;
-      margin-bottom: 35px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 430px;
-      line-height: 1.6;
-      color: #444;
-      margin-bottom: 30px;
-    }
-
-    .primary-button {
-      width: fit-content;
-      padding: 16px 27px;
-      border: 2px solid #000;
-      background: #000;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.2s;
-    }
-
-    .primary-button:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .hero-image {
-      min-height: 700px;
-      overflow: hidden;
-      background: #ddd;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      min-height: 700px;
-      object-fit: cover;
-    }
-
-    /* =========================
-       MARQUEE
-    ========================= */
-
-    .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      background: #000;
-      color: #fff;
-      padding: 15px 0;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #000;
-    }
-
-    .marquee-track {
-      display: inline-block;
-      animation: marquee 18s linear infinite;
-      font-size: 18px;
-      font-weight: 1000;
-      letter-spacing: 2px;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
-
-    section {
-      scroll-margin-top: 80px;
-    }
-
-    .section {
-      max-width: 1400px;
-      margin: auto;
-      padding: 100px 30px;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 30px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(42px, 6vw, 80px);
-      line-height: 0.9;
-      letter-spacing: -4px;
-      font-weight: 1000;
-    }
-
-    .section-heading p {
-      max-width: 420px;
-      color: #666;
-      line-height: 1.6;
-    }
-
-    /* =========================
-       DROP
-    ========================= */
-
-    .drop {
-      background: #fff;
-    }
-
-    .drop-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 20px;
-    }
-
-    .drop-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 550px;
-      background: #eee;
-    }
-
-    .drop-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .drop-card:hover img {
-      transform: scale(1.04);
-    }
-
-    .drop-overlay {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      padding: 35px;
-      background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, 0.75)
-      );
-      color: #fff;
-    }
-
-    .drop-overlay h3 {
-      font-size: 42px;
-      font-weight: 1000;
-      letter-spacing: -2px;
-    }
-
-    .drop-overlay p {
-      margin-top: 8px;
-      opacity: 0.9;
-    }
-
-    /* =========================
-       SHOP
-    ========================= */
-
-    .shop {
-      background: #f6f6f6;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .product-card {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      overflow: hidden;
-    }
-
-    .product-image {
-      aspect-ratio: 1 / 1.1;
-      background: #eee;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.45s ease;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.035);
-    }
-
-    .product-info {
-      padding: 20px;
-    }
-
-    .product-name {
-      font-size: 17px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-
-    .product-price {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .product-controls {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .product-controls select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      background: #fff;
-      outline: none;
-    }
-
-    .add-button {
-      width: 100%;
-      padding: 13px;
-      background: #000;
-      color: #fff;
-      border: 1px solid #000;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
-
-    .add-button:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .stock-note {
-      font-size: 11px;
-      color: #777;
-      margin-top: 10px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-copy h2 {
-      font-size: clamp(50px, 7vw, 100px);
-      line-height: 0.85;
-      letter-spacing: -6px;
-      font-weight: 1000;
-      margin-bottom: 35px;
-    }
-
-    .about-copy p {
-      max-width: 600px;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #555;
-    }
-
-    .about-box {
-      background: #000;
-      color: #fff;
-      padding: 70px;
-      min-height: 450px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .about-box h3 {
-      font-size: 55px;
-      line-height: 0.9;
-      letter-spacing: -4px;
-      font-weight: 1000;
-    }
-
-    /* =========================
-       STATEMENT
-    ========================= */
-
-    .statement {
-      background: #000;
-      color: #fff;
-      text-align: center;
-    }
-
-    .statement-inner {
-      max-width: 1000px;
-      margin: auto;
-      padding: 30px;
-    }
-
-    .statement h2 {
-      font-size: clamp(48px, 8vw, 110px);
-      line-height: 0.9;
-      letter-spacing: -6px;
-      font-weight: 1000;
-    }
-
-    .statement p {
-      margin-top: 30px;
-      color: #aaa;
-      font-size: 17px;
-    }
-
-    /* =========================
-       CHECKOUT
-    ========================= */
-
-    .checkout {
-      background: #f6f6f6;
-    }
-
-    .checkout-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: start;
-    }
-
-    .checkout-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 35px;
-    }
-
-    .checkout-card h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      letter-spacing: -1px;
-    }
-
-    .checkout-card > p {
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #cfcfcf;
-      background: #fff;
-      outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: #000;
-    }
-
-    .attendance-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .attendance-option {
-      position: relative;
-    }
-
-    .attendance-option input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .attendance-option label {
-      border: 1px solid #ccc;
-      padding: 16px;
-      display: block;
-      text-align: center;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 900;
-      transition: 0.2s;
-    }
-
-    .attendance-option input:checked + label {
-      background: #000;
-      color: #fff;
-      border-color: #000;
-    }
-
-    .verify-button,
-    .submit-order-button {
-      width: 100%;
-      padding: 16px;
-      border: 2px solid #000;
-      background: #000;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
-
-    .verify-button:hover,
-    .submit-order-button:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .verify-button:disabled,
-    .submit-order-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .verification-result {
-      display: none;
-      margin-top: 18px;
-      padding: 18px;
-      background: #f0fff4;
-      border: 1px solid #a9dfb7;
-    }
-
-    .verification-result.success {
-      display: block;
-    }
-
-    .verification-result.error {
-      display: block;
-      background: #fff3f3;
-      border-color: #efb1b1;
-    }
-
-    .verification-title {
-      font-weight: 1000;
-      margin-bottom: 7px;
-    }
-
-    .verification-code {
-      font-size: 25px;
-      font-weight: 1000;
-      letter-spacing: 2px;
-      margin-top: 10px;
-    }
-
-    .checkout-summary {
-      display: none;
-      margin-top: 25px;
-      border-top: 1px solid #ddd;
-      padding-top: 25px;
-    }
-
-    .checkout-summary.active {
-      display: block;
-    }
-
-    .checkout-summary h4 {
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-
-    .summary-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-    }
-
-    .summary-item-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .summary-item-info span:last-child {
-      color: #777;
-      font-size: 12px;
-    }
-
-    .summary-total {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      font-size: 21px;
-      font-weight: 1000;
-    }
-
-    .order-success {
-      display: none;
-      margin-top: 20px;
-      padding: 22px;
-      background: #000;
-      color: #fff;
-    }
-
-    .order-success.active {
-      display: block;
-    }
-
-    .order-success h4 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .order-id {
-      margin-top: 12px;
-      font-size: 18px;
-      font-weight: 1000;
-      letter-spacing: 1px;
-    }
-
-    .copy-order {
-      margin-top: 15px;
-      padding: 11px 15px;
-      background: #fff;
-      color: #000;
-      border: 1px solid #fff;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .contact-box {
-      border: 1px solid #ddd;
-      padding: 40px;
-    }
-
-    .contact-box h3 {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .contact-box p {
-      color: #666;
-      line-height: 1.7;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      border: 1px solid #000;
-      padding: 11px 15px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
-
-    .social-links a:hover {
-      background: #000;
-      color: #fff;
-    }
-
-    /* =========================
-       POLICIES
-    ========================= */
-
-    .policies {
-      background: #f6f6f6;
-    }
-
-    .policy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .policy {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 30px;
-    }
-
-    .policy h3 {
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
-
-    .policy p {
-      color: #666;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    /* =========================
-       CART DRAWER
-    ========================= */
-
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 1998;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.25s;
-    }
-
-    .cart-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(470px, 100%);
-      height: 100vh;
-      background: #fff;
-      z-index: 1999;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cart-drawer.active {
-      transform: translateX(0);
-    }
-
-    .cart-header {
-      padding: 22px;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .cart-header h3 {
-      font-size: 22px;
-      font-weight: 1000;
-    }
-
-    .close-cart {
-      border: none;
-      background: transparent;
-      font-size: 28px;
-      line-height: 1;
-    }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-    }
-
-    .empty-cart {
-      text-align: center;
-      padding: 70px 20px;
-      color: #777;
-    }
-
-    .empty-cart h4 {
-      color: #000;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .empty-cart button {
-      margin-top: 20px;
-      padding: 12px 17px;
-      background: #000;
-      color: #fff;
-      border: none;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .cart-item {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 13px;
-      padding: 15px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .cart-item-image {
-      width: 80px;
-      height: 90px;
-      background: #eee;
-      overflow: hidden;
-    }
-
-    .cart-item-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cart-item-info h4 {
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .cart-item-info p {
-      color: #777;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
-
-    .cart-item-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .quantity-controls {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ccc;
-    }
-
-    .quantity-controls button {
-      width: 27px;
-      height: 27px;
-      border: none;
-      background: #fff;
-      font-weight: 900;
-    }
-
-    .quantity-controls span {
-      width: 28px;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    .remove-item {
-      border: none;
-      background: transparent;
-      color: #777;
-      font-size: 11px;
-      text-decoration: underline;
-      margin-top: 7px;
-    }
-
-    .cart-footer {
-      border-top: 1px solid #ddd;
-      padding: 20px;
-    }
-
-    .cart-subtotal {
-      display: flex;
-      justify-content: space-between;
-      font-size: 20px;
-      font-weight: 1000;
-      margin-bottom: 15px;
-    }
-
-    .checkout-link {
-      width: 100%;
-      padding: 15px;
-      background: #000;
-      color: #fff;
-      border: 1px solid #000;
-      font-weight: 900;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-
-    .checkout-link:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 60px 30px 30px;
-    }
-
-    .footer-inner {
-      max-width: 1400px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .footer-logo {
-      font-size: 70px;
-      font-weight: 1000;
-      letter-spacing: -5px;
-      line-height: 0.8;
-    }
-
-    .footer-right {
-      text-align: right;
-      color: #aaa;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 60px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid #333;
-      color: #777;
-      font-size: 11px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    /* =========================
-       TOAST
-    ========================= */
-
-    .toast {
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translate(-50%, 100px);
-      background: #000;
-      color: #fff;
-      padding: 14px 20px;
-      z-index: 3000;
-      font-size: 13px;
-      font-weight: 700;
-      opacity: 0;
-      transition: 0.3s;
-      pointer-events: none;
-    }
-
-    .toast.show {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 1000px) {
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        min-height: 550px;
-      }
-
-      .hero-image img {
-        min-height: 550px;
-      }
-
-      .drop-grid,
-      .about-grid,
-      .checkout-layout,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .policy-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about-box {
-        min-height: 350px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav {
-        height: 65px;
-        padding: 0 18px;
-      }
-
-      .logo {
-        font-size: 25px;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        border-bottom: 1px solid #ddd;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 10px 20px 20px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        width: 100%;
-        padding: 14px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .hero {
-        padding-top: 65px;
-      }
-
-      .hero-content {
-        padding: 65px 25px;
-      }
-
-      .hero h1 {
-        font-size: 76px;
-        letter-spacing: -6px;
-      }
-
-      .hero-image,
-      .hero-image img {
-        min-height: 430px;
-      }
-
-      .section {
-        padding: 70px 18px;
-      }
-
-      .section-heading {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .section-heading h2 {
-        letter-spacing: -3px;
-      }
-
-      .products {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-
-      .product-info {
-        padding: 14px;
-      }
-
-      .product-controls {
-        grid-template-columns: 1fr;
-      }
-
-      .drop-card {
-        min-height: 400px;
-      }
-
-      .about-box {
-        padding: 40px;
-      }
-
-      .about-box h3 {
-        font-size: 42px;
-      }
-
-      .checkout-card {
-        padding: 22px;
-      }
-
-      .policy-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-      }
-
-      .footer-right {
-        text-align: left;
-      }
-
-      .footer-logo {
-        font-size: 55px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 430px) {
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 65px;
-      }
-
-      .attendance-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WINGS | Clothes to Make Your Look Fly.</title>
+
+<meta
+  name="description"
+  content="WINGS. Clothes to Make Your Look Fly. First drop March 15, 2027."
+>
+
+<style>
+
+/* =========================================================
+   THEMES
+========================================================= */
+
+:root{
+  --bg:#000;
+  --surface:#070707;
+  --surface2:#101010;
+  --surface3:#171717;
+
+  --text:#fff;
+  --muted:#999;
+  --muted2:#666;
+
+  --border:rgba(255,255,255,.18);
+  --soft-border:rgba(255,255,255,.10);
+
+  --button-bg:#fff;
+  --button-text:#000;
+
+  --input-bg:#101010;
+
+  --header-bg:rgba(0,0,0,.88);
+}
+
+body[data-theme="white"]{
+  --bg:#fff;
+  --surface:#f7f7f7;
+  --surface2:#eeeeee;
+  --surface3:#e4e4e4;
+
+  --text:#000;
+  --muted:#666;
+  --muted2:#888;
+
+  --border:rgba(0,0,0,.18);
+  --soft-border:rgba(0,0,0,.10);
+
+  --button-bg:#000;
+  --button-text:#fff;
+
+  --input-bg:#eeeeee;
+
+  --header-bg:rgba(255,255,255,.92);
+}
+
+body[data-theme="gray"]{
+  --bg:#777;
+  --surface:#6d6d6d;
+  --surface2:#606060;
+  --surface3:#555;
+
+  --text:#fff;
+  --muted:#d5d5d5;
+  --muted2:#bcbcbc;
+
+  --border:rgba(255,255,255,.25);
+  --soft-border:rgba(255,255,255,.15);
+
+  --button-bg:#fff;
+  --button-text:#000;
+
+  --input-bg:#606060;
+
+  --header-bg:rgba(65,65,65,.94);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial, Helvetica, sans-serif;
+  transition:
+    background .3s ease,
+    color .3s ease;
+}
+
+body.modal-open{
+  overflow:hidden;
+}
+
+button,
+select,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:76px;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 5vw;
+
+  background:var(--header-bg);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid var(--soft-border);
+
+  transition:background .3s ease;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:1000;
+  letter-spacing:5px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav-links a,
+.settings-nav-btn{
+  color:var(--text);
+  background:none;
+  border:0;
+
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+
+  transition:.2s;
+}
+
+.nav-links a:hover,
+.settings-nav-btn:hover{
+  opacity:.55;
+}
+
+.settings-nav-btn{
+  padding:0;
+}
+
+.cart-nav-btn{
+  position:relative;
+
+  color:var(--button-text);
+  background:var(--button-bg);
+
+  border:1px solid var(--button-bg);
+
+  padding:10px 15px;
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.5px;
+
+  transition:.2s;
+}
+
+.cart-nav-btn:hover{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--text);
+}
+
+#cartCount{
+  position:absolute;
+
+  top:-8px;
+  right:-8px;
+
+  min-width:19px;
+  height:19px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:var(--text);
+  color:var(--bg);
+
+  font-size:9px;
+  font-weight:900;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu-btn{
+  display:none;
+
+  background:none;
+  border:0;
+  color:var(--text);
+
+  font-size:23px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  min-height:100vh;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:hidden;
+
+  background:#050505;
+}
+
+.hero-image{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.72;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.78)
+    );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+
+  width:min(1000px,90%);
+
+  text-align:center;
+}
+
+.hero-eyebrow{
+  margin-bottom:20px;
+
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:5px;
+}
+
+.hero-title{
+  font-size:clamp(65px,13vw,180px);
+  line-height:.8;
+
+  font-weight:1000;
+  letter-spacing:-8px;
+}
+
+.hero-subtitle{
+  margin-top:30px;
+
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:4px;
+}
+
+.hero-button{
+  display:inline-block;
+
+  margin-top:35px;
+
+  padding:16px 28px;
+
+  background:#fff;
+  color:#000;
+
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+
+  border:1px solid #fff;
+
+  transition:.25s;
+}
+
+.hero-button:hover{
+  background:transparent;
+  color:#fff;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+section{
+  padding:120px 6vw;
+}
+
+.section-label{
+  margin-bottom:15px;
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:4px;
+
+  color:var(--muted);
+}
+
+.section-title{
+  font-size:clamp(38px,6vw,80px);
+  line-height:.9;
+
+  font-weight:1000;
+  letter-spacing:-3px;
+}
+
+
+/* =========================================================
+   DROP
+========================================================= */
+
+.drop-section{
+  border-top:1px solid var(--soft-border);
+}
+
+.drop-banner{
+  margin-top:45px;
+
+  padding:28px;
+
+  border:1px solid var(--border);
+
+  background:var(--surface);
+}
+
+.drop-banner strong{
+  display:block;
+
+  font-size:11px;
+  letter-spacing:3px;
+
+  margin-bottom:10px;
+}
+
+.drop-banner span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:12px;
+
+  margin-top:35px;
+}
+
+.count-box{
+  padding:25px 15px;
+
+  text-align:center;
+
+  border:1px solid var(--border);
+
+  background:var(--surface);
+}
+
+.count-number{
+  font-size:32px;
+  font-weight:1000;
+}
+
+.count-label{
+  margin-top:7px;
+
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:2px;
+
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+.shop-section{
+  border-top:1px solid var(--soft-border);
+}
+
+.products-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:20px;
+
+  margin-top:55px;
+}
+
+.product-card{
+  overflow:hidden;
+
+  background:var(--surface);
+
+  border:1px solid var(--soft-border);
+
+  transition:
+    transform .3s,
+    border-color .3s,
+    background .3s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--border);
+}
+
+.product-image,
+.hoodie-gallery{
+  position:relative;
+
+  aspect-ratio:1;
+
+  overflow:hidden;
+
+  background:var(--surface2);
+}
+
+.product-image img,
+.hoodie-gallery-main{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:transform .45s ease;
+}
+
+.product-image:hover img,
+.hoodie-gallery:hover .hoodie-gallery-main{
+  transform:scale(1.045);
+}
+
+
+/* =========================================================
+   HOODIE GALLERY
+========================================================= */
+
+.hoodie-gallery-controls{
+  position:absolute;
+
+  left:15px;
+  right:15px;
+  bottom:15px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  pointer-events:none;
+}
+
+.hoodie-gallery-btn{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid rgba(255,255,255,.45);
+
+  background:rgba(0,0,0,.75);
+  color:#fff;
+
+  font-size:22px;
+
+  pointer-events:auto;
+
+  transition:.2s;
+}
+
+.hoodie-gallery-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.hoodie-gallery-indicator{
+  padding:8px 12px;
+
+  background:rgba(0,0,0,.75);
+
+  border:1px solid rgba(255,255,255,.25);
+
+  color:#fff;
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-info{
+  padding:23px;
+}
+
+.product-info h3{
+  font-size:13px;
+  font-weight:1000;
+  letter-spacing:2px;
+}
+
+.product-description{
+  min-height:38px;
+
+  margin-top:10px;
+
+  color:var(--muted);
+
+  font-size:11px;
+  line-height:1.6;
+}
+
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-top:22px;
+}
+
+.price{
+  font-size:16px;
+  font-weight:1000;
+}
+
+.size-text{
+  color:var(--muted);
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.product-actions{
+  display:flex;
+
+  gap:8px;
+
+  margin-top:15px;
+}
+
+.size-select{
+  flex:1;
+
+  min-width:0;
+
+  padding:13px 10px;
+
+  background:var(--input-bg);
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+
+  outline:none;
+}
+
+.add-cart-btn{
+  flex:1;
+
+  border:1px solid var(--button-bg);
+
+  background:var(--button-bg);
+  color:var(--button-text);
+
+  padding:13px 10px;
+
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:1.5px;
+
+  transition:.2s;
+}
+
+.add-cart-btn:hover{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--text);
+}
+
+.size-guide-btn{
+  width:100%;
+
+  margin-top:9px;
+
+  padding:10px;
+
+  border:0;
+
+  background:transparent;
+
+  color:var(--muted);
+
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.size-guide-btn:hover{
+  color:var(--text);
+}
+
+
+/* =========================================================
+   STATEMENT
+========================================================= */
+
+.statement-section{
+  border-top:1px solid var(--soft-border);
+}
+
+.statement{
+  max-width:1100px;
+
+  margin-top:50px;
+
+  font-size:clamp(35px,6vw,85px);
+  line-height:1;
+
+  font-weight:1000;
+  letter-spacing:-4px;
+}
+
+.statement span{
+  color:var(--muted);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:60px;
+
+  margin-top:50px;
+}
+
+.about-text{
+  color:var(--muted);
+
+  font-size:15px;
+  line-height:1.9;
+}
+
+.about-box{
+  padding:35px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+}
+
+.about-box h3{
+  font-size:12px;
+  letter-spacing:3px;
+
+  margin-bottom:15px;
+}
+
+.about-box p{
+  color:var(--muted);
+
+  font-size:12px;
+  line-height:1.8;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+  border-top:1px solid var(--soft-border);
+}
+
+.contact-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:15px;
+
+  margin-top:50px;
+}
+
+.contact-card{
+  padding:30px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+}
+
+.contact-card h3{
+  margin-bottom:10px;
+
+  font-size:10px;
+  letter-spacing:3px;
+}
+
+.contact-card p{
+  color:var(--muted);
+
+  font-size:11px;
+  line-height:1.7;
+}
+
+.social-links{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:18px;
+}
+
+.social-links a{
+  padding:10px 13px;
+
+  border:1px solid var(--border);
+
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1px;
+
+  transition:.2s;
+}
+
+.social-links a:hover{
+  background:var(--button-bg);
+  color:var(--button-text);
+}
+
+
+/* =========================================================
+   POLICIES
+========================================================= */
+
+.policy-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:15px;
+
+  margin-top:50px;
+}
+
+.policy-card{
+  padding:25px;
+
+  border:1px solid var(--border);
+
+  background:var(--surface);
+}
+
+.policy-card h3{
+  margin-bottom:12px;
+
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.policy-card p{
+  color:var(--muted);
+
+  font-size:10px;
+  line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:45px 6vw;
+
+  background:var(--surface);
+
+  border-top:1px solid var(--soft-border);
+}
+
+.footer-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+
+  gap:30px;
+}
+
+.footer-logo{
+  font-size:30px;
+  font-weight:1000;
+  letter-spacing:5px;
+}
+
+.footer-text{
+  max-width:360px;
+
+  color:var(--muted);
+
+  font-size:10px;
+  line-height:1.7;
+}
+
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+
+  margin-top:50px;
+  padding-top:20px;
+
+  border-top:1px solid var(--soft-border);
+
+  color:var(--muted);
+
+  font-size:8px;
+  letter-spacing:1px;
+}
+
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+
+  z-index:1500;
+
+  background:rgba(0,0,0,.72);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+}
+
+.cart-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.cart-drawer{
+  position:fixed;
+
+  top:0;
+  right:0;
+
+  width:min(460px,100%);
+
+  height:100vh;
+
+  z-index:1600;
+
+  display:flex;
+  flex-direction:column;
+
+  background:var(--bg);
+
+  border-left:1px solid var(--border);
+
+  transform:translateX(100%);
+
+  transition:.35s;
+}
+
+.cart-drawer.open{
+  transform:translateX(0);
+}
+
+.cart-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:25px;
+
+  border-bottom:1px solid var(--border);
+}
+
+.cart-header h2{
+  font-size:14px;
+  letter-spacing:3px;
+}
+
+.close-btn{
+  width:35px;
+  height:35px;
+
+  background:transparent;
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  font-size:18px;
+}
+
+.cart-items{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:20px;
+}
+
+.empty-cart{
+  padding:60px 20px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+.cart-item{
+  display:grid;
+
+  grid-template-columns:75px 1fr auto;
+
+  gap:14px;
+
+  padding:15px 0;
+
+  border-bottom:1px solid var(--soft-border);
+}
+
+.cart-item img{
+  width:75px;
+  height:75px;
+
+  object-fit:cover;
+
+  background:var(--surface2);
+}
+
+.cart-item-name{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.cart-item-meta{
+  margin-top:7px;
+
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+.cart-quantity{
+  display:flex;
+  align-items:center;
+
+  gap:7px;
+
+  margin-top:12px;
+}
+
+.qty-btn{
+  width:23px;
+  height:23px;
+
+  background:transparent;
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  font-size:12px;
+}
+
+.qty-number{
+  min-width:20px;
+
+  text-align:center;
+
+  font-size:9px;
+}
+
+.remove-item{
+  margin-top:10px;
+
+  padding:0;
+
+  background:none;
+  border:0;
+
+  color:var(--muted);
+
+  font-size:8px;
+  letter-spacing:1px;
+}
+
+.remove-item:hover{
+  color:var(--text);
+}
+
+.cart-footer{
+  padding:22px;
+
+  border-top:1px solid var(--border);
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+
+  margin-bottom:18px;
+
+  font-size:13px;
+  font-weight:1000;
+}
+
+.checkout-open-btn{
+  width:100%;
+
+  padding:17px;
+
+  border:1px solid var(--button-bg);
+
+  background:var(--button-bg);
+  color:var(--button-text);
+
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:2px;
+}
+
+.checkout-open-btn:hover{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--text);
+}
+
+.cart-note{
+  margin-top:12px;
+
+  color:var(--muted);
+
+  font-size:8px;
+  line-height:1.5;
+  text-align:center;
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+
+  z-index:2000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(0,0,0,.78);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.25s;
+}
+
+.modal.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-box{
+  position:relative;
+
+  width:min(520px,100%);
+
+  max-height:90vh;
+
+  overflow-y:auto;
+
+  padding:35px;
+
+  background:var(--bg);
+
+  border:1px solid var(--border);
+}
+
+.modal-box h2{
+  font-size:24px;
+  letter-spacing:2px;
+}
+
+.modal-close{
+  position:absolute;
+
+  top:15px;
+  right:15px;
+
+  width:35px;
+  height:35px;
+
+  background:transparent;
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  font-size:18px;
+}
+
+.modal-description{
+  margin-top:10px;
+
+  color:var(--muted);
+
+  font-size:10px;
+  line-height:1.6;
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+.checkout-form{
+  margin-top:30px;
+}
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+
+  margin-bottom:7px;
+
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.form-group input{
+  width:100%;
+
+  padding:14px;
+
+  background:var(--input-bg);
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  outline:none;
+
+  font-size:12px;
+}
+
+.form-group input:focus{
+  border-color:var(--text);
+}
+
+.checkout-button{
+  width:100%;
+
+  margin-top:10px;
+
+  padding:16px;
+
+  background:var(--button-bg);
+  color:var(--button-text);
+
+  border:1px solid var(--button-bg);
+
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:2px;
+}
+
+.checkout-button:hover{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--text);
+}
+
+.checkout-message{
+  margin-top:15px;
+
+  color:var(--muted);
+
+  font-size:10px;
+  line-height:1.6;
+}
+
+.checkout-items{
+  margin-bottom:20px;
+
+  padding:15px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+}
+
+.checkout-items-title{
+  margin-bottom:10px;
+
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.checkout-line{
+  display:flex;
+  justify-content:space-between;
+
+  padding:7px 0;
+
+  border-bottom:1px solid var(--soft-border);
+
+  font-size:9px;
+}
+
+.checkout-line:last-child{
+  border-bottom:0;
+}
+
+
+/* =========================================================
+   VERIFICATION
+========================================================= */
+
+.verification-box{
+  margin-top:25px;
+
+  padding:20px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+}
+
+.verification-box h3{
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.verification-code{
+  margin-top:15px;
+
+  padding:16px;
+
+  text-align:center;
+
+  background:var(--surface2);
+
+  border:1px solid var(--border);
+
+  font-size:22px;
+  font-weight:1000;
+  letter-spacing:4px;
+}
+
+.info-box{
+  margin-top:15px;
+
+  padding:15px;
+
+  background:var(--surface);
+
+  border:1px solid var(--border);
+
+  color:var(--muted);
+
+  font-size:9px;
+  line-height:1.6;
+}
+
+
+/* =========================================================
+   SIZE GUIDE
+========================================================= */
+
+.size-table{
+  width:100%;
+
+  margin-top:25px;
+
+  border-collapse:collapse;
+}
+
+.size-table th,
+.size-table td{
+  padding:13px 8px;
+
+  border:1px solid var(--border);
+
+  text-align:center;
+
+  font-size:9px;
+}
+
+.size-table th{
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+
+/* =========================================================
+   THEME SETTINGS
+========================================================= */
+
+.theme-options{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:10px;
+
+  margin-top:25px;
+}
+
+.theme-option{
+  padding:14px 12px;
+
+  text-align:left;
+
+  background:var(--surface2);
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  transition:.2s;
+}
+
+.theme-option:hover{
+  border-color:var(--text);
+}
+
+.theme-option.active{
+  border-color:var(--text);
+
+  box-shadow:
+    inset 0 0 0 1px var(--text);
+}
+
+.theme-swatch{
+  display:block;
+
+  width:100%;
+  height:55px;
+
+  margin-bottom:13px;
+
+  border:1px solid var(--border);
+}
+
+.swatch-black{
+  background:#000;
+}
+
+.swatch-white{
+  background:#fff;
+}
+
+.swatch-gray{
+  background:#777;
+}
+
+.theme-option strong{
+  display:block;
+
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.theme-option small{
+  display:block;
+
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:8px;
+}
+
+.theme-status{
+  margin-top:18px;
+
+  color:var(--muted);
+
+  font-size:9px;
+  line-height:1.6;
+}
+
+
+/* =========================================================
+   IMAGE MODAL
+========================================================= */
+
+.image-modal{
+  position:fixed;
+  inset:0;
+
+  z-index:2500;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:30px;
+
+  background:rgba(0,0,0,.92);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.25s;
+}
+
+.image-modal.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.image-modal img{
+  max-width:95vw;
+  max-height:90vh;
+
+  object-fit:contain;
+}
+
+.image-modal-close{
+  position:absolute;
+
+  top:20px;
+  right:25px;
+
+  width:40px;
+  height:40px;
+
+  background:transparent;
+  color:#fff;
+
+  border:1px solid rgba(255,255,255,.4);
+
+  font-size:20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:850px){
+
+  header{
+    height:68px;
+  }
+
+  .mobile-menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+
+    top:68px;
+    left:0;
+
+    width:100%;
+
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+
+    padding:20px;
+
+    background:var(--header-bg);
+
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a,
+  .settings-nav-btn,
+  .cart-nav-btn{
+    padding:15px;
+
+    text-align:center;
+  }
+
+  .products-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .policy-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-top{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:90px 5vw;
+  }
+
+  .hero-title{
+    letter-spacing:-5px;
+  }
+
+  .countdown{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .theme-options{
+    grid-template-columns:1fr;
+  }
+
+  .theme-option{
+    display:grid;
+
+    grid-template-columns:70px 1fr;
+
+    column-gap:13px;
+
+    align-items:center;
+  }
+
+  .theme-swatch{
+    grid-row:span 2;
+
+    height:55px;
+
+    margin:0;
+  }
+
+  .theme-option small{
+    margin-top:0;
+  }
+
+  .product-actions{
+    flex-direction:column;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+
+    gap:10px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    transition:none !important;
+    animation:none !important;
+  }
+
+}
+
+</style>
 </head>
 
-<body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<body data-theme="black">
 
-  <header>
-    <nav class="nav">
 
-      <a href="#home" class="logo">WINGS</a>
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#drop">Drop</a>
-        <a href="#shop">Shop</a>
-        <a href="#about">About</a>
-        <a href="#checkout">Checkout</a>
-        <a href="#contact">Contact</a>
+<header>
+
+  <a href="#home" class="logo">WINGS</a>
+
+  <button
+    class="mobile-menu-btn"
+    id="mobileMenuBtn"
+    type="button"
+    aria-label="Open menu"
+  >
+    ☰
+  </button>
+
+  <nav class="nav-links" id="navLinks">
+
+    <a href="#home">HOME</a>
+
+    <a href="#shop">SHOP</a>
+
+    <a href="#about">ABOUT</a>
+
+    <a href="#contact">CONTACT</a>
+
+    <button
+      class="settings-nav-btn"
+      id="themeOpenBtn"
+      type="button"
+    >
+      SETTINGS
+    </button>
+
+    <button
+      class="cart-nav-btn"
+      id="cartOpenBtn"
+      type="button"
+    >
+      CART
+      <span id="cartCount">0</span>
+    </button>
+
+  </nav>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<main id="home">
+
+<section class="hero">
+
+  <img
+    src="images/hero(1).png"
+    class="hero-image"
+    alt="WINGS"
+  >
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <p class="hero-eyebrow">
+      FIRST DROP / MARCH 15, 2027
+    </p>
+
+    <h1 class="hero-title">
+      WINGS
+    </h1>
+
+    <p class="hero-subtitle">
+      CLOTHES TO MAKE YOUR LOOK FLY.
+    </p>
+
+    <a
+      href="#shop"
+      class="hero-button"
+    >
+      SHOP THE DROP
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     DROP
+======================================================= -->
+
+<section class="drop-section">
+
+  <p class="section-label">
+    THE FIRST DROP
+  </p>
+
+  <h2 class="section-title">
+    SOMETHING<br>
+    IS COMING.
+  </h2>
+
+  <div class="drop-banner">
+
+    <strong>
+      WINGS / FIRST DROP
+    </strong>
+
+    <span>
+      March 15, 2027. Be ready.
+    </span>
+
+  </div>
+
+  <div class="countdown">
+
+    <div class="count-box">
+      <div class="count-number" id="days">00</div>
+      <div class="count-label">DAYS</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="hours">00</div>
+      <div class="count-label">HOURS</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="minutes">00</div>
+      <div class="count-label">MINUTES</div>
+    </div>
+
+    <div class="count-box">
+      <div class="count-number" id="seconds">00</div>
+      <div class="count-label">SECONDS</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SHOP
+======================================================= -->
+
+<section
+  class="shop-section"
+  id="shop"
+>
+
+  <p class="section-label">
+    WINGS SHOP
+  </p>
+
+  <h2 class="section-title">
+    THE DROP.
+  </h2>
+
+
+  <div class="products-grid">
+
+
+    <!-- WHITE TEE -->
+
+    <article
+      class="product-card"
+      data-product="WINGS TEE - WHITE"
+      data-price="25"
+      data-image="images/tee-white(1).png"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/tee-white(1).png"
+          alt="WINGS White Tee"
+          loading="lazy"
+        >
+
       </div>
 
-      <div class="nav-actions">
-        <button class="cart-button" id="openCart">
-          CART
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
+      <div class="product-info">
 
-        <button class="menu-button" id="menuButton" aria-label="Open menu">
-          ☰
-        </button>
-      </div>
+        <h3>
+          WINGS TEE - WHITE
+        </h3>
 
-    </nav>
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
-  <main>
-
-    <section class="hero" id="home">
-
-      <div class="hero-content">
-
-        <div class="hero-label">
-          NEW YORK / WINGS
-        </div>
-
-        <h1>
-          WINGS
-        </h1>
-
-        <p>
-          Clothes to Make Your Look Fly.
-          Built around creativity, individuality,
-          music and the energy of New York.
+        <p class="product-description">
+          Clean first-drop WINGS tee built for everyday wear.
         </p>
 
-        <a href="#shop" class="primary-button">
-          Shop The Drop
+        <div class="product-bottom">
+
+          <span class="price">
+            $25.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select white tee size"
+          >
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- BLACK TEE -->
+
+    <article
+      class="product-card"
+      data-product="WINGS TEE - BLACK"
+      data-price="25"
+      data-image="images/tee-black(1).png"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/tee-black(1).png"
+          alt="WINGS Black Tee"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          WINGS TEE - BLACK
+        </h3>
+
+        <p class="product-description">
+          Dark WINGS first-drop tee with a clean everyday fit.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $25.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select black tee size"
+          >
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- ===================================================
+         HOODIE
+         ONE PRODUCT / TWO IMAGES
+    ==================================================== -->
+
+    <article
+      class="product-card"
+      data-product="WINGS HOODIE"
+      data-price="45"
+      data-image="images/hoodie(1).png"
+    >
+
+      <div class="hoodie-gallery">
+
+        <img
+          id="hoodieGalleryImage"
+          class="hoodie-gallery-main"
+          src="images/hoodie(1).png"
+          alt="WINGS Hoodie"
+          loading="lazy"
+        >
+
+        <div class="hoodie-gallery-controls">
+
+          <button
+            class="hoodie-gallery-btn"
+            id="hoodiePrev"
+            type="button"
+            aria-label="Previous hoodie image"
+          >
+            ‹
+          </button>
+
+          <div
+            class="hoodie-gallery-indicator"
+            id="hoodieIndicator"
+            aria-live="polite"
+          >
+            1 / 2
+          </div>
+
+          <button
+            class="hoodie-gallery-btn"
+            id="hoodieNext"
+            type="button"
+            aria-label="Next hoodie image"
+          >
+            ›
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product-info">
+
+        <h3>
+          WINGS HOODIE
+        </h3>
+
+        <p class="product-description">
+          Heavy everyday WINGS hoodie with detailed first-drop design.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $45.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select hoodie size"
+          >
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     STATEMENT
+======================================================= -->
+
+<section class="statement-section">
+
+  <p class="section-label">
+    THE WINGS IDEA
+  </p>
+
+  <div class="statement">
+    MAKE YOUR LOOK
+    <span>FLY.</span>
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section id="about">
+
+  <p class="section-label">
+    ABOUT WINGS
+  </p>
+
+  <h2 class="section-title">
+    MORE THAN<br>
+    CLOTHES.
+  </h2>
+
+
+  <div class="about-grid">
+
+    <div class="about-text">
+
+      WINGS was created by Mark, a young artist and creative
+      from New York.
+
+      <br><br>
+
+      The brand connects music, fashion and creativity into
+      something built around individuality.
+
+      <br><br>
+
+      WINGS is about creating your own look, your own energy
+      and your own direction.
+
+    </div>
+
+
+    <div class="about-box">
+
+      <h3>
+        CLOTHES TO MAKE YOUR LOOK FLY.
+      </h3>
+
+      <p>
+        Built from creativity. Inspired by the city.
+        Designed for people who want their clothes to feel
+        like an extension of who they are.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section
+  class="contact-section"
+  id="contact"
+>
+
+  <p class="section-label">
+    CONNECT
+  </p>
+
+  <h2 class="section-title">
+    FOLLOW<br>
+    WINGS.
+  </h2>
+
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+
+      <h3>
+        SOCIALS
+      </h3>
+
+      <p>
+        Follow the brand and stay updated on drops,
+        releases and new creative projects.
+      </p>
+
+      <div class="social-links">
+
+        <a
+          href="https://www.instagram.com/thatunderratedsuperstar/"
+          target="_blank"
+          rel="noopener"
+        >
+          INSTAGRAM
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@forevertda"
+          target="_blank"
+          rel="noopener"
+        >
+          TIKTOK
+        </a>
+
+        <a
+          href="https://www.youtube.com/@TDAProductionsz"
+          target="_blank"
+          rel="noopener"
+        >
+          YOUTUBE
         </a>
 
       </div>
 
-      <div class="hero-image">
-        <img
-          src="images/hero(1).png"
-          alt="WINGS clothing collection"
-        >
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         MARQUEE
-    ========================= -->
-
-    <div class="marquee">
-      <div class="marquee-track">
-        WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK • WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK •
-        WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK • WINGS • CLOTHES TO MAKE YOUR LOOK FLY • NEW YORK •
-      </div>
     </div>
 
 
-    <!-- =========================
-         DROP
-    ========================= -->
-
-    <section class="section drop" id="drop">
-
-      <div class="section-heading">
-
-        <h2>
-          FIRST<br>
-          DROP.
-        </h2>
-
-        <p>
-          The first WINGS collection is built for people
-          who want their clothes to feel like part of
-          their identity.
-        </p>
-
-      </div>
-
-      <div class="drop-grid">
-
-        <div class="drop-card">
-          <img
-            src="images/hoodie(1).png"
-            alt="WINGS Hoodie"
-          >
-
-          <div class="drop-overlay">
-            <h3>WINGS HOODIE</h3>
-            <p>$45</p>
-          </div>
-        </div>
-
-        <div class="drop-card">
-          <img
-            src="images/tee-white(1).png"
-            alt="WINGS White Tee"
-          >
-
-          <div class="drop-overlay">
-            <h3>WINGS TEE</h3>
-            <p>$25</p>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SHOP
-    ========================= -->
-
-    <section class="section shop" id="shop">
-
-      <div class="section-heading">
-
-        <h2>
-          SHOP.
-        </h2>
-
-        <p>
-          Choose your piece, select your size,
-          and add it to your cart.
-        </p>
-
-      </div>
-
-      <div class="products" id="productsGrid">
-
-        <!-- PRODUCT 1 -->
-
-        <article class="product-card">
-
-          <div class="product-image">
-            <img
-              src="images/hoodie(1).png"
-              alt="WINGS Hoodie"
-            >
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-name">
-              WINGS Hoodie
-            </div>
-
-            <div class="product-price">
-              $45.00
-            </div>
-
-            <div class="product-controls">
-
-              <select id="size-hoodie">
-                <option value="S">Size S</option>
-                <option value="M" selected>Size M</option>
-                <option value="L">Size L</option>
-              </select>
-
-              <select id="qty-hoodie">
-                <option value="1">Qty 1</option>
-                <option value="2">Qty 2</option>
-                <option value="3">Qty 3</option>
-                <option value="4">Qty 4</option>
-                <option value="5">Qty 5</option>
-              </select>
-
-            </div>
-
-            <button
-              class="add-button"
-              onclick="addToCart(
-                'hoodie',
-                'WINGS Hoodie',
-                45,
-                'images/hoodie(1).png',
-                'size-hoodie',
-                'qty-hoodie'
-              )"
-            >
-              Add To Cart
-            </button>
-
-            <div class="stock-note">
-              Available sizes: S / M / L
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PRODUCT 2 -->
-
-        <article class="product-card">
-
-          <div class="product-image">
-            <img
-              src="images/tee-white(1).png"
-              alt="WINGS White Tee"
-            >
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-name">
-              WINGS Tee White
-            </div>
-
-            <div class="product-price">
-              $25.00
-            </div>
-
-            <div class="product-controls">
-
-              <select id="size-tee-white">
-                <option value="S">Size S</option>
-                <option value="M" selected>Size M</option>
-                <option value="L">Size L</option>
-              </select>
-
-              <select id="qty-tee-white">
-                <option value="1">Qty 1</option>
-                <option value="2">Qty 2</option>
-                <option value="3">Qty 3</option>
-                <option value="4">Qty 4</option>
-                <option value="5">Qty 5</option>
-              </select>
-
-            </div>
-
-            <button
-              class="add-button"
-              onclick="addToCart(
-                'tee-white',
-                'WINGS Tee White',
-                25,
-                'images/tee-white(1).png',
-                'size-tee-white',
-                'qty-tee-white'
-              )"
-            >
-              Add To Cart
-            </button>
-
-            <div class="stock-note">
-              Available sizes: S / M / L
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PRODUCT 3 -->
-
-        <article class="product-card">
-
-          <div class="product-image">
-            <img
-              src="images/tee-black(1).png"
-              alt="WINGS Black Tee"
-            >
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-name">
-              WINGS Tee Black
-            </div>
-
-            <div class="product-price">
-              $25.00
-            </div>
-
-            <div class="product-controls">
-
-              <select id="size-tee-black">
-                <option value="S">Size S</option>
-                <option value="M" selected>Size M</option>
-                <option value="L">Size L</option>
-              </select>
-
-              <select id="qty-tee-black">
-                <option value="1">Qty 1</option>
-                <option value="2">Qty 2</option>
-                <option value="3">Qty 3</option>
-                <option value="4">Qty 4</option>
-                <option value="5">Qty 5</option>
-              </select>
-
-            </div>
-
-            <button
-              class="add-button"
-              onclick="addToCart(
-                'tee-black',
-                'WINGS Tee Black',
-                25,
-                'images/tee-black(1).png',
-                'size-tee-black',
-                'qty-tee-black'
-              )"
-            >
-              Add To Cart
-            </button>
-
-            <div class="stock-note">
-              Available sizes: S / M / L
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PRODUCT 4 -->
-
-        <article class="product-card">
-
-          <div class="product-image">
-            <img
-              src="images/hoodie-detail(1).png"
-              alt="WINGS Hoodie Detail"
-            >
-          </div>
-
-          <div class="product-info">
-
-            <div class="product-name">
-              WINGS Hoodie Detail
-            </div>
-
-            <div class="product-price">
-              $45.00
-            </div>
-
-            <div class="product-controls">
-
-              <select id="size-hoodie-detail">
-                <option value="S">Size S</option>
-                <option value="M" selected>Size M</option>
-                <option value="L">Size L</option>
-              </select>
-
-              <select id="qty-hoodie-detail">
-                <option value="1">Qty 1</option>
-                <option value="2">Qty 2</option>
-                <option value="3">Qty 3</option>
-                <option value="4">Qty 4</option>
-                <option value="5">Qty 5</option>
-              </select>
-
-            </div>
-
-            <button
-              class="add-button"
-              onclick="addToCart(
-                'hoodie-detail',
-                'WINGS Hoodie Detail',
-                45,
-                'images/hoodie-detail(1).png',
-                'size-hoodie-detail',
-                'qty-hoodie-detail'
-              )"
-            >
-              Add To Cart
-            </button>
-
-            <div class="stock-note">
-              Available sizes: S / M / L
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section class="section" id="about">
-
-      <div class="about-grid">
-
-        <div class="about-copy">
-
-          <h2>
-            MORE<br>
-            THAN<br>
-            CLOTHES.
-          </h2>
-
-          <p>
-            WINGS was created by Mark, a young artist
-            and creative from New York. The brand connects
-            music, fashion, creativity and individuality.
-            Every piece is made to represent the person
-            wearing it.
-          </p>
-
-        </div>
-
-        <div class="about-box">
-
-          <h3>
-            MAKE<br>
-            YOUR<br>
-            LOOK<br>
-            FLY.
-          </h3>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         STATEMENT
-    ========================= -->
-
-    <section class="statement">
-
-      <div class="statement-inner">
-
-        <h2>
-          BE YOUR<br>
-          OWN WINGS.
-        </h2>
-
-        <p>
-          WINGS / NEW YORK / CREATIVITY / INDIVIDUALITY
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CHECKOUT
-    ========================= -->
-
-    <section class="section checkout" id="checkout">
-
-      <div class="section-heading">
-
-        <h2>
-          CHECKOUT.
-        </h2>
-
-        <p>
-          Enter the phone number used during checkout
-          and choose your attendance type to verify
-          your order.
-        </p>
-
-      </div>
-
-
-      <div class="checkout-layout">
-
-        <!-- VERIFICATION -->
-
-        <div class="checkout-card">
-
-          <h3>
-            Verify Your Checkout
-          </h3>
-
-          <p>
-            Your phone number must match the number
-            submitted through the WINGS checkout form.
-          </p>
-
-          <div class="form-group">
-
-            <label for="phone">
-              Phone Number
-            </label>
-
-            <input
-              type="tel"
-              id="phone"
-              inputmode="numeric"
-              autocomplete="tel"
-              placeholder="Enter your 10-digit phone number"
-              maxlength="14"
-            >
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label>
-              Attendance Type
-            </label>
-
-            <div class="attendance-grid">
-
-              <div class="attendance-option">
-
-                <input
-                  type="radio"
-                  id="attendance-in"
-                  name="attendance"
-                  value="IN"
-                >
-
-                <label for="attendance-in">
-                  IN PERSON
-                </label>
-
-              </div>
-
-              <div class="attendance-option">
-
-                <input
-                  type="radio"
-                  id="attendance-online"
-                  name="attendance"
-                  value="ON"
-                >
-
-                <label for="attendance-online">
-                  ONLINE
-                </label>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <button
-            class="verify-button"
-            id="verifyButton"
-          >
-            Verify Checkout
-          </button>
-
-
-          <div
-            class="verification-result"
-            id="verificationResult"
-          >
-
-            <div
-              class="verification-title"
-              id="verificationTitle"
-            >
-              Checkout Verified
-            </div>
-
-            <div id="verificationMessage"></div>
-
-            <div
-              class="verification-code"
-              id="verificationCode"
-            ></div>
-
-          </div>
-
-
-          <!-- ORDER SUMMARY -->
-
-          <div
-            class="checkout-summary"
-            id="orderSummary"
-          >
-
-            <h4>
-              Your Order
-            </h4>
-
-            <div id="summaryItems"></div>
-
-            <div class="summary-total">
-
-              <span>
-                Total
-              </span>
-
-              <span id="summaryTotal">
-                $0.00
-              </span>
-
-            </div>
-
-            <button
-              class="submit-order-button"
-              id="submitOrderButton"
-              style="margin-top:20px;"
-            >
-              Submit Order
-            </button>
-
-          </div>
-
-
-          <!-- ORDER SUCCESS -->
-
-          <div
-            class="order-success"
-            id="orderSuccess"
-          >
-
-            <h4>
-              Order Submitted.
-            </h4>
-
-            <p>
-              Your WINGS order has been received.
-              Keep your order ID for your records.
-            </p>
-
-            <div
-              class="order-id"
-              id="orderIdDisplay"
-            ></div>
-
-            <button
-              class="copy-order"
-              id="copyOrderButton"
-            >
-              Copy Order ID
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- CHECKOUT INFO -->
-
-        <div class="checkout-card">
-
-          <h3>
-            How It Works
-          </h3>
-
-          <p>
-            Follow these steps to submit your WINGS order.
-          </p>
-
-          <div class="summary-item">
-
-            <div class="summary-item-info">
-              <strong>01. Add Your Items</strong>
-              <span>
-                Choose your product, size and quantity.
-              </span>
-            </div>
-
-          </div>
-
-          <div class="summary-item">
-
-            <div class="summary-item-info">
-              <strong>02. Open Your Cart</strong>
-              <span>
-                Review your products and total.
-              </span>
-            </div>
-
-          </div>
-
-          <div class="summary-item">
-
-            <div class="summary-item-info">
-              <strong>03. Verify</strong>
-              <span>
-                Enter the phone number used on the form.
-              </span>
-            </div>
-
-          </div>
-
-          <div class="summary-item">
-
-            <div class="summary-item-info">
-              <strong>04. Choose Type</strong>
-              <span>
-                Select In Person or Online.
-              </span>
-            </div>
-
-          </div>
-
-          <div class="summary-item">
-
-            <div class="summary-item-info">
-              <strong>05. Submit</strong>
-              <span>
-                Your order is sent to the WINGS order sheet.
-              </span>
-            </div>
-
-          </div>
-
-          <p style="margin-top:25px;">
-            Need to submit your information first?
-          </p>
-
-          <a
-            href="https://forms.gle/FvXyG1yVTW5gwmSJ9"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-button"
-            style="display:inline-block;"
-          >
-            Open WINGS Form
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section class="section" id="contact">
-
-      <div class="section-heading">
-
-        <h2>
-          CONTACT.
-        </h2>
-
-        <p>
-          Questions, feedback, collaborations or
-          anything WINGS related.
-        </p>
-
-      </div>
-
-      <div class="contact-grid">
-
-        <div class="contact-box">
-
-          <h3>
-            Follow WINGS
-          </h3>
-
-          <p>
-            Stay connected with the brand and see
-            new drops, content and updates.
-          </p>
-
-          <div class="social-links">
-
-            <a
-              href="https://www.instagram.com/thatunderratedsuperstar/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@forevertda"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TikTok
-            </a>
-
-            <a
-              href="https://www.youtube.com/@TDAProductionsz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              YouTube
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="contact-box">
-
-          <h3>
-            First Drop
-          </h3>
-
-          <p>
-            The first WINGS drop is scheduled for
-            March 15, 2027.
-          </p>
-
-          <p style="margin-top:15px;">
-            Keep an eye on the official WINGS pages
-            for updates.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         POLICIES
-    ========================= -->
-
-    <section class="section policies">
-
-      <div class="section-heading">
-
-        <h2>
-          INFO.
-        </h2>
-
-      </div>
-
-      <div class="policy-grid">
-
-        <div class="policy">
-
-          <h3>
-            Orders
-          </h3>
-
-          <p>
-            Please review your size, product and
-            quantity before submitting your order.
-          </p>
-
-        </div>
-
-        <div class="policy">
-
-          <h3>
-            Delivery
-          </h3>
-
-          <p>
-            Delivery and pickup details will be
-            communicated through the official WINGS
-            order process.
-          </p>
-
-        </div>
-
-        <div class="policy">
-
-          <h3>
-            Questions
-          </h3>
-
-          <p>
-            If you have an issue with an order,
-            contact WINGS through the official
-            social pages.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       CART OVERLAY
-  ========================= -->
-
-  <div
-    class="cart-overlay"
-    id="cartOverlay"
-  ></div>
-
-
-  <!-- =========================
-       CART DRAWER
-  ========================= -->
-
-  <aside
-    class="cart-drawer"
-    id="cartDrawer"
-    aria-label="Shopping cart"
-  >
-
-    <div class="cart-header">
+    <div class="contact-card">
 
       <h3>
-        YOUR CART
+        WINGS
       </h3>
 
-      <button
-        class="close-cart"
-        id="closeCart"
-        aria-label="Close cart"
-      >
-        ×
-      </button>
+      <p>
+        For questions about orders, products or future
+        collaborations, keep an eye on the official WINGS
+        social pages.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     POLICIES
+======================================================= -->
+
+<section>
+
+  <p class="section-label">
+    INFORMATION
+  </p>
+
+  <h2 class="section-title">
+    KNOW<br>
+    BEFORE YOU FLY.
+  </h2>
+
+
+  <div class="policy-grid">
+
+    <div class="policy-card">
+
+      <h3>
+        DELIVERY
+      </h3>
+
+      <p>
+        Orders are processed after checkout verification.
+        Delivery timing may vary depending on the order
+        and drop schedule.
+      </p>
 
     </div>
 
 
-    <div
-      class="cart-items"
-      id="cartItems"
-    ></div>
+    <div class="policy-card">
 
+      <h3>
+        ORDERS
+      </h3>
 
-    <div class="cart-footer">
-
-      <div class="cart-subtotal">
-
-        <span>
-          Subtotal
-        </span>
-
-        <span id="cartSubtotal">
-          $0.00
-        </span>
-
-      </div>
-
-      <button
-        class="checkout-link"
-        id="goCheckout"
-      >
-        Continue To Checkout
-      </button>
+      <p>
+        Please make sure your phone number and selected
+        size are correct before submitting your order.
+      </p>
 
     </div>
 
-  </aside>
+
+    <div class="policy-card">
+
+      <h3>
+        SUPPORT
+      </h3>
+
+      <p>
+        Keep your order ID and verification code after
+        completing checkout.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
 
 
-  <!-- =========================
-       TOAST
-  ========================= -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
-  <div
-    class="toast"
-    id="toast"
-  ></div>
+<footer>
 
+  <div class="footer-top">
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="footer-inner">
+    <div>
 
       <div class="footer-logo">
         WINGS
       </div>
 
-      <div class="footer-right">
-        Clothes to Make Your Look Fly.<br>
-        New York, NY<br>
-        First Drop: March 15, 2027
+      <p class="footer-text">
+        Clothes to Make Your Look Fly.
+      </p>
+
+    </div>
+
+    <p class="footer-text">
+      First Drop / March 15, 2027
+    </p>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2027 WINGS
+    </span>
+
+    <span>
+      NEW YORK
+    </span>
+
+  </div>
+
+</footer>
+
+
+<!-- =======================================================
+     CART OVERLAY
+======================================================= -->
+
+<div
+  class="cart-overlay"
+  id="cartOverlay"
+></div>
+
+
+<!-- =======================================================
+     CART DRAWER
+======================================================= -->
+
+<aside
+  class="cart-drawer"
+  id="cartDrawer"
+  aria-label="Shopping cart"
+>
+
+  <div class="cart-header">
+
+    <h2>
+      YOUR CART
+    </h2>
+
+    <button
+      class="close-btn"
+      id="cartCloseBtn"
+      type="button"
+      aria-label="Close cart"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  ></div>
+
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+
+      <span>
+        TOTAL
+      </span>
+
+      <span id="cartTotal">
+        $0.00
+      </span>
+
+    </div>
+
+    <button
+      class="checkout-open-btn"
+      id="checkoutOpenBtn"
+      type="button"
+    >
+      CHECKOUT
+    </button>
+
+    <p class="cart-note">
+      Checkout requires phone verification.
+    </p>
+
+  </div>
+
+</aside>
+
+
+<!-- =======================================================
+     CHECKOUT MODAL
+======================================================= -->
+
+<div
+  class="modal"
+  id="checkoutModal"
+  aria-hidden="true"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="checkoutCloseBtn"
+      type="button"
+      aria-label="Close checkout"
+    >
+      ×
+    </button>
+
+    <p class="section-label">
+      WINGS CHECKOUT
+    </p>
+
+    <h2>
+      VERIFY ORDER
+    </h2>
+
+    <p class="modal-description">
+      Enter the same phone number used when submitting
+      the WINGS checkout form.
+    </p>
+
+
+    <div
+      class="checkout-items"
+      id="checkoutItems"
+    ></div>
+
+
+    <form
+      class="checkout-form"
+      id="checkoutForm"
+    >
+
+      <div class="form-group">
+
+        <label for="checkoutPhone">
+          PHONE NUMBER
+        </label>
+
+        <input
+          id="checkoutPhone"
+          type="tel"
+          inputmode="numeric"
+          autocomplete="tel"
+          placeholder="(555) 555-5555"
+          maxlength="14"
+          required
+        >
+
+      </div>
+
+
+      <button
+        class="checkout-button"
+        type="submit"
+      >
+        VERIFY CHECKOUT
+      </button>
+
+      <div
+        class="checkout-message"
+        id="checkoutMessage"
+      ></div>
+
+    </form>
+
+
+    <div
+      class="verification-box"
+      id="verificationBox"
+      style="display:none;"
+    >
+
+      <h3>
+        VERIFIED
+      </h3>
+
+      <div
+        class="verification-code"
+        id="verificationCode"
+      >
+      </div>
+
+      <div
+        class="info-box"
+        id="verificationInfo"
+      >
       </div>
 
     </div>
 
-    <div class="footer-bottom">
+  </div>
 
-      <span>
-        © 2027 WINGS. All Rights Reserved.
-      </span>
+</div>
 
-      <span>
-        Built for creativity.
-      </span>
+
+<!-- =======================================================
+     SIZE GUIDE MODAL
+======================================================= -->
+
+<div
+  class="modal"
+  id="sizeModal"
+  aria-hidden="true"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="sizeCloseBtn"
+      type="button"
+    >
+      ×
+    </button>
+
+    <p class="section-label">
+      WINGS
+    </p>
+
+    <h2>
+      SIZE GUIDE
+    </h2>
+
+    <p class="modal-description">
+      Use the guide below as a general reference.
+    </p>
+
+
+    <table class="size-table">
+
+      <thead>
+
+        <tr>
+          <th>SIZE</th>
+          <th>CHEST</th>
+          <th>LENGTH</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>S</td>
+          <td>19"</td>
+          <td>27"</td>
+        </tr>
+
+        <tr>
+          <td>M</td>
+          <td>21"</td>
+          <td>28"</td>
+        </tr>
+
+        <tr>
+          <td>L</td>
+          <td>23"</td>
+          <td>29"</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     THEME SETTINGS
+======================================================= -->
+
+<div
+  class="modal"
+  id="themeModal"
+  aria-hidden="true"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="themeModalClose"
+      type="button"
+      aria-label="Close settings"
+    >
+      ×
+    </button>
+
+    <p class="section-label">
+      SETTINGS
+    </p>
+
+    <h2>
+      CHOOSE YOUR THEME.
+    </h2>
+
+    <p class="modal-description">
+      Pick the look you want for the WINGS website.
+      Your choice will be saved automatically.
+    </p>
+
+
+    <div class="theme-options">
+
+
+      <button
+        class="theme-option active"
+        data-theme-choice="black"
+        type="button"
+      >
+
+        <span class="theme-swatch swatch-black"></span>
+
+        <strong>
+          BLACK
+        </strong>
+
+        <small>
+          Original WINGS
+        </small>
+
+      </button>
+
+
+      <button
+        class="theme-option"
+        data-theme-choice="white"
+        type="button"
+      >
+
+        <span class="theme-swatch swatch-white"></span>
+
+        <strong>
+          WHITE
+        </strong>
+
+        <small>
+          Clean mode
+        </small>
+
+      </button>
+
+
+      <button
+        class="theme-option"
+        data-theme-choice="gray"
+        type="button"
+      >
+
+        <span class="theme-swatch swatch-gray"></span>
+
+        <strong>
+          GRAY
+        </strong>
+
+        <small>
+          Neutral mode
+        </small>
+
+      </button>
 
     </div>
 
-  </footer>
+
+    <p
+      class="theme-status"
+      id="themeStatus"
+    >
+      Current theme: BLACK
+    </p>
+
+  </div>
+
+</div>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+<!-- =======================================================
+     IMAGE MODAL
+======================================================= -->
 
-  <script>
+<div
+  class="image-modal"
+  id="imageModal"
+>
 
-    /* =========================================
-       CONFIGURATION
-    ========================================= */
+  <button
+    class="image-modal-close"
+    id="imageModalClose"
+    type="button"
+    aria-label="Close image"
+  >
+    ×
+  </button>
 
-    const APPS_SCRIPT_URL =
-      "https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
+  <img
+    id="modalImage"
+    src=""
+    alt=""
+  >
 
-    const CART_STORAGE_KEY =
-      "wingsCartV1";
-
-
-    /* =========================================
-       CART
-    ========================================= */
-
-    let cart = [];
-
-    let verifiedCheckout = null;
-
-
-    /* =========================================
-       ELEMENTS
-    ========================================= */
-
-    const cartDrawer =
-      document.getElementById("cartDrawer");
-
-    const cartOverlay =
-      document.getElementById("cartOverlay");
-
-    const cartItems =
-      document.getElementById("cartItems");
-
-    const cartCount =
-      document.getElementById("cartCount");
-
-    const cartSubtotal =
-      document.getElementById("cartSubtotal");
-
-    const openCartButton =
-      document.getElementById("openCart");
-
-    const closeCartButton =
-      document.getElementById("closeCart");
-
-    const goCheckoutButton =
-      document.getElementById("goCheckout");
-
-    const toast =
-      document.getElementById("toast");
-
-    const navLinks =
-      document.getElementById("navLinks");
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const phoneInput =
-      document.getElementById("phone");
-
-    const verifyButton =
-      document.getElementById("verifyButton");
-
-    const verificationResult =
-      document.getElementById("verificationResult");
-
-    const verificationTitle =
-      document.getElementById("verificationTitle");
-
-    const verificationMessage =
-      document.getElementById("verificationMessage");
-
-    const verificationCode =
-      document.getElementById("verificationCode");
-
-    const orderSummary =
-      document.getElementById("orderSummary");
-
-    const summaryItems =
-      document.getElementById("summaryItems");
-
-    const summaryTotal =
-      document.getElementById("summaryTotal");
-
-    const submitOrderButton =
-      document.getElementById("submitOrderButton");
-
-    const orderSuccess =
-      document.getElementById("orderSuccess");
-
-    const orderIdDisplay =
-      document.getElementById("orderIdDisplay");
-
-    const copyOrderButton =
-      document.getElementById("copyOrderButton");
+</div>
 
 
-    /* =========================================
-       STARTUP
-    ========================================= */
+<script>
 
-    document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   GOOGLE APPS SCRIPT
+========================================================= */
 
-      loadCart();
+const APPS_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
 
-      updateCart();
 
-      setupPhoneFormatting();
+/* =========================================================
+   THEME SETTINGS
+========================================================= */
 
+const themeModal =
+document.getElementById("themeModal");
+
+const themeOpenBtn =
+document.getElementById("themeOpenBtn");
+
+const themeModalClose =
+document.getElementById("themeModalClose");
+
+const themeOptions =
+document.querySelectorAll(".theme-option");
+
+const themeStatus =
+document.getElementById("themeStatus");
+
+
+function applyTheme(theme){
+
+  const allowedThemes = [
+    "black",
+    "white",
+    "gray"
+  ];
+
+  if(!allowedThemes.includes(theme)){
+    theme = "black";
+  }
+
+  document.body.dataset.theme = theme;
+
+  localStorage.setItem(
+    "WINGS_THEME",
+    theme
+  );
+
+  themeOptions.forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.themeChoice === theme
+    );
+
+  });
+
+  themeStatus.textContent =
+    "Current theme: " +
+    theme.toUpperCase();
+
+}
+
+
+const savedTheme =
+localStorage.getItem("WINGS_THEME") || "black";
+
+applyTheme(savedTheme);
+
+
+function openThemeModal(){
+
+  themeModal.classList.add("open");
+
+  themeModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add("modal-open");
+
+}
+
+
+function closeThemeModal(){
+
+  themeModal.classList.remove("open");
+
+  themeModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove("modal-open");
+
+}
+
+
+themeOpenBtn.addEventListener(
+  "click",
+  () => {
+
+    navLinks.classList.remove("open");
+
+    openThemeModal();
+
+  }
+);
+
+
+themeModalClose.addEventListener(
+  "click",
+  closeThemeModal
+);
+
+
+themeModal.addEventListener(
+  "click",
+  event => {
+
+    if(event.target === themeModal){
+      closeThemeModal();
+    }
+
+  }
+);
+
+
+themeOptions.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      applyTheme(
+        button.dataset.themeChoice
+      );
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileMenuBtn =
+document.getElementById("mobileMenuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+mobileMenuBtn.addEventListener(
+  "click",
+  () => {
+
+    navLinks.classList.toggle("open");
+
+  }
+);
+
+
+document.querySelectorAll(
+  ".nav-links a"
+).forEach(link => {
+
+  link.addEventListener(
+    "click",
+    () => {
+
+      navLinks.classList.remove("open");
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+const releaseDate =
+new Date("2027-03-15T00:00:00");
+
+
+function updateCountdown(){
+
+  const now =
+  new Date();
+
+  const difference =
+  releaseDate - now;
+
+
+  if(difference <= 0){
+
+    document.getElementById("days").textContent =
+      "00";
+
+    document.getElementById("hours").textContent =
+      "00";
+
+    document.getElementById("minutes").textContent =
+      "00";
+
+    document.getElementById("seconds").textContent =
+      "00";
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      difference /
+      (1000 * 60 * 60 * 24)
+    );
+
+  const hours =
+    Math.floor(
+      (difference /
+      (1000 * 60 * 60)) % 24
+    );
+
+  const minutes =
+    Math.floor(
+      (difference /
+      (1000 * 60)) % 60
+    );
+
+  const seconds =
+    Math.floor(
+      (difference / 1000) % 60
+    );
+
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+let cart = [];
+
+
+try{
+
+  const savedCart =
+    localStorage.getItem("WINGS_CART");
+
+  if(savedCart){
+
+    cart =
+      JSON.parse(savedCart);
+
+  }
+
+}catch(error){
+
+  cart = [];
+
+}
+
+
+/* =========================================================
+   NORMALIZE OLD HOODIE CART ITEMS
+========================================================= */
+
+const normalizedCart = [];
+
+
+cart.forEach(item => {
+
+  if(
+    item.name ===
+    "WINGS HOODIE \u2014 DETAIL" ||
+    item.name ===
+    "WINGS HOODIE - DETAIL"
+  ){
+
+    item.name =
+      "WINGS HOODIE";
+
+    item.image =
+      "images/hoodie(1).png";
+
+  }
+
+
+  const existing =
+    normalizedCart.find(
+      existingItem =>
+        existingItem.name === item.name &&
+        existingItem.size === item.size
+    );
+
+
+  if(existing){
+
+    existing.quantity +=
+      Number(item.quantity) || 1;
+
+  }else{
+
+    normalizedCart.push({
+      ...item,
+      quantity:
+        Number(item.quantity) || 1
     });
 
+  }
 
-    /* =========================================
-       LOCAL STORAGE
-    ========================================= */
+});
 
-    function saveCart() {
 
-      localStorage.setItem(
-        CART_STORAGE_KEY,
-        JSON.stringify(cart)
-      );
+cart = normalizedCart;
 
-    }
 
+function saveCart(){
 
-    function loadCart() {
+  localStorage.setItem(
+    "WINGS_CART",
+    JSON.stringify(cart)
+  );
 
-      try {
+}
 
-        const saved =
-          localStorage.getItem(CART_STORAGE_KEY);
 
-        if (!saved) {
-          cart = [];
-          return;
-        }
+const cartDrawer =
+document.getElementById("cartDrawer");
 
-        const parsed =
-          JSON.parse(saved);
+const cartOverlay =
+document.getElementById("cartOverlay");
 
-        if (!Array.isArray(parsed)) {
-          cart = [];
-          return;
-        }
+const cartOpenBtn =
+document.getElementById("cartOpenBtn");
 
-        cart = parsed.filter(item => {
+const cartCloseBtn =
+document.getElementById("cartCloseBtn");
 
-          return (
-            item &&
-            item.id &&
-            item.name &&
-            typeof item.price === "number" &&
-            item.size &&
-            typeof item.quantity === "number" &&
-            item.quantity > 0
-          );
+const cartItems =
+document.getElementById("cartItems");
 
-        });
+const cartTotal =
+document.getElementById("cartTotal");
 
-      } catch (error) {
+const cartCount =
+document.getElementById("cartCount");
 
-        console.error(
-          "Could not load cart:",
-          error
-        );
 
-        cart = [];
+function openCart(){
 
-      }
+  cartDrawer.classList.add("open");
 
-    }
+  cartOverlay.classList.add("open");
 
+  document.body.classList.add("modal-open");
 
-    /* =========================================
-       TOAST
-    ========================================= */
+}
 
-    let toastTimeout;
 
-    function showToast(message) {
+function closeCart(){
 
-      toast.textContent = message;
+  cartDrawer.classList.remove("open");
 
-      toast.classList.add("show");
+  cartOverlay.classList.remove("open");
 
-      clearTimeout(toastTimeout);
+  document.body.classList.remove("modal-open");
 
-      toastTimeout = setTimeout(() => {
+}
 
-        toast.classList.remove("show");
 
-      }, 2500);
+cartOpenBtn.addEventListener(
+  "click",
+  openCart
+);
 
-    }
 
+cartCloseBtn.addEventListener(
+  "click",
+  closeCart
+);
 
-    /* =========================================
-       CART OPEN/CLOSE
-    ========================================= */
 
-    function openCart() {
+cartOverlay.addEventListener(
+  "click",
+  closeCart
+);
 
-      cartDrawer.classList.add("active");
 
-      cartOverlay.classList.add("active");
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
-      document.body.style.overflow = "hidden";
+function updateCart(){
 
-    }
+  cartItems.innerHTML = "";
 
+  let total = 0;
 
-    function closeCart() {
+  let quantityTotal = 0;
 
-      cartDrawer.classList.remove("active");
 
-      cartOverlay.classList.remove("active");
+  if(cart.length === 0){
 
-      document.body.style.overflow = "";
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        YOUR CART IS EMPTY.
+      </div>
+    `;
 
-    }
+  }
 
 
-    openCartButton.addEventListener(
-      "click",
-      openCart
-    );
+  cart.forEach(
+    (item,index) => {
 
+      const itemTotal =
+        Number(item.price) *
+        Number(item.quantity);
 
-    closeCartButton.addEventListener(
-      "click",
-      closeCart
-    );
+      total += itemTotal;
 
+      quantityTotal +=
+        Number(item.quantity);
 
-    cartOverlay.addEventListener(
-      "click",
-      closeCart
-    );
 
+      const cartItem =
+        document.createElement("div");
 
-    document.addEventListener(
-      "keydown",
-      event => {
+      cartItem.className =
+        "cart-item";
 
-        if (event.key === "Escape") {
-          closeCart();
-        }
 
-      }
-    );
+      cartItem.innerHTML = `
 
+        <img
+          src="${item.image}"
+          alt="${item.name}"
+        >
 
-    /* =========================================
-       MOBILE MENU
-    ========================================= */
+        <div>
 
-    menuButton.addEventListener(
-      "click",
-      () => {
+          <div class="cart-item-name">
+            ${item.name}
+          </div>
 
-        navLinks.classList.toggle("active");
+          <div class="cart-item-meta">
+            SIZE ${item.size} /
+            $${Number(item.price).toFixed(2)}
+          </div>
 
-      }
-    );
+          <div class="cart-quantity">
 
+            <button
+              class="qty-btn"
+              type="button"
+              data-index="${index}"
+              data-action="minus"
+            >
+              -
+            </button>
 
-    navLinks
-      .querySelectorAll("a")
-      .forEach(link => {
+            <span class="qty-number">
+              ${item.quantity}
+            </span>
 
-        link.addEventListener(
-          "click",
-          () => {
-
-            navLinks.classList.remove("active");
-
-          }
-        );
-
-      });
-
-
-    /* =========================================
-       ADD TO CART
-    ========================================= */
-
-    function addToCart(
-      id,
-      name,
-      price,
-      image,
-      sizeElementId,
-      quantityElementId
-    ) {
-
-      const size =
-        document.getElementById(sizeElementId).value;
-
-      const quantity =
-        Number(
-          document.getElementById(quantityElementId).value
-        );
-
-      if (!size || !quantity) {
-
-        showToast(
-          "Please choose a size and quantity."
-        );
-
-        return;
-
-      }
-
-
-      const existingItem =
-        cart.find(item =>
-
-          item.id === id &&
-          item.size === size
-
-        );
-
-
-      if (existingItem) {
-
-        existingItem.quantity += quantity;
-
-      } else {
-
-        cart.push({
-
-          id: id,
-
-          name: name,
-
-          price: price,
-
-          image: image,
-
-          size: size,
-
-          quantity: quantity
-
-        });
-
-      }
-
-
-      saveCart();
-
-      updateCart();
-
-      showToast(
-        `${name} added to your cart.`
-      );
-
-    }
-
-
-    /* =========================================
-       UPDATE CART
-    ========================================= */
-
-    function updateCart() {
-
-      renderCart();
-
-      updateCartCount();
-
-      updateCartSubtotal();
-
-      updateOrderSummary();
-
-    }
-
-
-    /* =========================================
-       CART COUNT
-    ========================================= */
-
-    function updateCartCount() {
-
-      const count =
-        cart.reduce(
-          (total, item) =>
-            total + item.quantity,
-          0
-        );
-
-      cartCount.textContent = count;
-
-    }
-
-
-    /* =========================================
-       CART SUBTOTAL
-    ========================================= */
-
-    function getCartTotal() {
-
-      return cart.reduce(
-        (total, item) => {
-
-          return (
-            total +
-            item.price * item.quantity
-          );
-
-        },
-        0
-      );
-
-    }
-
-
-    function updateCartSubtotal() {
-
-      cartSubtotal.textContent =
-        formatMoney(
-          getCartTotal()
-        );
-
-    }
-
-
-    /* =========================================
-       RENDER CART
-    ========================================= */
-
-    function renderCart() {
-
-      if (cart.length === 0) {
-
-        cartItems.innerHTML = `
-
-          <div class="empty-cart">
-
-            <h4>
-              Your cart is empty.
-            </h4>
-
-            <p>
-              Add something from the WINGS collection.
-            </p>
-
-            <button onclick="continueShopping()">
-              Continue Shopping
+            <button
+              class="qty-btn"
+              type="button"
+              data-index="${index}"
+              data-action="plus"
+            >
+              +
             </button>
 
           </div>
 
-        `;
+          <button
+            class="remove-item"
+            type="button"
+            data-index="${index}"
+          >
+            REMOVE
+          </button>
 
-        return;
+        </div>
+
+        <strong>
+          $${itemTotal.toFixed(2)}
+        </strong>
+
+      `;
+
+
+      cartItems.appendChild(
+        cartItem
+      );
+
+    }
+  );
+
+
+  cartTotal.textContent =
+    "$" + total.toFixed(2);
+
+
+  cartCount.textContent =
+    quantityTotal;
+
+
+  saveCart();
+
+  updateCheckoutItems();
+
+}
+
+
+/* =========================================================
+   CART BUTTON ACTIONS
+========================================================= */
+
+cartItems.addEventListener(
+  "click",
+  event => {
+
+    const quantityButton =
+      event.target.closest(".qty-btn");
+
+
+    if(quantityButton){
+
+      const index =
+        Number(
+          quantityButton.dataset.index
+        );
+
+      const action =
+        quantityButton.dataset.action;
+
+
+      if(action === "plus"){
+
+        cart[index].quantity++;
 
       }
 
 
-      cartItems.innerHTML =
-        cart.map(
-          (item, index) => `
+      if(action === "minus"){
 
-            <div class="cart-item">
+        cart[index].quantity--;
 
-              <div class="cart-item-image">
+        if(cart[index].quantity <= 0){
 
-                <img
-                  src="${escapeAttribute(item.image)}"
-                  alt="${escapeAttribute(item.name)}"
-                >
+          cart.splice(index,1);
 
-              </div>
+        }
 
-              <div class="cart-item-info">
+      }
 
-                <h4>
-                  ${escapeHTML(item.name)}
-                </h4>
 
-                <p>
-                  Size: ${escapeHTML(item.size)}
-                  <br>
-                  ${formatMoney(item.price)}
-                </p>
+      updateCart();
 
-                <div class="cart-item-bottom">
-
-                  <div class="quantity-controls">
-
-                    <button
-                      onclick="changeQuantity(${index}, -1)"
-                      aria-label="Decrease quantity"
-                    >
-                      -
-                    </button>
-
-                    <span>
-                      ${item.quantity}
-                    </span>
-
-                    <button
-                      onclick="changeQuantity(${index}, 1)"
-                      aria-label="Increase quantity"
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-                <button
-                  class="remove-item"
-                  onclick="removeFromCart(${index})"
-                >
-                  Remove
-                </button>
-
-              </div>
-
-            </div>
-
-          `
-        )
-        .join("");
+      return;
 
     }
 
 
-    /* =========================================
-       CHANGE QUANTITY
-    ========================================= */
+    const removeButton =
+      event.target.closest(
+        ".remove-item"
+      );
 
-    function changeQuantity(
-      index,
-      change
-    ) {
 
-      if (!cart[index]) {
-        return;
-      }
+    if(removeButton){
 
-      cart[index].quantity += change;
+      const index =
+        Number(
+          removeButton.dataset.index
+        );
 
-      if (cart[index].quantity <= 0) {
-
-        cart.splice(index, 1);
-
-      }
-
-      saveCart();
+      cart.splice(index,1);
 
       updateCart();
 
     }
 
+  }
+);
 
-    /* =========================================
-       REMOVE ITEM
-    ========================================= */
 
-    function removeFromCart(index) {
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
-      if (!cart[index]) {
-        return;
+document.querySelectorAll(
+  ".product-card"
+).forEach(card => {
+
+  const addButton =
+    card.querySelector(
+      ".add-cart-btn"
+    );
+
+  const sizeSelect =
+    card.querySelector(
+      ".size-select"
+    );
+
+
+  addButton.addEventListener(
+    "click",
+    () => {
+
+      const product =
+        card.dataset.product;
+
+      const price =
+        Number(card.dataset.price);
+
+      const image =
+        card.dataset.image;
+
+      const size =
+        sizeSelect.value;
+
+
+      const existing =
+        cart.find(
+          item =>
+            item.name === product &&
+            item.size === size
+        );
+
+
+      if(existing){
+
+        existing.quantity++;
+
+      }else{
+
+        cart.push({
+
+          name:product,
+
+          price:price,
+
+          image:image,
+
+          size:size,
+
+          quantity:1
+
+        });
+
       }
 
-      const removed =
-        cart[index].name;
-
-      cart.splice(index, 1);
-
-      saveCart();
 
       updateCart();
 
-      showToast(
-        `${removed} removed from your cart.`
-      );
+      openCart();
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+const checkoutModal =
+document.getElementById(
+  "checkoutModal"
+);
+
+const checkoutOpenBtn =
+document.getElementById(
+  "checkoutOpenBtn"
+);
+
+const checkoutCloseBtn =
+document.getElementById(
+  "checkoutCloseBtn"
+);
+
+const checkoutForm =
+document.getElementById(
+  "checkoutForm"
+);
+
+const checkoutMessage =
+document.getElementById(
+  "checkoutMessage"
+);
+
+const verificationBox =
+document.getElementById(
+  "verificationBox"
+);
+
+const verificationCode =
+document.getElementById(
+  "verificationCode"
+);
+
+const verificationInfo =
+document.getElementById(
+  "verificationInfo"
+);
+
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert(
+      "Your cart is empty."
+    );
+
+    return;
+
+  }
+
+
+  closeCart();
+
+  updateCheckoutItems();
+
+
+  checkoutModal.classList.add(
+    "open"
+  );
+
+  checkoutModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+
+  checkoutMessage.textContent =
+    "";
+
+  verificationBox.style.display =
+    "none";
+
+}
+
+
+function closeCheckout(){
+
+  checkoutModal.classList.remove(
+    "open"
+  );
+
+  checkoutModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+checkoutOpenBtn.addEventListener(
+  "click",
+  openCheckout
+);
+
+
+checkoutCloseBtn.addEventListener(
+  "click",
+  closeCheckout
+);
+
+
+checkoutModal.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      checkoutModal
+    ){
+
+      closeCheckout();
 
     }
 
-
-    /* =========================================
-       CONTINUE SHOPPING
-    ========================================= */
-
-    function continueShopping() {
-
-      closeCart();
-
-      document
-        .getElementById("shop")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
+  }
+);
 
 
-    /* =========================================
-       CHECKOUT LINK
-    ========================================= */
+/* =========================================================
+   CHECKOUT ITEMS
+========================================================= */
 
-    goCheckoutButton.addEventListener(
-      "click",
-      () => {
+function updateCheckoutItems(){
 
-        if (cart.length === 0) {
-
-          showToast(
-            "Your cart is empty."
-          );
-
-          return;
-
-        }
-
-        closeCart();
-
-        document
-          .getElementById("checkout")
-          .scrollIntoView({
-            behavior: "smooth"
-          });
-
-      }
+  const container =
+    document.getElementById(
+      "checkoutItems"
     );
 
 
-    /* =========================================
-       ORDER SUMMARY
-    ========================================= */
+  if(cart.length === 0){
 
-    function updateOrderSummary() {
+    container.innerHTML =
+      "<div>Cart is empty.</div>";
 
-      if (!verifiedCheckout) {
+    return;
 
-        orderSummary.classList.remove("active");
-
-        return;
-
-      }
+  }
 
 
-      if (cart.length === 0) {
-
-        orderSummary.classList.remove("active");
-
-        return;
-
-      }
+  let total = 0;
 
 
-      orderSummary.classList.add("active");
-
-      summaryItems.innerHTML =
-        cart.map(
-          item => `
-
-            <div class="summary-item">
-
-              <div class="summary-item-info">
-
-                <strong>
-                  ${escapeHTML(item.name)}
-                </strong>
-
-                <span>
-                  Size ${escapeHTML(item.size)}
-                  · Qty ${item.quantity}
-                </span>
-
-              </div>
-
-              <strong>
-                ${formatMoney(
-                  item.price * item.quantity
-                )}
-              </strong>
-
-            </div>
-
-          `
-        )
-        .join("");
+  let html = `
+    <div class="checkout-items-title">
+      YOUR ORDER
+    </div>
+  `;
 
 
-      summaryTotal.textContent =
-        formatMoney(
-          getCartTotal()
-        );
+  cart.forEach(item => {
 
-    }
+    const itemTotal =
+      Number(item.price) *
+      Number(item.quantity);
 
-
-    /* =========================================
-       PHONE FORMATTING
-    ========================================= */
-
-    function setupPhoneFormatting() {
-
-      phoneInput.addEventListener(
-        "input",
-        () => {
-
-          let digits =
-            phoneInput.value
-              .replace(/\D/g, "")
-              .slice(0, 10);
+    total += itemTotal;
 
 
-          let formatted = digits;
+    html += `
+
+      <div class="checkout-line">
+
+        <span>
+          ${item.name}
+          / ${item.size}
+          x${item.quantity}
+        </span>
+
+        <strong>
+          $${itemTotal.toFixed(2)}
+        </strong>
+
+      </div>
+
+    `;
+
+  });
 
 
-          if (digits.length > 6) {
+  html += `
 
-            formatted =
-              "(" +
-              digits.slice(0, 3) +
-              ") " +
-              digits.slice(3, 6) +
-              "-" +
-              digits.slice(6);
+    <div
+      class="checkout-line"
+      style="margin-top:10px;font-weight:900;"
+    >
 
-          } else if (digits.length > 3) {
+      <span>
+        TOTAL
+      </span>
 
-            formatted =
-              "(" +
-              digits.slice(0, 3) +
-              ") " +
-              digits.slice(3);
+      <strong>
+        $${total.toFixed(2)}
+      </strong>
 
-          }
+    </div>
 
-
-          phoneInput.value =
-            formatted;
+  `;
 
 
-          invalidateVerification();
+  container.innerHTML =
+    html;
 
-        }
+}
+
+
+/* =========================================================
+   PHONE NORMALIZATION
+========================================================= */
+
+function normalizePhone(phone){
+
+  return String(phone)
+    .replace(/\D/g,"")
+    .slice(-10);
+
+}
+
+
+/* =========================================================
+   CHECKOUT VERIFICATION
+========================================================= */
+
+checkoutForm.addEventListener(
+  "submit",
+  async event => {
+
+    event.preventDefault();
+
+
+    const phoneInput =
+      document.getElementById(
+        "checkoutPhone"
       );
 
 
-      document
-        .querySelectorAll(
-          'input[name="attendance"]'
-        )
-        .forEach(radio => {
-
-          radio.addEventListener(
-            "change",
-            invalidateVerification
-          );
-
-        });
-
-    }
-
-
-    /* =========================================
-       INVALIDATE VERIFICATION
-    ========================================= */
-
-    function invalidateVerification() {
-
-      verifiedCheckout = null;
-
-      verificationResult.classList.remove(
-        "success",
-        "error"
+    const phone =
+      normalizePhone(
+        phoneInput.value
       );
 
-      verificationResult.style.display = "none";
 
-      orderSummary.classList.remove(
-        "active"
-      );
+    if(phone.length !== 10){
 
-      orderSuccess.classList.remove(
-        "active"
-      );
+      checkoutMessage.textContent =
+        "Please enter a valid 10-digit phone number.";
 
-      submitOrderButton.disabled = false;
-
-      submitOrderButton.textContent =
-        "Submit Order";
+      return;
 
     }
 
 
-    /* =========================================
-       GET CLEAN PHONE
-    ========================================= */
-
-    function getPhoneDigits() {
-
-      return phoneInput.value
-        .replace(/\D/g, "")
-        .slice(-10);
-
-    }
+    checkoutMessage.textContent =
+      "Checking your checkout information...";
 
 
-    /* =========================================
-       GET ATTENDANCE
-    ========================================= */
-
-    function getAttendance() {
-
-      const selected =
-        document.querySelector(
-          'input[name="attendance"]:checked'
-        );
-
-      return selected
-        ? selected.value
-        : "";
-
-    }
+    verificationBox.style.display =
+      "none";
 
 
-    /* =========================================
-       VERIFY CHECKOUT
-    ========================================= */
+    try{
 
-    verifyButton.addEventListener(
-      "click",
-      verifyCheckout
-    );
-
-
-    async function verifyCheckout() {
-
-      const phone =
-        getPhoneDigits();
-
-      const attendance =
-        getAttendance();
-
-
-      if (phone.length !== 10) {
-
-        showVerificationError(
-          "Please enter a valid 10-digit phone number."
-        );
-
-        return;
-
-      }
-
-
-      if (!attendance) {
-
-        showVerificationError(
-          "Please choose In Person or Online."
-        );
-
-        return;
-
-      }
-
-
-      verifyButton.disabled = true;
-
-      verifyButton.textContent =
-        "VERIFYING...";
-
-
-      try {
-
-        const url =
+      const response =
+        await fetch(
           APPS_SCRIPT_URL +
           "?phone=" +
-          encodeURIComponent(phone);
-
-
-        const response =
-          await fetch(url, {
-            method: "GET"
-          });
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Verification request failed."
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (!data.success) {
-
-          showVerificationError(
-            data.message ||
-            "We could not verify your checkout."
-          );
-
-          return;
-
-        }
-
-
-        if (
-          data.type !== attendance
-        ) {
-
-          showVerificationError(
-            "Your phone number was found, but the selected attendance type does not match."
-          );
-
-          return;
-
-        }
-
-
-        verifiedCheckout = {
-
-          phone: phone,
-
-          type: attendance,
-
-          code: data.code
-
-        };
-
-
-        verificationResult.classList.remove(
-          "error"
+          encodeURIComponent(phone)
         );
 
-        verificationResult.classList.add(
-          "success"
-        );
 
-        verificationResult.style.display =
-          "block";
+      const data =
+        await response.json();
 
 
-        verificationTitle.textContent =
-          "Checkout Verified";
+      if(!data.success){
 
+        checkoutMessage.textContent =
+          data.message ||
+          "We could not verify your information.";
 
-        verificationMessage.textContent =
-          attendance === "IN"
-            ? "Your In Person checkout has been verified."
-            : "Your Online checkout has been verified.";
-
-
-        verificationCode.textContent =
-          data.code;
-
-
-        updateOrderSummary();
-
-
-        if (cart.length === 0) {
-
-          showToast(
-            "Verified. Add items to your cart to continue."
-          );
-
-        } else {
-
-          showToast(
-            "Checkout verified."
-          );
-
-        }
-
-      } catch (error) {
-
-        console.error(
-          "Verification error:",
-          error
-        );
-
-        showVerificationError(
-          "Unable to connect to the verification system. Please try again."
-        );
-
-      } finally {
-
-        verifyButton.disabled = false;
-
-        verifyButton.textContent =
-          "Verify Checkout";
+        return;
 
       }
-
-    }
-
-
-    /* =========================================
-       VERIFICATION ERROR
-    ========================================= */
-
-    function showVerificationError(
-      message
-    ) {
-
-      verifiedCheckout = null;
-
-      verificationResult.classList.remove(
-        "success"
-      );
-
-      verificationResult.classList.add(
-        "error"
-      );
-
-      verificationResult.style.display =
-        "block";
-
-
-      verificationTitle.textContent =
-        "Verification Failed";
-
-
-      verificationMessage.textContent =
-        message;
 
 
       verificationCode.textContent =
-        "";
+        data.code;
 
-      orderSummary.classList.remove(
-        "active"
+
+      verificationInfo.innerHTML = `
+
+        Your checkout is verified.
+
+        <br><br>
+
+        Attendance type:
+        <strong>
+          ${
+            data.type === "IN"
+            ? "IN PERSON"
+            : "ONLINE"
+          }
+        </strong>
+
+      `;
+
+
+      verificationBox.style.display =
+        "block";
+
+
+      checkoutMessage.textContent =
+        "Verification successful. Submitting your order...";
+
+
+      await submitOrder(
+        phone,
+        data.type
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      checkoutMessage.textContent =
+        "Verification failed. Please try again.";
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
+
+async function submitOrder(
+  phone,
+  attendance
+){
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum +
+        (
+          Number(item.price) *
+          Number(item.quantity)
+        ),
+      0
+    );
+
+
+  const items =
+    cart.map(item => ({
+
+      name:item.name,
+
+      size:item.size,
+
+      quantity:item.quantity,
+
+      price:Number(item.price)
+
+    }));
+
+
+  try{
+
+    const response =
+      await fetch(
+        APPS_SCRIPT_URL,
+        {
+
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "text/plain;charset=utf-8"
+          },
+
+          body:JSON.stringify({
+
+            phone:phone,
+
+            attendance:attendance,
+
+            items:items,
+
+            total:total
+
+          })
+
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!data.success){
+
+      checkoutMessage.textContent =
+        data.message ||
+        "Order submission failed.";
+
+      return;
+
+    }
+
+
+    checkoutMessage.innerHTML = `
+
+      <strong>
+        ORDER CONFIRMED.
+      </strong>
+
+      <br><br>
+
+      Order ID:
+      <strong>
+        ${data.orderId}
+      </strong>
+
+      <br><br>
+
+      Keep your verification code:
+      <strong>
+        ${data.code}
+      </strong>
+
+    `;
+
+
+    cart = [];
+
+    saveCart();
+
+    updateCart();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    checkoutMessage.textContent =
+      "Your verification worked, but the order could not be submitted. Please save your verification code and contact WINGS.";
+
+  }
+
+}
+
+
+/* =========================================================
+   SIZE GUIDE
+========================================================= */
+
+const sizeModal =
+document.getElementById(
+  "sizeModal"
+);
+
+const sizeCloseBtn =
+document.getElementById(
+  "sizeCloseBtn"
+);
+
+
+function openSizeModal(){
+
+  sizeModal.classList.add(
+    "open"
+  );
+
+  sizeModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+}
+
+
+function closeSizeModal(){
+
+  sizeModal.classList.remove(
+    "open"
+  );
+
+  sizeModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+document.querySelectorAll(
+  ".size-guide-btn"
+).forEach(button => {
+
+  button.addEventListener(
+    "click",
+    openSizeModal
+  );
+
+});
+
+
+sizeCloseBtn.addEventListener(
+  "click",
+  closeSizeModal
+);
+
+
+sizeModal.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      sizeModal
+    ){
+
+      closeSizeModal();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PRODUCT IMAGE ZOOM
+========================================================= */
+
+const imageModal =
+document.getElementById(
+  "imageModal"
+);
+
+const modalImage =
+document.getElementById(
+  "modalImage"
+);
+
+const imageModalClose =
+document.getElementById(
+  "imageModalClose"
+);
+
+
+document.querySelectorAll(
+  ".product-image img"
+).forEach(image => {
+
+  image.style.cursor =
+    "zoom-in";
+
+
+  image.addEventListener(
+    "click",
+    () => {
+
+      modalImage.src =
+        image.src;
+
+      modalImage.alt =
+        image.alt;
+
+      imageModal.classList.add(
+        "open"
+      );
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+    }
+  );
+
+});
+
+
+imageModalClose.addEventListener(
+  "click",
+  () => {
+
+    imageModal.classList.remove(
+      "open"
+    );
+
+    document.body.classList.remove(
+      "modal-open"
+    );
+
+  }
+);
+
+
+imageModal.addEventListener(
+  "click",
+  event => {
+
+    if(
+      event.target ===
+      imageModal
+    ){
+
+      imageModal.classList.remove(
+        "open"
+      );
+
+      document.body.classList.remove(
+        "modal-open"
       );
 
     }
 
+  }
+);
 
-    /* =========================================
-       SUBMIT ORDER
-    ========================================= */
 
-    submitOrderButton.addEventListener(
-      "click",
-      submitOrder
+/* =========================================================
+   HOODIE IMAGE GALLERY
+========================================================= */
+
+const hoodieImages = [
+
+  {
+    src:"images/hoodie(1).png",
+    alt:"WINGS Hoodie"
+  },
+
+  {
+    src:"images/hoodie-detail(1).png",
+    alt:"WINGS Hoodie Detail"
+  }
+
+];
+
+
+let hoodieImageIndex = 0;
+
+
+const hoodieGalleryImage =
+document.getElementById(
+  "hoodieGalleryImage"
+);
+
+const hoodieIndicator =
+document.getElementById(
+  "hoodieIndicator"
+);
+
+const hoodiePrev =
+document.getElementById(
+  "hoodiePrev"
+);
+
+const hoodieNext =
+document.getElementById(
+  "hoodieNext"
+);
+
+
+function updateHoodieGallery(){
+
+  const image =
+    hoodieImages[
+      hoodieImageIndex
+    ];
+
+
+  hoodieGalleryImage.src =
+    image.src;
+
+  hoodieGalleryImage.alt =
+    image.alt;
+
+
+  hoodieIndicator.textContent =
+    (
+      hoodieImageIndex + 1
+    ) +
+    " / " +
+    hoodieImages.length;
+
+}
+
+
+hoodiePrev.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+
+    hoodieImageIndex--;
+
+
+    if(
+      hoodieImageIndex < 0
+    ){
+
+      hoodieImageIndex =
+        hoodieImages.length - 1;
+
+    }
+
+
+    updateHoodieGallery();
+
+  }
+);
+
+
+hoodieNext.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+
+    hoodieImageIndex++;
+
+
+    if(
+      hoodieImageIndex >=
+      hoodieImages.length
+    ){
+
+      hoodieImageIndex = 0;
+
+    }
+
+
+    updateHoodieGallery();
+
+  }
+);
+
+
+hoodieGalleryImage.addEventListener(
+  "click",
+  () => {
+
+    const image =
+      hoodieImages[
+        hoodieImageIndex
+      ];
+
+
+    modalImage.src =
+      image.src;
+
+    modalImage.alt =
+      image.alt;
+
+
+    imageModal.classList.add(
+      "open"
     );
 
-
-    async function submitOrder() {
-
-      if (!verifiedCheckout) {
-
-        showToast(
-          "Please verify your checkout first."
-        );
-
-        return;
-
-      }
-
-
-      if (cart.length === 0) {
-
-        showToast(
-          "Your cart is empty."
-        );
-
-        return;
-
-      }
-
-
-      const total =
-        getCartTotal();
-
-
-      const items =
-        cart.map(item => ({
-
-          id: item.id,
-
-          name: item.name,
-
-          size: item.size,
-
-          quantity: item.quantity,
-
-          price: item.price
-
-        }));
-
-
-      const payload = {
-
-        phone:
-          verifiedCheckout.phone,
-
-        attendance:
-          verifiedCheckout.type,
-
-        items:
-          items,
-
-        total:
-          total
-
-      };
-
-
-      submitOrderButton.disabled = true;
-
-      submitOrderButton.textContent =
-        "SUBMITTING...";
-
-
-      try {
-
-        /*
-          IMPORTANT:
-          Content-Type is text/plain instead of
-          application/json so the browser does not
-          trigger a CORS preflight request.
-        */
-
-        const response =
-          await fetch(
-            APPS_SCRIPT_URL,
-            {
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "text/plain;charset=utf-8"
-              },
-
-              body:
-                JSON.stringify(payload)
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Order submission request failed."
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (!data.success) {
-
-          throw new Error(
-            data.message ||
-            "Order submission failed."
-          );
-
-        }
-
-
-        /* SUCCESS */
-
-        orderIdDisplay.textContent =
-          "Order ID: " +
-          data.orderId;
-
-
-        orderSuccess.classList.add(
-          "active"
-        );
-
-
-        submitOrderButton.style.display =
-          "none";
-
-
-        showToast(
-          "Order submitted successfully."
-        );
-
-
-        /*
-          Save the successful order ID
-          temporarily so the copy button
-          can use it.
-        */
-
-        copyOrderButton.dataset.orderId =
-          data.orderId;
-
-
-        /*
-          Clear the shopping cart after
-          successful submission.
-        */
-
-        cart = [];
-
-        saveCart();
-
-        updateCart();
-
-
-      } catch (error) {
-
-        console.error(
-          "Order submission error:",
-          error
-        );
-
-
-        showToast(
-          error.message ||
-          "Order submission failed. Please try again."
-        );
-
-
-        submitOrderButton.disabled =
-          false;
-
-        submitOrderButton.textContent =
-          "Submit Order";
-
-      }
-
-    }
-
-
-    /* =========================================
-       COPY ORDER ID
-    ========================================= */
-
-    copyOrderButton.addEventListener(
-      "click",
-      async () => {
-
-        const orderId =
-          copyOrderButton.dataset.orderId;
-
-
-        if (!orderId) {
-          return;
-        }
-
-
-        try {
-
-          await navigator.clipboard.writeText(
-            orderId
-          );
-
-          copyOrderButton.textContent =
-            "COPIED";
-
-          setTimeout(() => {
-
-            copyOrderButton.textContent =
-              "Copy Order ID";
-
-          }, 1500);
-
-        } catch (error) {
-
-          showToast(
-            "Could not copy the order ID."
-          );
-
-        }
-
-      }
+    document.body.classList.add(
+      "modal-open"
     );
 
+  }
+);
 
-    /* =========================================
-       FORMAT MONEY
-    ========================================= */
 
-    function formatMoney(
-      amount
-    ) {
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
 
-      return new Intl.NumberFormat(
-        "en-US",
-        {
-          style: "currency",
-          currency: "USD"
-        }
-      ).format(amount);
+document.addEventListener(
+  "keydown",
+  event => {
 
+    if(event.key !== "Escape"){
+      return;
     }
 
 
-    /* =========================================
-       HTML SAFETY
-    ========================================= */
+    closeCart();
 
-    function escapeHTML(
-      value
-    ) {
+    closeCheckout();
 
-      return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+    closeSizeModal();
 
-    }
+    closeThemeModal();
 
 
-    function escapeAttribute(
-      value
-    ) {
+    imageModal.classList.remove(
+      "open"
+    );
 
-      return escapeHTML(value);
+    document.body.classList.remove(
+      "modal-open"
+    );
 
-    }
+  }
+);
 
-  </script>
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateCart();
+
+updateCheckoutItems();
+
+updateHoodieGallery();
+
+</script>
 
 </body>
 </html>
