@@ -12,6 +12,129 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* WINGS CHECK-IN */
+    .checkin-card {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+    }
+
+    .checkin-intro {
+      margin-top: 0;
+      line-height: 1.7;
+    }
+
+    .code-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .code-form > label {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .code-form input[type="tel"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px 16px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      background: rgba(0,0,0,.25);
+      color: inherit;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .code-form input[type="tel"]:focus {
+      border-color: currentColor;
+    }
+
+    .choice-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .choice {
+      cursor: pointer;
+    }
+
+    .choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice span {
+      display: block;
+      padding: 15px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+
+    .choice input:checked + span {
+      border-color: currentColor;
+      background: rgba(255,255,255,.1);
+    }
+
+    .code-result {
+      margin-top: 24px;
+      padding: 24px;
+      text-align: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .result-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .75rem;
+      letter-spacing: .14em;
+      font-weight: 700;
+    }
+
+    #generatedCode {
+      display: block;
+      font-size: clamp(2rem, 8vw, 4rem);
+      letter-spacing: .08em;
+      word-break: break-word;
+    }
+
+    #codeType {
+      display: block;
+      margin-top: 8px;
+      opacity: .7;
+    }
+
+    .code-note {
+      margin-bottom: 0;
+      font-size: .78rem;
+      opacity: .65;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 560px) {
+      .checkin-card {
+        padding: 22px;
+      }
+
+      .choice-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
 </head>
 
 <body id="top">
@@ -32,6 +155,7 @@
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#drop">Drop</a>
+      <a href="#checkin">Check-In</a>
       <a href="#contact">Contact</a>
       <a href="#policies">Policies</a>
     </nav>
@@ -43,7 +167,6 @@
     <!-- HERO -->
     <section id="home" class="hero">
 
-      <!-- CORRECT IMAGE NAME -->
       <img
         class="hero-image"
         src="images/hero(1).png"
@@ -306,6 +429,134 @@
     </section>
 
 
+    <!-- CHECK-IN -->
+    <section id="checkin" class="checkin section">
+
+      <div class="section-head">
+
+        <div>
+          <p class="eyebrow">CHECK-IN</p>
+          <h2>GET YOUR CODE</h2>
+        </div>
+
+        <span class="coming">
+          SECURE CHECK-IN
+        </span>
+
+      </div>
+
+
+      <div class="checkin-card">
+
+        <p class="checkin-intro">
+          Complete the WINGS check form first. Then enter the same phone number
+          and select whether you're attending <strong>In Person</strong> or
+          <strong>Online</strong>.
+        </p>
+
+
+        <a
+          class="btn"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSc6hdCwTD5fj2_rpbNomfG5a1JZgh-4qQ6gx5-NpQ/viewform?usp=dialog"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          OPEN THE CHECK FORM
+        </a>
+
+
+        <form id="codeForm" class="code-form">
+
+          <label for="phone">
+            PHONE NUMBER
+          </label>
+
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="(555) 123-4567"
+            maxlength="20"
+            required
+          >
+
+
+          <label>
+            ATTENDING
+          </label>
+
+
+          <div class="choice-row">
+
+            <label class="choice">
+
+              <input
+                type="radio"
+                name="attendance"
+                value="IN"
+                required
+              >
+
+              <span>
+                IN PERSON
+              </span>
+
+            </label>
+
+
+            <label class="choice">
+
+              <input
+                type="radio"
+                name="attendance"
+                value="ON"
+              >
+
+              <span>
+                ONLINE
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <button class="btn" type="submit">
+            GENERATE MY CODE
+          </button>
+
+        </form>
+
+
+        <div
+          id="codeResult"
+          class="code-result"
+          aria-live="polite"
+          hidden
+        >
+
+          <span class="result-label">
+            YOUR CODE
+          </span>
+
+          <strong id="generatedCode"></strong>
+
+          <small id="codeType"></small>
+
+        </div>
+
+
+        <p class="code-note">
+          Your code is based on your phone number and selected check-in type.
+        </p>
+
+      </div>
+
+    </section>
+
+
     <!-- CONTACT -->
     <section id="contact" class="contact section">
 
@@ -551,6 +802,7 @@
 
   <!-- MOBILE MENU -->
   <script>
+
     const menuBtn = document.querySelector('.menu-btn');
     const nav = document.querySelector('.nav nav');
 
@@ -559,10 +811,128 @@
     });
 
     nav.querySelectorAll('a').forEach(link => {
+
       link.addEventListener('click', () => {
         nav.classList.remove('open');
       });
+
     });
+
+  </script>
+
+
+  <!-- CHECK-IN CODE SYSTEM -->
+  <script>
+
+    (() => {
+
+      const form = document.getElementById("codeForm");
+      const phoneInput = document.getElementById("phone");
+      const result = document.getElementById("codeResult");
+      const generatedCode = document.getElementById("generatedCode");
+      const codeType = document.getElementById("codeType");
+
+
+      if (!form || !phoneInput || !result) return;
+
+
+      function normalizePhone(value) {
+
+        return value
+          .replace(/\D/g, "")
+          .slice(-10);
+
+      }
+
+
+      function makeCode(phone, type) {
+
+        let hash = type === "IN"
+          ? 7919
+          : 104729;
+
+
+        for (let i = 0; i < phone.length; i++) {
+
+          hash =
+            (
+              hash * 31 +
+              phone.charCodeAt(i) * (i + 7)
+            ) % 1000000007;
+
+        }
+
+
+        const number =
+          String(
+            Math.abs(hash) % 10000
+          ).padStart(4, "0");
+
+
+        return `${type}-${number}`;
+
+      }
+
+
+      form.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+
+        const phone =
+          normalizePhone(phoneInput.value);
+
+
+        const selected =
+          form.querySelector(
+            'input[name="attendance"]:checked'
+          );
+
+
+        if (phone.length !== 10 || !selected) {
+
+          generatedCode.textContent =
+            "CHECK INFO";
+
+          codeType.textContent =
+            "Enter a valid 10-digit phone number and choose an option.";
+
+          result.hidden = false;
+
+          return;
+
+        }
+
+
+        const code =
+          makeCode(
+            phone,
+            selected.value
+          );
+
+
+        generatedCode.textContent =
+          code;
+
+
+        codeType.textContent =
+          selected.value === "IN"
+            ? "IN PERSON CHECK-IN"
+            : "ONLINE CHECK-IN";
+
+
+        result.hidden = false;
+
+
+        result.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+
+      });
+
+    })();
+
   </script>
 
 </body>
