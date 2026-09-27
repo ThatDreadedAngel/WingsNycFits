@@ -303,6 +303,12 @@
       color: #000;
     }
 
+    .btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     /* MARQUEE */
 
     .drop-banner {
@@ -904,6 +910,78 @@
       font-size: 10px;
     }
 
+    /* ORDER */
+
+    .order-summary-box {
+      margin-top: 25px;
+      padding: 20px;
+      border: 1px solid var(--soft-border);
+      text-align: left;
+    }
+
+    .order-summary-box h3 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .order-summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--soft-border);
+      font-size: 11px;
+    }
+
+    .order-summary-line:last-child {
+      border-bottom: none;
+    }
+
+    .order-summary-line span:first-child {
+      color: #888;
+    }
+
+    .order-summary-total {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .submit-order-btn {
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .order-success {
+      margin-top: 25px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.3);
+      text-align: center;
+      animation: checkoutAppear .4s ease;
+    }
+
+    .order-success-label {
+      color: #888;
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .order-id {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .order-success p {
+      color: #aaa;
+      font-size: 12px;
+    }
+
     @keyframes checkoutAppear {
       from {
         opacity: 0;
@@ -1157,6 +1235,10 @@
 
       .cart-drawer {
         width: 94vw;
+      }
+
+      .order-id {
+        font-size: 21px;
       }
     }
 
@@ -1858,8 +1940,13 @@
 
           <br><br>
 
+          <strong>Step 4:</strong>
+          Verify your number, then submit your WINGS order.
+
+          <br><br>
+
           Your number must match a submitted WINGS
-          checkout before a code can be issued.
+          checkout before an order can be created.
 
         </p>
 
@@ -1963,6 +2050,8 @@
         </div>
 
 
+        <!-- VERIFIED RESULT -->
+
         <div
           id="codeResult"
           class="code-result"
@@ -1991,6 +2080,68 @@
 
 
           <small id="codeType"></small>
+
+
+          <!-- ORDER SUMMARY -->
+
+          <div
+            id="orderSummary"
+            class="order-summary-box"
+            hidden
+          >
+
+            <h3>
+              YOUR WINGS ORDER
+            </h3>
+
+            <div id="orderSummaryItems"></div>
+
+            <div class="order-summary-total">
+
+              <span>
+                TOTAL
+              </span>
+
+              <strong id="orderSummaryTotal">
+                $0.00
+              </strong>
+
+            </div>
+
+            <button
+              class="btn submit-order-btn"
+              id="submitOrderButton"
+              type="button"
+            >
+              SUBMIT WINGS ORDER
+            </button>
+
+          </div>
+
+
+          <!-- ORDER SUCCESS -->
+
+          <div
+            id="orderSuccess"
+            class="order-success"
+            hidden
+          >
+
+            <div class="order-success-label">
+              ✓ ORDER CONFIRMED
+            </div>
+
+            <div
+              class="order-id"
+              id="orderIdDisplay"
+            ></div>
+
+            <p>
+              Your WINGS order has been submitted.
+              Keep your order ID for your records.
+            </p>
+
+          </div>
 
         </div>
 
@@ -2212,7 +2363,7 @@
 
     /*
     ==================================================
-    WINGS GOOGLE SHEETS VERIFICATION
+    WINGS GOOGLE APPS SCRIPT
     ==================================================
     */
 
@@ -2277,7 +2428,8 @@
             "false"
           );
 
-          menuBtn.textContent = "MENU";
+          menuBtn.textContent =
+            "MENU";
 
         }
       );
@@ -2319,10 +2471,6 @@
       document.getElementById("cartCheckoutBtn");
 
 
-    /*
-    OPEN CART
-    */
-
     function openCart() {
 
       cartDrawer.classList.add("open");
@@ -2333,10 +2481,6 @@
 
     }
 
-
-    /*
-    CLOSE CART
-    */
 
     function closeCart() {
 
@@ -2401,10 +2545,6 @@
             sizeSelect.value;
 
 
-          /*
-          FIND SAME PRODUCT + SIZE
-          */
-
           const existing =
             cart.find(function (item) {
 
@@ -2427,18 +2567,25 @@
             cart.push({
 
               id:
-                Date.now() +
-                Math.random(),
+                String(
+                  Date.now() +
+                  Math.random()
+                ),
 
-              name: name,
+              name:
+                name,
 
-              price: price,
+              price:
+                price,
 
-              image: image,
+              image:
+                image,
 
-              size: size,
+              size:
+                size,
 
-              quantity: 1
+              quantity:
+                1
 
             });
 
@@ -2447,10 +2594,6 @@
 
           updateCart();
 
-
-          /*
-          BUTTON FEEDBACK
-          */
 
           const originalText =
             addButton.textContent;
@@ -2525,7 +2668,8 @@
 
       cart.forEach(function (item) {
 
-        totalItems += item.quantity;
+        totalItems +=
+          item.quantity;
 
         subtotal +=
           item.price *
@@ -2636,10 +2780,6 @@
         subtotal.toFixed(2);
 
 
-      /*
-      REMOVE BUTTONS
-      */
-
       document.querySelectorAll(
         ".cart-remove"
       ).forEach(function (button) {
@@ -2649,14 +2789,20 @@
           function () {
 
             const id =
-              Number(this.dataset.id);
+              this.dataset.id;
+
 
             cart =
               cart.filter(
                 function (item) {
-                  return item.id !== id;
+
+                  return (
+                    item.id !== id
+                  );
+
                 }
               );
+
 
             updateCart();
 
@@ -2665,10 +2811,6 @@
 
       });
 
-
-      /*
-      MINUS BUTTONS
-      */
 
       document.querySelectorAll(
         ".quantity-minus"
@@ -2679,12 +2821,17 @@
           function () {
 
             const id =
-              Number(this.dataset.id);
+              this.dataset.id;
+
 
             const item =
               cart.find(
                 function (item) {
-                  return item.id === id;
+
+                  return (
+                    item.id === id
+                  );
+
                 }
               );
 
@@ -2703,7 +2850,11 @@
               cart =
                 cart.filter(
                   function (item) {
-                    return item.id !== id;
+
+                    return (
+                      item.id !== id
+                    );
+
                   }
                 );
 
@@ -2718,10 +2869,6 @@
       });
 
 
-      /*
-      PLUS BUTTONS
-      */
-
       document.querySelectorAll(
         ".quantity-plus"
       ).forEach(function (button) {
@@ -2731,12 +2878,17 @@
           function () {
 
             const id =
-              Number(this.dataset.id);
+              this.dataset.id;
+
 
             const item =
               cart.find(
                 function (item) {
-                  return item.id === id;
+
+                  return (
+                    item.id === id
+                  );
+
                 }
               );
 
@@ -2783,17 +2935,18 @@
         document.getElementById(
           "checkout"
         ).scrollIntoView({
-          behavior: "smooth",
-          block: "start"
+
+          behavior:
+            "smooth",
+
+          block:
+            "start"
+
         });
 
       }
     );
 
-
-    /*
-    INITIAL CART
-    */
 
     updateCart();
 
@@ -2813,32 +2966,50 @@
       function () {
 
         let digits =
-          this.value.replace(/\D/g, "");
+          this.value.replace(
+            /\D/g,
+            ""
+          );
+
 
         digits =
-          digits.substring(0, 10);
+          digits.substring(
+            0,
+            10
+          );
 
 
         if (digits.length === 0) {
 
-          this.value = "";
-
-        }
-
-        else if (digits.length < 4) {
-
           this.value =
-            "(" + digits;
+            "";
 
         }
 
-        else if (digits.length < 7) {
+        else if (
+          digits.length < 4
+        ) {
 
           this.value =
             "(" +
-            digits.substring(0, 3) +
+            digits;
+
+        }
+
+        else if (
+          digits.length < 7
+        ) {
+
+          this.value =
+            "(" +
+            digits.substring(
+              0,
+              3
+            ) +
             ") " +
-            digits.substring(3);
+            digits.substring(
+              3
+            );
 
         }
 
@@ -2846,11 +3017,19 @@
 
           this.value =
             "(" +
-            digits.substring(0, 3) +
+            digits.substring(
+              0,
+              3
+            ) +
             ") " +
-            digits.substring(3, 6) +
+            digits.substring(
+              3,
+              6
+            ) +
             "-" +
-            digits.substring(6);
+            digits.substring(
+              6
+            );
 
         }
 
@@ -2865,31 +3044,172 @@
     */
 
     const codeForm =
-      document.getElementById("codeForm");
+      document.getElementById(
+        "codeForm"
+      );
 
     const formError =
-      document.getElementById("formError");
+      document.getElementById(
+        "formError"
+      );
 
     const verifyButton =
-      document.getElementById("verifyButton");
+      document.getElementById(
+        "verifyButton"
+      );
 
     const loadingMessage =
-      document.getElementById("loadingMessage");
+      document.getElementById(
+        "loadingMessage"
+      );
 
     const codeResult =
-      document.getElementById("codeResult");
+      document.getElementById(
+        "codeResult"
+      );
 
     const confirmationTitle =
-      document.getElementById("confirmationTitle");
+      document.getElementById(
+        "confirmationTitle"
+      );
 
     const confirmationMessage =
-      document.getElementById("confirmationMessage");
+      document.getElementById(
+        "confirmationMessage"
+      );
 
     const generatedCode =
-      document.getElementById("generatedCode");
+      document.getElementById(
+        "generatedCode"
+      );
 
     const codeType =
-      document.getElementById("codeType");
+      document.getElementById(
+        "codeType"
+      );
+
+    const orderSummary =
+      document.getElementById(
+        "orderSummary"
+      );
+
+    const orderSummaryItems =
+      document.getElementById(
+        "orderSummaryItems"
+      );
+
+    const orderSummaryTotal =
+      document.getElementById(
+        "orderSummaryTotal"
+      );
+
+    const submitOrderButton =
+      document.getElementById(
+        "submitOrderButton"
+      );
+
+    const orderSuccess =
+      document.getElementById(
+        "orderSuccess"
+      );
+
+    const orderIdDisplay =
+      document.getElementById(
+        "orderIdDisplay"
+      );
+
+
+    /*
+    ==================================================
+    CURRENT VERIFIED CHECKOUT
+    ==================================================
+    */
+
+    let verifiedCheckout = false;
+
+    let verifiedType = "";
+
+    let verifiedPhone = "";
+
+
+    /*
+    ==================================================
+    SHOW ORDER SUMMARY
+    ==================================================
+    */
+
+    function showOrderSummary() {
+
+      orderSummaryItems.innerHTML = "";
+
+
+      if (cart.length === 0) {
+
+        orderSummary.hidden =
+          true;
+
+        return;
+
+      }
+
+
+      let subtotal = 0;
+
+
+      cart.forEach(
+        function (item) {
+
+          const line =
+            document.createElement(
+              "div"
+            );
+
+
+          line.className =
+            "order-summary-line";
+
+
+          const lineTotal =
+            item.price *
+            item.quantity;
+
+
+          subtotal +=
+            lineTotal;
+
+
+          line.innerHTML = `
+
+            <span>
+              ${item.name}
+              / SIZE ${item.size}
+              × ${item.quantity}
+            </span>
+
+            <strong>
+              $${lineTotal.toFixed(2)}
+            </strong>
+
+          `;
+
+
+          orderSummaryItems.appendChild(
+            line
+          );
+
+        }
+      );
+
+
+      orderSummaryTotal.textContent =
+        "$" +
+        subtotal.toFixed(2);
+
+
+      orderSummary.hidden =
+        false;
+
+    }
 
 
     /*
@@ -2905,11 +3225,30 @@
         event.preventDefault();
 
 
-        formError.hidden = true;
+        formError.hidden =
+          true;
 
-        formError.textContent = "";
+        formError.textContent =
+          "";
 
-        codeResult.hidden = true;
+        codeResult.hidden =
+          true;
+
+        orderSuccess.hidden =
+          true;
+
+
+        if (cart.length === 0) {
+
+          formError.textContent =
+            "Your cart is empty. Add something from the WINGS drop first.";
+
+          formError.hidden =
+            false;
+
+          return;
+
+        }
 
 
         const phone =
@@ -2925,16 +3264,15 @@
           );
 
 
-        /*
-        PHONE VALIDATION
-        */
-
-        if (phone.length !== 10) {
+        if (
+          phone.length !== 10
+        ) {
 
           formError.textContent =
             "Please enter a valid 10-digit phone number.";
 
-          formError.hidden = false;
+          formError.hidden =
+            false;
 
           phoneInput.focus();
 
@@ -2943,45 +3281,49 @@
         }
 
 
-        /*
-        ATTENDANCE VALIDATION
-        */
-
         if (!selected) {
 
           formError.textContent =
             "Please select In Person or Online.";
 
-          formError.hidden = false;
+          formError.hidden =
+            false;
 
           return;
 
         }
 
 
-        /*
-        START VERIFICATION
-        */
-
-        verifyButton.disabled = true;
+        verifyButton.disabled =
+          true;
 
         verifyButton.textContent =
           "VERIFYING...";
 
-        loadingMessage.hidden = false;
+        loadingMessage.hidden =
+          false;
 
 
         try {
 
           const response =
             await fetch(
+
               VERIFICATION_URL +
               "?phone=" +
-              encodeURIComponent(phone),
+              encodeURIComponent(
+                phone
+              ),
+
               {
-                method: "GET",
-                cache: "no-store"
+                method:
+                  "GET",
+
+                cache:
+                  "no-store"
+
               }
+
             );
 
 
@@ -2998,35 +3340,30 @@
             await response.json();
 
 
-          /*
-          NO MATCH
-          */
-
           if (!result.success) {
 
             formError.textContent =
               result.message ||
               "That phone number was not found in the WINGS checkout form.";
 
-            formError.hidden = false;
+            formError.hidden =
+              false;
 
             return;
 
           }
 
 
-          /*
-          VERIFY ATTENDANCE TOO
-          */
-
           if (
-            result.type !== selected.value
+            result.type !==
+            selected.value
           ) {
 
             formError.textContent =
               "Your phone number is verified, but the attendance type does not match your checkout form.";
 
-            formError.hidden = false;
+            formError.hidden =
+              false;
 
             return;
 
@@ -3036,6 +3373,16 @@
           /*
           VERIFIED
           */
+
+          verifiedCheckout =
+            true;
+
+          verifiedType =
+            result.type;
+
+          verifiedPhone =
+            phone;
+
 
           generatedCode.textContent =
             result.code;
@@ -3049,13 +3396,12 @@
               "IN PERSON CHECK-OUT";
 
             confirmationMessage.textContent =
-              "Your phone number has been verified and your WINGS in-person checkout has been confirmed.";
+              "Your phone number has been verified. Review your WINGS order below and submit it.";
 
             codeType.textContent =
               "IN PERSON";
 
           }
-
 
           else {
 
@@ -3063,7 +3409,7 @@
               "ONLINE CHECK-OUT";
 
             confirmationMessage.textContent =
-              "Your phone number has been verified and your WINGS online checkout has been confirmed.";
+              "Your phone number has been verified. Review your WINGS order below and submit it.";
 
             codeType.textContent =
               "ONLINE";
@@ -3071,12 +3417,21 @@
           }
 
 
-          codeResult.hidden = false;
+          showOrderSummary();
+
+
+          codeResult.hidden =
+            false;
 
 
           codeResult.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+
+            behavior:
+              "smooth",
+
+            block:
+              "center"
+
           });
 
 
@@ -3087,7 +3442,8 @@
           formError.textContent =
             "We couldn't connect to WINGS verification. Please try again.";
 
-          formError.hidden = false;
+          formError.hidden =
+            false;
 
           console.error(
             "WINGS verification error:",
@@ -3099,12 +3455,278 @@
 
         finally {
 
-          verifyButton.disabled = false;
+          verifyButton.disabled =
+            false;
 
           verifyButton.textContent =
             "VERIFY MY NUMBER";
 
-          loadingMessage.hidden = true;
+          loadingMessage.hidden =
+            true;
+
+        }
+
+      }
+    );
+
+
+    /*
+    ==================================================
+    SUBMIT WINGS ORDER
+    ==================================================
+    */
+
+    submitOrderButton.addEventListener(
+      "click",
+      async function () {
+
+        if (!verifiedCheckout) {
+
+          formError.textContent =
+            "Please verify your phone number first.";
+
+          formError.hidden =
+            false;
+
+          return;
+
+        }
+
+
+        if (cart.length === 0) {
+
+          formError.textContent =
+            "Your cart is empty.";
+
+          formError.hidden =
+            false;
+
+          return;
+
+        }
+
+
+        /*
+        CALCULATE TOTAL
+        */
+
+        let total =
+          0;
+
+
+        cart.forEach(
+          function (item) {
+
+            total +=
+              item.price *
+              item.quantity;
+
+          }
+        );
+
+
+        /*
+        CREATE ORDER PAYLOAD
+        */
+
+        const orderData = {
+
+          phone:
+            verifiedPhone,
+
+          attendance:
+            verifiedType,
+
+          items:
+            cart.map(
+              function (item) {
+
+                return {
+
+                  name:
+                    item.name,
+
+                  size:
+                    item.size,
+
+                  quantity:
+                    item.quantity,
+
+                  price:
+                    item.price
+
+                };
+
+              }
+            ),
+
+          total:
+            Number(
+              total.toFixed(2)
+            )
+
+        };
+
+
+        /*
+        BUTTON LOADING
+        */
+
+        submitOrderButton.disabled =
+          true;
+
+        submitOrderButton.textContent =
+          "SUBMITTING ORDER...";
+
+
+        formError.hidden =
+          true;
+
+        loadingMessage.textContent =
+          "CREATING YOUR WINGS ORDER...";
+
+        loadingMessage.hidden =
+          false;
+
+
+        try {
+
+          /*
+          text/plain keeps this request simple
+          so the GitHub website does not need
+          a CORS preflight request.
+          */
+
+          const response =
+            await fetch(
+              VERIFICATION_URL,
+              {
+
+                method:
+                  "POST",
+
+                headers: {
+
+                  "Content-Type":
+                    "text/plain;charset=utf-8"
+
+                },
+
+                body:
+                  JSON.stringify(
+                    orderData
+                  )
+
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Order server error"
+            );
+
+          }
+
+
+          const result =
+            await response.json();
+
+
+          if (!result.success) {
+
+            throw new Error(
+              result.message ||
+              "Order submission failed."
+            );
+
+          }
+
+
+          /*
+          ORDER SUCCESS
+          */
+
+          orderIdDisplay.textContent =
+            result.orderId;
+
+
+          orderSuccess.hidden =
+            false;
+
+
+          submitOrderButton.hidden =
+            true;
+
+
+          /*
+          CLEAR CART
+          */
+
+          cart = [];
+
+          updateCart();
+
+
+          /*
+          UPDATE MESSAGE
+          */
+
+          confirmationMessage.textContent =
+            "Your WINGS order has been successfully submitted.";
+
+
+          /*
+          SCROLL TO ORDER CONFIRMATION
+          */
+
+          orderSuccess.scrollIntoView({
+
+            behavior:
+              "smooth",
+
+            block:
+              "center"
+
+          });
+
+
+        }
+
+        catch (error) {
+
+          formError.textContent =
+            error.message ||
+            "We couldn't submit your WINGS order. Please try again.";
+
+          formError.hidden =
+            false;
+
+          console.error(
+            "WINGS order error:",
+            error
+          );
+
+        }
+
+
+        finally {
+
+          submitOrderButton.disabled =
+            false;
+
+          if (
+            !submitOrderButton.hidden
+          ) {
+
+            submitOrderButton.textContent =
+              "SUBMIT WINGS ORDER";
+
+          }
+
+          loadingMessage.hidden =
+            true;
 
         }
 
