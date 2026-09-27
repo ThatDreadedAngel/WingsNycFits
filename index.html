@@ -1,940 +1,1412 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>WINGS — Clothes to Make Your Look Fly.</title> <meta name="description" content="WINGS — Clothes to Make Your Look Fly. First drop March 15, 2027."> <style> * { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+scroll-behavior: smooth;
+}
 
-  <title>WINGS — Clothes to Make Your Look Fly.</title>
+body {
+background: #080808;
+color: #fff;
+font-family: Arial, Helvetica, sans-serif;
+line-height: 1.5;
+}
 
-  <meta
-    name="description"
-    content="WINGS — Clothes to Make Your Look Fly. First drop March 15, 2027."
+a {
+color: inherit;
+text-decoration: none;
+}
+
+img {
+max-width: 100%;
+display: block;
+}
+
+button,
+input,
+select {
+font: inherit;
+}
+
+/* NAVIGATION */
+
+.nav {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 18px 5%;
+background: rgba(0,0,0,.82);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+font-size: 1.4rem;
+font-weight: 900;
+letter-spacing: .08em;
+}
+
+.nav nav {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+
+.nav nav a {
+font-size: .78rem;
+font-weight: 700;
+letter-spacing: .08em;
+text-transform: uppercase;
+opacity: .8;
+transition: .2s ease;
+}
+
+.nav nav a:hover {
+opacity: 1;
+}
+
+.wings-logo {
+font-size: 1rem !important;
+font-weight: 900 !important;
+opacity: 1 !important;
+}
+
+.wings-logo span {
+margin-left: 4px;
+}
+
+.menu-btn {
+display: none;
+border: 0;
+background: transparent;
+color: #fff;
+font-size: 1.6rem;
+cursor: pointer;
+}
+
+/* GENERAL */
+
+.section {
+padding: 110px 6%;
+}
+
+.eyebrow {
+font-size: .72rem;
+font-weight: 800;
+letter-spacing: .18em;
+text-transform: uppercase;
+opacity: .65;
+margin-bottom: 12px;
+}
+
+h1,
+h2,
+h3 {
+line-height: 1.05;
+}
+
+h2 {
+font-size: clamp(2rem, 5vw, 4rem);
+letter-spacing: -.04em;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 50px;
+padding: 14px 24px;
+border: 1px solid #fff;
+background: #fff;
+color: #000;
+font-weight: 900;
+font-size: .78rem;
+letter-spacing: .08em;
+cursor: pointer;
+transition: .2s ease;
+}
+
+.btn:hover {
+background: transparent;
+color: #fff;
+}
+
+/* HERO */
+
+.hero {
+min-height: 100vh;
+position: relative;
+display: flex;
+align-items: center;
+overflow: hidden;
+}
+
+.hero-image {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: 0;
+}
+
+.hero-overlay {
+position: absolute;
+inset: 0;
+z-index: 1;
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,.82),
+rgba(0,0,0,.35),
+rgba(0,0,0,.25)
+);
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+max-width: 800px;
+padding: 120px 7% 60px;
+}
+
+.hero h1 {
+font-size: clamp(4rem, 10vw, 9rem);
+letter-spacing: -.07em;
+font-weight: 1000;
+}
+
+.hero h1 span {
+color: transparent;
+-webkit-text-stroke: 2px #fff;
+}
+
+.hero-copy {
+margin: 25px 0 30px;
+font-size: 1.1rem;
+opacity: .85;
+}
+
+/* DROP */
+
+.drop-banner {
+padding: 90px 6%;
+text-align: center;
+background: #fff;
+color: #000;
+}
+
+.drop-banner h2 {
+font-size: clamp(2.5rem, 7vw, 6rem);
+margin-bottom: 15px;
+}
+
+.drop-banner p:last-child {
+opacity: .7;
+}
+
+/* SHOP */
+
+.section-head {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+gap: 25px;
+margin-bottom: 45px;
+}
+
+.coming {
+padding: 8px 12px;
+border: 1px solid rgba(255,255,255,.2);
+font-size: .65rem;
+font-weight: 800;
+letter-spacing: .12em;
+}
+
+.products {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+}
+
+.product {
+background: #111;
+border: 1px solid rgba(255,255,255,.08);
+}
+
+.product-art {
+aspect-ratio: 1 / 1;
+overflow: hidden;
+background: #161616;
+}
+
+.product-art img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform .4s ease;
+}
+
+.product:hover .product-art img {
+transform: scale(1.04);
+}
+
+.product-info {
+padding: 22px;
+display: flex;
+justify-content: space-between;
+gap: 20px;
+}
+
+.product-info h3 {
+font-size: 1rem;
+margin-bottom: 8px;
+}
+
+.product-info p {
+opacity: .7;
+}
+
+.product-info label {
+display: grid;
+gap: 7px;
+font-size: .65rem;
+font-weight: 800;
+letter-spacing: .1em;
+}
+
+.product-info select {
+padding: 9px;
+background: #222;
+color: #fff;
+border: 1px solid #444;
+}
+
+.size-note {
+margin-top: 25px;
+font-size: .8rem;
+opacity: .55;
+}
+
+/* ABOUT */
+
+.about {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+background: #f2f2f2;
+color: #000;
+}
+
+.about-copy {
+max-width: 650px;
+}
+
+.about-copy p {
+margin-bottom: 22px;
+font-size: 1.05rem;
+}
+
+.about-copy strong {
+display: block;
+margin-top: 30px;
+}
+
+/* STATEMENT */
+
+.statement {
+padding: 100px 6%;
+text-align: center;
+overflow: hidden;
+}
+
+.giant {
+font-size: clamp(5rem, 22vw, 20rem);
+line-height: .8;
+font-weight: 1000;
+letter-spacing: -.1em;
+color: transparent;
+-webkit-text-stroke: 2px #fff;
+}
+
+.statement p {
+margin-top: 40px;
+font-weight: 800;
+letter-spacing: .15em;
+}
+
+/* CHECKOUT */
+
+.checkin {
+background: #111;
+}
+
+.checkin-card {
+max-width: 680px;
+margin: 0 auto;
+padding: 32px;
+border: 1px solid rgba(255,255,255,.15);
+border-radius: 18px;
+background: rgba(255,255,255,.04);
+}
+
+.checkin-intro {
+margin-bottom: 25px;
+line-height: 1.7;
+}
+
+.checkout-link {
+margin-bottom: 10px;
+}
+
+.code-form {
+display: grid;
+gap: 12px;
+margin-top: 28px;
+}
+
+.code-form > label {
+font-size: .75rem;
+font-weight: 800;
+letter-spacing: .12em;
+}
+
+.code-form input[type="tel"] {
+width: 100%;
+padding: 15px 16px;
+border: 1px solid rgba(255,255,255,.2);
+border-radius: 10px;
+background: rgba(0,0,0,.3);
+color: #fff;
+outline: none;
+}
+
+.code-form input[type="tel"]:focus {
+border-color: #fff;
+}
+
+.choice-row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.choice {
+cursor: pointer;
+}
+
+.choice input {
+position: absolute;
+opacity: 0;
+pointer-events: none;
+}
+
+.choice span {
+display: block;
+padding: 15px;
+text-align: center;
+border: 1px solid rgba(255,255,255,.2);
+border-radius: 10px;
+transition: .2s ease;
+}
+
+.choice input:checked + span {
+background: #fff;
+color: #000;
+border-color: #fff;
+}
+
+.form-error {
+color: #ff8a8a;
+font-size: .85rem;
+}
+
+.code-result {
+margin-top: 25px;
+padding: 25px;
+text-align: center;
+border-radius: 14px;
+background: rgba(255,255,255,.08);
+}
+
+.result-label {
+display: block;
+margin-bottom: 8px;
+font-size: .7rem;
+font-weight: 800;
+letter-spacing: .14em;
+}
+
+#generatedCode {
+display: block;
+font-size: clamp(2.2rem, 9vw, 4.5rem);
+letter-spacing: .08em;
+}
+
+#codeType {
+display: block;
+margin-top: 8px;
+opacity: .65;
+}
+
+.code-note {
+margin-top: 20px;
+font-size: .75rem;
+opacity: .55;
+}
+
+/* CONTACT */
+
+.contact {
+text-align: center;
+}
+
+.contact > p:not(.eyebrow) {
+max-width: 600px;
+margin: 20px auto 35px;
+opacity: .7;
+}
+
+.socials {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+max-width: 900px;
+margin: 0 auto;
+border-top: 1px solid rgba(255,255,255,.15);
+border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.socials a {
+padding: 25px 15px;
+font-weight: 800;
+border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.socials a:last-child {
+border-right: 0;
+}
+
+.socials span {
+display: block;
+margin-top: 6px;
+font-size: .7rem;
+opacity: .5;
+}
+
+/* POLICIES */
+
+.policies {
+background: #f2f2f2;
+color: #000;
+}
+
+.policy-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+margin-top: 45px;
+}
+
+.policy-grid article {
+padding: 30px;
+border: 1px solid rgba(0,0,0,.12);
+}
+
+.policy-grid h3 {
+margin-bottom: 15px;
+}
+
+.policy-grid p {
+opacity: .7;
+}
+
+.legal-note {
+margin-top: 35px;
+font-size: .75rem;
+opacity: .55;
+}
+
+/* DELIVERY */
+
+.policy-page {
+padding: 100px 6%;
+background: #0d0d0d;
+}
+
+.section-title {
+margin-bottom: 45px;
+}
+
+.policy-copy {
+max-width: 800px;
+}
+
+.policy-copy h3 {
+margin-top: 35px;
+margin-bottom: 10px;
+}
+
+.policy-copy h3:first-child {
+margin-top: 0;
+}
+
+.policy-copy p {
+opacity: .65;
+}
+
+/* FOOTER */
+
+footer {
+padding: 60px 6%;
+text-align: center;
+border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.footer-logo {
+font-size: 3rem;
+font-weight: 1000;
+letter-spacing: -.05em;
+}
+
+footer p {
+margin-top: 10px;
+opacity: .55;
+}
+
+.footer-links {
+display: flex;
+justify-content: center;
+gap: 25px;
+margin: 25px 0;
+}
+
+.footer-links a {
+font-size: .75rem;
+font-weight: 700;
+opacity: .7;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+.nav {
+padding: 16px 5%;
+}
+
+.menu-btn {
+display: block;
+}
+
+.nav nav {
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+display: none;
+flex-direction: column;
+align-items: stretch;
+gap: 0;
+background: #080808;
+border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.nav nav.open {
+display: flex;
+}
+
+.nav nav a {
+padding: 17px 6%;
+border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.wings-logo {
+display: none;
+}
+
+.hero-content {
+padding-left: 6%;
+padding-right: 6%;
+}
+
+.hero h1 {
+font-size: clamp(3.5rem, 16vw, 7rem);
+}
+
+.products {
+grid-template-columns: 1fr;
+}
+
+.about {
+grid-template-columns: 1fr;
+gap: 45px;
+}
+
+.socials {
+grid-template-columns: 1fr;
+}
+
+.socials a {
+border-right: 0;
+border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.socials a:last-child {
+border-bottom: 0;
+}
+
+.policy-grid {
+grid-template-columns: 1fr;
+}
+
+}
+
+@media (max-width: 560px) {
+
+.section {
+padding: 80px 5%;
+}
+
+.section-head {
+align-items: flex-start;
+flex-direction: column;
+}
+
+.checkin-card {
+padding: 22px;
+}
+
+.choice-row {
+grid-template-columns: 1fr;
+}
+
+.product-info {
+flex-direction: column;
+}
+
+.footer-links {
+flex-direction: column;
+gap: 12px;
+}
+
+}
+</style>
+
+</head> <body id="top"> <header class="nav"> <a class="logo" href="#home"> WINGS </a>
+<button
+class="menu-btn"
+type="button"
+aria-label="Open menu"
+aria-expanded="false"
+
+☰
+
+</button> <nav id="main-navigation">
+<a class="wings-logo" href="#top">
+  WINGS<span>✦</span>
+</a>
+
+<a href="#shop">Shop</a>
+<a href="#about">About</a>
+<a href="#drop">Drop</a>
+<a href="#checkout">Check-Out</a>
+<a href="#contact">Contact</a>
+<a href="#policies">Policies</a>
+
+</nav> </header> <main> <section id="home" class="hero">
+<img
+class="hero-image"
+src="images/hero(1).png"
+alt="WINGS streetwear hoodie in New York"
+
+<div class="hero-overlay"></div> <div class="hero-content">
+<p class="eyebrow">
+  WINGS • NEW YORK
+</p>
+
+<h1>
+  MAKE YOUR<br>
+  <span>LOOK FLY.</span>
+</h1>
+
+<p class="hero-copy">
+  Clothes to Make Your Look Fly.
+</p>
+
+<a class="btn" href="#shop">
+  SHOP THE COLLECTION
+</a>
+
+</div> </section> <section id="drop" class="drop-banner"> <p class="eyebrow"> FIRST DROP </p> <h2> MARCH 15, 2027 </h2> <p> The first WINGS collection is coming. </p> </section> <section id="shop" class="section"> <div class="section-head">
+<div>
+
+  <p class="eyebrow">
+    THE COLLECTION
+  </p>
+
+  <h2>
+    WINGS ESSENTIALS
+  </h2>
+
+</div>
+
+<span class="coming">
+  COMING SOON
+</span>
+
+</div> <div class="products">
+<article class="product">
+
+  <div class="product-art">
+    <img
+      src="images/hoodie(1).png"
+      alt="Black WINGS hoodie"
+    >
+  </div>
+
+  <div class="product-info">
+
+    <div>
+      <h3>WINGS HOODIE</h3>
+      <p>$45.00</p>
+    </div>
+
+    <label>
+      SIZE
+      <select disabled>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </label>
+
+  </div>
+
+</article>
+
+<article class="product">
+
+  <div class="product-art">
+    <img
+      src="images/tee-white(1).png"
+      alt="White WINGS tee"
+    >
+  </div>
+
+  <div class="product-info">
+
+    <div>
+      <h3>WINGS TEE — WHITE</h3>
+      <p>$25.00</p>
+    </div>
+
+    <label>
+      SIZE
+      <select disabled>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </label>
+
+  </div>
+
+</article>
+
+<article class="product">
+
+  <div class="product-art">
+    <img
+      src="images/tee-black(1).png"
+      alt="Black WINGS tee"
+    >
+  </div>
+
+  <div class="product-info">
+
+    <div>
+      <h3>WINGS TEE — BLACK</h3>
+      <p>$25.00</p>
+    </div>
+
+    <label>
+      SIZE
+      <select disabled>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </label>
+
+  </div>
+
+</article>
+
+<article class="product">
+
+  <div class="product-art">
+    <img
+      src="images/hoodie-detail(1).png"
+      alt="WINGS hoodie logo detail"
+    >
+  </div>
+
+  <div class="product-info">
+
+    <div>
+      <h3>WINGS HOODIE DETAIL</h3>
+      <p>$45.00</p>
+    </div>
+
+    <label>
+      SIZE
+      <select disabled>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
+    </label>
+
+  </div>
+
+</article>
+
+</div> <p class="size-note"> Sizes available: Small • Medium • Large. Products become available on March 15, 2027. </p> </section> <section id="about" class="about section"> <div class="about-title">
+<p class="eyebrow">
+  ABOUT WINGS
+</p>
+
+<h2>
+  MORE THAN<br>
+  CLOTHING.
+</h2>
+
+</div> <div class="about-copy">
+<p>
+  WINGS is more than just clothing.
+  It’s a way to express yourself.
+</p>
+
+<p>
+  WINGS was created by Mark, a young artist and creative
+  from New York. As an artist, I wanted to create something
+  that connects music, fashion, creativity, and individuality.
+</p>
+
+<p>
+  Every design is inspired by the idea of standing out,
+  being yourself, and moving with confidence. WINGS is about
+  creating your own style, expressing who you are, and never
+  being afraid to be different.
+</p>
+
+<p>
+  Because when you wear WINGS, you’re not just putting on
+  clothes — you’re making your look fly.
+</p>
+
+<strong>
+  WINGS — Clothes to Make Your Look Fly.
+</strong>
+
+</div> </section> <section class="statement"> <div class="giant"> WINGS </div> <p> THIS IS ONLY THE BEGINNING. </p> </section> <section id="checkout" class="checkin section"> <div class="section-head">
+<div>
+
+  <p class="eyebrow">
+    CHECK-OUT
+  </p>
+
+  <h2>
+    GET YOUR CODE
+  </h2>
+
+</div>
+
+<span class="coming">
+  SECURE CHECK-OUT
+</span>
+
+</div> <div class="checkin-card">
+<p class="checkin-intro">
+  Complete the WINGS check-out form first. Then enter the same
+  phone number and select whether you're attending
+  <strong>In Person</strong> or <strong>Online</strong>.
+</p>
+
+<!-- YOUR GOOGLE FORM -->
+
+<a
+  class="btn"
+  href="https://forms.gle/krG5suZcyduBoAL99"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  OPEN THE CHECK-OUT FORM
+</a>
+
+<form id="codeForm" class="code-form">
+
+  <label for="phone">
+    PHONE NUMBER
+  </label>
+
+  <input
+    id="phone"
+    type="tel"
+    inputmode="tel"
+    autocomplete="tel"
+    placeholder="(555) 123-4567"
+    maxlength="20"
+    required
   >
 
-  <link rel="stylesheet" href="style.css">
+  <label>
+    ATTENDING
+  </label>
 
-  <style>
-    /* WINGS CHECK-OUT */
-    .checkin-card {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 32px;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 18px;
-      background: rgba(255,255,255,.04);
-    }
+  <div class="choice-row">
 
-    .checkin-intro {
-      margin-top: 0;
-      line-height: 1.7;
-    }
+    <label class="choice">
 
-    .code-form {
-      display: grid;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .code-form > label {
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-    }
-
-    .code-form input[type="tel"] {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 15px 16px;
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 10px;
-      background: rgba(0,0,0,.25);
-      color: inherit;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .code-form input[type="tel"]:focus {
-      border-color: currentColor;
-    }
-
-    .choice-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .choice {
-      cursor: pointer;
-    }
-
-    .choice input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .choice span {
-      display: block;
-      padding: 15px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 10px;
-      transition: .2s ease;
-    }
-
-    .choice input:checked + span {
-      border-color: currentColor;
-      background: rgba(255,255,255,.1);
-    }
-
-    .code-result {
-      margin-top: 24px;
-      padding: 24px;
-      text-align: center;
-      border-radius: 14px;
-      background: rgba(255,255,255,.08);
-    }
-
-    .result-label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: .75rem;
-      letter-spacing: .14em;
-      font-weight: 700;
-    }
-
-    #generatedCode {
-      display: block;
-      font-size: clamp(2rem, 8vw, 4rem);
-      letter-spacing: .08em;
-      word-break: break-word;
-    }
-
-    #codeType {
-      display: block;
-      margin-top: 8px;
-      opacity: .7;
-    }
-
-    .code-note {
-      margin-bottom: 0;
-      font-size: .78rem;
-      opacity: .65;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 560px) {
-      .checkin-card {
-        padding: 22px;
-      }
-
-      .choice-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-</head>
-
-<body id="top">
-
-  <!-- NAVIGATION -->
-  <header class="nav">
-    <a class="logo" href="#home">WINGS</a>
-
-    <button class="menu-btn" aria-label="Open menu">
-      ☰
-    </button>
-
-    <nav>
-      <a class="wings-logo" href="#top" aria-label="WINGS home">
-        WINGS<span>✦</span>
-      </a>
-
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#drop">Drop</a>
-      <a href="#checkout">Check-Out</a>
-      <a href="#contact">Contact</a>
-      <a href="#policies">Policies</a>
-    </nav>
-  </header>
-
-
-  <main>
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-
-      <img
-        class="hero-image"
-        src="images/hero(1).png"
-        alt="WINGS streetwear hoodie in New York"
+      <input
+        type="radio"
+        name="attendance"
+        value="IN"
       >
 
-      <div class="hero-overlay"></div>
+      <span>
+        IN PERSON
+      </span>
+
+    </label>
+
+    <label class="choice">
+
+      <input
+        type="radio"
+        name="attendance"
+        value="ON"
+      >
+
+      <span>
+        ONLINE
+      </span>
+
+    </label>
+
+  </div>
+
+  <p
+    id="formError"
+    class="form-error"
+    hidden
+  ></p>
+
+  <button
+    class="btn"
+    type="submit"
+  >
+    GENERATE MY CODE
+  </button>
+
+</form>
+
+<div
+  id="codeResult"
+  class="code-result"
+  hidden
+>
+
+  <span class="result-label">
+    YOUR CHECK-OUT CODE
+  </span>
+
+  <strong id="generatedCode"></strong>
+
+  <small id="codeType"></small>
+
+</div>
+
+<p class="code-note">
+  Your code is based on your phone number and selected check-out type.
+</p>
+
+</div> </section> <section id="contact" class="contact section"> <p class="eyebrow"> STAY CONNECTED </p> <h2> THE DROP IS COMING. </h2> <p> Follow WINGS for new designs, music, updates, and the official launch. </p> <div class="socials">
+<a
+  href="https://www.instagram.com/thatunderratedsuperstar/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  INSTAGRAM
+  <span>@thatunderratedsuperstar</span>
+</a>
+
+<a
+  href="https://www.tiktok.com/@forevertda"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  TIKTOK
+  <span>@forevertda</span>
+</a>
+
+<a
+  href="https://www.youtube.com/@TDAProductionsz"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  YOUTUBE
+  <span>@TDAProductionsz</span>
+</a>
+
+</div> </section> <section id="policies" class="policies section"> <p class="eyebrow"> LEGAL </p> <h2> TERMS & POLICIES </h2> <div class="policy-grid">
+<article>
+
+  <h3>
+    TERMS OF USE
+  </h3>
+
+  <p>
+    By using this website, you agree to use it lawfully
+    and respectfully. Product information, prices,
+    availability, and release dates may change before launch.
+  </p>
+
+</article>
+
+<article>
+
+  <h3>
+    PRIVACY NOTICE
+  </h3>
+
+  <p>
+    WINGS respects your privacy. This informational site
+    does not ask you to enter personal information. If shopping
+    features are added later, this notice will be updated before
+    customer information is collected.
+  </p>
+
+</article>
+
+<article>
+
+  <h3>
+    SALES & RETURNS
+  </h3>
+
+  <p>
+    Sales, shipping, returns, exchanges, and refunds will be
+    governed by the policy shown at checkout when the WINGS
+    store officially launches.
+  </p>
+
+</article>
 
-      <div class="hero-content">
-        <p class="eyebrow">WINGS • NEW YORK</p>
+<article>
 
-        <h1>
-          MAKE YOUR<br>
-          <span>LOOK FLY.</span>
-        </h1>
+  <h3>
+    LEGAL NOTICE
+  </h3>
 
-        <p class="hero-copy">
-          Clothes to Make Your Look Fly.
-        </p>
+  <p>
+    WINGS and its original designs, logos, images, text,
+    and branding are intended for the WINGS brand.
+    Do not copy, reproduce, or use brand materials without permission.
+  </p>
 
-        <a class="btn" href="#shop">
-          SHOP THE COLLECTION
-        </a>
-      </div>
+</article>
 
-    </section>
+</div> <p class="legal-note"> This page is a general website notice, not legal advice. Final policies should be reviewed and updated before taking customer orders. </p> </section> <section class="policy-page" id="delivery-policy" > <div class="section-title">
+<p class="eyebrow">
+  DELIVERY POLICY
+</p>
 
+<h2>
+  GET YOUR WINGS.
+</h2>
 
-    <!-- DROP -->
-    <section id="drop" class="drop-banner">
-      <p class="eyebrow">FIRST DROP</p>
+</div> <div class="policy-copy">
+<h3>
+  Shipping
+</h3>
 
-      <h2>MARCH 15, 2027</h2>
+<p>
+  WINGS orders are prepared after purchase.
+  Delivery times may vary depending on order volume,
+  shipping location, and carrier delays.
+</p>
 
-      <p>
-        The first WINGS collection is coming.
-      </p>
-    </section>
+<h3>
+  Processing
+</h3>
 
+<p>
+  Please allow time for your order to be processed before
+  it is handed to the shipping carrier. Tracking information
+  will be provided when available.
+</p>
 
-    <!-- SHOP -->
-    <section id="shop" class="section">
+<h3>
+  Delivery Delays
+</h3>
 
-      <div class="section-head">
+<p>
+  Carrier delays, weather, holidays, or other events outside
+  WINGS' control may affect delivery dates. If a package is
+  delayed, please check the tracking information first.
+</p>
 
-        <div>
-          <p class="eyebrow">THE COLLECTION</p>
-          <h2>WINGS ESSENTIALS</h2>
-        </div>
+<h3>
+  Wrong or Damaged Packages
+</h3>
 
-        <span class="coming">
-          COMING SOON
-        </span>
+<p>
+  If your package arrives damaged or goes to the wrong address
+  because incorrect information was provided at checkout,
+  contact WINGS as soon as possible with your order details.
+</p>
 
-      </div>
+</div> </section> </main> <footer> <div class="footer-logo"> WINGS </div> <p> Clothes to Make Your Look Fly. </p> <div class="footer-links">
+<a href="#policies">Terms</a>
+<a href="#policies">Privacy</a>
+<a href="#policies">Legal Notice</a>
+<a href="#delivery-policy">Delivery</a>
 
+</div> <p> © 2027 WINGS. All rights reserved. </p> </footer> <script>
+/* =========================
+MOBILE MENU
+========================= */
 
-      <div class="products">
+const menuButton = document.querySelector(".menu-btn");
+const navigation = document.querySelector(".nav nav");
 
-        <!-- HOODIE -->
-        <article class="product">
+if (menuButton && navigation) {
 
-          <div class="product-art">
-            <img
-              src="images/hoodie(1).png"
-              alt="Black WINGS hoodie"
-            >
-          </div>
+menuButton.addEventListener("click", function () {
 
-          <div class="product-info">
+const open = navigation.classList.toggle("open");
 
-            <div>
-              <h3>WINGS HOODIE</h3>
-              <p>$45.00</p>
-            </div>
+menuButton.setAttribute(
+  "aria-expanded",
+  open ? "true" : "false"
+);
 
-            <label>
-              SIZE
+menuButton.setAttribute(
+  "aria-label",
+  open ? "Close menu" : "Open menu"
+);
 
-              <select disabled>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-              </select>
-            </label>
+});
 
-          </div>
+navigation.querySelectorAll("a").forEach(function(link) {
 
-        </article>
+link.addEventListener("click", function() {
 
+  navigation.classList.remove("open");
 
-        <!-- WHITE TEE -->
-        <article class="product">
+  menuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
 
-          <div class="product-art">
-            <img
-              src="images/tee-white(1).png"
-              alt="White WINGS tee"
-            >
-          </div>
+  menuButton.setAttribute(
+    "aria-label",
+    "Open menu"
+  );
 
-          <div class="product-info">
+});
 
-            <div>
-              <h3>WINGS TEE — WHITE</h3>
-              <p>$25.00</p>
-            </div>
+});
 
-            <label>
-              SIZE
+}
 
-              <select disabled>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-              </select>
-            </label>
+/* =========================
+PHONE FORMATTING
+========================= */
 
-          </div>
+const phoneInput = document.getElementById("phone");
 
-        </article>
+if (phoneInput) {
 
+phoneInput.addEventListener("input", function() {
 
-        <!-- BLACK TEE -->
-        <article class="product">
+let numbers =
+  phoneInput.value
+    .replace(/\D/g, "")
+    .slice(0, 10);
 
-          <div class="product-art">
-            <img
-              src="images/tee-black(1).png"
-              alt="Black WINGS tee"
-            >
-          </div>
+if (numbers.length >= 7) {
 
-          <div class="product-info">
+  phoneInput.value =
+    "(" +
+    numbers.substring(0, 3) +
+    ") " +
+    numbers.substring(3, 6) +
+    "-" +
+    numbers.substring(6);
 
-            <div>
-              <h3>WINGS TEE — BLACK</h3>
-              <p>$25.00</p>
-            </div>
+} else if (numbers.length >= 4) {
 
-            <label>
-              SIZE
+  phoneInput.value =
+    "(" +
+    numbers.substring(0, 3) +
+    ") " +
+    numbers.substring(3);
 
-              <select disabled>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-              </select>
-            </label>
+} else {
 
-          </div>
+  phoneInput.value = numbers;
 
-        </article>
+}
 
+});
 
-        <!-- HOODIE DETAIL -->
-        <article class="product">
+}
 
-          <div class="product-art">
-            <img
-              src="images/hoodie-detail(1).png"
-              alt="WINGS hoodie logo detail"
-            >
-          </div>
+/* =========================
+CHECKOUT CODE
+========================= */
 
-          <div class="product-info">
+const codeForm =
+document.getElementById("codeForm");
 
-            <div>
-              <h3>WINGS HOODIE DETAIL</h3>
-              <p>$45.00</p>
-            </div>
+const codeResult =
+document.getElementById("codeResult");
 
-            <label>
-              SIZE
+const generatedCode =
+document.getElementById("generatedCode");
 
-              <select disabled>
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-              </select>
-            </label>
+const codeType =
+document.getElementById("codeType");
 
-          </div>
+const formError =
+document.getElementById("formError");
 
-        </article>
+function makeCheckoutCode(phone, type) {
 
-      </div>
+let hash =
+type === "IN"
+? 7919
+: 104729;
 
+for (let i = 0; i < phone.length; i++) {
 
-      <p class="size-note">
-        Sizes available: Small • Medium • Large.
-        Products become available on March 15, 2027.
-      </p>
+hash =
+  (
+    hash * 31 +
+    phone.charCodeAt(i) * (i + 7)
+  ) % 1000000007;
 
-    </section>
+}
 
+const number =
+String(
+Math.abs(hash) % 10000
+).padStart(4, "0");
 
-    <!-- ABOUT -->
-    <section id="about" class="about section">
+return type + "-" + number;
 
-      <div class="about-title">
+}
 
-        <p class="eyebrow">
-          ABOUT WINGS
-        </p>
+if (codeForm) {
 
-        <h2>
-          MORE THAN<br>
-          CLOTHING.
-        </h2>
+codeForm.addEventListener("submit", function(event) {
 
-      </div>
+event.preventDefault();
 
+formError.hidden = true;
+formError.textContent = "";
 
-      <div class="about-copy">
+const phone =
+  phoneInput.value
+    .replace(/\D/g, "");
 
-        <p>
-          WINGS is more than just clothing.
-          It’s a way to express yourself.
-        </p>
+const selected =
+  document.querySelector(
+    'input[name="attendance"]:checked'
+  );
 
-        <p>
-          WINGS was created by Mark, a young artist and creative
-          from New York. As an artist, I wanted to create something
-          that connects music, fashion, creativity, and individuality.
-        </p>
+if (phone.length !== 10) {
 
-        <p>
-          Every design is inspired by the idea of standing out,
-          being yourself, and moving with confidence. WINGS is about
-          creating your own style, expressing who you are, and never
-          being afraid to be different.
-        </p>
+  formError.textContent =
+    "Please enter a valid 10-digit phone number.";
 
-        <p>
-          Because when you wear WINGS, you’re not just putting on
-          clothes — you’re making your look fly.
-        </p>
+  formError.hidden = false;
 
-        <strong>
-          WINGS — Clothes to Make Your Look Fly.
-        </strong>
+  phoneInput.focus();
 
-      </div>
+  return;
 
-    </section>
+}
 
+if (!selected) {
 
-    <!-- STATEMENT -->
-    <section class="statement">
+  formError.textContent =
+    "Please select In Person or Online.";
 
-      <div class="giant">
-        WINGS
-      </div>
+  formError.hidden = false;
 
-      <p>
-        THIS IS ONLY THE BEGINNING.
-      </p>
+  return;
 
-    </section>
+}
 
+const code =
+  makeCheckoutCode(
+    phone,
+    selected.value
+  );
 
-    <!-- CHECK-OUT -->
-    <section id="checkout" class="checkin section">
+generatedCode.textContent =
+  code;
 
-      <div class="section-head">
+codeType.textContent =
+  selected.value === "IN"
+    ? "IN PERSON CHECK-OUT"
+    : "ONLINE CHECK-OUT";
 
-        <div>
-          <p class="eyebrow">CHECK-OUT</p>
-          <h2>GET YOUR CODE</h2>
-        </div>
+codeResult.hidden = false;
 
-        <span class="coming">
-          SECURE CHECK-OUT
-        </span>
+codeResult.scrollIntoView({
+  behavior: "smooth",
+  block: "center"
+});
 
-      </div>
+});
 
+}
 
-      <div class="checkin-card">
+/* =========================
+ESCAPE CLOSES MENU
+========================= */
 
-        <p class="checkin-intro">
-          Complete the WINGS check-out form first. Then enter the same phone number
-          and select whether you're attending <strong>In Person</strong> or
-          <strong>Online</strong>.
-        </p>
+document.addEventListener("keydown", function(event) {
 
+if (event.key === "Escape") {
 
-        <a
-          class="btn"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSc6hdCwTD5fj2_rpbNomfG5AEEVURZsa1JZgh-4qQ6gx5-NpQ/viewform?usp=dialog"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          OPEN THE CHECK-OUT FORM
-        </a>
+if (navigation) {
+  navigation.classList.remove("open");
+}
 
+if (menuButton) {
 
-        <form id="codeForm" class="code-form">
+  menuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
 
-          <label for="phone">
-            PHONE NUMBER
-          </label>
+  menuButton.setAttribute(
+    "aria-label",
+    "Open menu"
+  );
 
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputmode="tel"
-            autocomplete="tel"
-            placeholder="(555) 123-4567"
-            maxlength="20"
-            required
-          >
+}
 
+}
 
-          <label>
-            ATTENDING
-          </label>
+});
 
-
-          <div class="choice-row">
-
-            <label class="choice">
-
-              <input
-                type="radio"
-                name="attendance"
-                value="IN"
-                required
-              >
-
-              <span>
-                IN PERSON
-              </span>
-
-            </label>
-
-
-            <label class="choice">
-
-              <input
-                type="radio"
-                name="attendance"
-                value="ON"
-              >
-
-              <span>
-                ONLINE
-              </span>
-
-            </label>
-
-          </div>
-
-
-          <button class="btn" type="submit">
-            GENERATE MY CODE
-          </button>
-
-        </form>
-
-
-        <div
-          id="codeResult"
-          class="code-result"
-          aria-live="polite"
-          hidden
-        >
-
-          <span class="result-label">
-            YOUR CHECK-OUT CODE
-          </span>
-
-          <strong id="generatedCode"></strong>
-
-          <small id="codeType"></small>
-
-        </div>
-
-
-        <p class="code-note">
-          Your code is based on your phone number and selected check-out type.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact section">
-
-      <p class="eyebrow">
-        STAY CONNECTED
-      </p>
-
-      <h2>
-        THE DROP IS COMING.
-      </h2>
-
-      <p>
-        Follow WINGS for new designs, music, updates,
-        and the official launch.
-      </p>
-
-
-      <div class="socials">
-
-        <a
-          href="https://www.instagram.com/thatunderratedsuperstar/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          INSTAGRAM
-          <span>@thatunderratedsuperstar</span>
-        </a>
-
-
-        <a
-          href="https://www.tiktok.com/@forevertda"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TIKTOK
-          <span>@forevertda</span>
-        </a>
-
-
-        <a
-          href="https://www.youtube.com/@TDAProductionsz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YOUTUBE
-          <span>@TDAProductionsz</span>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- POLICIES -->
-    <section id="policies" class="policies section">
-
-      <p class="eyebrow">
-        LEGAL
-      </p>
-
-      <h2>
-        TERMS & POLICIES
-      </h2>
-
-
-      <div class="policy-grid">
-
-        <article>
-
-          <h3>
-            TERMS OF USE
-          </h3>
-
-          <p>
-            By using this website, you agree to use it lawfully
-            and respectfully. Product information, prices,
-            availability, and release dates may change before launch.
-          </p>
-
-        </article>
-
-
-        <article>
-
-          <h3>
-            PRIVACY NOTICE
-          </h3>
-
-          <p>
-            WINGS respects your privacy. This informational site
-            does not ask you to enter personal information. If shopping
-            features are added later, this notice will be updated before
-            customer information is collected.
-          </p>
-
-        </article>
-
-
-        <article>
-
-          <h3>
-            SALES & RETURNS
-          </h3>
-
-          <p>
-            Sales, shipping, returns, exchanges, and refunds will be
-            governed by the policy shown at checkout when the WINGS
-            store officially launches.
-          </p>
-
-        </article>
-
-
-        <article>
-
-          <h3>
-            LEGAL NOTICE
-          </h3>
-
-          <p>
-            WINGS and its original designs, logos, images, text,
-            and branding are intended for the WINGS brand.
-            Do not copy, reproduce, or use brand materials without permission.
-          </p>
-
-        </article>
-
-      </div>
-
-
-      <p class="legal-note">
-        This page is a general website notice, not legal advice.
-        Final policies should be reviewed and updated before taking
-        customer orders.
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <!-- DELIVERY POLICY -->
-  <section class="policy-page" id="delivery-policy">
-
-    <div class="section-title">
-
-      <p class="eyebrow">
-        DELIVERY POLICY
-      </p>
-
-      <h2>
-        GET YOUR WINGS.
-      </h2>
-
-    </div>
-
-
-    <div class="policy-copy">
-
-      <h3>
-        Shipping
-      </h3>
-
-      <p>
-        WINGS orders are prepared after purchase.
-        Delivery times may vary depending on order volume,
-        shipping location, and carrier delays.
-      </p>
-
-
-      <h3>
-        Processing
-      </h3>
-
-      <p>
-        Please allow time for your order to be processed before
-        it is handed to the shipping carrier. Tracking information
-        will be provided when available.
-      </p>
-
-
-      <h3>
-        Delivery Delays
-      </h3>
-
-      <p>
-        Carrier delays, weather, holidays, or other events outside
-        WINGS' control may affect delivery dates. If a package is
-        delayed, please check the tracking information first.
-      </p>
-
-
-      <h3>
-        Wrong or Damaged Packages
-      </h3>
-
-      <p>
-        If your package arrives damaged or goes to the wrong address
-        because incorrect information was provided at checkout,
-        contact WINGS as soon as possible with your order details.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div class="footer-logo">
-      WINGS
-    </div>
-
-    <p>
-      Clothes to Make Your Look Fly.
-    </p>
-
-
-    <div class="footer-links">
-
-      <a href="#policies">
-        Terms
-      </a>
-
-      <a href="#policies">
-        Privacy
-      </a>
-
-      <a href="#policies">
-        Legal Notice
-      </a>
-
-    </div>
-
-
-    <p>
-      © 2027 WINGS. All rights reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- MOBILE MENU -->
-  <script>
-
-    const menuBtn = document.querySelector('.menu-btn');
-    const nav = document.querySelector('.nav nav');
-
-    menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-
-    nav.querySelectorAll('a').forEach(link => {
-
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-      });
-
-    });
-
-  </script>
-
-
-  <!-- CHECK-OUT CODE SYSTEM -->
-  <script>
-
-    (() => {
-
-      const form = document.getElementById("codeForm");
-      const phoneInput = document.getElementById("phone");
-      const result = document.getElementById("codeResult");
-      const generatedCode = document.getElementById("generatedCode");
-      const codeType = document.getElementById("codeType");
-
-
-      if (!form || !phoneInput || !result) return;
-
-
-      function normalizePhone(value) {
-
-        return value
-          .replace(/\D/g, "")
-          .slice(-10);
-
-      }
-
-
-      function makeCode(phone, type) {
-
-        let hash = type === "IN"
-          ? 7919
-          : 104729;
-
-
-        for (let i = 0; i < phone.length; i++) {
-
-          hash =
-            (
-              hash * 31 +
-              phone.charCodeAt(i) * (i + 7)
-            ) % 1000000007;
-
-        }
-
-
-        const number =
-          String(
-            Math.abs(hash) % 10000
-          ).padStart(4, "0");
-
-
-        return `${type}-${number}`;
-
-      }
-
-
-      form.addEventListener("submit", (event) => {
-
-        event.preventDefault();
-
-
-        const phone =
-          normalizePhone(phoneInput.value);
-
-
-        const selected =
-          form.querySelector(
-            'input[name="attendance"]:checked'
-          );
-
-
-        if (phone.length !== 10 || !selected) {
-
-          generatedCode.textContent =
-            "CHECK INFO";
-
-          codeType.textContent =
-            "Enter a valid 10-digit phone number and choose an option.";
-
-          result.hidden = false;
-
-          return;
-
-        }
-
-
-        const code =
-          makeCode(
-            phone,
-            selected.value
-          );
-
-
-        generatedCode.textContent =
-          code;
-
-
-        codeType.textContent =
-          selected.value === "IN"
-            ? "IN PERSON CHECK-OUT"
-            : "ONLINE CHECK-OUT";
-
-
-        result.hidden = false;
-
-
-        result.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest"
-        });
-
-      });
-
-    })();
-
-  </script>
-
-</body>
-</html>
-
+</script> </body> </html>
