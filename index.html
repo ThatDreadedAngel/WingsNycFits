@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* WINGS CHECK-IN */
+    /* WINGS CHECK-OUT */
     .checkin-card {
       max-width: 680px;
       margin: 0 auto;
@@ -155,7 +155,7 @@
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#drop">Drop</a>
-      <a href="#checkin">Check-In</a>
+      <a href="#checkout">Check-Out</a>
       <a href="#contact">Contact</a>
       <a href="#policies">Policies</a>
     </nav>
@@ -429,18 +429,18 @@
     </section>
 
 
-    <!-- CHECK-IN -->
-    <section id="checkin" class="checkin section">
+    <!-- CHECK-OUT -->
+    <section id="checkout" class="checkin section">
 
       <div class="section-head">
 
         <div>
-          <p class="eyebrow">CHECK-IN</p>
+          <p class="eyebrow">CHECK-OUT</p>
           <h2>GET YOUR CODE</h2>
         </div>
 
         <span class="coming">
-          SECURE CHECK-IN
+          SECURE CHECK-OUT
         </span>
 
       </div>
@@ -449,7 +449,7 @@
       <div class="checkin-card">
 
         <p class="checkin-intro">
-          Complete the WINGS check form first. Then enter the same phone number
+          Complete the WINGS check-out form first. Then enter the same phone number
           and select whether you're attending <strong>In Person</strong> or
           <strong>Online</strong>.
         </p>
@@ -457,11 +457,11 @@
 
         <a
           class="btn"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSc6hdCwTD5fj2_rpbNomfG5a1JZgh-4qQ6gx5-NpQ/viewform?usp=dialog"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSc6hdCwTD5fj2_rpbNomfG5AEEVURZsa1JZgh-4qQ6gx5-NpQ/viewform?usp=dialog"
           target="_blank"
           rel="noopener noreferrer"
         >
-          OPEN THE CHECK FORM
+          OPEN THE CHECK-OUT FORM
         </a>
 
 
@@ -538,7 +538,7 @@
         >
 
           <span class="result-label">
-            YOUR CODE
+            YOUR CHECK-OUT CODE
           </span>
 
           <strong id="generatedCode"></strong>
@@ -549,7 +549,7 @@
 
 
         <p class="code-note">
-          Your code is based on your phone number and selected check-in type.
+          Your code is based on your phone number and selected check-out type.
         </p>
 
       </div>
@@ -821,7 +821,7 @@
   </script>
 
 
-  <!-- CHECK-IN CODE SYSTEM -->
+  <!-- CHECK-OUT CODE SYSTEM -->
   <script>
 
     (() => {
@@ -917,8 +917,8 @@
 
         codeType.textContent =
           selected.value === "IN"
-            ? "IN PERSON CHECK-IN"
-            : "ONLINE CHECK-IN";
+            ? "IN PERSON CHECK-OUT"
+            : "ONLINE CHECK-OUT";
 
 
         result.hidden = false;
