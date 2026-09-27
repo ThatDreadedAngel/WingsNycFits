@@ -1654,20 +1654,10 @@
     ==================================================
     WINGS GOOGLE SHEETS VERIFICATION
     ==================================================
-
-    IMPORTANT:
-
-    Paste your Google Apps Script Web App URL below.
-
-    Example:
-
-    const VERIFICATION_URL =
-      "https://script.google.com/macros/s/XXXXXXXX/exec";
-
-    ==================================================
     */
 
-    const VERIFICATION_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+    const VERIFICATION_URL =
+      "https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
 
 
     /*
@@ -1887,25 +1877,6 @@
 
           formError.textContent =
             "Please select In Person or Online.";
-
-          formError.hidden = false;
-
-          return;
-
-        }
-
-
-        /*
-        APPS SCRIPT URL CHECK
-        */
-
-        if (
-          VERIFICATION_URL ===
-          "PASTE_YOUR_APPS_SCRIPT_URL_HERE"
-        ) {
-
-          formError.textContent =
-            "Checkout verification has not been connected yet.";
 
           formError.hidden = false;
 
