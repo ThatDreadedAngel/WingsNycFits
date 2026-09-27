@@ -33,6 +33,10 @@
       overflow-x: hidden;
     }
 
+    body.cart-open {
+      overflow: hidden;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -44,7 +48,8 @@
     }
 
     button,
-    input {
+    input,
+    select {
       font: inherit;
     }
 
@@ -113,7 +118,7 @@
 
     .nav {
       width: min(1200px, 92%);
-      height: 75px;
+      min-height: 75px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -152,6 +157,44 @@
       font-size: 12px;
       letter-spacing: 2px;
       font-weight: 700;
+    }
+
+    /* CART NAV BUTTON */
+
+    .cart-nav-btn {
+      background: none;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.35);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      transition: .2s ease;
+    }
+
+    .cart-nav-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    #cartCount {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      margin-left: 5px;
+      padding: 0 4px;
+      background: #fff;
+      color: #000;
+      font-size: 9px;
+      border-radius: 50%;
+    }
+
+    .cart-nav-btn:hover #cartCount {
+      background: #000;
+      color: #fff;
     }
 
     /* HERO */
@@ -352,6 +395,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 15px;
+      margin-bottom: 18px;
     }
 
     .price {
@@ -363,6 +407,283 @@
       color: #888;
       font-size: 10px;
       letter-spacing: 1px;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .size-select {
+      flex: 1;
+      height: 46px;
+      padding: 0 12px;
+      background: #0b0b0b;
+      color: #fff;
+      border: 1px solid var(--border);
+      outline: none;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .size-select:focus {
+      border-color: #fff;
+    }
+
+    .add-cart-btn {
+      flex: 1;
+      height: 46px;
+      border: 1px solid #fff;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      transition: .2s ease;
+    }
+
+    .add-cart-btn:hover {
+      background: transparent;
+      color: #fff;
+    }
+
+    .add-cart-btn.added {
+      background: #111;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* CART OVERLAY */
+
+    .cart-overlay {
+      position: fixed;
+      z-index: 1998;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* CART DRAWER */
+
+    .cart-drawer {
+      position: fixed;
+      z-index: 1999;
+      top: 0;
+      right: 0;
+      width: min(450px, 92vw);
+      height: 100vh;
+      background: #050505;
+      border-left: 1px solid rgba(255,255,255,.18);
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.77,0,.18,1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -20px 0 60px rgba(0,0,0,.45);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      min-height: 80px;
+      padding: 0 25px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .cart-header h2 {
+      font-size: 25px;
+      letter-spacing: -1px;
+    }
+
+    .cart-close {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font-size: 18px;
+      transition: .2s ease;
+    }
+
+    .cart-close:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 25px;
+    }
+
+    .empty-cart {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #777;
+    }
+
+    .empty-cart strong {
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .empty-cart span {
+      font-size: 11px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 15px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--soft-border);
+    }
+
+    .cart-item-image {
+      width: 85px;
+      height: 85px;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .cart-item-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      min-width: 0;
+    }
+
+    .cart-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cart-item-name {
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .cart-remove {
+      border: none;
+      background: transparent;
+      color: #777;
+      cursor: pointer;
+      font-size: 10px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .cart-remove:hover {
+      color: #fff;
+    }
+
+    .cart-item-details {
+      color: #777;
+      font-size: 10px;
+      margin-top: 6px;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .cart-item-price {
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+    }
+
+    .quantity-control button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .quantity-control button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .quantity-control span {
+      min-width: 30px;
+      text-align: center;
+      font-size: 11px;
+    }
+
+    .cart-footer {
+      padding: 22px 25px 25px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+      background: #050505;
+    }
+
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .cart-subtotal span:first-child {
+      color: #888;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .cart-subtotal strong {
+      font-size: 18px;
+    }
+
+    .cart-note {
+      color: #666;
+      font-size: 9px;
+      margin-bottom: 18px;
+    }
+
+    .cart-checkout-btn {
+      width: 100%;
     }
 
     /* ABOUT */
@@ -735,9 +1056,18 @@
         display: flex;
       }
 
-      .nav-links a {
+      .nav-links a,
+      .cart-nav-btn {
+        width: 100%;
         padding: 18px 4%;
         border-top: 1px solid var(--soft-border);
+        text-align: left;
+      }
+
+      .cart-nav-btn {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
       }
 
       .hero {
@@ -787,6 +1117,15 @@
       .footer-links {
         flex-wrap: wrap;
       }
+
+      .product-actions {
+        flex-direction: column;
+      }
+
+      .size-select,
+      .add-cart-btn {
+        width: 100%;
+      }
     }
 
     @media (max-width: 500px) {
@@ -814,6 +1153,10 @@
 
       .generated-code-box strong {
         font-size: 26px;
+      }
+
+      .cart-drawer {
+        width: 94vw;
       }
     }
 
@@ -850,11 +1193,91 @@
         <a href="#checkout">CHECK-OUT</a>
         <a href="#contact">CONTACT</a>
 
+        <button
+          class="cart-nav-btn"
+          id="cartOpenBtn"
+          type="button"
+        >
+          CART <span id="cartCount">0</span>
+        </button>
+
       </div>
 
     </nav>
 
   </header>
+
+
+  <!-- CART OVERLAY -->
+
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+  ></div>
+
+
+  <!-- SLIDE-OUT CART -->
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+    aria-label="Shopping cart"
+  >
+
+    <div class="cart-header">
+
+      <h2>
+        YOUR CART
+      </h2>
+
+      <button
+        class="cart-close"
+        id="cartCloseBtn"
+        type="button"
+        aria-label="Close cart"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-subtotal">
+
+        <span>
+          SUBTOTAL
+        </span>
+
+        <strong id="cartSubtotal">
+          $0.00
+        </strong>
+
+      </div>
+
+      <p class="cart-note">
+        Taxes, delivery, and final checkout details
+        can be confirmed during checkout.
+      </p>
+
+      <button
+        class="btn cart-checkout-btn"
+        id="cartCheckoutBtn"
+        type="button"
+      >
+        PROCEED TO CHECK-OUT
+      </button>
+
+    </div>
+
+  </aside>
 
 
   <!-- HERO -->
@@ -1013,7 +1436,15 @@
 
       <div class="product-grid">
 
-        <article class="product-card">
+
+        <!-- WHITE TEE -->
+
+        <article
+          class="product-card"
+          data-product="WINGS TEE — WHITE"
+          data-price="25"
+          data-image="images/tee-white(1).png"
+        >
 
           <div class="product-image">
 
@@ -1047,12 +1478,46 @@
 
             </div>
 
+            <div class="product-actions">
+
+              <select class="size-select" aria-label="Select size">
+
+                <option value="S">
+                  SIZE S
+                </option>
+
+                <option value="M">
+                  SIZE M
+                </option>
+
+                <option value="L">
+                  SIZE L
+                </option>
+
+              </select>
+
+              <button
+                class="add-cart-btn"
+                type="button"
+              >
+                ADD TO CART
+              </button>
+
+            </div>
+
           </div>
 
         </article>
 
 
-        <article class="product-card">
+        <!-- BLACK TEE -->
+
+        <article
+          class="product-card"
+          data-product="WINGS TEE — BLACK"
+          data-price="25"
+          data-image="images/tee-black(1).png"
+        >
 
           <div class="product-image">
 
@@ -1086,12 +1551,46 @@
 
             </div>
 
+            <div class="product-actions">
+
+              <select class="size-select" aria-label="Select size">
+
+                <option value="S">
+                  SIZE S
+                </option>
+
+                <option value="M">
+                  SIZE M
+                </option>
+
+                <option value="L">
+                  SIZE L
+                </option>
+
+              </select>
+
+              <button
+                class="add-cart-btn"
+                type="button"
+              >
+                ADD TO CART
+              </button>
+
+            </div>
+
           </div>
 
         </article>
 
 
-        <article class="product-card">
+        <!-- HOODIE -->
+
+        <article
+          class="product-card"
+          data-product="WINGS HOODIE"
+          data-price="45"
+          data-image="images/hoodie(1).png"
+        >
 
           <div class="product-image">
 
@@ -1125,12 +1624,46 @@
 
             </div>
 
+            <div class="product-actions">
+
+              <select class="size-select" aria-label="Select size">
+
+                <option value="S">
+                  SIZE S
+                </option>
+
+                <option value="M">
+                  SIZE M
+                </option>
+
+                <option value="L">
+                  SIZE L
+                </option>
+
+              </select>
+
+              <button
+                class="add-cart-btn"
+                type="button"
+              >
+                ADD TO CART
+              </button>
+
+            </div>
+
           </div>
 
         </article>
 
 
-        <article class="product-card">
+        <!-- HOODIE DETAIL -->
+
+        <article
+          class="product-card"
+          data-product="WINGS HOODIE — DETAIL"
+          data-price="45"
+          data-image="images/hoodie-detail(1).png"
+        >
 
           <div class="product-image">
 
@@ -1161,6 +1694,33 @@
               <span class="size-text">
                 S / M / L
               </span>
+
+            </div>
+
+            <div class="product-actions">
+
+              <select class="size-select" aria-label="Select size">
+
+                <option value="S">
+                  SIZE S
+                </option>
+
+                <option value="M">
+                  SIZE M
+                </option>
+
+                <option value="L">
+                  SIZE L
+                </option>
+
+              </select>
+
+              <button
+                class="add-cart-btn"
+                type="button"
+              >
+                ADD TO CART
+              </button>
 
             </div>
 
@@ -1727,6 +2287,519 @@
 
     /*
     ==================================================
+    WINGS SHOPPING CART
+    ==================================================
+    */
+
+    let cart = [];
+
+
+    const cartOpenBtn =
+      document.getElementById("cartOpenBtn");
+
+    const cartCloseBtn =
+      document.getElementById("cartCloseBtn");
+
+    const cartOverlay =
+      document.getElementById("cartOverlay");
+
+    const cartDrawer =
+      document.getElementById("cartDrawer");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const cartSubtotal =
+      document.getElementById("cartSubtotal");
+
+    const cartCheckoutBtn =
+      document.getElementById("cartCheckoutBtn");
+
+
+    /*
+    OPEN CART
+    */
+
+    function openCart() {
+
+      cartDrawer.classList.add("open");
+
+      cartOverlay.classList.add("open");
+
+      document.body.classList.add("cart-open");
+
+    }
+
+
+    /*
+    CLOSE CART
+    */
+
+    function closeCart() {
+
+      cartDrawer.classList.remove("open");
+
+      cartOverlay.classList.remove("open");
+
+      document.body.classList.remove("cart-open");
+
+    }
+
+
+    cartOpenBtn.addEventListener(
+      "click",
+      openCart
+    );
+
+
+    cartCloseBtn.addEventListener(
+      "click",
+      closeCart
+    );
+
+
+    cartOverlay.addEventListener(
+      "click",
+      closeCart
+    );
+
+
+    /*
+    ==================================================
+    ADD PRODUCT TO CART
+    ==================================================
+    */
+
+    document.querySelectorAll(
+      ".product-card"
+    ).forEach(function (card) {
+
+      const addButton =
+        card.querySelector(".add-cart-btn");
+
+      const sizeSelect =
+        card.querySelector(".size-select");
+
+
+      addButton.addEventListener(
+        "click",
+        function () {
+
+          const name =
+            card.dataset.product;
+
+          const price =
+            Number(card.dataset.price);
+
+          const image =
+            card.dataset.image;
+
+          const size =
+            sizeSelect.value;
+
+
+          /*
+          FIND SAME PRODUCT + SIZE
+          */
+
+          const existing =
+            cart.find(function (item) {
+
+              return (
+                item.name === name &&
+                item.size === size
+              );
+
+            });
+
+
+          if (existing) {
+
+            existing.quantity += 1;
+
+          }
+
+          else {
+
+            cart.push({
+
+              id:
+                Date.now() +
+                Math.random(),
+
+              name: name,
+
+              price: price,
+
+              image: image,
+
+              size: size,
+
+              quantity: 1
+
+            });
+
+          }
+
+
+          updateCart();
+
+
+          /*
+          BUTTON FEEDBACK
+          */
+
+          const originalText =
+            addButton.textContent;
+
+          addButton.textContent =
+            "ADDED ✓";
+
+          addButton.classList.add(
+            "added"
+          );
+
+
+          setTimeout(
+            function () {
+
+              addButton.textContent =
+                originalText;
+
+              addButton.classList.remove(
+                "added"
+              );
+
+            },
+            1000
+          );
+
+
+          openCart();
+
+        }
+      );
+
+    });
+
+
+    /*
+    ==================================================
+    UPDATE CART
+    ==================================================
+    */
+
+    function updateCart() {
+
+      cartItems.innerHTML = "";
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+          <div class="empty-cart">
+
+            <strong>
+              YOUR CART IS EMPTY
+            </strong>
+
+            <span>
+              Add something from the WINGS drop.
+            </span>
+
+          </div>
+
+        `;
+
+      }
+
+
+      let totalItems = 0;
+
+      let subtotal = 0;
+
+
+      cart.forEach(function (item) {
+
+        totalItems += item.quantity;
+
+        subtotal +=
+          item.price *
+          item.quantity;
+
+
+        const itemElement =
+          document.createElement("div");
+
+        itemElement.className =
+          "cart-item";
+
+
+        itemElement.innerHTML = `
+
+          <div class="cart-item-image">
+
+            <img
+              src="${item.image}"
+              alt="${item.name}"
+            >
+
+          </div>
+
+
+          <div class="cart-item-info">
+
+            <div class="cart-item-top">
+
+              <div class="cart-item-name">
+                ${item.name}
+              </div>
+
+              <button
+                class="cart-remove"
+                type="button"
+                data-id="${item.id}"
+              >
+                REMOVE
+              </button>
+
+            </div>
+
+
+            <div class="cart-item-details">
+
+              SIZE ${item.size}
+
+            </div>
+
+
+            <div class="cart-item-bottom">
+
+              <span class="cart-item-price">
+
+                $${(
+                  item.price *
+                  item.quantity
+                ).toFixed(2)}
+
+              </span>
+
+
+              <div class="quantity-control">
+
+                <button
+                  type="button"
+                  class="quantity-minus"
+                  data-id="${item.id}"
+                >
+                  −
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  type="button"
+                  class="quantity-plus"
+                  data-id="${item.id}"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        `;
+
+
+        cartItems.appendChild(
+          itemElement
+        );
+
+      });
+
+
+      cartCount.textContent =
+        totalItems;
+
+
+      cartSubtotal.textContent =
+        "$" +
+        subtotal.toFixed(2);
+
+
+      /*
+      REMOVE BUTTONS
+      */
+
+      document.querySelectorAll(
+        ".cart-remove"
+      ).forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            const id =
+              Number(this.dataset.id);
+
+            cart =
+              cart.filter(
+                function (item) {
+                  return item.id !== id;
+                }
+              );
+
+            updateCart();
+
+          }
+        );
+
+      });
+
+
+      /*
+      MINUS BUTTONS
+      */
+
+      document.querySelectorAll(
+        ".quantity-minus"
+      ).forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            const id =
+              Number(this.dataset.id);
+
+            const item =
+              cart.find(
+                function (item) {
+                  return item.id === id;
+                }
+              );
+
+
+            if (!item) return;
+
+
+            if (item.quantity > 1) {
+
+              item.quantity -= 1;
+
+            }
+
+            else {
+
+              cart =
+                cart.filter(
+                  function (item) {
+                    return item.id !== id;
+                  }
+                );
+
+            }
+
+
+            updateCart();
+
+          }
+        );
+
+      });
+
+
+      /*
+      PLUS BUTTONS
+      */
+
+      document.querySelectorAll(
+        ".quantity-plus"
+      ).forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            const id =
+              Number(this.dataset.id);
+
+            const item =
+              cart.find(
+                function (item) {
+                  return item.id === id;
+                }
+              );
+
+
+            if (!item) return;
+
+
+            item.quantity += 1;
+
+            updateCart();
+
+          }
+        );
+
+      });
+
+    }
+
+
+    /*
+    ==================================================
+    CART CHECKOUT BUTTON
+    ==================================================
+    */
+
+    cartCheckoutBtn.addEventListener(
+      "click",
+      function () {
+
+        if (cart.length === 0) {
+
+          alert(
+            "Your WINGS cart is empty."
+          );
+
+          return;
+
+        }
+
+
+        closeCart();
+
+
+        document.getElementById(
+          "checkout"
+        ).scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+    );
+
+
+    /*
+    INITIAL CART
+    */
+
+    updateCart();
+
+
+    /*
+    ==================================================
     PHONE FORMATTING
     ==================================================
     */
@@ -1833,6 +2906,7 @@
 
 
         formError.hidden = true;
+
         formError.textContent = "";
 
         codeResult.hidden = true;
