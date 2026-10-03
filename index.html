@@ -1976,7 +1976,7 @@ footer{
           </span>
 
           <span class="size-text">
-            S / M / L
+            S / M / L / XL
           </span>
 
         </div>
@@ -1990,6 +1990,7 @@ footer{
             <option value="S">SIZE S</option>
             <option value="M">SIZE M</option>
             <option value="L">SIZE L</option>
+            <option value="XL">SIZE XL</option>
           </select>
 
           <button
@@ -2088,14 +2089,14 @@ footer{
 
     <!-- ===================================================
          HOODIE
-         ONE PRODUCT / TWO IMAGES
+         ONE PRODUCT / NEW WINGS DESIGN
     ==================================================== -->
 
     <article
       class="product-card"
       data-product-id="hoodie"
       data-product="WINGS HOODIE"
-      data-image="images/hoodie(1).png"
+      data-image="images/wings-hoodie.png"
     >
 
       <div class="hoodie-gallery">
@@ -2103,7 +2104,7 @@ footer{
         <img
           id="hoodieGalleryImage"
           class="hoodie-gallery-main"
-          src="images/hoodie(1).png"
+          src="images/wings-hoodie.png"
           alt="WINGS Hoodie"
           loading="lazy"
         >
@@ -2148,7 +2149,7 @@ footer{
         </h3>
 
         <p class="product-description">
-          Heavy everyday WINGS hoodie with detailed first-drop design.
+          Heavyweight distressed WINGS zip-up hoodie with the new Mandarin wing design, front and back graphics, sleeve details, and first-drop styling.
         </p>
 
         <div class="product-bottom">
@@ -2192,6 +2193,103 @@ footer{
 
       </div>
 
+    </article>
+
+
+    <!-- ===================================================
+         SECOND WINGS HOODIE
+    ==================================================== -->
+
+    <article
+      class="product-card"
+      data-product-id="hoodie-2"
+      data-product="MANDARIN ZIP-UP HOODIE"
+      data-image="images/wings-hoodie-2.png"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/wings-hoodie-2.png"
+          alt="Mandarin Zip-Up Hoodie"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          MANDARIN ZIP-UP HOODIE
+        </h3>
+
+        <p class="product-description">
+          Distressed zip-up Mandarin design with detailed front and back graphics.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $65.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select zip-up hoodie size"
+          >
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+    <!-- WHITE MANDARIN HOODIE -->
+    <article class="product-card" data-product-id="hoodie-3" data-product="MANDARIN HOODIE - WHITE" data-image="images/mandarin-hoodie-white.png">
+      <div class="product-image">
+        <img src="images/mandarin-hoodie-white.png" alt="Mandarin Hoodie White" loading="lazy">
+      </div>
+      <div class="product-info">
+        <h3>MANDARIN HOODIE - WHITE</h3>
+        <p class="product-description">White Mandarin WINGS hoodie with detailed front and back graphics.</p>
+        <div class="product-bottom">
+          <span class="price">$65.00</span>
+          <span class="size-text">S / M / L</span>
+        </div>
+        <div class="product-actions">
+          <select class="size-select" aria-label="Select Mandarin hoodie size">
+            <option value="S">SIZE S</option><option value="M">SIZE M</option><option value="L">SIZE L</option>
+          </select>
+          <button class="add-cart-btn" type="button">ADD TO CART</button>
+        </div>
+        <button class="size-guide-btn" type="button">SIZE GUIDE</button>
+      </div>
     </article>
 
   </div>
@@ -2943,7 +3041,21 @@ const PRODUCTS = Object.freeze({
     id:"hoodie",
     name:"WINGS HOODIE",
     displayPrice:65,
-    image:"images/hoodie(1).png"
+    image:"images/wings-hoodie.png"
+  },
+
+  "hoodie-2":{
+    id:"hoodie-2",
+    name:"MANDARIN ZIP-UP HOODIE",
+    displayPrice:65,
+    image:"images/wings-hoodie-2.png"
+  },
+
+  "hoodie-3":{
+    id:"hoodie-3",
+    name:"MANDARIN HOODIE - WHITE",
+    displayPrice:65,
+    image:"images/mandarin-hoodie-white.png"
   },
 
   "white-tee":{
@@ -4776,13 +4888,13 @@ imageModal.addEventListener(
 const hoodieImages = [
 
   {
-    src:"images/hoodie(1).png",
-    alt:"WINGS Hoodie"
+    src:"images/wings-hoodie.png",
+    alt:"WINGS Hoodie Front and Back"
   },
 
   {
-    src:"images/hoodie-detail(1).png",
-    alt:"WINGS Hoodie Detail"
+    src:"images/wings-hoodie.png",
+    alt:"WINGS Hoodie Design Detail"
   }
 
 ];
