@@ -1,71 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>WINGS | Clothes to Make Your Look Fly.</title>
 
-<meta
-  name="description"
-  content="WINGS. Clothes to Make Your Look Fly. First drop March 15, 2027."
->
-
-<meta
-  name="referrer"
-  content="strict-origin-when-cross-origin"
->
+<meta name="description" content="WINGS. Clothes to Make Your Look Fly. First drop March 15, 2027.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <style>
-
-/* =========================================================
-   THEMES
-========================================================= */
-
 :root{
   --bg:#000;
   --surface:#070707;
   --surface2:#101010;
   --surface3:#171717;
-
   --text:#fff;
   --muted:#999;
   --muted2:#666;
-
   --border:rgba(255,255,255,.18);
   --soft-border:rgba(255,255,255,.10);
-
   --button-bg:#fff;
   --button-text:#000;
-
   --input-bg:#101010;
-
   --header-bg:rgba(0,0,0,.88);
 }
 
 body[data-theme="white"]{
   --bg:#fff;
   --surface:#f7f7f7;
-  --surface2:#eeeeee;
+  --surface2:#eee;
   --surface3:#e4e4e4;
-
   --text:#000;
   --muted:#666;
   --muted2:#888;
-
   --border:rgba(0,0,0,.18);
   --soft-border:rgba(0,0,0,.10);
-
   --button-bg:#000;
   --button-text:#fff;
-
-  --input-bg:#eeeeee;
-
+  --input-bg:#eee;
   --header-bg:rgba(255,255,255,.92);
 }
 
@@ -74,26 +47,16 @@ body[data-theme="gray"]{
   --surface:#6d6d6d;
   --surface2:#606060;
   --surface3:#555;
-
   --text:#fff;
   --muted:#d5d5d5;
   --muted2:#bcbcbc;
-
   --border:rgba(255,255,255,.25);
   --soft-border:rgba(255,255,255,.15);
-
   --button-bg:#fff;
   --button-text:#000;
-
   --input-bg:#606060;
-
   --header-bg:rgba(65,65,65,.94);
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
   margin:0;
@@ -108,15 +71,8 @@ html{
 body{
   background:var(--bg);
   color:var(--text);
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  transition:
-    background .3s ease,
-    color .3s ease;
+  font-family:Arial,Helvetica,sans-serif;
+  transition:background .3s ease,color .3s ease;
 }
 
 body.modal-open{
@@ -138,37 +94,22 @@ a{
   text-decoration:none;
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 header{
   position:fixed;
-
   top:0;
   left:0;
-
   width:100%;
   height:76px;
-
   z-index:1000;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:0 5vw;
-
   background:var(--header-bg);
-
   backdrop-filter:blur(18px);
-
-  border-bottom:
-    1px solid var(--soft-border);
-
-  transition:
-    background .3s ease;
+  border-bottom:1px solid var(--soft-border);
 }
 
 .logo{
@@ -186,14 +127,11 @@ header{
 .nav-links a,
 .settings-nav-btn{
   color:var(--text);
-
   background:none;
   border:0;
-
   font-size:10px;
   font-weight:900;
   letter-spacing:2px;
-
   transition:.2s;
 }
 
@@ -208,21 +146,13 @@ header{
 
 .cart-nav-btn{
   position:relative;
-
   color:var(--button-text);
-
   background:var(--button-bg);
-
-  border:
-    1px solid var(--button-bg);
-
+  border:1px solid var(--button-bg);
   padding:10px 15px;
-
   font-size:9px;
   font-weight:900;
   letter-spacing:1.5px;
-
-  transition:.2s;
 }
 
 .cart-nav-btn:hover{
@@ -233,119 +163,82 @@ header{
 
 #cartCount{
   position:absolute;
-
   top:-8px;
   right:-8px;
-
   min-width:19px;
   height:19px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
   background:var(--text);
   color:var(--bg);
-
   font-size:9px;
   font-weight:900;
 }
 
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
 .mobile-menu-btn{
   display:none;
-
   background:none;
   border:0;
-
   color:var(--text);
-
   font-size:23px;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero{
   min-height:100vh;
-
   position:relative;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   overflow:hidden;
-
   background:#050505;
 }
 
 .hero-image{
   position:absolute;
-
   inset:0;
-
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   opacity:.72;
 }
 
 .hero-overlay{
   position:absolute;
-
   inset:0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.45),
-      rgba(0,0,0,.78)
-    );
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.78)
+  );
 }
 
 .hero-content{
   position:relative;
-
   z-index:2;
-
   width:min(1000px,90%);
-
   text-align:center;
 }
 
 .hero-eyebrow{
   margin-bottom:20px;
-
   font-size:10px;
   font-weight:900;
   letter-spacing:5px;
 }
 
 .hero-title{
-  font-size:
-    clamp(65px,13vw,180px);
-
+  font-size:clamp(65px,13vw,180px);
   line-height:.8;
-
   font-weight:1000;
-
   letter-spacing:-8px;
 }
 
 .hero-subtitle{
   margin-top:30px;
-
   font-size:12px;
   font-weight:800;
   letter-spacing:4px;
@@ -353,20 +246,14 @@ header{
 
 .hero-button{
   display:inline-block;
-
   margin-top:35px;
-
   padding:16px 28px;
-
   background:#fff;
   color:#000;
-
   font-size:10px;
   font-weight:900;
   letter-spacing:2px;
-
   border:1px solid #fff;
-
   transition:.25s;
 }
 
@@ -375,10 +262,7 @@ header{
   color:#fff;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
+/* GENERAL */
 
 section{
   padding:120px 6vw;
@@ -386,52 +270,39 @@ section{
 
 .section-label{
   margin-bottom:15px;
-
   font-size:9px;
   font-weight:900;
   letter-spacing:4px;
-
   color:var(--muted);
 }
 
 .section-title{
-  font-size:
-    clamp(38px,6vw,80px);
-
+  font-size:clamp(38px,6vw,80px);
   line-height:.9;
-
   font-weight:1000;
-
   letter-spacing:-3px;
 }
 
+/* DROP */
 
-/* =========================================================
-   DROP
-========================================================= */
-
-.drop-section{
-  border-top:
-    1px solid var(--soft-border);
+.drop-section,
+.shop-section,
+.statement-section,
+.contact-section{
+  border-top:1px solid var(--soft-border);
 }
 
 .drop-banner{
   margin-top:45px;
-
   padding:28px;
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   background:var(--surface);
 }
 
 .drop-banner strong{
   display:block;
-
   font-size:11px;
   letter-spacing:3px;
-
   margin-bottom:10px;
 }
 
@@ -440,30 +311,19 @@ section{
   color:var(--muted);
 }
 
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
+/* COUNTDOWN */
 
 .countdown{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
-
   margin-top:35px;
 }
 
 .count-box{
   padding:25px 15px;
-
   text-align:center;
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   background:var(--surface);
 }
 
@@ -474,69 +334,38 @@ section{
 
 .count-label{
   margin-top:7px;
-
   font-size:8px;
   font-weight:900;
   letter-spacing:2px;
-
   color:var(--muted);
 }
 
-
-/* =========================================================
-   SHOP
-========================================================= */
-
-.shop-section{
-  border-top:
-    1px solid var(--soft-border);
-}
+/* PRODUCTS */
 
 .products-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:20px;
-
   margin-top:55px;
 }
 
 .product-card{
   overflow:hidden;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--soft-border);
-
-  transition:
-    transform .3s,
-    border-color .3s,
-    background .3s;
+  border:1px solid var(--soft-border);
+  transition:transform .3s,border-color .3s,background .3s;
 }
 
 .product-card:hover{
   transform:translateY(-5px);
-
-  border-color:
-    var(--border);
+  border-color:var(--border);
 }
-
-
-/* =========================================================
-   PRODUCT IMAGES
-========================================================= */
 
 .product-image,
 .hoodie-gallery{
   position:relative;
-
   aspect-ratio:1;
-
   overflow:hidden;
-
   background:var(--surface2);
 }
 
@@ -544,13 +373,9 @@ section{
 .hoodie-gallery-main{
   width:100%;
   height:100%;
-
   object-fit:cover;
-
   display:block;
-
-  transition:
-    transform .45s ease;
+  transition:transform .45s ease;
 }
 
 .product-image:hover img,
@@ -558,45 +383,30 @@ section{
   transform:scale(1.045);
 }
 
-
-/* =========================================================
-   HOODIE GALLERY
-========================================================= */
+/* GALLERY */
 
 .hoodie-gallery-controls{
   position:absolute;
-
   left:15px;
   right:15px;
   bottom:15px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   pointer-events:none;
 }
 
 .hoodie-gallery-btn{
   width:42px;
   height:42px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
-  border:
-    1px solid rgba(255,255,255,.45);
-
-  background:
-    rgba(0,0,0,.75);
-
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(0,0,0,.75);
   color:#fff;
-
   font-size:22px;
-
   pointer-events:auto;
-
   transition:.2s;
 }
 
@@ -607,24 +417,15 @@ section{
 
 .hoodie-gallery-indicator{
   padding:8px 12px;
-
-  background:
-    rgba(0,0,0,.75);
-
-  border:
-    1px solid rgba(255,255,255,.25);
-
+  background:rgba(0,0,0,.75);
+  border:1px solid rgba(255,255,255,.25);
   color:#fff;
-
   font-size:9px;
   font-weight:900;
   letter-spacing:2px;
 }
 
-
-/* =========================================================
-   PRODUCT INFO
-========================================================= */
+/* PRODUCT INFO */
 
 .product-info{
   padding:23px;
@@ -638,11 +439,8 @@ section{
 
 .product-description{
   min-height:48px;
-
   margin-top:10px;
-
   color:var(--muted);
-
   font-size:11px;
   line-height:1.6;
 }
@@ -651,7 +449,6 @@ section{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   margin-top:22px;
 }
 
@@ -662,7 +459,6 @@ section{
 
 .size-text{
   color:var(--muted);
-
   font-size:9px;
   font-weight:900;
   letter-spacing:2px;
@@ -670,47 +466,32 @@ section{
 
 .product-actions{
   display:flex;
-
   gap:8px;
-
   margin-top:15px;
 }
 
 .size-select{
   flex:1;
-
   min-width:0;
-
   padding:13px 10px;
-
   background:var(--input-bg);
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:9px;
   font-weight:900;
   letter-spacing:1px;
-
   outline:none;
 }
 
 .add-cart-btn{
   flex:1;
-
-  border:
-    1px solid var(--button-bg);
-
+  border:1px solid var(--button-bg);
   background:var(--button-bg);
   color:var(--button-text);
-
   padding:13px 10px;
-
   font-size:9px;
   font-weight:1000;
   letter-spacing:1.5px;
-
   transition:.2s;
 }
 
@@ -722,17 +503,11 @@ section{
 
 .size-guide-btn{
   width:100%;
-
   margin-top:9px;
-
   padding:10px;
-
   border:0;
-
   background:transparent;
-
   color:var(--muted);
-
   font-size:8px;
   font-weight:900;
   letter-spacing:2px;
@@ -742,28 +517,14 @@ section{
   color:var(--text);
 }
 
-
-/* =========================================================
-   STATEMENT
-========================================================= */
-
-.statement-section{
-  border-top:
-    1px solid var(--soft-border);
-}
+/* STATEMENT */
 
 .statement{
   max-width:1100px;
-
   margin-top:50px;
-
-  font-size:
-    clamp(35px,6vw,85px);
-
+  font-size:clamp(35px,6vw,85px);
   line-height:1;
-
   font-weight:1000;
-
   letter-spacing:-4px;
 }
 
@@ -771,115 +532,79 @@ section{
   color:var(--muted);
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ABOUT */
 
 .about-grid{
   display:grid;
-
   grid-template-columns:1fr 1fr;
-
   gap:60px;
-
   margin-top:50px;
 }
 
 .about-text{
   color:var(--muted);
-
   font-size:15px;
   line-height:1.9;
 }
 
 .about-box{
   padding:35px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .about-box h3{
   font-size:12px;
   letter-spacing:3px;
-
   margin-bottom:15px;
 }
 
 .about-box p{
   color:var(--muted);
-
   font-size:12px;
   line-height:1.8;
 }
 
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-section{
-  border-top:
-    1px solid var(--soft-border);
-}
+/* CONTACT */
 
 .contact-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:15px;
-
   margin-top:50px;
 }
 
 .contact-card{
   padding:30px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .contact-card h3{
   margin-bottom:10px;
-
   font-size:10px;
   letter-spacing:3px;
 }
 
 .contact-card p{
   color:var(--muted);
-
   font-size:11px;
   line-height:1.7;
 }
 
 .social-links{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:10px;
-
   margin-top:18px;
 }
 
 .social-links a{
   padding:10px 13px;
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:8px;
   font-weight:900;
   letter-spacing:1px;
-
   transition:.2s;
 }
 
@@ -888,64 +613,45 @@ section{
   color:var(--button-text);
 }
 
-
-/* =========================================================
-   POLICIES
-========================================================= */
+/* POLICIES */
 
 .policy-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:15px;
-
   margin-top:50px;
 }
 
 .policy-card{
   padding:25px;
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   background:var(--surface);
 }
 
 .policy-card h3{
   margin-bottom:12px;
-
   font-size:10px;
   letter-spacing:2px;
 }
 
 .policy-card p{
   color:var(--muted);
-
   font-size:10px;
   line-height:1.7;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 footer{
   padding:45px 6vw;
-
   background:var(--surface);
-
-  border-top:
-    1px solid var(--soft-border);
+  border-top:1px solid var(--soft-border);
 }
 
 .footer-top{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-
   gap:30px;
 }
 
@@ -957,9 +663,7 @@ footer{
 
 .footer-text{
   max-width:360px;
-
   color:var(--muted);
-
   font-size:10px;
   line-height:1.7;
 }
@@ -967,37 +671,23 @@ footer{
 .footer-bottom{
   display:flex;
   justify-content:space-between;
-
   margin-top:50px;
   padding-top:20px;
-
-  border-top:
-    1px solid var(--soft-border);
-
+  border-top:1px solid var(--soft-border);
   color:var(--muted);
-
   font-size:8px;
   letter-spacing:1px;
 }
 
-
-/* =========================================================
-   CART
-========================================================= */
+/* CART */
 
 .cart-overlay{
   position:fixed;
-
   inset:0;
-
   z-index:1500;
-
-  background:
-    rgba(0,0,0,.72);
-
+  background:rgba(0,0,0,.72);
   opacity:0;
   visibility:hidden;
-
   transition:.3s;
 }
 
@@ -1008,26 +698,16 @@ footer{
 
 .cart-drawer{
   position:fixed;
-
   top:0;
   right:0;
-
   width:min(460px,100%);
-
   height:100vh;
-
   z-index:1600;
-
   display:flex;
   flex-direction:column;
-
   background:var(--bg);
-
-  border-left:
-    1px solid var(--border);
-
+  border-left:1px solid var(--border);
   transform:translateX(100%);
-
   transition:.35s;
 }
 
@@ -1039,11 +719,8 @@ footer{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:25px;
-
-  border-bottom:
-    1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
 
 .cart-header h2{
@@ -1054,55 +731,37 @@ footer{
 .close-btn{
   width:35px;
   height:35px;
-
   background:transparent;
-
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:18px;
 }
 
 .cart-items{
   flex:1;
-
   overflow-y:auto;
-
   padding:20px;
 }
 
 .empty-cart{
   padding:60px 20px;
-
   text-align:center;
-
   color:var(--muted);
-
   font-size:11px;
 }
 
 .cart-item{
   display:grid;
-
-  grid-template-columns:
-    75px 1fr auto;
-
+  grid-template-columns:75px 1fr auto;
   gap:14px;
-
   padding:15px 0;
-
-  border-bottom:
-    1px solid var(--soft-border);
+  border-bottom:1px solid var(--soft-border);
 }
 
 .cart-item img{
   width:75px;
   height:75px;
-
   object-fit:cover;
-
   background:var(--surface2);
 }
 
@@ -1114,91 +773,61 @@ footer{
 
 .cart-item-meta{
   margin-top:7px;
-
   color:var(--muted);
-
   font-size:9px;
 }
 
 .cart-quantity{
   display:flex;
   align-items:center;
-
   gap:7px;
-
   margin-top:12px;
 }
 
 .qty-btn{
   width:23px;
   height:23px;
-
   background:transparent;
-
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:12px;
 }
 
 .qty-number{
   min-width:20px;
-
   text-align:center;
-
   font-size:9px;
 }
 
 .remove-item{
   margin-top:10px;
-
   padding:0;
-
   background:none;
-
   border:0;
-
   color:var(--muted);
-
   font-size:8px;
   letter-spacing:1px;
 }
 
-.remove-item:hover{
-  color:var(--text);
-}
-
 .cart-footer{
   padding:22px;
-
-  border-top:
-    1px solid var(--border);
+  border-top:1px solid var(--border);
 }
 
 .cart-total{
   display:flex;
   justify-content:space-between;
-
   margin-bottom:18px;
-
   font-size:13px;
   font-weight:1000;
 }
 
 .checkout-open-btn{
   width:100%;
-
   padding:17px;
-
-  border:
-    1px solid var(--button-bg);
-
+  border:1px solid var(--button-bg);
   background:var(--button-bg);
-
   color:var(--button-text);
-
   font-size:10px;
   font-weight:1000;
   letter-spacing:2px;
@@ -1212,39 +841,25 @@ footer{
 
 .cart-note{
   margin-top:12px;
-
   color:var(--muted);
-
   font-size:8px;
   line-height:1.5;
-
   text-align:center;
 }
 
-
-/* =========================================================
-   MODALS
-========================================================= */
+/* MODALS */
 
 .modal{
   position:fixed;
-
   inset:0;
-
   z-index:2000;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   padding:20px;
-
-  background:
-    rgba(0,0,0,.78);
-
+  background:rgba(0,0,0,.78);
   opacity:0;
   visibility:hidden;
-
   transition:.25s;
 }
 
@@ -1255,19 +870,12 @@ footer{
 
 .modal-box{
   position:relative;
-
   width:min(520px,100%);
-
   max-height:90vh;
-
   overflow-y:auto;
-
   padding:35px;
-
   background:var(--bg);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .modal-box h2{
@@ -1277,36 +885,24 @@ footer{
 
 .modal-close{
   position:absolute;
-
   top:15px;
   right:15px;
-
   width:35px;
   height:35px;
-
   background:transparent;
-
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:18px;
 }
 
 .modal-description{
   margin-top:10px;
-
   color:var(--muted);
-
   font-size:10px;
   line-height:1.6;
 }
 
-
-/* =========================================================
-   CHECKOUT
-========================================================= */
+/* CHECKOUT */
 
 .checkout-form{
   margin-top:30px;
@@ -1318,9 +914,7 @@ footer{
 
 .form-group label{
   display:block;
-
   margin-bottom:7px;
-
   font-size:8px;
   font-weight:900;
   letter-spacing:2px;
@@ -1328,48 +922,24 @@ footer{
 
 .form-group input{
   width:100%;
-
   padding:14px;
-
   background:var(--input-bg);
-
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   outline:none;
-
   font-size:12px;
-}
-
-.form-group input:focus{
-  border-color:var(--text);
 }
 
 .checkout-button{
   width:100%;
-
   margin-top:10px;
-
   padding:16px;
-
   background:var(--button-bg);
-
   color:var(--button-text);
-
-  border:
-    1px solid var(--button-bg);
-
+  border:1px solid var(--button-bg);
   font-size:9px;
   font-weight:1000;
   letter-spacing:2px;
-}
-
-.checkout-button:hover{
-  background:var(--bg);
-  color:var(--text);
-  border-color:var(--text);
 }
 
 .checkout-button:disabled{
@@ -1379,27 +949,20 @@ footer{
 
 .checkout-message{
   margin-top:15px;
-
   color:var(--muted);
-
   font-size:10px;
   line-height:1.6;
 }
 
 .checkout-items{
   margin-bottom:20px;
-
   padding:15px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .checkout-items-title{
   margin-bottom:10px;
-
   font-size:9px;
   font-weight:900;
   letter-spacing:2px;
@@ -1408,12 +971,8 @@ footer{
 .checkout-line{
   display:flex;
   justify-content:space-between;
-
   padding:7px 0;
-
-  border-bottom:
-    1px solid var(--soft-border);
-
+  border-bottom:1px solid var(--soft-border);
   font-size:9px;
 }
 
@@ -1421,20 +980,13 @@ footer{
   border-bottom:0;
 }
 
-
-/* =========================================================
-   PAYMENT
-========================================================= */
+/* PAYMENT */
 
 .payment-step{
   margin-bottom:22px;
-
   padding:18px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .payment-step-title{
@@ -1445,67 +997,39 @@ footer{
 
 .payment-step-text{
   margin-top:8px;
-
   color:var(--muted);
-
   font-size:9px;
   line-height:1.7;
 }
 
 .open-form-btn{
   display:block;
-
   width:100%;
-
   margin-top:14px;
-
   padding:15px;
-
   text-align:center;
-
   background:var(--button-bg);
-
   color:var(--button-text);
-
-  border:
-    1px solid var(--button-bg);
-
+  border:1px solid var(--button-bg);
   font-size:9px;
   font-weight:1000;
   letter-spacing:2px;
-
-  transition:.2s;
-}
-
-.open-form-btn:hover{
-  background:var(--bg);
-  color:var(--text);
-  border-color:var(--text);
 }
 
 .payment-complete{
   margin-top:12px;
-
   color:var(--muted);
-
   font-size:8px;
   line-height:1.5;
 }
 
-
-/* =========================================================
-   VERIFICATION
-========================================================= */
+/* VERIFICATION */
 
 .verification-box{
   margin-top:25px;
-
   padding:20px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
 .verification-box h3{
@@ -1515,16 +1039,10 @@ footer{
 
 .verification-code{
   margin-top:15px;
-
   padding:16px;
-
   text-align:center;
-
   background:var(--surface2);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   font-size:22px;
   font-weight:1000;
   letter-spacing:4px;
@@ -1532,42 +1050,27 @@ footer{
 
 .info-box{
   margin-top:15px;
-
   padding:15px;
-
   background:var(--surface);
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   color:var(--muted);
-
   font-size:9px;
   line-height:1.6;
 }
 
-
-/* =========================================================
-   SIZE GUIDE
-========================================================= */
+/* SIZE GUIDE */
 
 .size-table{
   width:100%;
-
   margin-top:25px;
-
   border-collapse:collapse;
 }
 
 .size-table th,
 .size-table td{
   padding:13px 8px;
-
-  border:
-    1px solid var(--border);
-
+  border:1px solid var(--border);
   text-align:center;
-
   font-size:9px;
 }
 
@@ -1576,122 +1079,73 @@ footer{
   letter-spacing:1px;
 }
 
-
-/* =========================================================
-   THEME SETTINGS
-========================================================= */
+/* THEMES */
 
 .theme-options{
   display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:10px;
-
   margin-top:25px;
 }
 
 .theme-option{
   padding:14px 12px;
-
   text-align:left;
-
   background:var(--surface2);
-
   color:var(--text);
-
-  border:
-    1px solid var(--border);
-
-  transition:.2s;
-}
-
-.theme-option:hover{
-  border-color:var(--text);
+  border:1px solid var(--border);
 }
 
 .theme-option.active{
   border-color:var(--text);
-
-  box-shadow:
-    inset 0 0 0 1px var(--text);
+  box-shadow:inset 0 0 0 1px var(--text);
 }
 
 .theme-swatch{
   display:block;
-
   width:100%;
   height:55px;
-
   margin-bottom:13px;
-
-  border:
-    1px solid var(--border);
+  border:1px solid var(--border);
 }
 
-.swatch-black{
-  background:#000;
-}
-
-.swatch-white{
-  background:#fff;
-}
-
-.swatch-gray{
-  background:#777;
-}
+.swatch-black{background:#000}
+.swatch-white{background:#fff}
+.swatch-gray{background:#777}
 
 .theme-option strong{
   display:block;
-
   font-size:9px;
   letter-spacing:2px;
 }
 
 .theme-option small{
   display:block;
-
   margin-top:5px;
-
   color:var(--muted);
-
   font-size:8px;
 }
 
 .theme-status{
   margin-top:18px;
-
   color:var(--muted);
-
   font-size:9px;
   line-height:1.6;
 }
 
-
-/* =========================================================
-   IMAGE MODAL
-========================================================= */
+/* IMAGE MODAL */
 
 .image-modal{
   position:fixed;
-
   inset:0;
-
   z-index:2500;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   padding:30px;
-
-  background:
-    rgba(0,0,0,.92);
-
+  background:rgba(0,0,0,.92);
   opacity:0;
   visibility:hidden;
-
   transition:.25s;
 }
 
@@ -1703,33 +1157,22 @@ footer{
 .image-modal img{
   max-width:95vw;
   max-height:90vh;
-
   object-fit:contain;
 }
 
 .image-modal-close{
   position:absolute;
-
   top:20px;
   right:25px;
-
   width:40px;
   height:40px;
-
   background:transparent;
-
   color:#fff;
-
-  border:
-    1px solid rgba(255,255,255,.4);
-
+  border:1px solid rgba(255,255,255,.4);
   font-size:20px;
 }
 
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* RESPONSIVE */
 
 @media(max-width:850px){
 
@@ -1743,23 +1186,15 @@ footer{
 
   .nav-links{
     position:absolute;
-
     top:68px;
     left:0;
-
     width:100%;
-
     display:none;
-
     flex-direction:column;
     align-items:stretch;
-
     padding:20px;
-
     background:var(--header-bg);
-
-    border-bottom:
-      1px solid var(--border);
+    border-bottom:1px solid var(--border);
   }
 
   .nav-links.open{
@@ -1770,13 +1205,11 @@ footer{
   .settings-nav-btn,
   .cart-nav-btn{
     padding:15px;
-
     text-align:center;
   }
 
   .products-grid{
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .about-grid{
@@ -1813,8 +1246,7 @@ footer{
   }
 
   .countdown{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .products-grid{
@@ -1831,19 +1263,14 @@ footer{
 
   .theme-option{
     display:grid;
-
     grid-template-columns:70px 1fr;
-
     column-gap:13px;
-
     align-items:center;
   }
 
   .theme-swatch{
     grid-row:span 2;
-
     height:55px;
-
     margin:0;
   }
 
@@ -1857,20 +1284,17 @@ footer{
 
   .footer-bottom{
     flex-direction:column;
-
     gap:10px;
   }
 
   .cart-item{
-    grid-template-columns:
-      65px 1fr auto;
+    grid-template-columns:65px 1fr auto;
   }
 
   .cart-item img{
     width:65px;
     height:65px;
   }
-
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1878,50 +1302,32 @@ footer{
   *,
   *::before,
   *::after{
-    scroll-behavior:auto !important;
-    transition:none !important;
-    animation:none !important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+    animation:none!important;
   }
-
 }
-
 </style>
 </head>
 
-
 <body data-theme="black">
-
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
 
 <header>
 
-  <a href="#home" class="logo">
-    WINGS
-  </a>
+  <a href="#home" class="logo">WINGS</a>
 
   <button
     class="mobile-menu-btn"
     id="mobileMenuBtn"
     type="button"
     aria-label="Open menu"
-  >
-    ☰
-  </button>
+  >☰</button>
 
-  <nav
-    class="nav-links"
-    id="navLinks"
-  >
+  <nav class="nav-links" id="navLinks">
 
     <a href="#home">HOME</a>
-
     <a href="#shop">SHOP</a>
-
     <a href="#about">ABOUT</a>
-
     <a href="#contact">CONTACT</a>
 
     <button
@@ -1938,21 +1344,11 @@ footer{
       type="button"
     >
       CART
-
-      <span id="cartCount">
-        0
-      </span>
-
+      <span id="cartCount">0</span>
     </button>
 
   </nav>
-
 </header>
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
 
 <main id="home">
 
@@ -1972,18 +1368,13 @@ footer{
       FIRST DROP / MARCH 15, 2027
     </p>
 
-    <h1 class="hero-title">
-      WINGS
-    </h1>
+    <h1 class="hero-title">WINGS</h1>
 
     <p class="hero-subtitle">
       CLOTHES TO MAKE YOUR LOOK FLY.
     </p>
 
-    <a
-      href="#shop"
-      class="hero-button"
-    >
+    <a href="#shop" class="hero-button">
       SHOP THE DROP
     </a>
 
@@ -1991,16 +1382,9 @@ footer{
 
 </section>
 
-
-<!-- =======================================================
-     DROP
-======================================================= -->
-
 <section class="drop-section">
 
-  <p class="section-label">
-    THE FIRST DROP
-  </p>
+  <p class="section-label">THE FIRST DROP</p>
 
   <h2 class="section-title">
     SOMETHING<br>
@@ -2009,9 +1393,7 @@ footer{
 
   <div class="drop-banner">
 
-    <strong>
-      WINGS / FIRST DROP
-    </strong>
+    <strong>WINGS / FIRST DROP</strong>
 
     <span>
       March 15, 2027. Be ready.
@@ -2022,91 +1404,42 @@ footer{
   <div class="countdown">
 
     <div class="count-box">
-      <div
-        class="count-number"
-        id="days"
-      >
-        00
-      </div>
-
-      <div class="count-label">
-        DAYS
-      </div>
+      <div class="count-number" id="days">00</div>
+      <div class="count-label">DAYS</div>
     </div>
 
     <div class="count-box">
-      <div
-        class="count-number"
-        id="hours"
-      >
-        00
-      </div>
-
-      <div class="count-label">
-        HOURS
-      </div>
+      <div class="count-number" id="hours">00</div>
+      <div class="count-label">HOURS</div>
     </div>
 
     <div class="count-box">
-      <div
-        class="count-number"
-        id="minutes"
-      >
-        00
-      </div>
-
-      <div class="count-label">
-        MINUTES
-      </div>
+      <div class="count-number" id="minutes">00</div>
+      <div class="count-label">MINUTES</div>
     </div>
 
     <div class="count-box">
-      <div
-        class="count-number"
-        id="seconds"
-      >
-        00
-      </div>
-
-      <div class="count-label">
-        SECONDS
-      </div>
+      <div class="count-number" id="seconds">00</div>
+      <div class="count-label">SECONDS</div>
     </div>
 
   </div>
 
 </section>
 
+<section class="shop-section" id="shop">
 
-<!-- =======================================================
-     SHOP
-======================================================= -->
+  <p class="section-label">WINGS SHOP</p>
 
-<section
-  class="shop-section"
-  id="shop"
->
-
-  <p class="section-label">
-    WINGS SHOP
-  </p>
-
-  <h2 class="section-title">
-    THE DROP.
-  </h2>
-
+  <h2 class="section-title">THE DROP.</h2>
 
   <div class="products-grid">
 
-
-    <!-- =================================================
-         WHITE TEE
-    ================================================== -->
+    <!-- WHITE TEE -->
 
     <article
       class="product-card"
       data-product-id="white-tee"
-      data-product="WINGS TEE - WHITE"
     >
 
       <div class="product-image">
@@ -2121,9 +1454,7 @@ footer{
 
       <div class="product-info">
 
-        <h3>
-          WINGS TEE - WHITE
-        </h3>
+        <h3>WINGS TEE - WHITE</h3>
 
         <p class="product-description">
           Clean first-drop WINGS tee built for everyday wear.
@@ -2131,9 +1462,7 @@ footer{
 
         <div class="product-bottom">
 
-          <span class="price">
-            $35.00
-          </span>
+          <span class="price">$35.00</span>
 
           <span class="size-text">
             S / M / L / XL
@@ -2147,38 +1476,19 @@ footer{
             class="size-select"
             aria-label="Select white tee size"
           >
-
-            <option value="S">
-              SIZE S
-            </option>
-
-            <option value="M">
-              SIZE M
-            </option>
-
-            <option value="L">
-              SIZE L
-            </option>
-
-            <option value="XL">
-              SIZE XL
-            </option>
-
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
+            <option value="XL">SIZE XL</option>
           </select>
 
-          <button
-            class="add-cart-btn"
-            type="button"
-          >
+          <button class="add-cart-btn" type="button">
             ADD TO CART
           </button>
 
         </div>
 
-        <button
-          class="size-guide-btn"
-          type="button"
-        >
+        <button class="size-guide-btn" type="button">
           SIZE GUIDE
         </button>
 
@@ -2186,15 +1496,11 @@ footer{
 
     </article>
 
-
-    <!-- =================================================
-         BLACK TEE
-    ================================================== -->
+    <!-- BLACK TEE -->
 
     <article
       class="product-card"
       data-product-id="black-tee"
-      data-product="WINGS TEE - BLACK"
     >
 
       <div class="product-image">
@@ -2209,9 +1515,7 @@ footer{
 
       <div class="product-info">
 
-        <h3>
-          WINGS TEE - BLACK
-        </h3>
+        <h3>WINGS TEE - BLACK</h3>
 
         <p class="product-description">
           Dark WINGS first-drop tee with a clean everyday fit.
@@ -2219,9 +1523,7 @@ footer{
 
         <div class="product-bottom">
 
-          <span class="price">
-            $35.00
-          </span>
+          <span class="price">$35.00</span>
 
           <span class="size-text">
             S / M / L
@@ -2231,38 +1533,19 @@ footer{
 
         <div class="product-actions">
 
-          <select
-            class="size-select"
-            aria-label="Select black tee size"
-          >
-
-            <option value="S">
-              SIZE S
-            </option>
-
-            <option value="M">
-              SIZE M
-            </option>
-
-            <option value="L">
-              SIZE L
-            </option>
-
+          <select class="size-select">
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
           </select>
 
-          <button
-            class="add-cart-btn"
-            type="button"
-          >
+          <button class="add-cart-btn" type="button">
             ADD TO CART
           </button>
 
         </div>
 
-        <button
-          class="size-guide-btn"
-          type="button"
-        >
+        <button class="size-guide-btn" type="button">
           SIZE GUIDE
         </button>
 
@@ -2270,16 +1553,11 @@ footer{
 
     </article>
 
-
-    <!-- =================================================
-         BLACK WINGS HOODIE
-         EXACTLY 2 PRODUCT IMAGES
-    ================================================== -->
+    <!-- REGULAR BLACK WINGS HOODIE -->
 
     <article
       class="product-card"
       data-product-id="hoodie"
-      data-product="WINGS HOODIE - BLACK"
     >
 
       <div class="hoodie-gallery">
@@ -2287,8 +1565,8 @@ footer{
         <img
           id="hoodieGalleryImage"
           class="hoodie-gallery-main"
-          src="images/hoodie(1)(1).png"
-          alt="WINGS Hoodie Black"
+          src="images/hoodie(1).png"
+          alt="WINGS Black Hoodie"
           loading="lazy"
         >
 
@@ -2299,9 +1577,7 @@ footer{
             id="hoodiePrev"
             type="button"
             aria-label="Previous WINGS hoodie image"
-          >
-            ‹
-          </button>
+          >‹</button>
 
           <div
             class="hoodie-gallery-indicator"
@@ -2315,9 +1591,7 @@ footer{
             id="hoodieNext"
             type="button"
             aria-label="Next WINGS hoodie image"
-          >
-            ›
-          </button>
+          >›</button>
 
         </div>
 
@@ -2325,20 +1599,16 @@ footer{
 
       <div class="product-info">
 
-        <h3>
-          WINGS HOODIE - BLACK
-        </h3>
+        <h3>WINGS HOODIE - BLACK</h3>
 
         <p class="product-description">
-          Heavyweight distressed WINGS zip-up hoodie with the original
-          WINGS graphics and first-drop styling.
+          Heavyweight distressed WINGS zip-up hoodie with
+          the original WINGS graphics and first-drop styling.
         </p>
 
         <div class="product-bottom">
 
-          <span class="price">
-            $65.00
-          </span>
+          <span class="price">$65.00</span>
 
           <span class="size-text">
             S / M / L
@@ -2348,38 +1618,19 @@ footer{
 
         <div class="product-actions">
 
-          <select
-            class="size-select"
-            aria-label="Select black WINGS hoodie size"
-          >
-
-            <option value="S">
-              SIZE S
-            </option>
-
-            <option value="M">
-              SIZE M
-            </option>
-
-            <option value="L">
-              SIZE L
-            </option>
-
+          <select class="size-select">
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
           </select>
 
-          <button
-            class="add-cart-btn"
-            type="button"
-          >
+          <button class="add-cart-btn" type="button">
             ADD TO CART
           </button>
 
         </div>
 
-        <button
-          class="size-guide-btn"
-          type="button"
-        >
+        <button class="size-guide-btn" type="button">
           SIZE GUIDE
         </button>
 
@@ -2387,44 +1638,63 @@ footer{
 
     </article>
 
-
-    <!-- =================================================
-         BLACK MANDARIN HOODIE
-         FIRST BLACK IMAGE FROM THE MANDARIN FILE
-    ================================================== -->
+    <!-- BLACK MANDARIN HOODIE -->
 
     <article
       class="product-card"
       data-product-id="mandarin-black"
-      data-product="BLACK MANDARIN HOODIE"
     >
 
-      <div class="product-image">
+      <div class="hoodie-gallery">
 
         <img
-          src="images/Distressed-Wings-Hoodie-Tech-Pack-1024.jpg"
+          id="blackMandarinGalleryImage"
+          class="hoodie-gallery-main"
+          src="images/Distressed Wings Hoodie Tech Pack.png"
           alt="Black Mandarin Hoodie"
           loading="lazy"
         >
+
+        <div class="hoodie-gallery-controls">
+
+          <button
+            class="hoodie-gallery-btn"
+            id="blackMandarinPrev"
+            type="button"
+            aria-label="Previous black Mandarin hoodie image"
+          >‹</button>
+
+          <div
+            class="hoodie-gallery-indicator"
+            id="blackMandarinIndicator"
+          >
+            1 / 2
+          </div>
+
+          <button
+            class="hoodie-gallery-btn"
+            id="blackMandarinNext"
+            type="button"
+            aria-label="Next black Mandarin hoodie image"
+          >›</button>
+
+        </div>
 
       </div>
 
       <div class="product-info">
 
-        <h3>
-          BLACK MANDARIN HOODIE
-        </h3>
+        <h3>BLACK MANDARIN HOODIE</h3>
 
         <p class="product-description">
-          Black distressed Mandarin hoodie featuring the Mandarin
-          lettering, wing artwork, sleeve graphics, and full zip-up design.
+          Black distressed Mandarin hoodie featuring the
+          Mandarin lettering, wing artwork, sleeve graphics,
+          and full zip-up design.
         </p>
 
         <div class="product-bottom">
 
-          <span class="price">
-            $65.00
-          </span>
+          <span class="price">$65.00</span>
 
           <span class="size-text">
             S / M / L
@@ -2434,38 +1704,19 @@ footer{
 
         <div class="product-actions">
 
-          <select
-            class="size-select"
-            aria-label="Select black Mandarin hoodie size"
-          >
-
-            <option value="S">
-              SIZE S
-            </option>
-
-            <option value="M">
-              SIZE M
-            </option>
-
-            <option value="L">
-              SIZE L
-            </option>
-
+          <select class="size-select">
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
           </select>
 
-          <button
-            class="add-cart-btn"
-            type="button"
-          >
+          <button class="add-cart-btn" type="button">
             ADD TO CART
           </button>
 
         </div>
 
-        <button
-          class="size-guide-btn"
-          type="button"
-        >
+        <button class="size-guide-btn" type="button">
           SIZE GUIDE
         </button>
 
@@ -2473,16 +1724,11 @@ footer{
 
     </article>
 
-
-    <!-- =================================================
-         WHITE MANDARIN HOODIE
-         EXACTLY 2 WHITE PRODUCT IMAGES
-    ================================================== -->
+    <!-- WHITE MANDARIN HOODIE -->
 
     <article
       class="product-card"
       data-product-id="mandarin-white"
-      data-product="WHITE MANDARIN HOODIE"
     >
 
       <div class="hoodie-gallery">
@@ -2490,7 +1736,7 @@ footer{
         <img
           id="whiteMandarinGalleryImage"
           class="hoodie-gallery-main"
-          src="images/Distressed-Wings-Hoodie-Catalog-Sheet-1024.jpg"
+          src="images/Distressed Wings Hoodie Catalog Sheet.png"
           alt="White Mandarin Hoodie"
           loading="lazy"
         >
@@ -2502,15 +1748,13 @@ footer{
             id="whiteMandarinPrev"
             type="button"
             aria-label="Previous white Mandarin hoodie image"
-          >
-            ‹
-          </button>
+          >‹</button>
 
           <div
             class="hoodie-gallery-indicator"
             id="whiteMandarinIndicator"
           >
-            1 / 2
+            1 / 3
           </div>
 
           <button
@@ -2518,9 +1762,7 @@ footer{
             id="whiteMandarinNext"
             type="button"
             aria-label="Next white Mandarin hoodie image"
-          >
-            ›
-          </button>
+          >›</button>
 
         </div>
 
@@ -2528,20 +1770,17 @@ footer{
 
       <div class="product-info">
 
-        <h3>
-          WHITE MANDARIN HOODIE
-        </h3>
+        <h3>WHITE MANDARIN HOODIE</h3>
 
         <p class="product-description">
-          White distressed Mandarin hoodie with the full wing graphic,
-          Mandarin lettering, sleeve artwork, and detailed finish.
+          White distressed Mandarin hoodie with the full
+          wing graphic, Mandarin lettering, sleeve artwork,
+          and detailed finish.
         </p>
 
         <div class="product-bottom">
 
-          <span class="price">
-            $65.00
-          </span>
+          <span class="price">$65.00</span>
 
           <span class="size-text">
             S / M / L
@@ -2551,38 +1790,19 @@ footer{
 
         <div class="product-actions">
 
-          <select
-            class="size-select"
-            aria-label="Select white Mandarin hoodie size"
-          >
-
-            <option value="S">
-              SIZE S
-            </option>
-
-            <option value="M">
-              SIZE M
-            </option>
-
-            <option value="L">
-              SIZE L
-            </option>
-
+          <select class="size-select">
+            <option value="S">SIZE S</option>
+            <option value="M">SIZE M</option>
+            <option value="L">SIZE L</option>
           </select>
 
-          <button
-            class="add-cart-btn"
-            type="button"
-          >
+          <button class="add-cart-btn" type="button">
             ADD TO CART
           </button>
 
         </div>
 
-        <button
-          class="size-guide-btn"
-          type="button"
-        >
+        <button class="size-guide-btn" type="button">
           SIZE GUIDE
         </button>
 
@@ -2590,21 +1810,13 @@ footer{
 
     </article>
 
-
   </div>
 
 </section>
 
-
-<!-- =======================================================
-     STATEMENT
-======================================================= -->
-
 <section class="statement-section">
 
-  <p class="section-label">
-    THE WINGS IDEA
-  </p>
+  <p class="section-label">THE WINGS IDEA</p>
 
   <div class="statement">
     MAKE YOUR LOOK
@@ -2613,16 +1825,9 @@ footer{
 
 </section>
 
-
-<!-- =======================================================
-     ABOUT
-======================================================= -->
-
 <section id="about">
 
-  <p class="section-label">
-    ABOUT WINGS
-  </p>
+  <p class="section-label">ABOUT WINGS</p>
 
   <h2 class="section-title">
     MORE THAN<br>
@@ -2650,9 +1855,7 @@ footer{
 
     <div class="about-box">
 
-      <h3>
-        CLOTHES TO MAKE YOUR LOOK FLY.
-      </h3>
+      <h3>CLOTHES TO MAKE YOUR LOOK FLY.</h3>
 
       <p>
         Built from creativity. Inspired by the city.
@@ -2666,19 +1869,9 @@ footer{
 
 </section>
 
+<section class="contact-section" id="contact">
 
-<!-- =======================================================
-     CONTACT
-======================================================= -->
-
-<section
-  class="contact-section"
-  id="contact"
->
-
-  <p class="section-label">
-    CONNECT
-  </p>
+  <p class="section-label">CONNECT</p>
 
   <h2 class="section-title">
     FOLLOW<br>
@@ -2689,9 +1882,7 @@ footer{
 
     <div class="contact-card">
 
-      <h3>
-        SOCIALS
-      </h3>
+      <h3>SOCIALS</h3>
 
       <p>
         Follow the brand and stay updated on drops,
@@ -2730,9 +1921,7 @@ footer{
 
     <div class="contact-card">
 
-      <h3>
-        WINGS
-      </h3>
+      <h3>WINGS</h3>
 
       <p>
         For questions about orders, products or future
@@ -2746,16 +1935,9 @@ footer{
 
 </section>
 
-
-<!-- =======================================================
-     POLICIES
-======================================================= -->
-
 <section>
 
-  <p class="section-label">
-    INFORMATION
-  </p>
+  <p class="section-label">INFORMATION</p>
 
   <h2 class="section-title">
     KNOW<br>
@@ -2766,9 +1948,7 @@ footer{
 
     <div class="policy-card">
 
-      <h3>
-        DELIVERY
-      </h3>
+      <h3>DELIVERY</h3>
 
       <p>
         Orders are processed after checkout verification.
@@ -2780,9 +1960,7 @@ footer{
 
     <div class="policy-card">
 
-      <h3>
-        ORDERS
-      </h3>
+      <h3>ORDERS</h3>
 
       <p>
         Please make sure your phone number and selected
@@ -2793,9 +1971,7 @@ footer{
 
     <div class="policy-card">
 
-      <h3>
-        SUPPORT
-      </h3>
+      <h3>SUPPORT</h3>
 
       <p>
         Keep your order ID and verification code after
@@ -2810,20 +1986,13 @@ footer{
 
 </main>
 
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
 <footer>
 
   <div class="footer-top">
 
     <div>
 
-      <div class="footer-logo">
-        WINGS
-      </div>
+      <div class="footer-logo">WINGS</div>
 
       <p class="footer-text">
         Clothes to Make Your Look Fly.
@@ -2839,32 +2008,17 @@ footer{
 
   <div class="footer-bottom">
 
-    <span>
-      © 2027 WINGS
-    </span>
+    <span>© 2027 WINGS</span>
 
-    <span>
-      NEW YORK
-    </span>
+    <span>NEW YORK</span>
 
   </div>
 
 </footer>
 
+<!-- CART -->
 
-<!-- =======================================================
-     CART OVERLAY
-======================================================= -->
-
-<div
-  class="cart-overlay"
-  id="cartOverlay"
-></div>
-
-
-<!-- =======================================================
-     CART DRAWER
-======================================================= -->
+<div class="cart-overlay" id="cartOverlay"></div>
 
 <aside
   class="cart-drawer"
@@ -2874,33 +2028,25 @@ footer{
 
   <div class="cart-header">
 
-    <h2>
-      YOUR CART
-    </h2>
+    <h2>YOUR CART</h2>
 
     <button
       class="close-btn"
       id="cartCloseBtn"
       type="button"
-      aria-label="Close cart"
     >
       ×
     </button>
 
   </div>
 
-  <div
-    class="cart-items"
-    id="cartItems"
-  ></div>
+  <div class="cart-items" id="cartItems"></div>
 
   <div class="cart-footer">
 
     <div class="cart-total">
 
-      <span>
-        TOTAL
-      </span>
+      <span>TOTAL</span>
 
       <span id="cartTotal">
         $0.00
@@ -2924,10 +2070,7 @@ footer{
 
 </aside>
 
-
-<!-- =======================================================
-     CHECKOUT MODAL
-======================================================= -->
+<!-- CHECKOUT -->
 
 <div
   class="modal"
@@ -2941,7 +2084,6 @@ footer{
       class="modal-close"
       id="checkoutCloseBtn"
       type="button"
-      aria-label="Close checkout"
     >
       ×
     </button>
@@ -2950,9 +2092,7 @@ footer{
       WINGS CHECKOUT
     </p>
 
-    <h2>
-      VERIFY ORDER
-    </h2>
+    <h2>VERIFY ORDER</h2>
 
     <p class="modal-description">
       Complete the official WINGS checkout form first.
@@ -2964,7 +2104,6 @@ footer{
       class="checkout-items"
       id="checkoutItems"
     ></div>
-
 
     <div class="payment-step">
 
@@ -2994,7 +2133,6 @@ footer{
       </div>
 
     </div>
-
 
     <div class="payment-step">
 
@@ -3048,16 +2186,13 @@ footer{
 
     </div>
 
-
     <div
       class="verification-box"
       id="verificationBox"
       style="display:none;"
     >
 
-      <h3>
-        VERIFIED
-      </h3>
+      <h3>VERIFIED</h3>
 
       <div
         class="verification-code"
@@ -3075,10 +2210,7 @@ footer{
 
 </div>
 
-
-<!-- =======================================================
-     SIZE GUIDE MODAL
-======================================================= -->
+<!-- SIZE GUIDE -->
 
 <div
   class="modal"
@@ -3092,18 +2224,13 @@ footer{
       class="modal-close"
       id="sizeCloseBtn"
       type="button"
-      aria-label="Close size guide"
     >
       ×
     </button>
 
-    <p class="section-label">
-      WINGS
-    </p>
+    <p class="section-label">WINGS</p>
 
-    <h2>
-      SIZE GUIDE
-    </h2>
+    <h2>SIZE GUIDE</h2>
 
     <p class="modal-description">
       Use the guide below as a general reference.
@@ -3112,13 +2239,11 @@ footer{
     <table class="size-table">
 
       <thead>
-
         <tr>
           <th>SIZE</th>
           <th>CHEST</th>
           <th>LENGTH</th>
         </tr>
-
       </thead>
 
       <tbody>
@@ -3141,6 +2266,12 @@ footer{
           <td>29"</td>
         </tr>
 
+        <tr>
+          <td>XL</td>
+          <td>25"</td>
+          <td>30"</td>
+        </tr>
+
       </tbody>
 
     </table>
@@ -3149,10 +2280,7 @@ footer{
 
 </div>
 
-
-<!-- =======================================================
-     THEME SETTINGS
-======================================================= -->
+<!-- THEME SETTINGS -->
 
 <div
   class="modal"
@@ -3166,18 +2294,13 @@ footer{
       class="modal-close"
       id="themeModalClose"
       type="button"
-      aria-label="Close settings"
     >
       ×
     </button>
 
-    <p class="section-label">
-      SETTINGS
-    </p>
+    <p class="section-label">SETTINGS</p>
 
-    <h2>
-      CHOOSE YOUR THEME.
-    </h2>
+    <h2>CHOOSE YOUR THEME.</h2>
 
     <p class="modal-description">
       Pick the look you want for the WINGS website.
@@ -3192,17 +2315,11 @@ footer{
         type="button"
       >
 
-        <span
-          class="theme-swatch swatch-black"
-        ></span>
+        <span class="theme-swatch swatch-black"></span>
 
-        <strong>
-          BLACK
-        </strong>
+        <strong>BLACK</strong>
 
-        <small>
-          Original WINGS
-        </small>
+        <small>Original WINGS</small>
 
       </button>
 
@@ -3212,17 +2329,11 @@ footer{
         type="button"
       >
 
-        <span
-          class="theme-swatch swatch-white"
-        ></span>
+        <span class="theme-swatch swatch-white"></span>
 
-        <strong>
-          WHITE
-        </strong>
+        <strong>WHITE</strong>
 
-        <small>
-          Clean mode
-        </small>
+        <small>Clean mode</small>
 
       </button>
 
@@ -3232,17 +2343,11 @@ footer{
         type="button"
       >
 
-        <span
-          class="theme-swatch swatch-gray"
-        ></span>
+        <span class="theme-swatch swatch-gray"></span>
 
-        <strong>
-          GRAY
-        </strong>
+        <strong>GRAY</strong>
 
-        <small>
-          Neutral mode
-        </small>
+        <small>Neutral mode</small>
 
       </button>
 
@@ -3259,10 +2364,7 @@ footer{
 
 </div>
 
-
-<!-- =======================================================
-     IMAGE MODAL
-======================================================= -->
+<!-- IMAGE MODAL -->
 
 <div
   class="image-modal"
@@ -3273,7 +2375,6 @@ footer{
     class="image-modal-close"
     id="imageModalClose"
     type="button"
-    aria-label="Close image"
   >
     ×
   </button>
@@ -3285,7 +2386,6 @@ footer{
   >
 
 </div>
-
 
 <script>
 
@@ -3306,51 +2406,6 @@ const CHECKOUT_FORM_URL =
 
 const PRODUCTS = Object.freeze({
 
-  /*
-    BLACK WINGS HOODIE
-    EXACTLY 2 IMAGES IN ITS GALLERY.
-  */
-
-  "hoodie":{
-    id:"hoodie",
-    name:"WINGS HOODIE - BLACK",
-    displayPrice:65,
-    image:"images/hoodie(1)(1).png"
-  },
-
-
-  /*
-    BLACK MANDARIN HOODIE
-    FIRST BLACK MANDARIN IMAGE.
-  */
-
-  "mandarin-black":{
-    id:"mandarin-black",
-    name:"BLACK MANDARIN HOODIE",
-    displayPrice:65,
-    image:
-      "images/Distressed-Wings-Hoodie-Tech-Pack-1024.jpg"
-  },
-
-
-  /*
-    WHITE MANDARIN HOODIE
-    TWO WHITE IMAGES ARE SHOWN IN THE GALLERY.
-  */
-
-  "mandarin-white":{
-    id:"mandarin-white",
-    name:"WHITE MANDARIN HOODIE",
-    displayPrice:65,
-    image:
-      "images/Distressed-Wings-Hoodie-Catalog-Sheet-1024.jpg"
-  },
-
-
-  /*
-    TEES
-  */
-
   "white-tee":{
     id:"white-tee",
     name:"WINGS TEE - WHITE",
@@ -3363,21 +2418,46 @@ const PRODUCTS = Object.freeze({
     name:"WINGS TEE - BLACK",
     displayPrice:35,
     image:"images/tee-black(1).png"
+  },
+
+  "hoodie":{
+    id:"hoodie",
+    name:"WINGS HOODIE - BLACK",
+    displayPrice:65,
+    image:"images/hoodie(1).png"
+  },
+
+  "mandarin-black":{
+    id:"mandarin-black",
+    name:"BLACK MANDARIN HOODIE",
+    displayPrice:65,
+    image:"images/Distressed Wings Hoodie Tech Pack.png"
+  },
+
+  "mandarin-white":{
+    id:"mandarin-white",
+    name:"WHITE MANDARIN HOODIE",
+    displayPrice:65,
+    image:"images/Distressed Wings Hoodie Catalog Sheet.png"
   }
 
 });
 
 
 const VALID_PRODUCT_IDS =
-Object.freeze(
-  Object.keys(PRODUCTS)
-);
+Object.freeze(Object.keys(PRODUCTS));
+
+/*
+  FIXED:
+  XL is now accepted for the white tee.
+*/
 
 const VALID_SIZES =
 Object.freeze([
   "S",
   "M",
-  "L"
+  "L",
+  "XL"
 ]);
 
 const MAX_QUANTITY = 20;
@@ -3402,7 +2482,6 @@ document.querySelectorAll(".theme-option");
 const themeStatus =
 document.getElementById("themeStatus");
 
-
 function applyTheme(theme){
 
   const allowedThemes = [
@@ -3411,14 +2490,11 @@ function applyTheme(theme){
     "gray"
   ];
 
-  if(
-    !allowedThemes.includes(theme)
-  ){
+  if(!allowedThemes.includes(theme)){
     theme = "black";
   }
 
-  document.body.dataset.theme =
-    theme;
+  document.body.dataset.theme = theme;
 
   localStorage.setItem(
     "WINGS_THEME",
@@ -3440,12 +2516,10 @@ function applyTheme(theme){
 
 }
 
-
 applyTheme(
   localStorage.getItem("WINGS_THEME") ||
   "black"
 );
-
 
 function openThemeModal(){
 
@@ -3456,12 +2530,8 @@ function openThemeModal(){
     "false"
   );
 
-  document.body.classList.add(
-    "modal-open"
-  );
-
+  document.body.classList.add("modal-open");
 }
-
 
 function closeThemeModal(){
 
@@ -3472,12 +2542,8 @@ function closeThemeModal(){
     "true"
   );
 
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.body.classList.remove("modal-open");
 }
-
 
 themeOpenBtn.addEventListener(
   "click",
@@ -3490,26 +2556,21 @@ themeOpenBtn.addEventListener(
   }
 );
 
-
 themeModalClose.addEventListener(
   "click",
   closeThemeModal
 );
 
-
 themeModal.addEventListener(
   "click",
   event => {
 
-    if(
-      event.target === themeModal
-    ){
+    if(event.target === themeModal){
       closeThemeModal();
     }
 
   }
 );
-
 
 themeOptions.forEach(button => {
 
@@ -3532,27 +2593,19 @@ themeOptions.forEach(button => {
 ========================================================= */
 
 const mobileMenuBtn =
-document.getElementById(
-  "mobileMenuBtn"
-);
+document.getElementById("mobileMenuBtn");
 
 const navLinks =
-document.getElementById(
-  "navLinks"
-);
-
+document.getElementById("navLinks");
 
 mobileMenuBtn.addEventListener(
   "click",
   () => {
 
-    navLinks.classList.toggle(
-      "open"
-    );
+    navLinks.classList.toggle("open");
 
   }
 );
-
 
 document.querySelectorAll(
   ".nav-links a"
@@ -3562,9 +2615,7 @@ document.querySelectorAll(
     "click",
     () => {
 
-      navLinks.classList.remove(
-        "open"
-      );
+      navLinks.classList.remove("open");
 
     }
   );
@@ -3579,24 +2630,24 @@ document.querySelectorAll(
 const releaseDate =
 new Date("2027-03-15T00:00:00");
 
-
 function updateCountdown(){
 
   const difference =
     releaseDate - new Date();
 
-  if(
-    difference <= 0
-  ){
+  if(difference <= 0){
 
-    ["days","hours","minutes","seconds"]
-      .forEach(id => {
+    [
+      "days",
+      "hours",
+      "minutes",
+      "seconds"
+    ].forEach(id => {
 
-        document.getElementById(
-          id
-        ).textContent = "00";
+      document.getElementById(id)
+        .textContent = "00";
 
-      });
+    });
 
     return;
   }
@@ -3633,22 +2684,21 @@ function updateCountdown(){
 
   document.getElementById("days")
     .textContent =
-      String(days).padStart(2,"0");
+    String(days).padStart(2,"0");
 
   document.getElementById("hours")
     .textContent =
-      String(hours).padStart(2,"0");
+    String(hours).padStart(2,"0");
 
   document.getElementById("minutes")
     .textContent =
-      String(minutes).padStart(2,"0");
+    String(minutes).padStart(2,"0");
 
   document.getElementById("seconds")
     .textContent =
-      String(seconds).padStart(2,"0");
+    String(seconds).padStart(2,"0");
 
 }
-
 
 updateCountdown();
 
@@ -3664,12 +2714,9 @@ setInterval(
 
 let cart = [];
 
-
 function sanitizeCart(rawCart){
 
-  if(
-    !Array.isArray(rawCart)
-  ){
+  if(!Array.isArray(rawCart)){
     return [];
   }
 
@@ -3690,9 +2737,7 @@ function sanitizeCart(rawCart){
       ).trim();
 
     if(
-      !VALID_PRODUCT_IDS.includes(
-        productId
-      )
+      !VALID_PRODUCT_IDS.includes(productId)
     ){
       return;
     }
@@ -3704,18 +2749,14 @@ function sanitizeCart(rawCart){
       .toUpperCase()
       .trim();
 
-    if(
-      !VALID_SIZES.includes(size)
-    ){
+    if(!VALID_SIZES.includes(size)){
       return;
     }
 
     let quantity =
       Number(rawItem.quantity);
 
-    if(
-      !Number.isInteger(quantity)
-    ){
+    if(!Number.isInteger(quantity)){
       quantity = 1;
     }
 
@@ -3767,16 +2808,12 @@ function sanitizeCart(rawCart){
   });
 
   return cleaned;
-
 }
-
 
 try{
 
   const savedCart =
-    localStorage.getItem(
-      "WINGS_CART"
-    );
+    localStorage.getItem("WINGS_CART");
 
   if(savedCart){
 
@@ -3793,7 +2830,6 @@ try{
 
 }
 
-
 function saveCart(){
 
   cart =
@@ -3803,7 +2839,6 @@ function saveCart(){
     "WINGS_CART",
     JSON.stringify(cart)
   );
-
 }
 
 
@@ -3812,74 +2847,41 @@ function saveCart(){
 ========================================================= */
 
 const cartDrawer =
-document.getElementById(
-  "cartDrawer"
-);
+document.getElementById("cartDrawer");
 
 const cartOverlay =
-document.getElementById(
-  "cartOverlay"
-);
+document.getElementById("cartOverlay");
 
 const cartOpenBtn =
-document.getElementById(
-  "cartOpenBtn"
-);
+document.getElementById("cartOpenBtn");
 
 const cartCloseBtn =
-document.getElementById(
-  "cartCloseBtn"
-);
+document.getElementById("cartCloseBtn");
 
 const cartItems =
-document.getElementById(
-  "cartItems"
-);
+document.getElementById("cartItems");
 
 const cartTotal =
-document.getElementById(
-  "cartTotal"
-);
+document.getElementById("cartTotal");
 
 const cartCount =
-document.getElementById(
-  "cartCount"
-);
-
+document.getElementById("cartCount");
 
 function openCart(){
 
-  cartDrawer.classList.add(
-    "open"
-  );
+  cartDrawer.classList.add("open");
+  cartOverlay.classList.add("open");
 
-  cartOverlay.classList.add(
-    "open"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
+  document.body.classList.add("modal-open");
 }
-
 
 function closeCart(){
 
-  cartDrawer.classList.remove(
-    "open"
-  );
+  cartDrawer.classList.remove("open");
+  cartOverlay.classList.remove("open");
 
-  cartOverlay.classList.remove(
-    "open"
-  );
-
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.body.classList.remove("modal-open");
 }
-
 
 cartOpenBtn.addEventListener(
   "click",
@@ -3914,7 +2916,7 @@ function escapeHTML(value){
 
 
 /* =========================================================
-   CART TOTAL
+   TOTAL
 ========================================================= */
 
 function calculateDisplayTotal(){
@@ -3936,7 +2938,6 @@ function calculateDisplayTotal(){
     },
     0
   );
-
 }
 
 
@@ -3962,7 +2963,6 @@ function updateCart(){
     `;
 
   }
-
 
   cart.forEach(
     (item,index) => {
@@ -4013,9 +3013,7 @@ function updateCart(){
               type="button"
               data-index="${index}"
               data-action="minus"
-            >
-              -
-            </button>
+            >-</button>
 
             <span class="qty-number">
               ${item.quantity}
@@ -4026,9 +3024,7 @@ function updateCart(){
               type="button"
               data-index="${index}"
               data-action="plus"
-            >
-              +
-            </button>
+            >+</button>
 
           </div>
 
@@ -4048,18 +3044,14 @@ function updateCart(){
 
       `;
 
-      cartItems.appendChild(
-        cartItem
-      );
+      cartItems.appendChild(cartItem);
 
     }
   );
 
-
   cartTotal.textContent =
     "$" +
-    calculateDisplayTotal()
-      .toFixed(2);
+    calculateDisplayTotal().toFixed(2);
 
   cartCount.textContent =
     quantityTotal;
@@ -4067,12 +3059,11 @@ function updateCart(){
   saveCart();
 
   updateCheckoutItems();
-
 }
 
 
 /* =========================================================
-   CART QUANTITY / REMOVE
+   CART CONTROLS
 ========================================================= */
 
 cartItems.addEventListener(
@@ -4080,9 +3071,7 @@ cartItems.addEventListener(
   event => {
 
     const quantityButton =
-      event.target.closest(
-        ".qty-btn"
-      );
+      event.target.closest(".qty-btn");
 
     if(quantityButton){
 
@@ -4099,8 +3088,7 @@ cartItems.addEventListener(
       }
 
       if(
-        quantityButton.dataset.action ===
-        "plus"
+        quantityButton.dataset.action === "plus"
       ){
 
         cart[index].quantity =
@@ -4112,15 +3100,12 @@ cartItems.addEventListener(
       }
 
       if(
-        quantityButton.dataset.action ===
-        "minus"
+        quantityButton.dataset.action === "minus"
       ){
 
         cart[index].quantity--;
 
-        if(
-          cart[index].quantity <= 0
-        ){
+        if(cart[index].quantity <= 0){
 
           cart.splice(index,1);
 
@@ -4131,14 +3116,10 @@ cartItems.addEventListener(
       updateCart();
 
       return;
-
     }
 
-
     const removeButton =
-      event.target.closest(
-        ".remove-item"
-      );
+      event.target.closest(".remove-item");
 
     if(removeButton){
 
@@ -4152,10 +3133,7 @@ cartItems.addEventListener(
         cart[index]
       ){
 
-        cart.splice(
-          index,
-          1
-        );
+        cart.splice(index,1);
 
         updateCart();
 
@@ -4176,15 +3154,10 @@ document.querySelectorAll(
 ).forEach(card => {
 
   const addButton =
-    card.querySelector(
-      ".add-cart-btn"
-    );
+    card.querySelector(".add-cart-btn");
 
   const sizeSelect =
-    card.querySelector(
-      ".size-select"
-    );
-
+    card.querySelector(".size-select");
 
   addButton.addEventListener(
     "click",
@@ -4192,14 +3165,11 @@ document.querySelectorAll(
 
       const productId =
         String(
-          card.dataset.productId ||
-          ""
+          card.dataset.productId || ""
         );
 
       if(
-        !VALID_PRODUCT_IDS.includes(
-          productId
-        )
+        !VALID_PRODUCT_IDS.includes(productId)
       ){
         return;
       }
@@ -4210,34 +3180,28 @@ document.querySelectorAll(
       const size =
         String(
           sizeSelect.value || ""
-        )
-        .toUpperCase();
+        ).toUpperCase();
 
-      if(
-        !VALID_SIZES.includes(size)
-      ){
+      if(!VALID_SIZES.includes(size)){
 
         alert(
           "Please select a valid size."
         );
 
         return;
-
       }
 
       const existing =
         cart.find(
           item =>
-            item.productId ===
-              productId &&
+            item.productId === productId &&
             item.size === size
         );
 
       if(existing){
 
         if(
-          existing.quantity >=
-          MAX_QUANTITY
+          existing.quantity >= MAX_QUANTITY
         ){
 
           alert(
@@ -4245,7 +3209,6 @@ document.querySelectorAll(
           );
 
           return;
-
         }
 
         existing.quantity++;
@@ -4254,14 +3217,11 @@ document.querySelectorAll(
 
         cart.push({
 
-          productId:
-            product.id,
+          productId:product.id,
 
-          name:
-            product.name,
+          name:product.name,
 
-          image:
-            product.image,
+          image:product.image,
 
           size,
 
@@ -4286,138 +3246,90 @@ document.querySelectorAll(
 ========================================================= */
 
 const checkoutModal =
-document.getElementById(
-  "checkoutModal"
-);
+document.getElementById("checkoutModal");
 
 const checkoutOpenBtn =
-document.getElementById(
-  "checkoutOpenBtn"
-);
+document.getElementById("checkoutOpenBtn");
 
 const checkoutCloseBtn =
-document.getElementById(
-  "checkoutCloseBtn"
-);
+document.getElementById("checkoutCloseBtn");
 
 const checkoutForm =
-document.getElementById(
-  "checkoutForm"
-);
+document.getElementById("checkoutForm");
 
 const checkoutMessage =
-document.getElementById(
-  "checkoutMessage"
-);
+document.getElementById("checkoutMessage");
 
 const verificationBox =
-document.getElementById(
-  "verificationBox"
-);
+document.getElementById("verificationBox");
 
 const verificationCode =
-document.getElementById(
-  "verificationCode"
-);
+document.getElementById("verificationCode");
 
 const verificationInfo =
-document.getElementById(
-  "verificationInfo"
-);
+document.getElementById("verificationInfo");
 
 const verifyCheckoutButton =
-document.getElementById(
-  "verifyCheckoutButton"
-);
+document.getElementById("verifyCheckoutButton");
 
 const checkoutFormLink =
-document.getElementById(
-  "checkoutFormLink"
-);
+document.getElementById("checkoutFormLink");
 
 checkoutFormLink.href =
 CHECKOUT_FORM_URL;
 
-
-let verificationInProgress =
-false;
-
-let orderSubmissionInProgress =
-false;
-
+let verificationInProgress = false;
+let orderSubmissionInProgress = false;
 
 function openCheckout(){
 
   cart =
     sanitizeCart(cart);
 
-  if(
-    cart.length === 0
-  ){
+  if(cart.length === 0){
 
-    alert(
-      "Your cart is empty."
-    );
+    alert("Your cart is empty.");
 
     return;
-
   }
 
   closeCart();
 
   updateCheckoutItems();
 
-  checkoutModal.classList.add(
-    "open"
-  );
+  checkoutModal.classList.add("open");
 
   checkoutModal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-  document.body.classList.add(
-    "modal-open"
-  );
+  document.body.classList.add("modal-open");
 
-  checkoutMessage.textContent =
-    "";
+  checkoutMessage.textContent = "";
 
-  verificationBox.style.display =
-    "none";
+  verificationBox.style.display = "none";
 
-  verificationCode.textContent =
-    "";
+  verificationCode.textContent = "";
 
-  verificationInfo.textContent =
-    "";
-
+  verificationInfo.textContent = "";
 }
-
 
 function closeCheckout(){
 
-  if(
-    verificationInProgress
-  ){
+  if(verificationInProgress){
     return;
   }
 
-  checkoutModal.classList.remove(
-    "open"
-  );
+  checkoutModal.classList.remove("open");
 
   checkoutModal.setAttribute(
     "aria-hidden",
     "true"
   );
 
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.body.classList.remove("modal-open");
 }
-
 
 checkoutOpenBtn.addEventListener(
   "click",
@@ -4433,13 +3345,8 @@ checkoutModal.addEventListener(
   "click",
   event => {
 
-    if(
-      event.target ===
-      checkoutModal
-    ){
-
+    if(event.target === checkoutModal){
       closeCheckout();
-
     }
 
   }
@@ -4453,22 +3360,17 @@ checkoutModal.addEventListener(
 function updateCheckoutItems(){
 
   const container =
-    document.getElementById(
-      "checkoutItems"
-    );
+    document.getElementById("checkoutItems");
 
   cart =
     sanitizeCart(cart);
 
-  if(
-    cart.length === 0
-  ){
+  if(cart.length === 0){
 
     container.innerHTML =
       "<div>Cart is empty.</div>";
 
     return;
-
   }
 
   let total = 0;
@@ -4478,7 +3380,6 @@ function updateCheckoutItems(){
       YOUR ORDER
     </div>
   `;
-
 
   cart.forEach(item => {
 
@@ -4516,7 +3417,6 @@ function updateCheckoutItems(){
 
   });
 
-
   html += `
 
     <div
@@ -4541,7 +3441,6 @@ function updateCheckoutItems(){
 
   container.innerHTML =
     html;
-
 }
 
 
@@ -4564,20 +3463,16 @@ function normalizePhone(phone){
 
 function buildServerOrderItems(){
 
-  return sanitizeCart(
-    cart
-  ).map(item => ({
+  return sanitizeCart(cart)
+    .map(item => ({
 
-    productId:
-      item.productId,
+      productId:item.productId,
 
-    size:
-      item.size,
+      size:item.size,
 
-    quantity:
-      item.quantity
+      quantity:item.quantity
 
-  }));
+    }));
 
 }
 
@@ -4592,24 +3487,19 @@ checkoutForm.addEventListener(
 
     event.preventDefault();
 
-    if(
-      verificationInProgress
-    ){
+    if(verificationInProgress){
       return;
     }
 
     cart =
       sanitizeCart(cart);
 
-    if(
-      cart.length === 0
-    ){
+    if(cart.length === 0){
 
       checkoutMessage.textContent =
         "Your cart is empty.";
 
       return;
-
     }
 
     const phoneInput =
@@ -4622,29 +3512,22 @@ checkoutForm.addEventListener(
         phoneInput.value
       );
 
-    if(
-      phone.length !== 10
-    ){
+    if(phone.length !== 10){
 
       checkoutMessage.textContent =
         "Please enter a valid 10-digit phone number.";
 
       return;
-
     }
 
-    verificationInProgress =
-      true;
+    verificationInProgress = true;
 
-    verifyCheckoutButton.disabled =
-      true;
+    verifyCheckoutButton.disabled = true;
 
-    verificationBox.style.display =
-      "none";
+    verificationBox.style.display = "none";
 
     checkoutMessage.textContent =
       "Checking your checkout information...";
-
 
     try{
 
@@ -4660,10 +3543,7 @@ checkoutForm.addEventListener(
           }
         );
 
-
-      if(
-        !response.ok
-      ){
+      if(!response.ok){
 
         throw new Error(
           "Verification request failed."
@@ -4671,10 +3551,8 @@ checkoutForm.addEventListener(
 
       }
 
-
       const data =
         await response.json();
-
 
       if(
         !data ||
@@ -4685,38 +3563,22 @@ checkoutForm.addEventListener(
 
         checkoutMessage.textContent =
           data && data.message
-          ? data.message
-          : "We could not verify your checkout.";
+            ? data.message
+            : "We could not verify your checkout.";
 
         return;
-
       }
-
 
       const safeCode =
-        String(
-          data.code
-        ).trim();
-
-      if(!safeCode){
-
-        checkoutMessage.textContent =
-          "Verification failed.";
-
-        return;
-
-      }
-
+        String(data.code).trim();
 
       verificationCode.textContent =
         safeCode;
-
 
       const attendanceType =
         String(
           data.type || ""
         ).toUpperCase();
-
 
       const readableAttendance =
         attendanceType === "IN"
@@ -4724,7 +3586,6 @@ checkoutForm.addEventListener(
           : attendanceType === "ON"
             ? "ONLINE"
             : "VERIFIED";
-
 
       verificationInfo.innerHTML = `
 
@@ -4734,28 +3595,22 @@ checkoutForm.addEventListener(
 
         Checkout type:
         <strong>
-          ${escapeHTML(
-            readableAttendance
-          )}
+          ${escapeHTML(readableAttendance)}
         </strong>
 
       `;
 
-
       verificationBox.style.display =
         "block";
 
-
       checkoutMessage.textContent =
         "Verification successful. Submitting your order...";
-
 
       await submitOrder(
         phone,
         attendanceType,
         safeCode
       );
-
 
     }catch(error){
 
@@ -4769,11 +3624,9 @@ checkoutForm.addEventListener(
 
     }finally{
 
-      verificationInProgress =
-        false;
+      verificationInProgress = false;
 
-      verifyCheckoutButton.disabled =
-        false;
+      verifyCheckoutButton.disabled = false;
 
     }
 
@@ -4791,49 +3644,38 @@ async function submitOrder(
   code
 ){
 
-  if(
-    orderSubmissionInProgress
-  ){
+  if(orderSubmissionInProgress){
     return;
   }
 
   cart =
     sanitizeCart(cart);
 
-  if(
-    cart.length === 0
-  ){
+  if(cart.length === 0){
 
     checkoutMessage.textContent =
       "Your cart is empty.";
 
     return;
-
   }
 
   const items =
     buildServerOrderItems();
 
-  if(
-    !items.length
-  ){
+  if(!items.length){
 
     checkoutMessage.textContent =
       "Your order could not be prepared.";
 
     return;
-
   }
 
-  orderSubmissionInProgress =
-    true;
-
+  orderSubmissionInProgress = true;
 
   try{
 
     checkoutMessage.textContent =
-      "Submitting your order securely...";
-
+      "Submitting your order...";
 
     const response =
       await fetch(
@@ -4866,10 +3708,7 @@ async function submitOrder(
         }
       );
 
-
-    if(
-      !response.ok
-    ){
+    if(!response.ok){
 
       throw new Error(
         "Order submission failed."
@@ -4877,10 +3716,8 @@ async function submitOrder(
 
     }
 
-
     const data =
       await response.json();
-
 
     if(
       !data ||
@@ -4889,13 +3726,11 @@ async function submitOrder(
 
       checkoutMessage.textContent =
         data && data.message
-        ? data.message
-        : "Order submission failed.";
+          ? data.message
+          : "Order submission failed.";
 
       return;
-
     }
-
 
     const safeOrderId =
       String(
@@ -4906,7 +3741,6 @@ async function submitOrder(
       String(
         data.code || code
       ).trim();
-
 
     checkoutMessage.innerHTML = `
 
@@ -4919,8 +3753,7 @@ async function submitOrder(
       Order ID:
       <strong>
         ${escapeHTML(
-          safeOrderId ||
-          "CONFIRMED"
+          safeOrderId || "CONFIRMED"
         )}
       </strong>
 
@@ -4928,9 +3761,7 @@ async function submitOrder(
 
       Keep your verification code:
       <strong>
-        ${escapeHTML(
-          serverCode
-        )}
+        ${escapeHTML(serverCode)}
       </strong>
 
       <br><br>
@@ -4939,7 +3770,6 @@ async function submitOrder(
 
     `;
 
-
     cart = [];
 
     saveCart();
@@ -4947,7 +3777,6 @@ async function submitOrder(
     updateCart();
 
     updateCheckoutItems();
-
 
   }catch(error){
 
@@ -4961,8 +3790,7 @@ async function submitOrder(
 
   }finally{
 
-    orderSubmissionInProgress =
-      false;
+    orderSubmissionInProgress = false;
 
   }
 
@@ -4974,51 +3802,34 @@ async function submitOrder(
 ========================================================= */
 
 const sizeModal =
-document.getElementById(
-  "sizeModal"
-);
+document.getElementById("sizeModal");
 
 const sizeCloseBtn =
-document.getElementById(
-  "sizeCloseBtn"
-);
-
+document.getElementById("sizeCloseBtn");
 
 function openSizeModal(){
 
-  sizeModal.classList.add(
-    "open"
-  );
+  sizeModal.classList.add("open");
 
   sizeModal.setAttribute(
     "aria-hidden",
     "false"
   );
 
-  document.body.classList.add(
-    "modal-open"
-  );
-
+  document.body.classList.add("modal-open");
 }
-
 
 function closeSizeModal(){
 
-  sizeModal.classList.remove(
-    "open"
-  );
+  sizeModal.classList.remove("open");
 
   sizeModal.setAttribute(
     "aria-hidden",
     "true"
   );
 
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.body.classList.remove("modal-open");
 }
-
 
 document.querySelectorAll(
   ".size-guide-btn"
@@ -5031,24 +3842,17 @@ document.querySelectorAll(
 
 });
 
-
 sizeCloseBtn.addEventListener(
   "click",
   closeSizeModal
 );
 
-
 sizeModal.addEventListener(
   "click",
   event => {
 
-    if(
-      event.target ===
-      sizeModal
-    ){
-
+    if(event.target === sizeModal){
       closeSizeModal();
-
     }
 
   }
@@ -5060,62 +3864,36 @@ sizeModal.addEventListener(
 ========================================================= */
 
 const imageModal =
-document.getElementById(
-  "imageModal"
-);
+document.getElementById("imageModal");
 
 const modalImage =
-document.getElementById(
-  "modalImage"
-);
+document.getElementById("modalImage");
 
 const imageModalClose =
-document.getElementById(
-  "imageModalClose"
-);
+document.getElementById("imageModalClose");
 
+function openImageModal(src,alt){
 
-function openImageModal(
-  src,
-  alt
-){
+  modalImage.src = src;
+  modalImage.alt = alt;
 
-  modalImage.src =
-    src;
+  imageModal.classList.add("open");
 
-  modalImage.alt =
-    alt;
-
-  imageModal.classList.add(
-    "open"
-  );
-
-  document.body.classList.add(
-    "modal-open"
-  );
-
+  document.body.classList.add("modal-open");
 }
-
 
 function closeImageModal(){
 
-  imageModal.classList.remove(
-    "open"
-  );
+  imageModal.classList.remove("open");
 
-  document.body.classList.remove(
-    "modal-open"
-  );
-
+  document.body.classList.remove("modal-open");
 }
-
 
 document.querySelectorAll(
   ".product-image img"
 ).forEach(image => {
 
-  image.style.cursor =
-    "zoom-in";
+  image.style.cursor = "zoom-in";
 
   image.addEventListener(
     "click",
@@ -5131,24 +3909,17 @@ document.querySelectorAll(
 
 });
 
-
 imageModalClose.addEventListener(
   "click",
   closeImageModal
 );
 
-
 imageModal.addEventListener(
   "click",
   event => {
 
-    if(
-      event.target ===
-      imageModal
-    ){
-
+    if(event.target === imageModal){
       closeImageModal();
-
     }
 
   }
@@ -5156,27 +3927,25 @@ imageModal.addEventListener(
 
 
 /* =========================================================
-   BLACK WINGS HOODIE GALLERY
+   REGULAR BLACK WINGS HOODIE
    EXACTLY 2 IMAGES
 ========================================================= */
 
 const hoodieImages = [
 
   {
-    src:"images/hoodie(1)(1).png",
+    src:"images/hoodie(1).png",
     alt:"WINGS black hoodie"
   },
 
   {
     src:"images/hoodie-detail(1).png",
-    alt:"WINGS black hoodie back"
+    alt:"WINGS black hoodie detail"
   }
 
 ];
 
-
 let hoodieImageIndex = 0;
-
 
 const hoodieGalleryImage =
 document.getElementById(
@@ -5198,13 +3967,10 @@ document.getElementById(
   "hoodieNext"
 );
 
-
 function updateHoodieGallery(){
 
   const image =
-    hoodieImages[
-      hoodieImageIndex
-    ];
+    hoodieImages[hoodieImageIndex];
 
   hoodieGalleryImage.src =
     image.src;
@@ -5213,14 +3979,10 @@ function updateHoodieGallery(){
     image.alt;
 
   hoodieIndicator.textContent =
-    (
-      hoodieImageIndex + 1
-    ) +
+    (hoodieImageIndex + 1) +
     " / " +
     hoodieImages.length;
-
 }
-
 
 hoodiePrev.addEventListener(
   "click",
@@ -5230,20 +3992,15 @@ hoodiePrev.addEventListener(
 
     hoodieImageIndex--;
 
-    if(
-      hoodieImageIndex < 0
-    ){
-
+    if(hoodieImageIndex < 0){
       hoodieImageIndex =
         hoodieImages.length - 1;
-
     }
 
     updateHoodieGallery();
 
   }
 );
-
 
 hoodieNext.addEventListener(
   "click",
@@ -5257,9 +4014,7 @@ hoodieNext.addEventListener(
       hoodieImageIndex >=
       hoodieImages.length
     ){
-
       hoodieImageIndex = 0;
-
     }
 
     updateHoodieGallery();
@@ -5267,14 +4022,131 @@ hoodieNext.addEventListener(
   }
 );
 
-
 hoodieGalleryImage.addEventListener(
   "click",
   () => {
 
     const image =
-      hoodieImages[
-        hoodieImageIndex
+      hoodieImages[hoodieImageIndex];
+
+    openImageModal(
+      image.src,
+      image.alt
+    );
+
+  }
+);
+
+
+/* =========================================================
+   BLACK MANDARIN HOODIE
+   EXACTLY 2 IMAGES
+========================================================= */
+
+const blackMandarinImages = [
+
+  {
+    src:"images/Distressed Wings Hoodie Tech Pack.png",
+    alt:"Black Mandarin hoodie tech pack"
+  },
+
+  {
+    src:"images/wings-hoodie-2.png",
+    alt:"Black Mandarin hoodie"
+  }
+
+];
+
+let blackMandarinImageIndex = 0;
+
+const blackMandarinGalleryImage =
+document.getElementById(
+  "blackMandarinGalleryImage"
+);
+
+const blackMandarinIndicator =
+document.getElementById(
+  "blackMandarinIndicator"
+);
+
+const blackMandarinPrev =
+document.getElementById(
+  "blackMandarinPrev"
+);
+
+const blackMandarinNext =
+document.getElementById(
+  "blackMandarinNext"
+);
+
+function updateBlackMandarinGallery(){
+
+  const image =
+    blackMandarinImages[
+      blackMandarinImageIndex
+    ];
+
+  blackMandarinGalleryImage.src =
+    image.src;
+
+  blackMandarinGalleryImage.alt =
+    image.alt;
+
+  blackMandarinIndicator.textContent =
+    (blackMandarinImageIndex + 1) +
+    " / " +
+    blackMandarinImages.length;
+}
+
+blackMandarinPrev.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    blackMandarinImageIndex--;
+
+    if(blackMandarinImageIndex < 0){
+
+      blackMandarinImageIndex =
+        blackMandarinImages.length - 1;
+
+    }
+
+    updateBlackMandarinGallery();
+
+  }
+);
+
+blackMandarinNext.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    blackMandarinImageIndex++;
+
+    if(
+      blackMandarinImageIndex >=
+      blackMandarinImages.length
+    ){
+
+      blackMandarinImageIndex = 0;
+
+    }
+
+    updateBlackMandarinGallery();
+
+  }
+);
+
+blackMandarinGalleryImage.addEventListener(
+  "click",
+  () => {
+
+    const image =
+      blackMandarinImages[
+        blackMandarinImageIndex
       ];
 
     openImageModal(
@@ -5287,27 +4159,30 @@ hoodieGalleryImage.addEventListener(
 
 
 /* =========================================================
-   WHITE MANDARIN HOODIE GALLERY
-   EXACTLY 2 IMAGES
+   WHITE MANDARIN HOODIE
+   EXACTLY 3 IMAGES
 ========================================================= */
 
 const whiteMandarinImages = [
 
   {
-    src:"images/Distressed-Wings-Hoodie-Catalog-Sheet-1024.jpg",
-    alt:"White Mandarin hoodie front and back"
+    src:"images/Distressed Wings Hoodie Catalog Sheet.png",
+    alt:"White Mandarin hoodie catalog sheet"
   },
 
   {
-    src:"images/Distressed-Wings-Hoodie-Detail-Collage-1024.jpg",
-    alt:"White Mandarin hoodie detail"
+    src:"images/Distressed Wings Hoodie Detail Collage.png",
+    alt:"White Mandarin hoodie detail collage"
+  },
+
+  {
+    src:"images/Wings Hoodie White Tech Sheet.png",
+    alt:"White Mandarin hoodie white tech sheet"
   }
 
 ];
 
-
 let whiteMandarinImageIndex = 0;
-
 
 const whiteMandarinGalleryImage =
 document.getElementById(
@@ -5329,7 +4204,6 @@ document.getElementById(
   "whiteMandarinNext"
 );
 
-
 function updateWhiteMandarinGallery(){
 
   const image =
@@ -5344,14 +4218,10 @@ function updateWhiteMandarinGallery(){
     image.alt;
 
   whiteMandarinIndicator.textContent =
-    (
-      whiteMandarinImageIndex + 1
-    ) +
+    (whiteMandarinImageIndex + 1) +
     " / " +
     whiteMandarinImages.length;
-
 }
-
 
 whiteMandarinPrev.addEventListener(
   "click",
@@ -5361,9 +4231,7 @@ whiteMandarinPrev.addEventListener(
 
     whiteMandarinImageIndex--;
 
-    if(
-      whiteMandarinImageIndex < 0
-    ){
+    if(whiteMandarinImageIndex < 0){
 
       whiteMandarinImageIndex =
         whiteMandarinImages.length - 1;
@@ -5374,7 +4242,6 @@ whiteMandarinPrev.addEventListener(
 
   }
 );
-
 
 whiteMandarinNext.addEventListener(
   "click",
@@ -5397,7 +4264,6 @@ whiteMandarinNext.addEventListener(
 
   }
 );
-
 
 whiteMandarinGalleryImage.addEventListener(
   "click",
@@ -5425,22 +4291,15 @@ document.addEventListener(
   "keydown",
   event => {
 
-    if(
-      event.key !== "Escape"
-    ){
+    if(event.key !== "Escape"){
       return;
     }
 
-    if(
-      !verificationInProgress
-    ){
+    if(!verificationInProgress){
 
       closeCart();
-
       closeCheckout();
-
       closeSizeModal();
-
       closeThemeModal();
 
     }
@@ -5465,9 +4324,13 @@ updateCart();
 updateCheckoutItems();
 
 updateHoodieGallery();
+
+updateBlackMandarinGallery();
+
 updateWhiteMandarinGallery();
 
 </script>
 
 </body>
 </html>
+  
