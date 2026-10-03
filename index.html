@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>WINGS | Clothes to Make Your Look Fly.</title>
 
@@ -103,7 +108,12 @@ html{
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   transition:
     background .3s ease,
     color .3s ease;
@@ -135,10 +145,13 @@ a{
 
 header{
   position:fixed;
+
   top:0;
   left:0;
+
   width:100%;
   height:76px;
+
   z-index:1000;
 
   display:flex;
@@ -148,11 +161,14 @@ header{
   padding:0 5vw;
 
   background:var(--header-bg);
+
   backdrop-filter:blur(18px);
 
-  border-bottom:1px solid var(--soft-border);
+  border-bottom:
+    1px solid var(--soft-border);
 
-  transition:background .3s ease;
+  transition:
+    background .3s ease;
 }
 
 .logo{
@@ -170,6 +186,7 @@ header{
 .nav-links a,
 .settings-nav-btn{
   color:var(--text);
+
   background:none;
   border:0;
 
@@ -193,9 +210,11 @@ header{
   position:relative;
 
   color:var(--button-text);
+
   background:var(--button-bg);
 
-  border:1px solid var(--button-bg);
+  border:
+    1px solid var(--button-bg);
 
   padding:10px 15px;
 
@@ -244,6 +263,7 @@ header{
 
   background:none;
   border:0;
+
   color:var(--text);
 
   font-size:23px;
@@ -270,6 +290,7 @@ header{
 
 .hero-image{
   position:absolute;
+
   inset:0;
 
   width:100%;
@@ -282,6 +303,7 @@ header{
 
 .hero-overlay{
   position:absolute;
+
   inset:0;
 
   background:
@@ -294,6 +316,7 @@ header{
 
 .hero-content{
   position:relative;
+
   z-index:2;
 
   width:min(1000px,90%);
@@ -310,10 +333,13 @@ header{
 }
 
 .hero-title{
-  font-size:clamp(65px,13vw,180px);
+  font-size:
+    clamp(65px,13vw,180px);
+
   line-height:.8;
 
   font-weight:1000;
+
   letter-spacing:-8px;
 }
 
@@ -369,10 +395,13 @@ section{
 }
 
 .section-title{
-  font-size:clamp(38px,6vw,80px);
+  font-size:
+    clamp(38px,6vw,80px);
+
   line-height:.9;
 
   font-weight:1000;
+
   letter-spacing:-3px;
 }
 
@@ -382,7 +411,8 @@ section{
 ========================================================= */
 
 .drop-section{
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 }
 
 .drop-banner{
@@ -390,7 +420,8 @@ section{
 
   padding:28px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:var(--surface);
 }
@@ -417,7 +448,8 @@ section{
 .countdown{
   display:grid;
 
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:
+    repeat(4,1fr);
 
   gap:12px;
 
@@ -429,7 +461,8 @@ section{
 
   text-align:center;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:var(--surface);
 }
@@ -455,7 +488,8 @@ section{
 ========================================================= */
 
 .shop-section{
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 }
 
 .products-grid{
@@ -474,7 +508,8 @@ section{
 
   background:var(--surface);
 
-  border:1px solid var(--soft-border);
+  border:
+    1px solid var(--soft-border);
 
   transition:
     transform .3s,
@@ -484,8 +519,15 @@ section{
 
 .product-card:hover{
   transform:translateY(-5px);
-  border-color:var(--border);
+
+  border-color:
+    var(--border);
 }
+
+
+/* =========================================================
+   PRODUCT IMAGES
+========================================================= */
 
 .product-image,
 .hoodie-gallery{
@@ -507,7 +549,8 @@ section{
 
   display:block;
 
-  transition:transform .45s ease;
+  transition:
+    transform .45s ease;
 }
 
 .product-image:hover img,
@@ -542,9 +585,12 @@ section{
   align-items:center;
   justify-content:center;
 
-  border:1px solid rgba(255,255,255,.45);
+  border:
+    1px solid rgba(255,255,255,.45);
 
-  background:rgba(0,0,0,.75);
+  background:
+    rgba(0,0,0,.75);
+
   color:#fff;
 
   font-size:22px;
@@ -562,9 +608,11 @@ section{
 .hoodie-gallery-indicator{
   padding:8px 12px;
 
-  background:rgba(0,0,0,.75);
+  background:
+    rgba(0,0,0,.75);
 
-  border:1px solid rgba(255,255,255,.25);
+  border:
+    1px solid rgba(255,255,255,.25);
 
   color:#fff;
 
@@ -589,7 +637,7 @@ section{
 }
 
 .product-description{
-  min-height:38px;
+  min-height:48px;
 
   margin-top:10px;
 
@@ -638,7 +686,8 @@ section{
   background:var(--input-bg);
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:9px;
   font-weight:900;
@@ -650,7 +699,8 @@ section{
 .add-cart-btn{
   flex:1;
 
-  border:1px solid var(--button-bg);
+  border:
+    1px solid var(--button-bg);
 
   background:var(--button-bg);
   color:var(--button-text);
@@ -698,7 +748,8 @@ section{
 ========================================================= */
 
 .statement-section{
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 }
 
 .statement{
@@ -706,10 +757,13 @@ section{
 
   margin-top:50px;
 
-  font-size:clamp(35px,6vw,85px);
+  font-size:
+    clamp(35px,6vw,85px);
+
   line-height:1;
 
   font-weight:1000;
+
   letter-spacing:-4px;
 }
 
@@ -744,7 +798,8 @@ section{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .about-box h3{
@@ -767,7 +822,8 @@ section{
 ========================================================= */
 
 .contact-section{
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 }
 
 .contact-grid{
@@ -786,7 +842,8 @@ section{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .contact-card h3{
@@ -816,7 +873,8 @@ section{
 .social-links a{
   padding:10px 13px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:8px;
   font-weight:900;
@@ -849,7 +907,8 @@ section{
 .policy-card{
   padding:25px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:var(--surface);
 }
@@ -878,7 +937,8 @@ footer{
 
   background:var(--surface);
 
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 }
 
 .footer-top{
@@ -911,7 +971,8 @@ footer{
   margin-top:50px;
   padding-top:20px;
 
-  border-top:1px solid var(--soft-border);
+  border-top:
+    1px solid var(--soft-border);
 
   color:var(--muted);
 
@@ -921,16 +982,18 @@ footer{
 
 
 /* =========================================================
-   CART DRAWER
+   CART
 ========================================================= */
 
 .cart-overlay{
   position:fixed;
+
   inset:0;
 
   z-index:1500;
 
-  background:rgba(0,0,0,.72);
+  background:
+    rgba(0,0,0,.72);
 
   opacity:0;
   visibility:hidden;
@@ -960,7 +1023,8 @@ footer{
 
   background:var(--bg);
 
-  border-left:1px solid var(--border);
+  border-left:
+    1px solid var(--border);
 
   transform:translateX(100%);
 
@@ -978,7 +1042,8 @@ footer{
 
   padding:25px;
 
-  border-bottom:1px solid var(--border);
+  border-bottom:
+    1px solid var(--border);
 }
 
 .cart-header h2{
@@ -991,9 +1056,11 @@ footer{
   height:35px;
 
   background:transparent;
+
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:18px;
 }
@@ -1019,13 +1086,15 @@ footer{
 .cart-item{
   display:grid;
 
-  grid-template-columns:75px 1fr auto;
+  grid-template-columns:
+    75px 1fr auto;
 
   gap:14px;
 
   padding:15px 0;
 
-  border-bottom:1px solid var(--soft-border);
+  border-bottom:
+    1px solid var(--soft-border);
 }
 
 .cart-item img{
@@ -1065,9 +1134,11 @@ footer{
   height:23px;
 
   background:transparent;
+
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:12px;
 }
@@ -1086,6 +1157,7 @@ footer{
   padding:0;
 
   background:none;
+
   border:0;
 
   color:var(--muted);
@@ -1101,7 +1173,8 @@ footer{
 .cart-footer{
   padding:22px;
 
-  border-top:1px solid var(--border);
+  border-top:
+    1px solid var(--border);
 }
 
 .cart-total{
@@ -1119,9 +1192,11 @@ footer{
 
   padding:17px;
 
-  border:1px solid var(--button-bg);
+  border:
+    1px solid var(--button-bg);
 
   background:var(--button-bg);
+
   color:var(--button-text);
 
   font-size:10px;
@@ -1142,6 +1217,7 @@ footer{
 
   font-size:8px;
   line-height:1.5;
+
   text-align:center;
 }
 
@@ -1152,6 +1228,7 @@ footer{
 
 .modal{
   position:fixed;
+
   inset:0;
 
   z-index:2000;
@@ -1162,7 +1239,8 @@ footer{
 
   padding:20px;
 
-  background:rgba(0,0,0,.78);
+  background:
+    rgba(0,0,0,.78);
 
   opacity:0;
   visibility:hidden;
@@ -1188,7 +1266,8 @@ footer{
 
   background:var(--bg);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .modal-box h2{
@@ -1206,9 +1285,11 @@ footer{
   height:35px;
 
   background:transparent;
+
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:18px;
 }
@@ -1251,9 +1332,11 @@ footer{
   padding:14px;
 
   background:var(--input-bg);
+
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   outline:none;
 
@@ -1272,9 +1355,11 @@ footer{
   padding:16px;
 
   background:var(--button-bg);
+
   color:var(--button-text);
 
-  border:1px solid var(--button-bg);
+  border:
+    1px solid var(--button-bg);
 
   font-size:9px;
   font-weight:1000;
@@ -1308,7 +1393,8 @@ footer{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .checkout-items-title{
@@ -1325,7 +1411,8 @@ footer{
 
   padding:7px 0;
 
-  border-bottom:1px solid var(--soft-border);
+  border-bottom:
+    1px solid var(--soft-border);
 
   font-size:9px;
 }
@@ -1336,7 +1423,7 @@ footer{
 
 
 /* =========================================================
-   GOOGLE CHECKOUT FORM BUTTON
+   PAYMENT
 ========================================================= */
 
 .payment-step{
@@ -1346,7 +1433,8 @@ footer{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .payment-step-title{
@@ -1376,9 +1464,11 @@ footer{
   text-align:center;
 
   background:var(--button-bg);
+
   color:var(--button-text);
 
-  border:1px solid var(--button-bg);
+  border:
+    1px solid var(--button-bg);
 
   font-size:9px;
   font-weight:1000;
@@ -1414,7 +1504,8 @@ footer{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .verification-box h3{
@@ -1431,7 +1522,8 @@ footer{
 
   background:var(--surface2);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   font-size:22px;
   font-weight:1000;
@@ -1445,7 +1537,8 @@ footer{
 
   background:var(--surface);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   color:var(--muted);
 
@@ -1470,7 +1563,8 @@ footer{
 .size-table td{
   padding:13px 8px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   text-align:center;
 
@@ -1504,9 +1598,11 @@ footer{
   text-align:left;
 
   background:var(--surface2);
+
   color:var(--text);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   transition:.2s;
 }
@@ -1530,7 +1626,8 @@ footer{
 
   margin-bottom:13px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 }
 
 .swatch-black{
@@ -1578,6 +1675,7 @@ footer{
 
 .image-modal{
   position:fixed;
+
   inset:0;
 
   z-index:2500;
@@ -1588,7 +1686,8 @@ footer{
 
   padding:30px;
 
-  background:rgba(0,0,0,.92);
+  background:
+    rgba(0,0,0,.92);
 
   opacity:0;
   visibility:hidden;
@@ -1618,9 +1717,11 @@ footer{
   height:40px;
 
   background:transparent;
+
   color:#fff;
 
-  border:1px solid rgba(255,255,255,.4);
+  border:
+    1px solid rgba(255,255,255,.4);
 
   font-size:20px;
 }
@@ -1649,6 +1750,7 @@ footer{
     width:100%;
 
     display:none;
+
     flex-direction:column;
     align-items:stretch;
 
@@ -1656,7 +1758,8 @@ footer{
 
     background:var(--header-bg);
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+      1px solid var(--border);
   }
 
   .nav-links.open{
@@ -1697,6 +1800,16 @@ footer{
 
   .hero-title{
     letter-spacing:-5px;
+  }
+
+  .hero-subtitle{
+    font-size:10px;
+    letter-spacing:2px;
+  }
+
+  .hero-eyebrow{
+    font-size:8px;
+    letter-spacing:3px;
   }
 
   .countdown{
@@ -1748,12 +1861,17 @@ footer{
     gap:10px;
   }
 
+  .cart-item{
+    grid-template-columns:
+      65px 1fr auto;
+  }
+
+  .cart-item img{
+    width:65px;
+    height:65px;
+  }
+
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1780,7 +1898,9 @@ footer{
 
 <header>
 
-  <a href="#home" class="logo">WINGS</a>
+  <a href="#home" class="logo">
+    WINGS
+  </a>
 
   <button
     class="mobile-menu-btn"
@@ -1791,7 +1911,10 @@ footer{
     ☰
   </button>
 
-  <nav class="nav-links" id="navLinks">
+  <nav
+    class="nav-links"
+    id="navLinks"
+  >
 
     <a href="#home">HOME</a>
 
@@ -1815,7 +1938,11 @@ footer{
       type="button"
     >
       CART
-      <span id="cartCount">0</span>
+
+      <span id="cartCount">
+        0
+      </span>
+
     </button>
 
   </nav>
@@ -1895,23 +2022,55 @@ footer{
   <div class="countdown">
 
     <div class="count-box">
-      <div class="count-number" id="days">00</div>
-      <div class="count-label">DAYS</div>
+      <div
+        class="count-number"
+        id="days"
+      >
+        00
+      </div>
+
+      <div class="count-label">
+        DAYS
+      </div>
     </div>
 
     <div class="count-box">
-      <div class="count-number" id="hours">00</div>
-      <div class="count-label">HOURS</div>
+      <div
+        class="count-number"
+        id="hours"
+      >
+        00
+      </div>
+
+      <div class="count-label">
+        HOURS
+      </div>
     </div>
 
     <div class="count-box">
-      <div class="count-number" id="minutes">00</div>
-      <div class="count-label">MINUTES</div>
+      <div
+        class="count-number"
+        id="minutes"
+      >
+        00
+      </div>
+
+      <div class="count-label">
+        MINUTES
+      </div>
     </div>
 
     <div class="count-box">
-      <div class="count-number" id="seconds">00</div>
-      <div class="count-label">SECONDS</div>
+      <div
+        class="count-number"
+        id="seconds"
+      >
+        00
+      </div>
+
+      <div class="count-label">
+        SECONDS
+      </div>
     </div>
 
   </div>
@@ -1940,13 +2099,14 @@ footer{
   <div class="products-grid">
 
 
-    <!-- WHITE TEE -->
+    <!-- =================================================
+         WHITE TEE
+    ================================================== -->
 
     <article
       class="product-card"
       data-product-id="white-tee"
       data-product="WINGS TEE - WHITE"
-      data-image="images/tee-white(1).png"
     >
 
       <div class="product-image">
@@ -1987,10 +2147,23 @@ footer{
             class="size-select"
             aria-label="Select white tee size"
           >
-            <option value="S">SIZE S</option>
-            <option value="M">SIZE M</option>
-            <option value="L">SIZE L</option>
-            <option value="XL">SIZE XL</option>
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
+            <option value="XL">
+              SIZE XL
+            </option>
+
           </select>
 
           <button
@@ -2014,13 +2187,14 @@ footer{
     </article>
 
 
-    <!-- BLACK TEE -->
+    <!-- =================================================
+         BLACK TEE
+    ================================================== -->
 
     <article
       class="product-card"
       data-product-id="black-tee"
       data-product="WINGS TEE - BLACK"
-      data-image="images/tee-black(1).png"
     >
 
       <div class="product-image">
@@ -2061,9 +2235,19 @@ footer{
             class="size-select"
             aria-label="Select black tee size"
           >
-            <option value="S">SIZE S</option>
-            <option value="M">SIZE M</option>
-            <option value="L">SIZE L</option>
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
           </select>
 
           <button
@@ -2087,25 +2271,24 @@ footer{
     </article>
 
 
-    <!-- ===================================================
-         HOODIE
-         ONE PRODUCT / NEW WINGS DESIGN
-    ==================================================== -->
+    <!-- =================================================
+         REGULAR BLACK WINGS HOODIE #1
+         DO NOT CHANGE
+    ================================================== -->
 
     <article
       class="product-card"
       data-product-id="hoodie"
-      data-product="WINGS HOODIE"
-      data-image="images/wings-hoodie-2.png"
+      data-product="WINGS HOODIE - BLACK"
     >
 
-      <div class="hoodie-gallery" aria-label="WINGS hoodie product gallery">
+      <div class="hoodie-gallery">
 
         <img
           id="hoodieGalleryImage"
           class="hoodie-gallery-main"
           src="images/wings-hoodie-2.png"
-          alt="WINGS Hoodie"
+          alt="WINGS Hoodie Black"
           loading="lazy"
         >
 
@@ -2123,7 +2306,6 @@ footer{
           <div
             class="hoodie-gallery-indicator"
             id="hoodieIndicator"
-            aria-live="polite"
           >
             1 / 4
           </div>
@@ -2141,15 +2323,15 @@ footer{
 
       </div>
 
-
       <div class="product-info">
 
         <h3>
-          WINGS HOODIE
+          WINGS HOODIE - BLACK
         </h3>
 
         <p class="product-description">
-          Heavyweight distressed WINGS zip-up hoodie with the new Mandarin wing design, front and back graphics, sleeve details, and first-drop styling.
+          Heavyweight distressed WINGS zip-up hoodie with the original
+          WINGS graphics and first-drop styling.
         </p>
 
         <div class="product-bottom">
@@ -2168,11 +2350,21 @@ footer{
 
           <select
             class="size-select"
-            aria-label="Select hoodie size"
+            aria-label="Select black WINGS hoodie size"
           >
-            <option value="S">SIZE S</option>
-            <option value="M">SIZE M</option>
-            <option value="L">SIZE L</option>
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
           </select>
 
           <button
@@ -2196,22 +2388,22 @@ footer{
     </article>
 
 
-    <!-- ===================================================
-         SECOND WINGS HOODIE
-    ==================================================== -->
+    <!-- =================================================
+         REGULAR BLACK WINGS HOODIE #2
+         DO NOT CHANGE
+    ================================================== -->
 
     <article
       class="product-card"
       data-product-id="hoodie-2"
-      data-product="MANDARIN ZIP-UP HOODIE"
-      data-image="images/wings-hoodie-2.png"
+      data-product="WINGS HOODIE - BLACK"
     >
 
       <div class="product-image">
 
         <img
           src="images/wings-hoodie-2.png"
-          alt="Mandarin Zip-Up Hoodie"
+          alt="WINGS Hoodie Black"
           loading="lazy"
         >
 
@@ -2220,11 +2412,12 @@ footer{
       <div class="product-info">
 
         <h3>
-          MANDARIN ZIP-UP HOODIE
+          WINGS HOODIE - BLACK
         </h3>
 
         <p class="product-description">
-          Distressed zip-up Mandarin design with detailed front and back graphics.
+          Black distressed WINGS zip-up hoodie with the original
+          WINGS graphics.
         </p>
 
         <div class="product-bottom">
@@ -2243,11 +2436,21 @@ footer{
 
           <select
             class="size-select"
-            aria-label="Select zip-up hoodie size"
+            aria-label="Select black WINGS hoodie size"
           >
-            <option value="S">SIZE S</option>
-            <option value="M">SIZE M</option>
-            <option value="L">SIZE L</option>
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
           </select>
 
           <button
@@ -2270,27 +2473,346 @@ footer{
 
     </article>
 
-    <!-- WHITE MANDARIN HOODIE -->
-    <article class="product-card" data-product-id="hoodie-3" data-product="MANDARIN HOODIE - WHITE" data-image="images/Distressed-Wings-Hoodie-Catalog-Sheet.png">
+
+    <!-- =================================================
+         BLACK MANDARIN HOODIE #1
+    ================================================== -->
+
+    <article
+      class="product-card"
+      data-product-id="mandarin-black-1"
+      data-product="MANDARIN WINGS HOODIE - BLACK"
+    >
+
       <div class="product-image">
-        <img src="images/Distressed-Wings-Hoodie-Catalog-Sheet.png" alt="Mandarin Hoodie White" loading="lazy">
+
+        <img
+          src="images/Distressed-Wings-Hoodie-Tech-Pack-1024.jpg"
+          alt="Mandarin Wings Hoodie Black"
+          loading="lazy"
+        >
+
       </div>
+
       <div class="product-info">
-        <h3>MANDARIN HOODIE - WHITE</h3>
-        <p class="product-description">White Mandarin WINGS hoodie with detailed front and back graphics.</p>
+
+        <h3>
+          MANDARIN WINGS HOODIE - BLACK
+        </h3>
+
+        <p class="product-description">
+          Black distressed Mandarin WINGS hoodie featuring the new
+          wing graphic, sleeve artwork, and front and back graphics.
+        </p>
+
         <div class="product-bottom">
-          <span class="price">$65.00</span>
-          <span class="size-text">S / M / L</span>
+
+          <span class="price">
+            $65.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
         </div>
+
         <div class="product-actions">
-          <select class="size-select" aria-label="Select Mandarin hoodie size">
-            <option value="S">SIZE S</option><option value="M">SIZE M</option><option value="L">SIZE L</option>
+
+          <select
+            class="size-select"
+            aria-label="Select black Mandarin hoodie size"
+          >
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
           </select>
-          <button class="add-cart-btn" type="button">ADD TO CART</button>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
         </div>
-        <button class="size-guide-btn" type="button">SIZE GUIDE</button>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
       </div>
+
     </article>
+
+
+    <!-- =================================================
+         BLACK MANDARIN HOODIE #2
+    ================================================== -->
+
+    <article
+      class="product-card"
+      data-product-id="mandarin-black-2"
+      data-product="MANDARIN WINGS HOODIE - BLACK"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/ChatGPT Image Oct 2, 2026, 08_39_13 PM-1024.jpg"
+          alt="Mandarin Wings Hoodie Black"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          MANDARIN WINGS HOODIE - BLACK
+        </h3>
+
+        <p class="product-description">
+          Black distressed Mandarin WINGS hoodie with the complete
+          first-drop graphic treatment.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $65.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select black Mandarin hoodie size"
+          >
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         WHITE MANDARIN HOODIE #1
+    ================================================== -->
+
+    <article
+      class="product-card"
+      data-product-id="mandarin-white-1"
+      data-product="MANDARIN WINGS HOODIE - WHITE"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/Distressed-Wings-Hoodie-Catalog-Sheet-1024.jpg"
+          alt="Mandarin Wings Hoodie White"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          MANDARIN WINGS HOODIE - WHITE
+        </h3>
+
+        <p class="product-description">
+          White distressed Mandarin WINGS hoodie with the complete
+          wing graphic and detailed first-drop artwork.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $65.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select white Mandarin hoodie size"
+          >
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- =================================================
+         WHITE MANDARIN HOODIE #2
+    ================================================== -->
+
+    <article
+      class="product-card"
+      data-product-id="mandarin-white-2"
+      data-product="MANDARIN WINGS HOODIE - WHITE"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="images/Distressed-Wings-Hoodie-Detail-Collage-1024.jpg"
+          alt="Mandarin Wings Hoodie White"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          MANDARIN WINGS HOODIE - WHITE
+        </h3>
+
+        <p class="product-description">
+          White distressed Mandarin WINGS hoodie with detailed
+          front, back, and sleeve artwork.
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            $65.00
+          </span>
+
+          <span class="size-text">
+            S / M / L
+          </span>
+
+        </div>
+
+        <div class="product-actions">
+
+          <select
+            class="size-select"
+            aria-label="Select white Mandarin hoodie size"
+          >
+
+            <option value="S">
+              SIZE S
+            </option>
+
+            <option value="M">
+              SIZE M
+            </option>
+
+            <option value="L">
+              SIZE L
+            </option>
+
+          </select>
+
+          <button
+            class="add-cart-btn"
+            type="button"
+          >
+            ADD TO CART
+          </button>
+
+        </div>
+
+        <button
+          class="size-guide-btn"
+          type="button"
+        >
+          SIZE GUIDE
+        </button>
+
+      </div>
+
+    </article>
+
 
   </div>
 
@@ -2330,7 +2852,6 @@ footer{
     CLOTHES.
   </h2>
 
-
   <div class="about-grid">
 
     <div class="about-text">
@@ -2349,7 +2870,6 @@ footer{
       and your own direction.
 
     </div>
-
 
     <div class="about-box">
 
@@ -2387,7 +2907,6 @@ footer{
     FOLLOW<br>
     WINGS.
   </h2>
-
 
   <div class="contact-grid">
 
@@ -2432,7 +2951,6 @@ footer{
 
     </div>
 
-
     <div class="contact-card">
 
       <h3>
@@ -2467,7 +2985,6 @@ footer{
     BEFORE YOU FLY.
   </h2>
 
-
   <div class="policy-grid">
 
     <div class="policy-card">
@@ -2484,7 +3001,6 @@ footer{
 
     </div>
 
-
     <div class="policy-card">
 
       <h3>
@@ -2497,7 +3013,6 @@ footer{
       </p>
 
     </div>
-
 
     <div class="policy-card">
 
@@ -2544,7 +3059,6 @@ footer{
     </p>
 
   </div>
-
 
   <div class="footer-bottom">
 
@@ -2598,12 +3112,10 @@ footer{
 
   </div>
 
-
   <div
     class="cart-items"
     id="cartItems"
   ></div>
-
 
   <div class="cart-footer">
 
@@ -2671,16 +3183,11 @@ footer{
       phone number used on the form.
     </p>
 
-
     <div
       class="checkout-items"
       id="checkoutItems"
     ></div>
 
-
-    <!-- =================================================
-         PAYMENT / GOOGLE FORM STEP
-    ================================================== -->
 
     <div class="payment-step">
 
@@ -2711,10 +3218,6 @@ footer{
 
     </div>
 
-
-    <!-- =================================================
-         VERIFICATION STEP
-    ================================================== -->
 
     <div class="payment-step">
 
@@ -2750,7 +3253,6 @@ footer{
 
         </div>
 
-
         <button
           class="checkout-button"
           id="verifyCheckoutButton"
@@ -2783,14 +3285,12 @@ footer{
       <div
         class="verification-code"
         id="verificationCode"
-      >
-      </div>
+      ></div>
 
       <div
         class="info-box"
         id="verificationInfo"
-      >
-      </div>
+      ></div>
 
     </div>
 
@@ -2815,6 +3315,7 @@ footer{
       class="modal-close"
       id="sizeCloseBtn"
       type="button"
+      aria-label="Close size guide"
     >
       ×
     </button>
@@ -2830,7 +3331,6 @@ footer{
     <p class="modal-description">
       Use the guide below as a general reference.
     </p>
-
 
     <table class="size-table">
 
@@ -2907,9 +3407,7 @@ footer{
       Your choice will be saved automatically.
     </p>
 
-
     <div class="theme-options">
-
 
       <button
         class="theme-option active"
@@ -2917,7 +3415,9 @@ footer{
         type="button"
       >
 
-        <span class="theme-swatch swatch-black"></span>
+        <span
+          class="theme-swatch swatch-black"
+        ></span>
 
         <strong>
           BLACK
@@ -2929,14 +3429,15 @@ footer{
 
       </button>
 
-
       <button
         class="theme-option"
         data-theme-choice="white"
         type="button"
       >
 
-        <span class="theme-swatch swatch-white"></span>
+        <span
+          class="theme-swatch swatch-white"
+        ></span>
 
         <strong>
           WHITE
@@ -2948,14 +3449,15 @@ footer{
 
       </button>
 
-
       <button
         class="theme-option"
         data-theme-choice="gray"
         type="button"
       >
 
-        <span class="theme-swatch swatch-gray"></span>
+        <span
+          class="theme-swatch swatch-gray"
+        ></span>
 
         <strong>
           GRAY
@@ -2968,7 +3470,6 @@ footer{
       </button>
 
     </div>
-
 
     <p
       class="theme-status"
@@ -3012,51 +3513,87 @@ footer{
 <script>
 
 /* =========================================================
-   WINGS CONFIGURATION
+   CONFIG
 ========================================================= */
 
 const APPS_SCRIPT_URL =
 "https://script.google.com/macros/s/AKfycbyNCjxPqxgLaWMR_qKyWZT8p5c-bAdb4Cne93b7o70_jL1thfHbRwszbkf4pg_IyqnRtQ/exec";
 
-
 const CHECKOUT_FORM_URL =
 "https://forms.gle/FvXyG1yVTW5gwmSJ9";
 
 
-/*
-  IMPORTANT:
-
-  These are frontend display values only.
-
-  The backend Apps Script must remain the final authority
-  for prices and totals.
-
-  Changing these values in a browser does NOT change what
-  the server should charge/store.
-*/
+/* =========================================================
+   PRODUCT CATALOG
+========================================================= */
 
 const PRODUCTS = Object.freeze({
 
+  /*
+    REGULAR BLACK WINGS HOODIES
+    THESE ARE KEPT SEPARATE FROM THE MANDARIN HOODIES.
+  */
+
   "hoodie":{
     id:"hoodie",
-    name:"WINGS HOODIE",
+    name:"WINGS HOODIE - BLACK",
     displayPrice:65,
     image:"images/wings-hoodie.png"
   },
 
   "hoodie-2":{
     id:"hoodie-2",
-    name:"MANDARIN ZIP-UP HOODIE",
+    name:"WINGS HOODIE - BLACK",
     displayPrice:65,
     image:"images/wings-hoodie-2.png"
   },
 
-  "hoodie-3":{
-    id:"hoodie-3",
-    name:"MANDARIN HOODIE - WHITE",
+
+  /*
+    BLACK MANDARIN HOODIES
+  */
+
+  "mandarin-black-1":{
+    id:"mandarin-black-1",
+    name:"MANDARIN WINGS HOODIE - BLACK",
     displayPrice:65,
-    image:"images/Distressed-Wings-Hoodie-Catalog-Sheet.png"
+    image:
+      "images/Distressed-Wings-Hoodie-Tech-Pack-1024.jpg"
   },
+
+  "mandarin-black-2":{
+    id:"mandarin-black-2",
+    name:"MANDARIN WINGS HOODIE - BLACK",
+    displayPrice:65,
+    image:
+      "images/ChatGPT Image Oct 2, 2026, 08_39_13 PM-1024.jpg"
+  },
+
+
+  /*
+    WHITE MANDARIN HOODIES
+  */
+
+  "mandarin-white-1":{
+    id:"mandarin-white-1",
+    name:"MANDARIN WINGS HOODIE - WHITE",
+    displayPrice:65,
+    image:
+      "images/Distressed-Wings-Hoodie-Catalog-Sheet-1024.jpg"
+  },
+
+  "mandarin-white-2":{
+    id:"mandarin-white-2",
+    name:"MANDARIN WINGS HOODIE - WHITE",
+    displayPrice:65,
+    image:
+      "images/Distressed-Wings-Hoodie-Detail-Collage-1024.jpg"
+  },
+
+
+  /*
+    TEES
+  */
 
   "white-tee":{
     id:"white-tee",
@@ -3080,7 +3617,6 @@ Object.freeze(
   Object.keys(PRODUCTS)
 );
 
-
 const VALID_SIZES =
 Object.freeze([
   "S",
@@ -3088,12 +3624,11 @@ Object.freeze([
   "L"
 ]);
 
-
 const MAX_QUANTITY = 20;
 
 
 /* =========================================================
-   THEME SETTINGS
+   THEME
 ========================================================= */
 
 const themeModal =
@@ -3120,11 +3655,14 @@ function applyTheme(theme){
     "gray"
   ];
 
-  if(!allowedThemes.includes(theme)){
+  if(
+    !allowedThemes.includes(theme)
+  ){
     theme = "black";
   }
 
-  document.body.dataset.theme = theme;
+  document.body.dataset.theme =
+    theme;
 
   localStorage.setItem(
     "WINGS_THEME",
@@ -3147,10 +3685,10 @@ function applyTheme(theme){
 }
 
 
-const savedTheme =
-localStorage.getItem("WINGS_THEME") || "black";
-
-applyTheme(savedTheme);
+applyTheme(
+  localStorage.getItem("WINGS_THEME") ||
+  "black"
+);
 
 
 function openThemeModal(){
@@ -3162,7 +3700,9 @@ function openThemeModal(){
     "false"
   );
 
-  document.body.classList.add("modal-open");
+  document.body.classList.add(
+    "modal-open"
+  );
 
 }
 
@@ -3176,7 +3716,9 @@ function closeThemeModal(){
     "true"
   );
 
-  document.body.classList.remove("modal-open");
+  document.body.classList.remove(
+    "modal-open"
+  );
 
 }
 
@@ -3203,7 +3745,9 @@ themeModal.addEventListener(
   "click",
   event => {
 
-    if(event.target === themeModal){
+    if(
+      event.target === themeModal
+    ){
       closeThemeModal();
     }
 
@@ -3232,17 +3776,23 @@ themeOptions.forEach(button => {
 ========================================================= */
 
 const mobileMenuBtn =
-document.getElementById("mobileMenuBtn");
+document.getElementById(
+  "mobileMenuBtn"
+);
 
 const navLinks =
-document.getElementById("navLinks");
+document.getElementById(
+  "navLinks"
+);
 
 
 mobileMenuBtn.addEventListener(
   "click",
   () => {
 
-    navLinks.classList.toggle("open");
+    navLinks.classList.toggle(
+      "open"
+    );
 
   }
 );
@@ -3256,7 +3806,9 @@ document.querySelectorAll(
     "click",
     () => {
 
-      navLinks.classList.remove("open");
+      navLinks.classList.remove(
+        "open"
+      );
 
     }
   );
@@ -3274,31 +3826,24 @@ new Date("2027-03-15T00:00:00");
 
 function updateCountdown(){
 
-  const now =
-  new Date();
-
   const difference =
-  releaseDate - now;
+    releaseDate - new Date();
 
+  if(
+    difference <= 0
+  ){
 
-  if(difference <= 0){
+    ["days","hours","minutes","seconds"]
+      .forEach(id => {
 
-    document.getElementById("days").textContent =
-      "00";
+        document.getElementById(
+          id
+        ).textContent = "00";
 
-    document.getElementById("hours").textContent =
-      "00";
-
-    document.getElementById("minutes").textContent =
-      "00";
-
-    document.getElementById("seconds").textContent =
-      "00";
+      });
 
     return;
-
   }
-
 
   const days =
     Math.floor(
@@ -3308,33 +3853,43 @@ function updateCountdown(){
 
   const hours =
     Math.floor(
-      (difference /
-      (1000 * 60 * 60)) % 24
+      (
+        difference /
+        (1000 * 60 * 60)
+      ) % 24
     );
 
   const minutes =
     Math.floor(
-      (difference /
-      (1000 * 60)) % 60
+      (
+        difference /
+        (1000 * 60)
+      ) % 60
     );
 
   const seconds =
     Math.floor(
-      (difference / 1000) % 60
+      (
+        difference /
+        1000
+      ) % 60
     );
 
+  document.getElementById("days")
+    .textContent =
+      String(days).padStart(2,"0");
 
-  document.getElementById("days").textContent =
-    String(days).padStart(2,"0");
+  document.getElementById("hours")
+    .textContent =
+      String(hours).padStart(2,"0");
 
-  document.getElementById("hours").textContent =
-    String(hours).padStart(2,"0");
+  document.getElementById("minutes")
+    .textContent =
+      String(minutes).padStart(2,"0");
 
-  document.getElementById("minutes").textContent =
-    String(minutes).padStart(2,"0");
-
-  document.getElementById("seconds").textContent =
-    String(seconds).padStart(2,"0");
+  document.getElementById("seconds")
+    .textContent =
+      String(seconds).padStart(2,"0");
 
 }
 
@@ -3348,68 +3903,65 @@ setInterval(
 
 
 /* =========================================================
-   CART SECURITY / SANITIZATION
+   CART
 ========================================================= */
 
 let cart = [];
 
 
-/*
-  Never trust localStorage.
-
-  Anyone can edit localStorage manually.
-
-  Therefore every item is rebuilt from the trusted frontend
-  product catalog rather than accepting arbitrary names,
-  images, or prices from stored data.
-*/
-
 function sanitizeCart(rawCart){
 
-  if(!Array.isArray(rawCart)){
+  if(
+    !Array.isArray(rawCart)
+  ){
     return [];
   }
 
-
   const cleaned = [];
-
 
   rawCart.forEach(rawItem => {
 
-    if(!rawItem || typeof rawItem !== "object"){
+    if(
+      !rawItem ||
+      typeof rawItem !== "object"
+    ){
       return;
     }
-
 
     const productId =
-      String(rawItem.productId || "")
-      .trim();
+      String(
+        rawItem.productId || ""
+      ).trim();
 
-
-    if(!VALID_PRODUCT_IDS.includes(productId)){
+    if(
+      !VALID_PRODUCT_IDS.includes(
+        productId
+      )
+    ){
       return;
     }
 
-
     const size =
-      String(rawItem.size || "")
+      String(
+        rawItem.size || ""
+      )
       .toUpperCase()
       .trim();
 
-
-    if(!VALID_SIZES.includes(size)){
+    if(
+      !VALID_SIZES.includes(size)
+    ){
       return;
     }
-
 
     let quantity =
       Number(rawItem.quantity);
 
-
-    if(!Number.isInteger(quantity)){
+    if(
+      !Number.isInteger(quantity)
+    ){
       quantity = 1;
     }
-
 
     quantity =
       Math.max(
@@ -3420,10 +3972,8 @@ function sanitizeCart(rawCart){
         )
       );
 
-
     const product =
       PRODUCTS[productId];
-
 
     const existing =
       cleaned.find(
@@ -3431,7 +3981,6 @@ function sanitizeCart(rawCart){
           item.productId === productId &&
           item.size === size
       );
-
 
     if(existing){
 
@@ -3445,22 +3994,21 @@ function sanitizeCart(rawCart){
 
       cleaned.push({
 
-        productId:productId,
+        productId,
 
         name:product.name,
 
         image:product.image,
 
-        size:size,
+        size,
 
-        quantity:quantity
+        quantity
 
       });
 
     }
 
   });
-
 
   return cleaned;
 
@@ -3470,7 +4018,9 @@ function sanitizeCart(rawCart){
 try{
 
   const savedCart =
-    localStorage.getItem("WINGS_CART");
+    localStorage.getItem(
+      "WINGS_CART"
+    );
 
   if(savedCart){
 
@@ -3490,15 +4040,8 @@ try{
 
 function saveCart(){
 
-  /*
-    Only sanitized cart data is written.
-
-    No client-controlled price is stored.
-  */
-
   cart =
     sanitizeCart(cart);
-
 
   localStorage.setItem(
     "WINGS_CART",
@@ -3509,49 +4052,75 @@ function saveCart(){
 
 
 /* =========================================================
-   CART ELEMENTS
+   CART UI
 ========================================================= */
 
 const cartDrawer =
-document.getElementById("cartDrawer");
+document.getElementById(
+  "cartDrawer"
+);
 
 const cartOverlay =
-document.getElementById("cartOverlay");
+document.getElementById(
+  "cartOverlay"
+);
 
 const cartOpenBtn =
-document.getElementById("cartOpenBtn");
+document.getElementById(
+  "cartOpenBtn"
+);
 
 const cartCloseBtn =
-document.getElementById("cartCloseBtn");
+document.getElementById(
+  "cartCloseBtn"
+);
 
 const cartItems =
-document.getElementById("cartItems");
+document.getElementById(
+  "cartItems"
+);
 
 const cartTotal =
-document.getElementById("cartTotal");
+document.getElementById(
+  "cartTotal"
+);
 
 const cartCount =
-document.getElementById("cartCount");
+document.getElementById(
+  "cartCount"
+);
 
 
 function openCart(){
 
-  cartDrawer.classList.add("open");
+  cartDrawer.classList.add(
+    "open"
+  );
 
-  cartOverlay.classList.add("open");
+  cartOverlay.classList.add(
+    "open"
+  );
 
-  document.body.classList.add("modal-open");
+  document.body.classList.add(
+    "modal-open"
+  );
 
 }
 
 
 function closeCart(){
 
-  cartDrawer.classList.remove("open");
+  cartDrawer.classList.remove(
+    "open"
+  );
 
-  cartOverlay.classList.remove("open");
+  cartOverlay.classList.remove(
+    "open"
+  );
 
-  document.body.classList.remove("modal-open");
+  document.body.classList.remove(
+    "modal-open"
+  );
 
 }
 
@@ -3561,12 +4130,10 @@ cartOpenBtn.addEventListener(
   openCart
 );
 
-
 cartCloseBtn.addEventListener(
   "click",
   closeCart
 );
-
 
 cartOverlay.addEventListener(
   "click",
@@ -3575,7 +4142,23 @@ cartOverlay.addEventListener(
 
 
 /* =========================================================
-   FRONTEND DISPLAY TOTAL
+   SAFE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   CART TOTAL
 ========================================================= */
 
 function calculateDisplayTotal(){
@@ -3591,10 +4174,8 @@ function calculateDisplayTotal(){
       }
 
       return sum +
-        (
-          product.displayPrice *
-          item.quantity
-        );
+        product.displayPrice *
+        item.quantity;
 
     },
     0
@@ -3616,7 +4197,6 @@ function updateCart(){
 
   let quantityTotal = 0;
 
-
   if(cart.length === 0){
 
     cartItems.innerHTML = `
@@ -3634,27 +4214,22 @@ function updateCart(){
       const product =
         PRODUCTS[item.productId];
 
-
       if(!product){
         return;
       }
-
 
       const itemTotal =
         product.displayPrice *
         item.quantity;
 
-
       quantityTotal +=
         item.quantity;
-
 
       const cartItem =
         document.createElement("div");
 
       cartItem.className =
         "cart-item";
-
 
       cartItem.innerHTML = `
 
@@ -3670,7 +4245,8 @@ function updateCart(){
           </div>
 
           <div class="cart-item-meta">
-            SIZE ${escapeHTML(item.size)} /
+            SIZE ${escapeHTML(item.size)}
+            /
             $${product.displayPrice.toFixed(2)}
           </div>
 
@@ -3716,7 +4292,6 @@ function updateCart(){
 
       `;
 
-
       cartItems.appendChild(
         cartItem
       );
@@ -3727,12 +4302,11 @@ function updateCart(){
 
   cartTotal.textContent =
     "$" +
-    calculateDisplayTotal().toFixed(2);
-
+    calculateDisplayTotal()
+      .toFixed(2);
 
   cartCount.textContent =
     quantityTotal;
-
 
   saveCart();
 
@@ -3742,23 +4316,7 @@ function updateCart(){
 
 
 /* =========================================================
-   SAFE HTML ESCAPING
-========================================================= */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================================================
-   CART BUTTON ACTIONS
+   CART QUANTITY / REMOVE
 ========================================================= */
 
 cartItems.addEventListener(
@@ -3766,8 +4324,9 @@ cartItems.addEventListener(
   event => {
 
     const quantityButton =
-      event.target.closest(".qty-btn");
-
+      event.target.closest(
+        ".qty-btn"
+      );
 
     if(quantityButton){
 
@@ -3776,7 +4335,6 @@ cartItems.addEventListener(
           quantityButton.dataset.index
         );
 
-
       if(
         !Number.isInteger(index) ||
         !cart[index]
@@ -3784,12 +4342,10 @@ cartItems.addEventListener(
         return;
       }
 
-
-      const action =
-        quantityButton.dataset.action;
-
-
-      if(action === "plus"){
+      if(
+        quantityButton.dataset.action ===
+        "plus"
+      ){
 
         cart[index].quantity =
           Math.min(
@@ -3799,19 +4355,22 @@ cartItems.addEventListener(
 
       }
 
-
-      if(action === "minus"){
+      if(
+        quantityButton.dataset.action ===
+        "minus"
+      ){
 
         cart[index].quantity--;
 
-        if(cart[index].quantity <= 0){
+        if(
+          cart[index].quantity <= 0
+        ){
 
           cart.splice(index,1);
 
         }
 
       }
-
 
       updateCart();
 
@@ -3825,7 +4384,6 @@ cartItems.addEventListener(
         ".remove-item"
       );
 
-
     if(removeButton){
 
       const index =
@@ -3833,13 +4391,15 @@ cartItems.addEventListener(
           removeButton.dataset.index
         );
 
-
       if(
         Number.isInteger(index) &&
         cart[index]
       ){
 
-        cart.splice(index,1);
+        cart.splice(
+          index,
+          1
+        );
 
         updateCart();
 
@@ -3876,24 +4436,20 @@ document.querySelectorAll(
 
       const productId =
         String(
-          card.dataset.productId || ""
+          card.dataset.productId ||
+          ""
         );
-
 
       if(
         !VALID_PRODUCT_IDS.includes(
           productId
         )
       ){
-
         return;
-
       }
-
 
       const product =
         PRODUCTS[productId];
-
 
       const size =
         String(
@@ -3901,8 +4457,9 @@ document.querySelectorAll(
         )
         .toUpperCase();
 
-
-      if(!VALID_SIZES.includes(size)){
+      if(
+        !VALID_SIZES.includes(size)
+      ){
 
         alert(
           "Please select a valid size."
@@ -3912,14 +4469,13 @@ document.querySelectorAll(
 
       }
 
-
       const existing =
         cart.find(
           item =>
-            item.productId === productId &&
+            item.productId ===
+              productId &&
             item.size === size
         );
-
 
       if(existing){
 
@@ -3936,27 +4492,28 @@ document.querySelectorAll(
 
         }
 
-
         existing.quantity++;
 
       }else{
 
         cart.push({
 
-          productId:product.id,
+          productId:
+            product.id,
 
-          name:product.name,
+          name:
+            product.name,
 
-          image:product.image,
+          image:
+            product.image,
 
-          size:size,
+          size,
 
           quantity:1
 
         });
 
       }
-
 
       updateCart();
 
@@ -4022,20 +4579,9 @@ document.getElementById(
   "checkoutFormLink"
 );
 
-
-/*
-  Always use the hard-coded official form URL.
-*/
-
 checkoutFormLink.href =
 CHECKOUT_FORM_URL;
 
-
-/*
-  This state exists only for this browser session.
-
-  It does NOT replace backend verification.
-*/
 
 let verificationInProgress =
 false;
@@ -4049,8 +4595,9 @@ function openCheckout(){
   cart =
     sanitizeCart(cart);
 
-
-  if(cart.length === 0){
+  if(
+    cart.length === 0
+  ){
 
     alert(
       "Your cart is empty."
@@ -4060,11 +4607,9 @@ function openCheckout(){
 
   }
 
-
   closeCart();
 
   updateCheckoutItems();
-
 
   checkoutModal.classList.add(
     "open"
@@ -4078,7 +4623,6 @@ function openCheckout(){
   document.body.classList.add(
     "modal-open"
   );
-
 
   checkoutMessage.textContent =
     "";
@@ -4097,10 +4641,11 @@ function openCheckout(){
 
 function closeCheckout(){
 
-  if(verificationInProgress){
+  if(
+    verificationInProgress
+  ){
     return;
   }
-
 
   checkoutModal.classList.remove(
     "open"
@@ -4123,12 +4668,10 @@ checkoutOpenBtn.addEventListener(
   openCheckout
 );
 
-
 checkoutCloseBtn.addEventListener(
   "click",
   closeCheckout
 );
-
 
 checkoutModal.addEventListener(
   "click",
@@ -4158,12 +4701,12 @@ function updateCheckoutItems(){
       "checkoutItems"
     );
 
-
   cart =
     sanitizeCart(cart);
 
-
-  if(cart.length === 0){
+  if(
+    cart.length === 0
+  ){
 
     container.innerHTML =
       "<div>Cart is empty.</div>";
@@ -4172,9 +4715,7 @@ function updateCheckoutItems(){
 
   }
 
-
   let total = 0;
-
 
   let html = `
     <div class="checkout-items-title">
@@ -4188,19 +4729,15 @@ function updateCheckoutItems(){
     const product =
       PRODUCTS[item.productId];
 
-
     if(!product){
       return;
     }
-
 
     const itemTotal =
       product.displayPrice *
       item.quantity;
 
-
     total += itemTotal;
-
 
     html += `
 
@@ -4208,7 +4745,8 @@ function updateCheckoutItems(){
 
         <span>
           ${escapeHTML(product.name)}
-          / ${escapeHTML(item.size)}
+          /
+          ${escapeHTML(item.size)}
           x${item.quantity}
         </span>
 
@@ -4227,7 +4765,10 @@ function updateCheckoutItems(){
 
     <div
       class="checkout-line"
-      style="margin-top:10px;font-weight:900;"
+      style="
+        margin-top:10px;
+        font-weight:900;
+      "
     >
 
       <span>
@@ -4242,7 +4783,6 @@ function updateCheckoutItems(){
 
   `;
 
-
   container.innerHTML =
     html;
 
@@ -4250,7 +4790,7 @@ function updateCheckoutItems(){
 
 
 /* =========================================================
-   PHONE NORMALIZATION
+   PHONE
 ========================================================= */
 
 function normalizePhone(phone){
@@ -4263,32 +4803,23 @@ function normalizePhone(phone){
 
 
 /* =========================================================
-   BUILD SERVER ORDER
+   SERVER ORDER ITEMS
 ========================================================= */
 
 function buildServerOrderItems(){
 
-  const sanitized =
-    sanitizeCart(cart);
+  return sanitizeCart(
+    cart
+  ).map(item => ({
 
+    productId:
+      item.productId,
 
-  return sanitized.map(item => ({
+    size:
+      item.size,
 
-    /*
-      IMPORTANT:
-
-      Send only the product ID.
-
-      Do NOT send a browser price.
-
-      The Apps Script backend should determine the price.
-    */
-
-    productId:item.productId,
-
-    size:item.size,
-
-    quantity:item.quantity
+    quantity:
+      item.quantity
 
   }));
 
@@ -4296,7 +4827,7 @@ function buildServerOrderItems(){
 
 
 /* =========================================================
-   CHECKOUT VERIFICATION
+   VERIFY CHECKOUT
 ========================================================= */
 
 checkoutForm.addEventListener(
@@ -4305,17 +4836,18 @@ checkoutForm.addEventListener(
 
     event.preventDefault();
 
-
-    if(verificationInProgress){
+    if(
+      verificationInProgress
+    ){
       return;
     }
-
 
     cart =
       sanitizeCart(cart);
 
-
-    if(cart.length === 0){
+    if(
+      cart.length === 0
+    ){
 
       checkoutMessage.textContent =
         "Your cart is empty.";
@@ -4324,20 +4856,19 @@ checkoutForm.addEventListener(
 
     }
 
-
     const phoneInput =
       document.getElementById(
         "checkoutPhone"
       );
-
 
     const phone =
       normalizePhone(
         phoneInput.value
       );
 
-
-    if(phone.length !== 10){
+    if(
+      phone.length !== 10
+    ){
 
       checkoutMessage.textContent =
         "Please enter a valid 10-digit phone number.";
@@ -4346,18 +4877,14 @@ checkoutForm.addEventListener(
 
     }
 
-
     verificationInProgress =
       true;
-
 
     verifyCheckoutButton.disabled =
       true;
 
-
     verificationBox.style.display =
       "none";
-
 
     checkoutMessage.textContent =
       "Checking your checkout information...";
@@ -4378,7 +4905,9 @@ checkoutForm.addEventListener(
         );
 
 
-      if(!response.ok){
+      if(
+        !response.ok
+      ){
 
         throw new Error(
           "Verification request failed."
@@ -4408,15 +4937,10 @@ checkoutForm.addEventListener(
       }
 
 
-      /*
-        Never allow arbitrary HTML from the server
-        to be injected into the page.
-      */
-
       const safeCode =
-        String(data.code)
-        .trim();
-
+        String(
+          data.code
+        ).trim();
 
       if(!safeCode){
 
@@ -4433,16 +4957,17 @@ checkoutForm.addEventListener(
 
 
       const attendanceType =
-        String(data.type || "")
-        .toUpperCase();
+        String(
+          data.type || ""
+        ).toUpperCase();
 
 
       const readableAttendance =
         attendanceType === "IN"
-        ? "IN PERSON"
-        : attendanceType === "ON"
-        ? "ONLINE"
-        : "VERIFIED";
+          ? "IN PERSON"
+          : attendanceType === "ON"
+            ? "ONLINE"
+            : "VERIFIED";
 
 
       verificationInfo.innerHTML = `
@@ -4453,7 +4978,9 @@ checkoutForm.addEventListener(
 
         Checkout type:
         <strong>
-          ${escapeHTML(readableAttendance)}
+          ${escapeHTML(
+            readableAttendance
+          )}
         </strong>
 
       `;
@@ -4477,10 +5004,9 @@ checkoutForm.addEventListener(
     }catch(error){
 
       console.error(
-        "WINGS checkout verification error:",
+        "WINGS verification error:",
         error
       );
-
 
       checkoutMessage.textContent =
         "Verification failed. Please check your connection and try again.";
@@ -4509,16 +5035,18 @@ async function submitOrder(
   code
 ){
 
-  if(orderSubmissionInProgress){
+  if(
+    orderSubmissionInProgress
+  ){
     return;
   }
-
 
   cart =
     sanitizeCart(cart);
 
-
-  if(cart.length === 0){
+  if(
+    cart.length === 0
+  ){
 
     checkoutMessage.textContent =
       "Your cart is empty.";
@@ -4527,12 +5055,12 @@ async function submitOrder(
 
   }
 
-
   const items =
     buildServerOrderItems();
 
-
-  if(!items.length){
+  if(
+    !items.length
+  ){
 
     checkoutMessage.textContent =
       "Your order could not be prepared.";
@@ -4540,16 +5068,6 @@ async function submitOrder(
     return;
 
   }
-
-
-  /*
-    Do NOT send:
-
-      - browser price
-      - browser total
-
-    The backend should calculate both from product IDs.
-  */
 
   orderSubmissionInProgress =
     true;
@@ -4579,13 +5097,13 @@ async function submitOrder(
 
           body:JSON.stringify({
 
-            phone:phone,
+            phone,
 
-            attendance:attendance,
+            attendance,
 
-            code:code,
+            code,
 
-            items:items
+            items
 
           })
 
@@ -4593,10 +5111,12 @@ async function submitOrder(
       );
 
 
-    if(!response.ok){
+    if(
+      !response.ok
+    ){
 
       throw new Error(
-        "Order submission request failed."
+        "Order submission failed."
       );
 
     }
@@ -4626,19 +5146,11 @@ async function submitOrder(
         data.orderId || ""
       ).trim();
 
-
     const serverCode =
       String(
         data.code || code
       ).trim();
 
-
-    /*
-      IMPORTANT:
-
-      The cart is cleared ONLY after the server
-      confirms the order.
-    */
 
     checkoutMessage.innerHTML = `
 
@@ -4650,14 +5162,19 @@ async function submitOrder(
 
       Order ID:
       <strong>
-        ${escapeHTML(safeOrderId || "CONFIRMED")}
+        ${escapeHTML(
+          safeOrderId ||
+          "CONFIRMED"
+        )}
       </strong>
 
       <br><br>
 
       Keep your verification code:
       <strong>
-        ${escapeHTML(serverCode)}
+        ${escapeHTML(
+          serverCode
+        )}
       </strong>
 
       <br><br>
@@ -4682,14 +5199,6 @@ async function submitOrder(
       "WINGS order submission error:",
       error
     );
-
-
-    /*
-      DO NOT clear the cart here.
-
-      If the request failed, the customer still has
-      their cart and can retry.
-    */
 
     checkoutMessage.textContent =
       "Your verification worked, but the order could not be submitted. Your cart has NOT been cleared. Please try again.";
@@ -4791,7 +5300,7 @@ sizeModal.addEventListener(
 
 
 /* =========================================================
-   PRODUCT IMAGE ZOOM
+   IMAGE MODAL
 ========================================================= */
 
 const imageModal =
@@ -4810,6 +5319,41 @@ document.getElementById(
 );
 
 
+function openImageModal(
+  src,
+  alt
+){
+
+  modalImage.src =
+    src;
+
+  modalImage.alt =
+    alt;
+
+  imageModal.classList.add(
+    "open"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+}
+
+
+function closeImageModal(){
+
+  imageModal.classList.remove(
+    "open"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
 document.querySelectorAll(
   ".product-image img"
 ).forEach(image => {
@@ -4817,23 +5361,13 @@ document.querySelectorAll(
   image.style.cursor =
     "zoom-in";
 
-
   image.addEventListener(
     "click",
     () => {
 
-      modalImage.src =
-        image.src;
-
-      modalImage.alt =
-        image.alt;
-
-      imageModal.classList.add(
-        "open"
-      );
-
-      document.body.classList.add(
-        "modal-open"
+      openImageModal(
+        image.src,
+        image.alt
       );
 
     }
@@ -4844,17 +5378,7 @@ document.querySelectorAll(
 
 imageModalClose.addEventListener(
   "click",
-  () => {
-
-    imageModal.classList.remove(
-      "open"
-    );
-
-    document.body.classList.remove(
-      "modal-open"
-    );
-
-  }
+  closeImageModal
 );
 
 
@@ -4867,13 +5391,7 @@ imageModal.addEventListener(
       imageModal
     ){
 
-      imageModal.classList.remove(
-        "open"
-      );
-
-      document.body.classList.remove(
-        "modal-open"
-      );
+      closeImageModal();
 
     }
 
@@ -4882,29 +5400,30 @@ imageModal.addEventListener(
 
 
 /* =========================================================
-   HOODIE IMAGE GALLERY
+   REGULAR WINGS HOODIE GALLERY
+   THIS DOES NOT CHANGE THE MANDARIN PRODUCTS.
 ========================================================= */
 
 const hoodieImages = [
 
   {
     src:"images/wings-hoodie-2.png",
-    alt:"WINGS distressed hoodie front and back"
+    alt:"WINGS black hoodie"
   },
 
   {
-    src:"images/Distressed-Wings-Hoodie-Tech-Pack.png",
-    alt:"WINGS distressed hoodie tech pack"
+    src:"images/wings-hoodie.png",
+    alt:"WINGS black hoodie"
   },
 
   {
-    src:"images/Distressed-Wings-Hoodie-Detail-Collage.png",
-    alt:"WINGS distressed hoodie detail collage"
+    src:"images/wings-hoodie-2.png",
+    alt:"WINGS black hoodie back"
   },
 
   {
-    src:"images/Distressed-Wings-Hoodie-Catalog-Sheet.png",
-    alt:"WINGS distressed hoodie catalog sheet"
+    src:"images/wings-hoodie.png",
+    alt:"WINGS black hoodie detail"
   }
 
 ];
@@ -4941,13 +5460,11 @@ function updateHoodieGallery(){
       hoodieImageIndex
     ];
 
-
   hoodieGalleryImage.src =
     image.src;
 
   hoodieGalleryImage.alt =
     image.alt;
-
 
   hoodieIndicator.textContent =
     (
@@ -4965,9 +5482,7 @@ hoodiePrev.addEventListener(
 
     event.stopPropagation();
 
-
     hoodieImageIndex--;
-
 
     if(
       hoodieImageIndex < 0
@@ -4977,7 +5492,6 @@ hoodiePrev.addEventListener(
         hoodieImages.length - 1;
 
     }
-
 
     updateHoodieGallery();
 
@@ -4991,9 +5505,7 @@ hoodieNext.addEventListener(
 
     event.stopPropagation();
 
-
     hoodieImageIndex++;
-
 
     if(
       hoodieImageIndex >=
@@ -5003,7 +5515,6 @@ hoodieNext.addEventListener(
       hoodieImageIndex = 0;
 
     }
-
 
     updateHoodieGallery();
 
@@ -5020,20 +5531,9 @@ hoodieGalleryImage.addEventListener(
         hoodieImageIndex
       ];
 
-
-    modalImage.src =
-      image.src;
-
-    modalImage.alt =
-      image.alt;
-
-
-    imageModal.classList.add(
-      "open"
-    );
-
-    document.body.classList.add(
-      "modal-open"
+    openImageModal(
+      image.src,
+      image.alt
     );
 
   }
@@ -5041,19 +5541,22 @@ hoodieGalleryImage.addEventListener(
 
 
 /* =========================================================
-   ESCAPE KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
   "keydown",
   event => {
 
-    if(event.key !== "Escape"){
+    if(
+      event.key !== "Escape"
+    ){
       return;
     }
 
-
-    if(!verificationInProgress){
+    if(
+      !verificationInProgress
+    ){
 
       closeCart();
 
@@ -5065,14 +5568,7 @@ document.addEventListener(
 
     }
 
-
-    imageModal.classList.remove(
-      "open"
-    );
-
-    document.body.classList.remove(
-      "modal-open"
-    );
+    closeImageModal();
 
   }
 );
